@@ -1,1 +1,4 @@
 /target/
+/test-output/
+log.log
+log4j.log
