@@ -1,5 +1,7 @@
 package com.motionglobal.pages;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -42,6 +44,10 @@ public abstract class AbstractBaseContainer implements IWaiter {
      */
     public boolean isTextPresent(String text) {
         return driver.findElements(By.xpath("//*[contains(text(),'" + text + "')]")).size() > 0;
+    }
+
+    public boolean isEmpty(List<WebElement> eles) {
+        return eles == null || eles.size() == 0;
     }
 
     @Override
