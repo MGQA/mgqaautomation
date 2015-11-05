@@ -35,7 +35,7 @@ public class InitializeUtility {
         browser = browser.toLowerCase();
         switch (browser) {
         case "firefox":
-            File pathBinary = new File("C:\\program files\\Mozilla Firefox\\firefox.exe"); // TODO
+            File pathBinary = new File("D:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe"); // TODO
             FirefoxBinary binary = new FirefoxBinary(pathBinary);
             FirefoxProfile profile = new FirefoxProfile();
             profile.setPreference("webdriver_accept_untrusted_certs", true);

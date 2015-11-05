@@ -1,11 +1,13 @@
 package com.motionglobal.testcases;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
@@ -111,4 +113,19 @@ public abstract class AbstractBaseTestCase {
     // To be implement in the sub class
     protected abstract void tearDown();
 
+    protected void p(String[] arr) {
+        for (String s : arr) {
+            System.out.println(s);
+        }
+    }
+
+    protected void p(String str) {
+        System.out.println(str);
+    }
+
+    protected void p(List<WebElement> list) {
+        for (WebElement s : list) {
+            System.out.println(s.getAttribute("value"));
+        }
+    }
 }
