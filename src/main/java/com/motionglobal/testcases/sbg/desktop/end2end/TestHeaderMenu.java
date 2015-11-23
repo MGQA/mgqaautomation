@@ -9,7 +9,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class TestHeaderMenu extends AbstractBaseSbgDesktopTestCase {
 
-    @Test(groups = { "debug" })
+    @Test(groups = { "deprecated" })
     public void testSunGlassesHeaderMenus() {
         logger().info("started...");
         HomePage homePage = new HomePage();
