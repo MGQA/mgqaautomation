@@ -18,7 +18,7 @@ public class ResultGrid extends AbstractBaseSbgDesktopPage {
         waitForVisibility(By.cssSelector(".s_r_pn_pager"), 10);
     }
 
-    public SearchResultItem get(int index) {
+    public SearchResultItem getItem(int index) {
         if (isEmpty(this.resultItems)) {
             logger.info("No search result found in current page.");
             return null;
@@ -30,38 +30,32 @@ public class ResultGrid extends AbstractBaseSbgDesktopPage {
         return new SearchResultItem(this.resultItems.get(index));
     }
 
-    public SearchResultItem get(String itemName) {
-        return null;
-    }
-
-    public void clickPreviousPage(int index) {
-
-    }
-
-    public void clickFirstPage() {
-
-    }
-
-    public void clickNextPage(int index) {
-
-    }
-
-    public void clickLastPage() {
-
-    }
-
-    public int currentPageNum() {
-        return 0;
-    }
-
-    public void clickPageNum() {
-    }
-
-    public int totalResultNum() {
-        return 0;
-    }
-
-    public int pageResultNum() {
-        return 0;
-    }
+    /*
+     * 
+     * public SearchResultItem get(String itemName) { return null; }
+     * 
+     * public void clickPreviousPage(int index) {
+     * 
+     * }
+     * 
+     * public void clickFirstPage() {
+     * 
+     * }
+     * 
+     * public void clickNextPage(int index) {
+     * 
+     * }
+     * 
+     * public void clickLastPage() {
+     * 
+     * }
+     * 
+     * public int currentPageNum() { return 0; }
+     * 
+     * public void clickPageNum() { }
+     * 
+     * public int totalResultNum() { return 0; }
+     * 
+     * public int pageResultNum() { return 0; }
+     */
 }
