@@ -1,9 +1,12 @@
 package com.motionglobal.testcases.sbg.desktop.end2end;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.cart.CartPage;
+import com.motionglobal.pages.sbg.desktop.checkout.CheckoutPage;
 import com.motionglobal.pages.sbg.desktop.home.HomePage;
+import com.motionglobal.pages.sbg.desktop.payment3rdparty.GcPaymentPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
@@ -21,8 +24,18 @@ public class TestEnd2End extends AbstractBaseSbgDesktopTestCase {
         ProductDetailPage productDetailPage = new ProductDetailPage();
         productDetailPage.btnBuyNow.click();
         new CartPage().btnCheckout.click();
-        // searchResultPage.header().logo.click();
-        // Assert.assertTrue(homePage.isTextPresent("Ray-Ban"));
+        CheckoutPage checkoutPage = new CheckoutPage();
+        checkoutPage.enterBillingAddress(
+                "automationFirst",
+                "automationLast",
+                "automationAddress",
+                "automationPost",
+                "automationState",
+                "automationCity",
+                "automationCountry",
+                "automationTel");
+        checkoutPage.clickVISA().btnGcPayment.click();
+        Assert.assertTrue(new GcPaymentPage().inputORB.isDisplayed());
     }
 
     @Override
