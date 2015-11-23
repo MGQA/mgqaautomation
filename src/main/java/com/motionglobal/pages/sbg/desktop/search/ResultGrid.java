@@ -15,14 +15,20 @@ public class ResultGrid extends AbstractBaseSbgDesktopPage {
     }
 
     public SearchResultItem getItem(int index) {
-        if (getResultItems() == null) {
+        List<WebElement> resultItems = getResultItems();
+        if (resultItems == null) {
             this.waitForVisibility(By.cssSelector(".searchPart > .s_rpl_block"), 10);
+            resultItems = getResultItems();
+            if (resultItems == null) {
+                logger.error("Search results not displayed.");
+                return null;
+            }
         }
-        if (getResultItems().size() > index) {
-            logger.error(String.format("No so many result items in this page. Total: %s, expected index: %s", getResultItems().size(), index));
+        if (resultItems.size() < index || resultItems.size() == 0) {
+            logger.error(String.format("No so many result items in this page. Total: %s, expected index: %s", resultItems.size(), index));
             return null;
         }
-        return new SearchResultItem(getResultItems().get(index));
+        return new SearchResultItem(resultItems.get(index));
     }
 
     private List<WebElement> getResultItems() {
