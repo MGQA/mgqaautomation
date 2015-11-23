@@ -2,3 +2,6 @@
 /test-output/
 log.log
 log4j.log
+.project
+.classpath
+/bin/
