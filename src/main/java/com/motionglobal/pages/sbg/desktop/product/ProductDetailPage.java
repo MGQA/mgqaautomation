@@ -8,7 +8,7 @@ import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
 
-    @FindBy(css = ".pro_r_buynow formSubmit")
+    @FindBy(css = ".pro_r_buynow .formSubmit")
     public WebElement btnBuyNow;
 
     public ProductDetailPage() {
