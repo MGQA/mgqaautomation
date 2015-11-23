@@ -17,7 +17,7 @@ public class CartPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".paySecurexDo"), 40);
+        waitForVisibility(By.cssSelector(".paySecurexDo"), 20);
     }
 
 }

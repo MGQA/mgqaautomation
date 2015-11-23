@@ -8,7 +8,7 @@ import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
 
-    @FindBy(css = ".pro_r_buynow")
+    @FindBy(css = ".pro_r_buynow formSubmit")
     public WebElement btnBuyNow;
 
     public ProductDetailPage() {
@@ -17,7 +17,7 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".pro_big_title>h1"), 40);
+        waitForVisibility(By.cssSelector(".pro_big_title>h1"), 20);
     }
 
 }
