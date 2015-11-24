@@ -3,6 +3,7 @@ package com.motionglobal.pages.sbg.desktop.checkout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
@@ -19,7 +20,7 @@ public class CheckoutPage extends AbstractBaseSbgDesktopPage {
     private WebElement inputBillingLastName;
     @FindBy(id = "customer_email")
     private WebElement inputBillingEmail;
-    @FindBy(id = "billing__address1")
+    @FindBy(name = "billing__address1")
     private WebElement inputBillingAddress1;
     @FindBy(id = "billing_post_code")
     private WebElement inputBillingPostCode;
@@ -27,9 +28,9 @@ public class CheckoutPage extends AbstractBaseSbgDesktopPage {
     private WebElement inputBillingState;
     @FindBy(id = "billing_city")
     private WebElement inputBillingCity;
-    @FindBy(id = "billing_country")
-    private WebElement inputBillingCountry;
-    @FindBy(id = "billing_telephone")
+    @FindBy(name = "billing_country")
+    private WebElement selBillingCountry;
+    @FindBy(name = "billing_telephone")
     private WebElement inputBillingTelephone;
 
     public CheckoutPage inputBillingFirstName(String firstName) {
@@ -49,6 +50,17 @@ public class CheckoutPage extends AbstractBaseSbgDesktopPage {
 
     public CheckoutPage inputBillingTelephone(String tel) {
         clearInput(this.inputBillingTelephone, tel);
+        return this;
+    }
+
+    public CheckoutPage selectBillingCountry(String countryValue) {
+        Select country = new Select(this.selBillingCountry);
+        country.deselectByValue(countryValue);
+        return this;
+    }
+
+    public CheckoutPage inputBillingAddress1(String billingAddress1) {
+        clearInput(this.inputBillingAddress1, billingAddress1);
         return this;
     }
 

@@ -25,8 +25,9 @@ public class TestEnd2End extends AbstractBaseSbgDesktopTestCase {
         productDetailPage.btnBuyNow.click();
         new CartPage().btnCheckout.click();
         CheckoutPage checkoutPage = new CheckoutPage();
-        checkoutPage.inputBillingFirstName("automationFirst").inputBillingLastName("automationLast").inputBillingEmail("testautomation@automation.com")
-                .inputBillingTelephone("automationTel");
+        checkoutPage.inputBillingFirstName("automationFirst").inputBillingLastName("automationLast");
+        checkoutPage.inputBillingEmail("testautomation@automation.com").inputBillingTelephone("automationTel");
+        checkoutPage.selectBillingCountry("HK").inputBillingAddress1("automationAddress1");
         checkoutPage.clickVISA().btnGcPayment.click();
         Assert.assertTrue(new GcPaymentPage().inputORB.isDisplayed());
     }
