@@ -20,7 +20,7 @@ public class CheckoutPage extends AbstractBaseSbgDesktopPage {
     private WebElement inputBillingLastName;
     @FindBy(id = "customer_email")
     private WebElement inputBillingEmail;
-    @FindBy(name = "billing__address1")
+    @FindBy(name = "billing_address1")
     private WebElement inputBillingAddress1;
     @FindBy(id = "billing_post_code")
     private WebElement inputBillingPostCode;
@@ -55,7 +55,7 @@ public class CheckoutPage extends AbstractBaseSbgDesktopPage {
 
     public CheckoutPage selectBillingCountry(String countryValue) {
         Select country = new Select(this.selBillingCountry);
-        country.deselectByValue(countryValue);
+        country.selectByValue(countryValue);
         return this;
     }
 
