@@ -14,7 +14,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 public class TestEnd2End extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "debug" })
-    public void testSunGlassesHeaderMenus() {
+    public void testSearchItemAndPayByGC() {
         logger().info("started...");
         HomePage homePage = new HomePage();
         homePage.header().inputSearch.sendKeys("ray ban");
@@ -25,15 +25,8 @@ public class TestEnd2End extends AbstractBaseSbgDesktopTestCase {
         productDetailPage.btnBuyNow.click();
         new CartPage().btnCheckout.click();
         CheckoutPage checkoutPage = new CheckoutPage();
-        checkoutPage.enterBillingAddress(
-                "automationFirst",
-                "automationLast",
-                "automationAddress",
-                "automationPost",
-                "automationState",
-                "automationCity",
-                "automationCountry",
-                "automationTel");
+        checkoutPage.inputBillingFirstName("automationFirst").inputBillingLastName("automationLast").inputBillingEmail("testautomation@automation.com")
+                .inputBillingTelephone("automationTel");
         checkoutPage.clickVISA().btnGcPayment.click();
         Assert.assertTrue(new GcPaymentPage().inputORB.isDisplayed());
     }

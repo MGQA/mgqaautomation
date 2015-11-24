@@ -17,6 +17,8 @@ public class CheckoutPage extends AbstractBaseSbgDesktopPage {
     private WebElement inputBillingFirstName;
     @FindBy(id = "billing_last_name")
     private WebElement inputBillingLastName;
+    @FindBy(id = "customer_email")
+    private WebElement inputBillingEmail;
     @FindBy(id = "billing__address1")
     private WebElement inputBillingAddress1;
     @FindBy(id = "billing_post_code")
@@ -30,16 +32,24 @@ public class CheckoutPage extends AbstractBaseSbgDesktopPage {
     @FindBy(id = "billing_telephone")
     private WebElement inputBillingTelephone;
 
-    public void enterBillingAddress(String firstName, String lastName, String address1, String postcode, String state, String city, String country,
-            String telephone) {
+    public CheckoutPage inputBillingFirstName(String firstName) {
         clearInput(this.inputBillingFirstName, firstName);
+        return this;
+    }
+
+    public CheckoutPage inputBillingLastName(String lastName) {
         clearInput(this.inputBillingLastName, lastName);
-        clearInput(this.inputBillingAddress1, address1);
-        clearInput(this.inputBillingPostCode, postcode);
-        clearInput(this.inputBillingState, state);
-        clearInput(this.inputBillingCity, city);
-        clearInput(this.inputBillingCountry, country);
-        clearInput(this.inputBillingTelephone, telephone);
+        return this;
+    }
+
+    public CheckoutPage inputBillingEmail(String email) {
+        clearInput(this.inputBillingEmail, email);
+        return this;
+    }
+
+    public CheckoutPage inputBillingTelephone(String tel) {
+        clearInput(this.inputBillingTelephone, tel);
+        return this;
     }
 
     public CheckoutPage clickVISA() {
