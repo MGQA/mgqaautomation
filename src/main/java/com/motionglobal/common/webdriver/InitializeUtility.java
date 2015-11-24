@@ -22,6 +22,7 @@ import com.motionglobal.common.utils.PropertiesUtil;
 
 public class InitializeUtility {
     private static Logger logger = Logger.getLogger(InitializeUtility.class);
+    private static Properties CONFIG;
 
     /**
      * This function is used to launch browser
@@ -35,14 +36,14 @@ public class InitializeUtility {
         browser = browser.toLowerCase();
         switch (browser) {
         case "firefox":
-            File pathBinary = new File("D:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe"); // TODO
+            File pathBinary = new File(CONFIG.getProperty(browser));
             FirefoxBinary binary = new FirefoxBinary(pathBinary);
             FirefoxProfile profile = new FirefoxProfile();
             profile.setPreference("webdriver_accept_untrusted_certs", true);
             // profile.setAssumeUntrustedCertificateIssuer(false);
             profile.setPreference("browser.download.folderList", 2);
             profile.setPreference("security.OCSP.enabled", 0);
-            profile.setPreference("browser.download.dir", "/driverdownload");
+            profile.setPreference("browser.download.dir", CONFIG.getProperty("downloaddir"));
             profile.setPreference(
                     "browser.helperApps.neverAsk.saveToDisk",
                     "application/msword,application/x-rar-compressed,application/octet-stream,application/csv,text/csv");
@@ -58,7 +59,7 @@ public class InitializeUtility {
 
             break;
         case "chrome":
-            System.setProperty("webdriver.chrome.driver", "\\src\\main\\resources\\browserDrivers\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", CONFIG.getProperty(browser));
             driver = new ChromeDriver();
 
             break;
@@ -77,7 +78,7 @@ public class InitializeUtility {
     public static Properties initailzeProperties(String config) {
         File configFile = new File(config);
         logger.info("Initializing configurations..." + configFile.getAbsolutePath());
-        Properties CONFIG = new Properties();
+        CONFIG = new Properties();
         try {
             if (configFile.exists()) {
                 FileInputStream fs = new FileInputStream(config);

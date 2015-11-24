@@ -59,4 +59,10 @@ public abstract class AbstractBaseContainer implements IWaiter {
             e.printStackTrace();
         }
     }
+
+    public AbstractBaseContainer clearInput(WebElement input, String str) {
+        input.clear();
+        input.sendKeys(str);
+        return this;
+    }
 }
