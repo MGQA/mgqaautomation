@@ -11,19 +11,18 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
     @Test(groups = { "debug", "au" })
     public void testHomepage() {
         logger().info("started...");
+        driver.get("http://www.visiondirect.com.au/");
         HomePage homePage = new HomePage();
-        Assert.assertTrue(homePage.isTextPresent("{ page_type: \"home\" }"));
+        Assert.assertTrue(homePage.isTextPresent("{ page_type: \"home\" } \n         );"));
+        Assert.assertFalse(homePage.isTextPresent("{ page_type: \"cart\" } \n         );"));
     }
 
     @Override
     protected void initialize() {
-        driver.get("http://www.visiondirect.com.au/");
     }
 
     @Override
     protected void tearDown() {
-        // TODO Auto-generated method stub
-
     }
 
 }
