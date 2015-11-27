@@ -13,6 +13,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         logger().info("started...");
         driver.get("http://www.visiondirect.com.au/");
         HomePage homePage = new HomePage();
+        logger().info(driver.getPageSource());
         Assert.assertTrue(homePage.isTextPresent("{ page_type: \"home\" } \n         );"));
         Assert.assertFalse(homePage.isTextPresent("{ page_type: \"cart\" } \n         );"));
     }
