@@ -17,7 +17,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
 
     @Override
     protected void initialize() {
-        driver.get("www.visiondirect.com.au");
+        driver.get("http://www.visiondirect.com.au/");
     }
 
     @Override
