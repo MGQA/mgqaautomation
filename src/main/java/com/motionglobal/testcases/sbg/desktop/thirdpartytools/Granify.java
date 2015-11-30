@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import com.motionglobal.pages.sbg.desktop.home.HomePage;
 import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
+import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class Granify extends AbstractBaseSbgDesktopTestCase {
@@ -42,7 +43,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertFalse(productPage.isTextPresent("{ page_type: \"cart\" }"));
     }
 
-    @Test(groups = { "debug", "au" })
+    @Test(groups = { "acceptance", "au" })
     public void testProductGridPage() {
         driver.get("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/");
         ProductGridPage productGridPage = new ProductGridPage();
@@ -68,6 +69,17 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(productGridPage.isTextPresent("Granify.trackPageView("));
         Assert.assertTrue(productGridPage.isTextPresent("{ page_type: \"collection\" }"));
         Assert.assertFalse(productGridPage.isTextPresent("{ page_type: \"cart\" }"));
+    }
+
+    @Test(groups = { "debug", "au" })
+    public void testSearchResultPage() {
+        driver.get(
+                "http://www.visiondirect.com.au/search?keywords=rayban&searchHashcode=1445407688101619#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]");
+        SearchResultPage searchResultPage = new SearchResultPage();
+        Assert.assertTrue(searchResultPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
+        Assert.assertTrue(searchResultPage.isTextPresent("Granify.trackPageView("));
+        Assert.assertTrue(searchResultPage.isTextPresent("{ page_type: \"search\" }"));
+        Assert.assertFalse(searchResultPage.isTextPresent("{ page_type: \"cart\" }"));
     }
 
     @Override
