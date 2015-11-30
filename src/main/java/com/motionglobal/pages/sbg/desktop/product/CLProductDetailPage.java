@@ -32,7 +32,7 @@ public class CLProductDetailPage extends AbstractBaseSbgDesktopPage {
     private WebElement selLeftAxis;
 
     @FindBy(id = "addToCart")
-    public WebElement btnAddToCart;
+    private WebElement btnAddToCart;
 
     public CLProductDetailPage() {
         super();
@@ -70,6 +70,11 @@ public class CLProductDetailPage extends AbstractBaseSbgDesktopPage {
             sel.selectByValue(axis);
         }
         return this;
+    }
+
+    public void clickAddToCart() {
+        waitForVisibility(By.id("addToCart"), 10);
+        this.btnAddToCart.click();
     }
 
     @Override

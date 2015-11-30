@@ -150,7 +150,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         CLProductDetailPage clProductDetailPage = new CLProductDetailPage();
         clProductDetailPage.setRightPrescription(true, "1", "-4.50", "-1.25", "20.00");
         clProductDetailPage.setLeftPrescription(true, "1", "-4.50", "-1.25", "20.00");
-        clProductDetailPage.btnAddToCart.click();
+        clProductDetailPage.clickAddToCart();
 
         cartPage = new CartPage();
         Assert.assertTrue(cartPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
