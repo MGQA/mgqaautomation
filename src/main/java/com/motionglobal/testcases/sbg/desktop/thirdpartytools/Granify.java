@@ -126,7 +126,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(cartPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
         Assert.assertTrue(cartPage.isTextPresent("Granify.trackPageView("));
         Assert.assertTrue(cartPage.isTextPresent("{ page_type: \"cart\" }"));
-        Assert.assertTrue(cartPage.isTextPresent("Granify.trackCart(["));
+        Assert.assertTrue(cartPage.isTextPresent("Granify.trackCart({"));
         Assert.assertTrue(cartPage.isTextPresent("{ id: \"110094\", quantity: 1, price: 127.95, title: \"Ray-Ban RB4165 Justin\" }"));
         Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
 
@@ -139,7 +139,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(cartPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
         Assert.assertTrue(cartPage.isTextPresent("Granify.trackPageView("));
         Assert.assertTrue(cartPage.isTextPresent("{ page_type: \"cart\" }"));
-        Assert.assertTrue(cartPage.isTextPresent("Granify.trackCart(["));
+        Assert.assertTrue(cartPage.isTextPresent("Granify.trackCart({"));
         Assert.assertTrue(cartPage.isTextPresent("{ id: \"110094\", quantity: 1, price: 127.95, title: \"Ray-Ban RB4165 Justin\" }"));
         Assert.assertTrue(cartPage.isTextPresent("{ id: \"93357\", quantity: 1, price: 146.95, title: \"Ray-Ban RX5228 Highstreet\" }"));
         Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
@@ -154,7 +154,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(cartPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
         Assert.assertTrue(cartPage.isTextPresent("Granify.trackPageView("));
         Assert.assertTrue(cartPage.isTextPresent("{ page_type: \"cart\" }"));
-        Assert.assertTrue(cartPage.isTextPresent("Granify.trackCart(["));
+        Assert.assertTrue(cartPage.isTextPresent("Granify.trackCart({"));
         Assert.assertTrue(cartPage.isTextPresent("{ id: \"110094\", quantity: 1, price: 127.95, title: \"Ray-Ban RB4165 Justin\" }"));
         Assert.assertTrue(cartPage.isTextPresent("{ id: \"93357\", quantity: 1, price: 146.95, title: \"Ray-Ban RX5228 Highstreet\" }"));
         Assert.assertTrue(cartPage.isTextPresent("{ id: \"246\", quantity: 2, price: 81.95, title: \"1-Day Acuvue Moist for Astigmatism 90 Pack\" }"));
