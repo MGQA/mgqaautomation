@@ -65,4 +65,13 @@ public abstract class AbstractBaseContainer implements IWaiter {
         input.sendKeys(str);
         return this;
     }
+
+    public void acceptAlert() {
+        try {
+            driver.switchTo().alert().accept();
+        }
+        catch (Exception e) {
+            // Do nothing if there is no alert.
+        }
+    }
 }

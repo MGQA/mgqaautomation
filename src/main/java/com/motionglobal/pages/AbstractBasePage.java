@@ -42,12 +42,4 @@ public abstract class AbstractBasePage extends AbstractBaseContainer implements 
         driver.switchTo().window(parentWindowHandle); // Switch back to parent window.
     }
 
-    public void acceptAlert() {
-        try {
-            driver.switchTo().alert().accept();
-        }
-        catch (Exception e) {
-            // Do nothing if there is no alert.
-        }
-    }
 }
