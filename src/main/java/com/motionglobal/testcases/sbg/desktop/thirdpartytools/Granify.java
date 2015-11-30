@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.home.HomePage;
 import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
-import com.motionglobal.pages.sbg.desktop.search.ResultGrid;
+import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class Granify extends AbstractBaseSbgDesktopTestCase {
@@ -45,7 +45,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
     @Test(groups = { "debug", "au" })
     public void testProductGridPage() {
         driver.get("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/");
-        ResultGrid productGridPage = new ResultGrid();
+        ProductGridPage productGridPage = new ProductGridPage();
         Assert.assertTrue(productGridPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
         Assert.assertTrue(productGridPage.isTextPresent("Granify.trackPageView("));
         Assert.assertTrue(productGridPage.isTextPresent("{ page_type: \"collection\" }"));
