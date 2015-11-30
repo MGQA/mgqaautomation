@@ -7,6 +7,7 @@ import com.motionglobal.pages.sbg.desktop.cart.CartPage;
 import com.motionglobal.pages.sbg.desktop.footer.aboutus.AboutUsPage;
 import com.motionglobal.pages.sbg.desktop.footer.customercare.FaqPage;
 import com.motionglobal.pages.sbg.desktop.home.HomePage;
+import com.motionglobal.pages.sbg.desktop.product.CLProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
@@ -102,7 +103,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertFalse(aboutUsPage.isTextPresent("{ page_type: \"cart\" }"));
     }
 
-    @Test(groups = { "debug", "au" })
+    @Test(groups = { "acceptance", "au" })
     public void testEmptyCartPage() {
         driver.get("http://www.visiondirect.com.au/cart");
         CartPage cartPage = new CartPage();
@@ -112,6 +113,51 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(cartPage.isTextPresent("Granify.trackCart(["));
         Assert.assertTrue(cartPage.isTextPresent("0, // Number of items"));
         Assert.assertTrue(cartPage.isTextPresent("0.00 // Total price"));
+        Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
+    }
+
+    @Test(groups = { "debug", "au" })
+    public void testNonEmptyCartPage() {
+        driver.get("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
+        ProductDetailPage productDetailPage = new ProductDetailPage();
+        productDetailPage.btnBuyNow.click();
+
+        CartPage cartPage = new CartPage();
+        Assert.assertTrue(cartPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
+        Assert.assertTrue(cartPage.isTextPresent("Granify.trackPageView("));
+        Assert.assertTrue(cartPage.isTextPresent("{ page_type: \"cart\" }"));
+        Assert.assertTrue(cartPage.isTextPresent("Granify.trackCart(["));
+        Assert.assertTrue(cartPage.isTextPresent("{ id: \"110094\", quantity: 1, price: 127.95, title: \"Ray-Ban RB4165 Justin\" }"));
+        Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
+
+        driver.get("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
+        productDetailPage = new ProductDetailPage();
+        productDetailPage.btnBuyNow.click();
+        productDetailPage.btnFrameOnly.click();
+
+        cartPage = new CartPage();
+        Assert.assertTrue(cartPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
+        Assert.assertTrue(cartPage.isTextPresent("Granify.trackPageView("));
+        Assert.assertTrue(cartPage.isTextPresent("{ page_type: \"cart\" }"));
+        Assert.assertTrue(cartPage.isTextPresent("Granify.trackCart(["));
+        Assert.assertTrue(cartPage.isTextPresent("{ id: \"110094\", quantity: 1, price: 127.95, title: \"Ray-Ban RB4165 Justin\" }"));
+        Assert.assertTrue(cartPage.isTextPresent("{ id: \"93357\", quantity: 1, price: 146.95, title: \"Ray-Ban RX5228 Highstreet\" }"));
+        Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
+
+        driver.get("http://www.visiondirect.com.au/contact-lenses/daily-disposable/1-Day-Acuvue-Moist-for-Astigmatism-90-Pack/246.html");
+        CLProductDetailPage clProductDetailPage = new CLProductDetailPage();
+        clProductDetailPage.setRightPrescription(true, "1", "-4.50", "-1.25", "20.00");
+        clProductDetailPage.setLeftPrescription(true, "1", "-4.50", "-1.25", "20.00");
+        clProductDetailPage.btnAddToCart.click();
+
+        cartPage = new CartPage();
+        Assert.assertTrue(cartPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
+        Assert.assertTrue(cartPage.isTextPresent("Granify.trackPageView("));
+        Assert.assertTrue(cartPage.isTextPresent("{ page_type: \"cart\" }"));
+        Assert.assertTrue(cartPage.isTextPresent("Granify.trackCart(["));
+        Assert.assertTrue(cartPage.isTextPresent("{ id: \"110094\", quantity: 1, price: 127.95, title: \"Ray-Ban RB4165 Justin\" }"));
+        Assert.assertTrue(cartPage.isTextPresent("{ id: \"93357\", quantity: 1, price: 146.95, title: \"Ray-Ban RX5228 Highstreet\" }"));
+        Assert.assertTrue(cartPage.isTextPresent("{ id: \"246\", quantity: 2, price: 81.95, title: \"1-Day Acuvue Moist for Astigmatism 90 Pack\" }"));
         Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
     }
 
