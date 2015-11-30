@@ -3,6 +3,7 @@ package com.motionglobal.testcases.sbg.desktop.thirdpartytools;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.motionglobal.pages.sbg.desktop.cart.CartPage;
 import com.motionglobal.pages.sbg.desktop.footer.aboutus.AboutUsPage;
 import com.motionglobal.pages.sbg.desktop.footer.customercare.FaqPage;
 import com.motionglobal.pages.sbg.desktop.home.HomePage;
@@ -84,7 +85,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertFalse(searchResultPage.isTextPresent("{ page_type: \"cart\" }"));
     }
 
-    @Test(groups = { "debug", "au" })
+    @Test(groups = { "acceptance", "au" })
     public void testOtherPage() {
         driver.get("http://www.visiondirect.com.au/faq");
         FaqPage faqPage = new FaqPage();
@@ -99,6 +100,19 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(aboutUsPage.isTextPresent("Granify.trackPageView("));
         Assert.assertTrue(aboutUsPage.isTextPresent("{ page_type: \"other\" }"));
         Assert.assertFalse(aboutUsPage.isTextPresent("{ page_type: \"cart\" }"));
+    }
+
+    @Test(groups = { "debug", "au" })
+    public void testEmptyCartPage() {
+        driver.get("http://www.visiondirect.com.au/cart");
+        CartPage cartPage = new CartPage();
+        Assert.assertTrue(cartPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
+        Assert.assertTrue(cartPage.isTextPresent("Granify.trackPageView("));
+        Assert.assertTrue(cartPage.isTextPresent("{ page_type: \"cart\" }"));
+        Assert.assertTrue(cartPage.isTextPresent("Granify.trackCart(["));
+        Assert.assertTrue(cartPage.isTextPresent("0, // Number of items"));
+        Assert.assertTrue(cartPage.isTextPresent("0.00 // Total price"));
+        Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
     }
 
     @Override
