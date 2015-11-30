@@ -43,6 +43,11 @@ public abstract class AbstractBasePage extends AbstractBaseContainer implements 
     }
 
     public void acceptAlert() {
-        driver.switchTo().alert().accept();
+        try {
+            driver.switchTo().alert().accept();
+        }
+        catch (Exception e) {
+            // Do nothing if there is no alert.
+        }
     }
 }

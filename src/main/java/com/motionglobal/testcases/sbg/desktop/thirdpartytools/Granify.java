@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.cart.CartPage;
+import com.motionglobal.pages.sbg.desktop.checkout.CheckoutPage;
 import com.motionglobal.pages.sbg.desktop.footer.aboutus.AboutUsPage;
 import com.motionglobal.pages.sbg.desktop.footer.customercare.FaqPage;
 import com.motionglobal.pages.sbg.desktop.home.HomePage;
@@ -114,9 +115,11 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(cartPage.isTextPresent("0, // Number of items"));
         Assert.assertTrue(cartPage.isTextPresent("0.00 // Total price"));
         Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
+
+        cartPage.btnCheckout.click();// Required, otherwise it will block other cases.
     }
 
-    @Test(groups = { "debug", "au" })
+    @Test(groups = { "acceptance", "au" })
     public void testNonEmptyCartPage() {
         driver.get("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
         ProductDetailPage productDetailPage = new ProductDetailPage();
@@ -161,6 +164,23 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(cartPage.isTextPresent("{ id: \"93357\", quantity: 1, price: 146.95, title: \"Ray-Ban RX5228 Highstreet\" }"));
         Assert.assertTrue(cartPage.isTextPresent("{ id: \"246\", quantity: 2, price: 81.95, title: \"1-Day Acuvue Moist for Astigmatism 90 Pack\" }"));
         Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
+
+        cartPage.btnCheckout.click();// Required, otherwise it will block other cases.
+    }
+
+    @Test(groups = { "debug", "au" })
+    public void testGCCheckoutPage() {
+        driver.get("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
+        ProductDetailPage productDetailPage = new ProductDetailPage();
+        productDetailPage.btnBuyNow.click();
+
+        CartPage cartPage = new CartPage();
+        cartPage.btnCheckout.click();
+        CheckoutPage checkoutPage = new CheckoutPage();
+        Assert.assertTrue(checkoutPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
+        Assert.assertTrue(checkoutPage.isTextPresent("Granify.trackPageView("));
+        Assert.assertTrue(checkoutPage.isTextPresent("{ page_type: \"checkout\" }"));
+        Assert.assertFalse(checkoutPage.isTextPresent("{ page_type: \"product\" }"));
     }
 
     @Override
