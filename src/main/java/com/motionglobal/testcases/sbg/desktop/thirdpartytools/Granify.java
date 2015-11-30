@@ -131,6 +131,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
 
         driver.get("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
+        cartPage.acceptAlert();
         productDetailPage = new ProductDetailPage();
         productDetailPage.btnBuyNow.click();
         productDetailPage.btnFrameOnly.click();
@@ -145,6 +146,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
 
         driver.get("http://www.visiondirect.com.au/contact-lenses/daily-disposable/1-Day-Acuvue-Moist-for-Astigmatism-90-Pack/246.html");
+        cartPage.acceptAlert();
         CLProductDetailPage clProductDetailPage = new CLProductDetailPage();
         clProductDetailPage.setRightPrescription(true, "1", "-4.50", "-1.25", "20.00");
         clProductDetailPage.setLeftPrescription(true, "1", "-4.50", "-1.25", "20.00");
