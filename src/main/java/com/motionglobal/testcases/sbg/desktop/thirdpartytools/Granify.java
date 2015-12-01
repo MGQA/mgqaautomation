@@ -143,7 +143,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(cartPage.isTextPresent("Granify.trackPageView("));
         Assert.assertTrue(cartPage.isTextPresent("{ page_type: \"cart\" }"));
         Assert.assertTrue(cartPage.isTextPresent("Granify.trackCart({"));
-        Assert.assertTrue(cartPage.isTextPresent("items: [{\"id\":\"110094\",\"quantity\":1,\"price\":\"127.95\",\"title\":\"Ray-Ban RB4165 Justin\"}]"));
+        Assert.assertTrue(cartPage.isTextPresent("[{\"id\":\"110094\",\"quantity\":1,\"price\":\"127.95\",\"title\":\"Ray-Ban RB4165 Justin\"}]"));
         Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
 
         driver.get("http://www.visiondirect.com.au/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html");
