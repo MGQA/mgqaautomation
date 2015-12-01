@@ -130,7 +130,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
     }
 
-    @Test(groups = { "debug", "au" })
+    @Test(groups = { "acceptance", "au" }, dependsOnMethods = "testEmptyCartPage")
     public void testNonEmptyCartPage() {
         driver.get("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
         Header header = new Header();
@@ -139,7 +139,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         productDetailPage.btnBuyNow.click();
 
         CartPage cartPage = new CartPage();
-        logger().info(driver.getPageSource());
+        // logger().info(driver.getPageSource());
         Assert.assertTrue(cartPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
         Assert.assertTrue(cartPage.isTextPresent("Granify.trackPageView("));
         Assert.assertTrue(cartPage.isTextPresent("{ page_type: \"cart\" }"));
@@ -181,7 +181,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
     }
 
-    @Test(groups = { "acceptance", "au" })
+    @Test(groups = { "acceptance", "au" }, dependsOnMethods = "testEmptyCartPage")
     public void testGCCheckoutPage() {
         driver.get("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
         Header header = new Header();
