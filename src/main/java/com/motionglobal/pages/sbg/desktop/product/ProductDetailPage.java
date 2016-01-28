@@ -8,8 +8,12 @@ import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
 
-    @FindBy(css = ".pro_r_buynow .formSubmit")
+    @FindBy(css = ".pro_r_buynow .pro_labuy")
     public WebElement btnBuyNow;
+    @FindBy(xpath = "//map[@name='RX_pop_map']/area[1]")
+    public WebElement btnAddLenses;
+    @FindBy(xpath = "//map[@name='RX_pop_map']/area[last()]")
+    public WebElement btnFrameOnly;
 
     public ProductDetailPage() {
         super();

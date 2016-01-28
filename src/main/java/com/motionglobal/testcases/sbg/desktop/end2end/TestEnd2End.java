@@ -13,7 +13,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class TestEnd2End extends AbstractBaseSbgDesktopTestCase {
 
-    @Test(groups = { "debug" })
+    @Test(groups = { "smoke" })
     public void testSearchItemAndPayByGC() {
         logger().info("started...");
         HomePage homePage = new HomePage();
@@ -34,14 +34,11 @@ public class TestEnd2End extends AbstractBaseSbgDesktopTestCase {
 
     @Override
     protected void initialize() {
-        // TODO Auto-generated method stub
-
+        driver.get(CONFIG.getProperty("sbgDesktopURL"));
     }
 
     @Override
     protected void tearDown() {
-        // TODO Auto-generated method stub
-
     }
 
 }
