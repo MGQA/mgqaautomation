@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<!-- <suite name="POM AM Automation" verbose="1" parallel="tests"> -->
+<suite name="Case Importer">
+	<parameter name="browser" value="FireFox" />
+	<parameter name="environment" value="InternalSD" />
+	<parameter name="config" value="/properties/config.properties" />
+	<test name="Import cases" preserve-order="true">
+		<packages>
+			<package name="com.motionglobal.*" />
+		</packages>
+	</test>
+</suite> 
