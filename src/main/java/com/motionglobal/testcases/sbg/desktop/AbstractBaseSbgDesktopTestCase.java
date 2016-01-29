@@ -18,7 +18,6 @@ public abstract class AbstractBaseSbgDesktopTestCase extends AbstractBaseTestCas
         this.context = context;
         context.setAttribute(ScreenshotListener.DRIVER_ATTR + Thread.currentThread().getId(), driver);
 
-        driver.get(CONFIG.getProperty("sbgDesktopURL"));
         initialize();
     }
 
