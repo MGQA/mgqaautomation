@@ -5,3 +5,5 @@ log4j.log
 .project
 .classpath
 /bin/
+src/main/resources/config.properties
+ 
