@@ -16,6 +16,24 @@ public class Header extends AbstractBaseContainer {
     public WebElement inputSearch;
     @FindBy(css = ".search_image i.fa-search")
     public WebElement iconSearch;
+    @FindBy(xpath = "//li[@id='signin_li']/a/span")
+    public WebElement loginlable;
+    @FindBy(xpath = "//li[@id='signin_li']/div/div/span/a")
+    public WebElement signin;
+    @FindBy(xpath = "//li[@id='menuN_1']/a")
+    public WebElement sunglasses;
+    @FindBy(xpath = "//ul[@id='menuN_level_1']//li/div/div[1]/ul[1]/li[1]/a")
+    public WebElement men;
+    @FindBy(id = "username")
+    public WebElement username;
+    @FindBy(id = "password")
+    public WebElement password;
+    @FindBy(xpath = "//form[@id='loginFormNew']/span")
+    public WebElement signInButton;
+    @FindBy(xpath = "//li[@id='signin_li_already']/a/span")
+    public WebElement yourAccount;
+    @FindBy(xpath = "//li[@id='signin_li_already']/div/div/p[2]/a")
+    public WebElement signout;
 
     public String[] countryIDs = new String[] { "74", "4", "41", "48", "6", "60", "66", "62", "51", "12", "23", "49", "39", "16", "73", "21", "56", "70", "61",
             "14", "7", "64", "42", "68", "57", "67", "40", "24", "18", "58", "22", "11", "1", "71", "8", "59", "5", "10", "9" };
