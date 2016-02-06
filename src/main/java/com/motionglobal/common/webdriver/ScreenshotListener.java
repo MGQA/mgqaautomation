@@ -18,69 +18,67 @@ import org.uncommons.reportng.HTMLReporter;
  */
 public class ScreenshotListener extends HTMLReporter implements ITestListener {
 
-	public static final String DRIVER_ATTR = "DRIVER";
+    public static final String DRIVER_ATTR = "driver";
 
-	// take browser page shot if test failed or on exception.
-	public void onTestFailure(ITestResult result) {
-		this.logPicture(result);
-	}
+    // take browser page shot if test failed or on exception.
+    public void onTestFailure(ITestResult result) {
+        this.logPicture(result);
+    }
 
-	public void onTestSkipped(ITestResult result) {
-		logPicture(result);
-	}
+    public void onTestSkipped(ITestResult result) {
+        logPicture(result);
+    }
 
-	private void logPicture(ITestResult tr) {
+    private void logPicture(ITestResult tr) {
 
-		Reporter.setCurrentTestResult(tr);
-		File file = new File("");
-		String fileName = tr.getName() + "_" + System.currentTimeMillis();
-		String imagePath = file.getAbsolutePath()
-				+ "\\test-output\\screenshots\\" + fileName + ".png";
+        Reporter.setCurrentTestResult(tr);
+        File file = new File("");
+        String fileName = tr.getName() + "_" + System.currentTimeMillis();
+        String imagePath = file.getAbsolutePath() + "\\test-output\\screenshots\\" + fileName + ".png";
 
-		ITestContext context = tr.getTestContext();
-		WebDriver driver = (WebDriver) context.getAttribute(DRIVER_ATTR
-				+ Thread.currentThread().getId());
-		if (driver != null && !(driver.toString().contains("(null)"))) {
-			String url = driver.getCurrentUrl();
-			Reporter.log("<a alt='" + fileName + "' href='../screenshots/"
-					+ fileName + ".png'><img src='../screenshots/" + fileName
-					+ ".png' width='100' height='100'/></a><a href='" + url
-					+ "'>" + url + "</a>", false);
-			try {
-				File f = ((TakesScreenshot) driver)
-						.getScreenshotAs(OutputType.FILE);
-				File saved = new File(imagePath);
-				FileUtils.copyFile(f, saved);
-			} catch (Exception e) {
-				System.out.println("error generating screenshot: " + e);
-			}
-		}
-		Reporter.setCurrentTestResult(null);
-	}
+        ITestContext context = tr.getTestContext();
+        WebDriver driver = (WebDriver) context.getAttribute(DRIVER_ATTR + Thread.currentThread().getId());
+        if (driver != null && !(driver.toString().contains("(null)"))) {
+            String url = driver.getCurrentUrl();
+            Reporter.log(
+                    "<a alt='" + fileName + "' href='../screenshots/" + fileName + ".png'><img src='../screenshots/" + fileName
+                            + ".png' width='100' height='100'/></a><a href='" + url + "'>" + url + "</a>",
+                    false);
+            try {
+                File f = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                File saved = new File(imagePath);
+                FileUtils.copyFile(f, saved);
+            }
+            catch (Exception e) {
+                System.out.println("error generating screenshot: " + e);
+            }
+        }
+        Reporter.setCurrentTestResult(null);
+    }
 
-	public void onFinish(ITestContext arg0) {
-		// Auto-generated method stub
+    public void onFinish(ITestContext arg0) {
+        // Auto-generated method stub
 
-	}
+    }
 
-	public void onStart(ITestContext arg0) {
-		// Auto-generated method stub
+    public void onStart(ITestContext arg0) {
+        // Auto-generated method stub
 
-	}
+    }
 
-	public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
-		// Auto-generated method stub
+    public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
+        // Auto-generated method stub
 
-	}
+    }
 
-	public void onTestStart(ITestResult arg0) {
-		// Auto-generated method stub
+    public void onTestStart(ITestResult arg0) {
+        // Auto-generated method stub
 
-	}
+    }
 
-	public void onTestSuccess(ITestResult arg0) {
-		// Auto-generated method stub
+    public void onTestSuccess(ITestResult arg0) {
+        // Auto-generated method stub
 
-	}
+    }
 
 }

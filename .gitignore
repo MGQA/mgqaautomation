@@ -7,3 +7,4 @@ log4j.log
 /bin/
 src/main/resources/config.properties
 .settings/
+ 
