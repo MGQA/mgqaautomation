@@ -43,6 +43,7 @@ public abstract class AbstractBaseTestCase {
         driver = InitializeUtility.initializeDriver(CONFIG.getProperty("browser"));
         this.context = context;
         context.setAttribute(ScreenshotListener.DRIVER_ATTR + Thread.currentThread().getId(), driver);
+        context.setAttribute("driver" + Thread.currentThread().getId(), driver);
 
         initialize();
     }
