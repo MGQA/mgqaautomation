@@ -34,6 +34,24 @@ public class Header extends AbstractBaseContainer {
     public WebElement yourAccount;
     @FindBy(xpath = "//li[@id='signin_li_already']/div/div/p[2]/a")
     public WebElement signout;
+    @FindBy(xpath = "//div[@id='top']/ul[1]/li[1]/a")
+    public WebElement FREESHIPPING;
+    @FindBy(xpath = "//div[@id='top']/ul/li[1]/div/ul/li[4]/a")
+    public WebElement freeshipmoreinfo;
+    @FindBy(xpath = "//div[@id='top']/ul/li[2]/a")
+    public WebElement DayReturns;
+    @FindBy(xpath = "//div[@id='top']/ul/li[2]/div/ul/li[5]/a")
+    public WebElement DayReturnsMoreInfo;
+    @FindBy(className = "newhead_banner2_en")
+    public WebElement referAFriend;
+    @FindBy(id = "by_email_btn")
+    public WebElement shareByEmail;
+    @FindBy(className = "newhead_banner_english")
+    public WebElement optical_center;
+    @FindBy(xpath = "//div[@id='favoriteDisplayDiv']/a/i")
+    public WebElement favHeartButtonLink;
+    @FindBy(xpath = "//div[@id='cart']/a/i")
+    public WebElement cartbox;
 
     public String[] countryIDs = new String[] { "74", "4", "41", "48", "6", "60", "66", "62", "51", "12", "23", "49", "39", "16", "73", "21", "56", "70", "61",
             "14", "7", "64", "42", "68", "57", "67", "40", "24", "18", "58", "22", "11", "1", "71", "8", "59", "5", "10", "9" };

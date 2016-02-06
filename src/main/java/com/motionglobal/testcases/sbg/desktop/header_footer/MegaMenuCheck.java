@@ -8,7 +8,7 @@ import com.motionglobal.pages.sbg.desktop.home.HomePage;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
-public class menCheck extends AbstractBaseSbgDesktopTestCase {
+public class MegaMenuCheck extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = "smoke")
     public void mencheck() {
