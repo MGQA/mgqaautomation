@@ -8,12 +8,14 @@ import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
 
-    @FindBy(css = ".pro_r_buynow .pro_labuy")
-    public WebElement btnBuyNow;
+    @FindBy(xpath = "//a[contains(@class,'buy')][not(contains(@style,'none'))]")
+    public WebElement btnBuyNow; // There are two buy now buttons, one is hidden by lens selection condition.
     @FindBy(xpath = "//map[@name='RX_pop_map']/area[1]")
     public WebElement btnAddLenses;
     @FindBy(xpath = "//map[@name='RX_pop_map']/area[last()]")
     public WebElement btnFrameOnly;
+    @FindBy(id = "frameOnly")
+    public WebElement radioFrameOnly;
 
     public ProductDetailPage() {
         super();

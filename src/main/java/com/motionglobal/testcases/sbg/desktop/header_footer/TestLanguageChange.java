@@ -5,14 +5,12 @@ import java.util.List;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.home.HomePage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class TestLanguageChange extends AbstractBaseSbgDesktopTestCase {
 
-    @Test(groups = { "" })
     public void testSunGlassesHeaderMenus() {
         logger().info("started...");
         HomePage homePage = new HomePage();
