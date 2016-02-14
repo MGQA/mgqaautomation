@@ -22,7 +22,7 @@ public class Header extends AbstractBaseContainer {
     public WebElement signin;
     @FindBy(xpath = "//li[@id='menuN_1']/a")
     public WebElement sunglasses;
-    @FindBy(xpath = "//ul[@id='menuN_level_1']//li/div/div[1]/ul[1]/li[1]/a")
+    @FindBy(xpath = "//ul[@id='menuN_level_1']/li/div/div[1]/ul[1]/li[1]/a")
     public WebElement men;
     @FindBy(id = "username")
     public WebElement username;
