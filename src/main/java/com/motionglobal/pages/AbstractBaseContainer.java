@@ -26,12 +26,10 @@ public abstract class AbstractBaseContainer implements IWaiter {
         PageFactory.initElements(driver, this);
     }
 
-    @Override
     public void waitForVisibility(WebElement element, int seconds) throws Error {
         new WebDriverWait(driver, seconds).until(ExpectedConditions.visibilityOf(element));
     }
 
-    @Override
     public void waitForVisibility(By by, int seconds) throws Error {
         new WebDriverWait(driver, seconds).until(ExpectedConditions.visibilityOfElementLocated(by));
     }
@@ -50,7 +48,6 @@ public abstract class AbstractBaseContainer implements IWaiter {
         return eles == null || eles.size() == 0;
     }
 
-    @Override
     public void dummyWait(int seconds) {
         try {
             Thread.sleep(seconds * 1000);
