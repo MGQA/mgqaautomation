@@ -123,6 +123,10 @@ public abstract class AbstractBaseTestCase {
         System.out.println(str);
     }
 
+    protected void p(int str) {
+        System.out.println(str);
+    }
+
     protected void p(List<WebElement> list) {
         for (WebElement s : list) {
             System.out.println(s.getAttribute("value"));

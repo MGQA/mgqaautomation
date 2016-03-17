@@ -2,17 +2,23 @@ package com.motionglobal.pages;
 
 import java.util.Set;
 
-import com.motionglobal.common.webdriver.IWaiter;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
-public abstract class AbstractBasePage extends AbstractBaseContainer implements IWaiter {
+public abstract class AbstractBasePage extends AbstractBaseContainer {
 
-    private String parentWindowHandle;
+    private final String parentWindowHandle;
 
     // Constructor for each page object
     public AbstractBasePage() {
         super();
         this.parentWindowHandle = driver.getWindowHandle();
         waitPageLoad();
+    }
+
+    public void mouseOver(WebElement element) {
+        Actions action = new Actions(driver);
+        action.moveToElement(element).build().perform();
     }
 
     protected abstract void waitPageLoad();
