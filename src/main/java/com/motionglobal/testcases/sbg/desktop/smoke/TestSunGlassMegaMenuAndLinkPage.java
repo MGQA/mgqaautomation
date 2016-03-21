@@ -24,7 +24,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
                 { "http://www.smartbuyglasses.nl" }, { "http://www.smartbuyglasses.co.nz" } };
     }
 
-    @Test(dataProvider = "dp", groups = "debug111")
+    @Test(dataProvider = "dp", groups = "debug")
     public void leftSubmenuSection1(String url) {
         driver.get(url);
         Header header = new Header();
