@@ -21,36 +21,36 @@ import org.apache.log4j.Logger;
  * @author Kevin Bourrillion (kevinb@modeln.com)
  */
 public abstract class RetriedAssert {
-	private Logger log = Logger.getLogger(RetriedAssert.class);
-	private int _timeOutMs;
-	private int _intervalMs;
+    private final Logger log = Logger.getLogger(RetriedAssert.class);
+    private final int _timeOutMs;
+    private final int _intervalMs;
 
-	protected RetriedAssert(int timeOutMs, int intervalMs) {
-		_timeOutMs = timeOutMs;
-		_intervalMs = intervalMs;
-	}
+    protected RetriedAssert(int timeOutMs, int intervalMs) {
+        _timeOutMs = timeOutMs;
+        _intervalMs = intervalMs;
+    }
 
-	public final void start() throws Exception {
-		long stopAt = System.currentTimeMillis() + _timeOutMs;
-		int retried = 1;
-		while (System.currentTimeMillis() < stopAt) {
-			try {
-				run();
-				return;
-			}
-			catch (AssertionError ignoreAndRetry) {
-				log.info("Assertion failed. Retring..." + (retried++));
-			}
-			try {
-				Thread.sleep(_intervalMs);
-			}
-			catch (InterruptedException ie) {
-			}
-		}
-		// All tries have failed so far. Try one last time,
-		// now letting any failure pass out to the caller.
-		run();
-	}
+    public final void start() throws Exception {
+        long stopAt = System.currentTimeMillis() + _timeOutMs;
+        int retried = 1;
+        while (System.currentTimeMillis() < stopAt) {
+            try {
+                run();
+                return;
+            }
+            catch (AssertionError ignoreAndRetry) {
+                log.info("Assertion failed. Retring..." + (retried++));
+            }
+            try {
+                Thread.sleep(_intervalMs);
+            }
+            catch (InterruptedException ie) {
+            }
+        }
+        // All tries have failed so far. Try one last time,
+        // now letting any failure pass out to the caller.
+        run();
+    }
 
-	public abstract void run() throws Exception;
+    public abstract void run() throws Exception;
 }

@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
@@ -34,8 +35,16 @@ public class CLProductDetailPage extends AbstractBaseSbgDesktopPage {
     @FindBy(id = "addToCart")
     private WebElement btnAddToCart;
 
+    @FindBy(id = "suspend_information_tag")
+    public WebElement information;
+
     public CLProductDetailPage() {
         super();
+    }
+
+    public void assertCLDetailPage(String containsName) {
+        String displayName = driver.findElement(By.xpath("//*[@id='wrapper']/div[4]/div[2]")).getText();
+        Assert.assertTrue(displayName.contains(containsName), "Not the CL Detail page");
     }
 
     public CLProductDetailPage setRightPrescription(boolean check, String boxes, String power, String cyl, String axis) {
