@@ -46,7 +46,7 @@ public class HomePageLinkTest extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(driver.getCurrentUrl().equals("http://www.smartbuyglasses.com/favs/"));
         homepage.header().logo.click();
         // Cart box
-        homepage.header().cartbox.click();
+        homepage.header().cartBox.click();
         System.out.println(driver.getCurrentUrl());
         Assert.assertTrue(driver.getCurrentUrl().equals("http://www.smartbuyglasses.com/cart"));
         homepage.header().logo.click();

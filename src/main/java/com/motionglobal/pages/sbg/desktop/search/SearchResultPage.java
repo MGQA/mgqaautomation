@@ -1,11 +1,17 @@
 package com.motionglobal.pages.sbg.desktop.search;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class SearchResultPage extends AbstractBaseSbgDesktopPage {
-    private ResultGrid resultGrid;
+    private final ResultGrid resultGrid;
+
+    // assert_element
+    @FindBy(className = "rplp_brand")
+    public WebElement rayPanEles;
 
     public SearchResultPage() {
         super();
@@ -20,4 +26,5 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     public ResultGrid resultGrid() {
         return this.resultGrid;
     }
+
 }
