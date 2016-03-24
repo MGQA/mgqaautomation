@@ -1,14 +1,15 @@
 package com.motionglobal.pages.sbg.desktop.product;
 
 import org.openqa.selenium.By;
-import org.testng.Assert;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class VirtualPage extends AbstractBaseSbgDesktopPage {
-    public void assertVirtualPage() {
-        Assert.assertTrue((driver.findElement(By.id("virtual-try-on-switch")).getAttribute("id")).contains("virtual"));
-    }
+    // Assert - id = virtual
+    @FindBy(id = "virtual-try-on-switch")
+    public WebElement VirtualClickPage;
 
     @Override
     protected void waitPageLoad() {

@@ -7,47 +7,34 @@ import java.util.regex.Pattern;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class ProductGridPage extends AbstractBaseSbgDesktopPage {
-    // assert_element
+
+    // assert_element！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     @FindBy(className = "proCell_click")
     public List<WebElement> sunTop100Eles;
     @FindBy(className = "pho")
     public List<WebElement> lenseDailyEles;
+    // subMenu clicked page label// Label contains click
+    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]")
+    public WebElement submenuGenderClickedLabel;
+    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]")
+    public WebElement submenuMaterialClickedLabel;
+    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]")
+    public WebElement submenuMidClickedLabel;
+    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]")
+    public WebElement submenuCategoryPrescriptionClickedLabel;
+    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]")
+    public WebElement submenuCategoryPolarizedClickedLabel;
 
-    // without CL
-    // Assert
-    /**
-     * .extra FEATURED'(New Arrival),without category's(sports and ski) and $>200
-     * 
-     * @param gender
-     * @return
-     */
-    /**
-     * @return
-     */
-    public void assertGenderMaterialSubMidMenuPage(String containsName) {
-        String displayName = driver.findElement(By.xpath("//*[@id='wrapper']/div[4]/div[2]/span[2]")).getText();
-        Assert.assertEquals(displayName, containsName);// TODO
-    }
-
-    public void assertCategoryIsSportsPage(String clickedName) {
-        String displayName = driver.findElement(By.xpath("//*[@id='wrapper']/div[4]/div[2]/span[1]/a")).getText();
-        Assert.assertTrue(displayName.contains(clickedName));
-    }
-
-    public void assertBrandAndSkiPage(String containsName) {
-        String displayName = driver.findElement(By.xpath("//*[@id='wrapper']/div[4]/div[2]/span[2]/a")).getText();
-        Assert.assertTrue(displayName.contains(containsName));
-    }
-
-    public void assertTop100Page() {
-        String displayName = driver.findElement(By.xpath("//*[@id='wrapper']/div[4]/div[2]/span/a")).getText();
-        Assert.assertEquals(displayName, "100 Best Selling Sports Glasses");
-    }
+    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[1]/a")
+    public WebElement submenuCategorySportsClickedLabel;
+    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[1]/a")
+    public WebElement submenuBrandsClickedLabel;
+    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]/a")
+    public WebElement submenuSkiClickedLabel;
 
     public String regexPage(String pagetext) {
         Pattern pattern = Pattern.compile("~");
@@ -64,5 +51,9 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     protected void waitPageLoad() {
         waitForVisibility(By.id("jp-pagination-ajax"), 10);
     }
-
+    //
+    //
+    //
+    //
+    //
 }

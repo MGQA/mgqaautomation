@@ -304,20 +304,32 @@ public class Header extends AbstractBasePage {
     }
 
     public void mouseOverMainMenu(int mainMenuNum) throws Error {
+        try {
+            Thread.sleep(300);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         mouseOver(getMegaMenuMainElement(mainMenuNum));
-        waitForVisibility(By.cssSelector("#menuN_" + mainMenuNum + " .current"), 1);
+        waitForVisibility(By.cssSelector("#menuN_" + mainMenuNum + " .current"), 2);
     }
 
     public void confirmPage(String initUrl) {
         String laterUrl = driver.getCurrentUrl();
-        while (initUrl.equalsIgnoreCase(laterUrl)) {// TODO
+        int i = 0;
+        while (initUrl.equalsIgnoreCase(laterUrl)) {
             try {
-                Thread.sleep(100);
+                Thread.sleep(200);
+                if (i == 9) {
+                    initUrl = "a";
+                    laterUrl = "a";
+                }
             }
             catch (InterruptedException e) {
                 e.printStackTrace();
             }
             laterUrl = driver.getCurrentUrl();
+            i++;
         }
     }
 }

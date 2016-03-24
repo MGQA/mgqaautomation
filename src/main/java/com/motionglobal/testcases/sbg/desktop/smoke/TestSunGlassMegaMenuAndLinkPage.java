@@ -24,29 +24,34 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
                 { "http://www.smartbuyglasses.nl" }, { "http://www.smartbuyglasses.co.nz" } };
     }
 
+    // return new Object[][] { new Object[] { "http://www.visiondirect.com.au" }, { "http://www.smartbuyglasses.co.uk" },
+    // { "http://www.smartbuyglasses.com" }, { "http://www.smartbuyglasses.ca" }, { "http://www.smartbuyglasses.com.hk" },
+    // { "http://www.smartbuyglasses.com.hk" }, };
+    // }
+
     @Test(dataProvider = "dp", groups = "debug")
     public void leftSubmenuSection1(String url) {
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(1);
-        String man = header.getLeftSubMenuElement(1, 1, 1).getText();
+        String men = header.getLeftSubMenuElement(1, 1, 1).getText();
         String women = header.getLeftSubMenuElement(1, 1, 2).getText();
         String kid = header.getLeftSubMenuElement(1, 1, 3).getText();
         header.clickLeftSubMenu(1, 1, 1);
         ProductGridPage productGridPage = new ProductGridPage();
-        String url1 = driver.getCurrentUrl();
-        productGridPage.assertGenderMaterialSubMidMenuPage(man);
+        String url1 = header.getURL();
+        Assert.assertEquals(productGridPage.submenuGenderClickedLabel.getText(), men);
         header.clickLeftSubMenu(1, 1, 2);
         String url2 = header.getURL();
         header.confirmPage(url1);
-        productGridPage.assertGenderMaterialSubMidMenuPage(women);
+        Assert.assertEquals(productGridPage.submenuGenderClickedLabel.getText(), women);
         header.clickLeftSubMenu(1, 1, 3);
         header.confirmPage(url2);
-        productGridPage.assertGenderMaterialSubMidMenuPage(kid);
+        Assert.assertEquals(productGridPage.submenuGenderClickedLabel.getText(), kid);
     }
 
     @Test(dataProvider = "dp", groups = "debug")
-    public void subLeftMenuSectionNum2(String url) {
+    public void leftSubmenuSectionNum2(String url) {
         driver.get(url);
         Header header = new Header();
         // header.clickLeftSubMenu(1, 2, 1);
@@ -62,66 +67,65 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         // header.styleRecommend.click();
         header.clickLeftSubMenu(1, 2, 2);
         VirtualPage virtualPage = new VirtualPage();
-        virtualPage.assertVirtualPage();
+        Assert.assertTrue(virtualPage.VirtualClickPage.getAttribute("id").contains("virtual"), "don't virtual page");
         header.clickLeftSubMenu(1, 2, 3);
         ProductGridPage productGridPage = new ProductGridPage();
         Assert.assertEquals(productGridPage.sunTop100Eles.size(), 103, "sunglasses Top100 count : disagree");
         header.clickLeftSubMenu(1, 2, 4);
     }
 
-    @Test(dataProvider = "dp", groups = "debug111")
-    public void subLeftMenuSectionNum3(String url) {
+    @Test(dataProvider = "dp", groups = "debug")
+    public void leftSubmenusubLeftMenuSectionNum3(String url) {
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(1);
-        String name1 = header.getLeftSubMenuElement(1, 3, 1).getText();
-        String name2 = header.getLeftSubMenuElement(1, 3, 2).getText();
-        String name3 = header.getLeftSubMenuElement(1, 3, 3).getText();
-        String name4 = header.getLeftSubMenuElement(1, 3, 4).getText();
+        String prescription = header.getLeftSubMenuElement(1, 3, 1).getText();
+        String polarized = header.getLeftSubMenuElement(1, 3, 2).getText();
+        String sports = header.getLeftSubMenuElement(1, 3, 3).getText();
+        String skiGoggles = header.getLeftSubMenuElement(1, 3, 4).getText();
         header.clickLeftSubMenu(1, 3, 1);
         ProductGridPage productGridPage = new ProductGridPage();
-        productGridPage.assertGenderMaterialSubMidMenuPage(name1);
+        Assert.assertTrue(productGridPage.submenuCategoryPrescriptionClickedLabel.getText().contains(prescription), "Page disagree");
         header.clickLeftSubMenu(1, 3, 2);
-        String url1 = driver.getCurrentUrl();
-        productGridPage.assertGenderMaterialSubMidMenuPage(name2);
+        String url1 = header.getURL();
+        Assert.assertTrue(productGridPage.submenuCategoryPolarizedClickedLabel.getText().contains(polarized), "Page disagree");
         header.clickLeftSubMenu(1, 3, 3);
-        String url2 = driver.getCurrentUrl();
+        String url2 = header.getURL();
         header.confirmPage(url1);
-        productGridPage.assertCategoryIsSportsPage(name3);
         header.clickLeftSubMenu(1, 3, 4);
         header.confirmPage(url2);
-        productGridPage.assertBrandAndSkiPage(name4);
+        Assert.assertTrue(productGridPage.submenuSkiClickedLabel.getText().contains(skiGoggles), "Page disagree");
     }
 
-    @Test(dataProvider = "dp", groups = "debug111")
+    @Test(dataProvider = "dp", groups = "debug")
     public void subMidMenuSectionNum1(String url) {
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(1);
-        String name1 = header.getMiddleSubmenuElement(1, 1, 1).getText();
-        String name2 = header.getMiddleSubmenuElement(1, 1, 2).getText();
-        String name3 = header.getMiddleSubmenuElement(1, 1, 3).getText();
-        String name4 = header.getMiddleSubmenuElement(1, 1, 4).getText();
-        String name5 = header.getMiddleSubmenuElement(1, 1, 5).getText();
+        String pilot = header.getMiddleSubmenuElement(1, 1, 1).getText();
+        String square = header.getMiddleSubmenuElement(1, 1, 2).getText();
+        String rectangle = header.getMiddleSubmenuElement(1, 1, 3).getText();
+        String oversized = header.getMiddleSubmenuElement(1, 1, 4).getText();
+        String singleLens = header.getMiddleSubmenuElement(1, 1, 5).getText();
         header.clickMiddleSubMenu(1, 1, 1);
-        String url1 = driver.getCurrentUrl();
+        String url1 = header.getURL();
         ProductGridPage productGridPage = new ProductGridPage();
-        productGridPage.assertGenderMaterialSubMidMenuPage(name1);
+        Assert.assertEquals(productGridPage.submenuMidClickedLabel.getText(), pilot);
         header.clickMiddleSubMenu(1, 1, 2);
-        String url2 = driver.getCurrentUrl();
+        String url2 = header.getURL();
         header.confirmPage(url1);
-        productGridPage.assertGenderMaterialSubMidMenuPage(name2);
+        Assert.assertEquals(productGridPage.submenuMidClickedLabel.getText(), square);
         header.clickMiddleSubMenu(1, 1, 3);
-        String url3 = driver.getCurrentUrl();
+        String url3 = header.getURL();
         header.confirmPage(url2);
-        productGridPage.assertGenderMaterialSubMidMenuPage(name3);
+        Assert.assertEquals(productGridPage.submenuMidClickedLabel.getText(), rectangle);
         header.clickMiddleSubMenu(1, 1, 4);
-        String url4 = driver.getCurrentUrl();
+        String url4 = header.getURL();
         header.confirmPage(url3);
-        productGridPage.assertGenderMaterialSubMidMenuPage(name4);
+        Assert.assertEquals(productGridPage.submenuMidClickedLabel.getText(), oversized);
         header.clickMiddleSubMenu(1, 1, 5);
         header.confirmPage(url4);
-        productGridPage.assertGenderMaterialSubMidMenuPage(name5);
+        Assert.assertEquals(productGridPage.submenuMidClickedLabel.getText(), singleLens);
     }
 
     @Test(dataProvider = "dp", groups = "debug")
@@ -129,37 +133,37 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(1);
-        String name1 = header.getMiddleSubmenuElement(1, 2, 1).getText();
-        String name2 = header.getMiddleSubmenuElement(1, 2, 2).getText();
-        String name3 = header.getMiddleSubmenuElement(1, 2, 3).getText();
-        String name4 = header.getMiddleSubmenuElement(1, 2, 4).getText();
+        String price1 = header.getMiddleSubmenuElement(1, 2, 1).getText();
+        String price2 = header.getMiddleSubmenuElement(1, 2, 2).getText();
+        String price3 = header.getMiddleSubmenuElement(1, 2, 3).getText();
+        String price4 = header.getMiddleSubmenuElement(1, 2, 4).getText();
         header.clickMiddleSubMenu(1, 2, 1);
-        String url1 = driver.getCurrentUrl();
+        String url1 = header.getURL();
         ProductGridPage productGridPage = new ProductGridPage();
-        productGridPage.assertGenderMaterialSubMidMenuPage(productGridPage.regexPage(name1));
+        Assert.assertEquals(productGridPage.submenuMidClickedLabel.getText(), productGridPage.regexPage(price1));
         header.clickMiddleSubMenu(1, 2, 2);
-        String url2 = driver.getCurrentUrl();
+        String url2 = header.getURL();
         header.confirmPage(url1);
-        productGridPage.assertGenderMaterialSubMidMenuPage(productGridPage.regexPage(name2));
+        Assert.assertEquals(productGridPage.submenuMidClickedLabel.getText(), productGridPage.regexPage(price2));
         header.clickMiddleSubMenu(1, 2, 3);
         header.confirmPage(url2);
-        productGridPage.assertGenderMaterialSubMidMenuPage(productGridPage.regexPage(name3));
+        Assert.assertEquals(productGridPage.submenuMidClickedLabel.getText(), productGridPage.regexPage(price3));
         header.clickMiddleSubMenu(1, 2, 4);
     }
 
-    @Test(dataProvider = "dp", groups = "debug111")
+    @Test(dataProvider = "dp", groups = "debug")
     public void subRightMenu(String url) {
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(1);
-        String name1 = header.getMegaMenuBrandsNameElement(1, "A", 1, 1).getText();
-        String name2 = header.getMegaMenuBrandsNameElement(1, "A", 2, 2).getText();
+        String BrandsA = header.getMegaMenuBrandsNameElement(1, "A", 1, 1).getText();
+        String BrandsQ = header.getMegaMenuBrandsNameElement(1, "Q", 2, 2).getText();
         header.clickGlassImg(1, 2);
         header.clickBrands(1, "A", 1, 1);
         ProductGridPage productGridPage = new ProductGridPage();
-        productGridPage.assertBrandAndSkiPage(name1);
+        Assert.assertTrue(productGridPage.submenuBrandsClickedLabel.getText().contains(BrandsA), "Page disagree");
         header.clickBrands(1, "Q", 2, 2);
-        productGridPage.assertBrandAndSkiPage(name2);
+        Assert.assertTrue(productGridPage.submenuBrandsClickedLabel.getText().contains(BrandsQ), "Page disagree");
 
     }
 

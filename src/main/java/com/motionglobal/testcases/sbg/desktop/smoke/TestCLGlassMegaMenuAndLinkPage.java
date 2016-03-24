@@ -9,7 +9,7 @@ import com.motionglobal.pages.sbg.desktop.product.CLProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.product.CLProductGridPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
-public class CLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCase {
+public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCase {
 
     // @DataProvider(name = "DesktopTestData")
     // public static Object[][] Words() throws IOException {
@@ -24,80 +24,83 @@ public class CLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCase {
                 { "http://www.smartbuyglasses.nl" }, { "http://www.smartbuyglasses.co.nz" } };
     }
 
-    @Test(dataProvider = "dp", groups = "debug111")
+    // return new Object[][] { new Object[] { "http://www.smartbuyglasses.com" } };
+    // }
+
+    @Test(dataProvider = "dp", groups = "debug")
     public void subLeftMenuSectionNum1(String url) {
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(5);
-        String name1 = header.getLeftSubMenuElement(5, 1, 1).getText();
-        String name2 = header.getLeftSubMenuElement(5, 1, 2).getText();
-        String name3 = header.getLeftSubMenuElement(5, 1, 3).getText();
-        String name4 = header.getLeftSubMenuElement(5, 1, 4).getText();
+        String spherical = header.getLeftSubMenuElement(5, 1, 1).getText();
+        String toric = header.getLeftSubMenuElement(5, 1, 2).getText();
+        String multifocal = header.getLeftSubMenuElement(5, 1, 3).getText();
+        String aspherical = header.getLeftSubMenuElement(5, 1, 4).getText();
         header.clickLeftSubMenu(5, 1, 1);
-        String url1 = driver.getCurrentUrl();
+        String url1 = header.getURL();
         CLProductGridPage clProductGridPage = new CLProductGridPage();
-        clProductGridPage.assertCLGridPage(name1);
+        Assert.assertTrue(spherical.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
         header.clickLeftSubMenu(5, 1, 2);
-        String url2 = driver.getCurrentUrl();
+        String url2 = header.getURL();
         header.confirmPage(url1);
-        clProductGridPage.assertCLGridPage(name2);
+        Assert.assertTrue(toric.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
         header.clickLeftSubMenu(5, 1, 3);
-        String url3 = driver.getCurrentUrl();
+        String url3 = header.getURL();
         header.confirmPage(url2);
-        clProductGridPage.assertCLGridPage(name3);
+        Assert.assertTrue(multifocal.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
         header.clickLeftSubMenu(5, 1, 4);
         header.confirmPage(url3);
-        clProductGridPage.assertCLGridPage(name4);
+        Assert.assertTrue(aspherical.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
     }
 
-    @Test(dataProvider = "dp", groups = "debug3")
+    @Test(dataProvider = "dp", groups = "debug")
     public void subLeftMenuSectionNum2(String url) {
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(5);
-        String name1 = header.getLeftSubMenuElement(5, 2, 1).getText();
-        String name2 = header.getLeftSubMenuElement(5, 2, 2).getText();
-        String name3 = header.getLeftSubMenuElement(5, 2, 3).getText();
+        String extendedWear = header.getLeftSubMenuElement(5, 2, 1).getText();
+        String siliconeHydrogel = header.getLeftSubMenuElement(5, 2, 2).getText();
+        String coloured = header.getLeftSubMenuElement(5, 2, 3).getText();
         header.clickLeftSubMenu(5, 2, 1);
-        String url1 = driver.getCurrentUrl();
+        String url1 = header.getURL();
         CLProductGridPage clProductGridPage = new CLProductGridPage();
-        clProductGridPage.assertCLGridPage(name1);
+        Assert.assertTrue(extendedWear.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
         header.clickLeftSubMenu(5, 2, 2);
-        String url2 = driver.getCurrentUrl();
+        String url2 = header.getURL();
         header.confirmPage(url1);
-        clProductGridPage.assertCLGridPage(name2);
+        Assert.assertTrue(siliconeHydrogel.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
         header.clickLeftSubMenu(5, 2, 3);
         header.confirmPage(url2);
-        clProductGridPage.assertCLGridPage(name3);
+        Assert.assertTrue(coloured.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
     }
 
-    @Test(dataProvider = "dp", groups = "debug111")
+    @Test(dataProvider = "dp", groups = "debug")
     public void subLeftMenuSectionNum3(String url) {
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(5);
-        String name1 = header.getLeftSubMenuElement(5, 3, 1).getText();
-        String name2 = header.getLeftSubMenuElement(5, 3, 2).getText();
-        String name3 = header.getLeftSubMenuElement(5, 3, 3).getText();
-        String name4 = header.getLeftSubMenuElement(5, 3, 4).getText();
+        String bausch = header.getLeftSubMenuElement(5, 3, 1).getText();
+        String ciba = header.getLeftSubMenuElement(5, 3, 2).getText();
+        String coopervision = header.getLeftSubMenuElement(5, 3, 3).getText();
+        String johnson = header.getLeftSubMenuElement(5, 3, 4).getText();
         header.clickLeftSubMenu(5, 3, 1);
-        String url1 = driver.getCurrentUrl();
+        String url1 = header.getURL();
         CLProductGridPage clProductGridPage = new CLProductGridPage();
-        clProductGridPage.assertCLGridPage(name1);
+        Assert.assertTrue(bausch.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
         header.clickLeftSubMenu(5, 3, 2);
-        String url2 = driver.getCurrentUrl();
+        String url2 = header.getURL();
         header.confirmPage(url1);
-        clProductGridPage.assertCLGridPage(name2);
+        Assert.assertTrue(ciba.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
         header.clickLeftSubMenu(5, 3, 3);
-        String url3 = driver.getCurrentUrl();
+        String url3 = header.getURL();
         header.confirmPage(url2);
-        clProductGridPage.assertCLGridPage(name3);
+        Assert.assertTrue(coopervision.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
         header.clickLeftSubMenu(5, 3, 4);
         header.confirmPage(url3);
-        clProductGridPage.assertCLGridPage(name4);
+        Assert.assertTrue(johnson.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
     }
 
-    @Test(dataProvider = "dp", groups = "debug111")
+    @Test(dataProvider = "dp", groups = "debug0")
     public void subMidMenuSectionNum1(String url) {
         driver.get(url);
         Header header = new Header();
@@ -131,7 +134,7 @@ public class CLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(id.contains("information"));
     }
 
-    @Test(dataProvider = "dp", groups = "debug111")
+    @Test(dataProvider = "dp", groups = "debug")
     public void subMidMenuSectionNum2(String url) {
         driver.get(url);
         Header header = new Header();
@@ -151,7 +154,7 @@ public class CLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(id.contains("information"));
     }
 
-    @Test(dataProvider = "dp", groups = "debug111")
+    @Test(dataProvider = "dp", groups = "debug")
     public void subMidMenuSectionNum3(String url) {
         driver.get(url);
         Header header = new Header();
@@ -167,7 +170,7 @@ public class CLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(id.contains("information"));
     }
 
-    @Test(dataProvider = "dp", groups = "debug111")
+    @Test(dataProvider = "dp", groups = "debug")
     public void subRightMenu(String url) {
         driver.get(url);
         Header header = new Header();

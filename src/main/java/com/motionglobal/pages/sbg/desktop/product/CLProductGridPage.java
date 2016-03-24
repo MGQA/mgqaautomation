@@ -4,17 +4,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.openqa.selenium.By;
-import org.testng.Assert;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class CLProductGridPage extends AbstractBaseSbgDesktopPage {
+    // CL clickedName contains Label
+    @FindBy(xpath = "//*[@id='CL_Breadcrumb']")
+    public WebElement submenuCLLeftClickedLabel;
 
-    public void assertCLGridPage(String clickedName) {
-        String displayName = driver.findElement(By.xpath("//*[@id='CL_Breadcrumb']")).getText();
+    public String regexPage(String pagetext) {
         Pattern pattern = Pattern.compile("/ ");
-        Matcher matcher = pattern.matcher(displayName);
-        Assert.assertTrue(clickedName.contains(matcher.replaceAll("")), "Not the CL Grid page !");
+        Matcher matcher = pattern.matcher(pagetext);
+        return matcher.replaceAll("");
     }
 
     @Override
