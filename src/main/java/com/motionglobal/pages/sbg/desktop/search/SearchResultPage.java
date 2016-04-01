@@ -1,7 +1,5 @@
 package com.motionglobal.pages.sbg.desktop.search;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,12 +12,6 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     // assert_element
     @FindBy(className = "rplp_brand")
     public WebElement rayPanEles;
-
-    // assert_element
-    @FindBy(className = "proCell_click")
-    public List<WebElement> sunTop100Eles;
-    @FindBy(className = "pho")
-    public List<WebElement> lenseDailyEles;
 
     public SearchResultPage() {
         super();
@@ -34,4 +26,5 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     public ResultGrid resultGrid() {
         return this.resultGrid;
     }
+
 }

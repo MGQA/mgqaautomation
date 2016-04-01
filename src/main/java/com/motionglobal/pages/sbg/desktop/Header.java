@@ -31,28 +31,29 @@ public class Header extends AbstractBasePage {
     public WebElement inputSearch;
     @FindBy(css = ".search_image i.fa-search")
     public WebElement iconSearch;
-    // Shop by Gender
-    @FindBy(xpath = "//ul[@id='menuN_level_1']/li/div/div[1]/ul[1]/li[1]/a")
-    public WebElement men;
-    @FindBy(xpath = "//ul[@id='menuN_level_1']/li/div/div[1]/ul[1]/li[2]/a")
-    public WebElement woMen;
-    @FindBy(xpath = "//ul[@id='menuN_level_1']/li/div/div[1]/ul[1]/li[3]/a")
-    public WebElement kid;
-
+    // Style of Glasses button
+    @FindBy(id = "buttonNext")
+    public WebElement styleNextButton;
+    @FindBy(id = "buttonPrevious")
+    public WebElement stylePrevious;
+    @FindBy(xpath = "//*[@id='show_result_page']/span")
+    public WebElement styleRecommend;
     // header list
+    @FindBy(xpath = "//*[@id='all_brand_for_contact_tab']/a/p")
+    public WebElement clViewAllBrands;
+    @FindBy(xpath = "//div[@class='center_contact_left']/div[2]/a")
+    public WebElement clDailyViewAll;
+    @FindBy(xpath = "//div[@class='shop_by_cont']/div[2]/div[2]/div[2]/a")
+    public WebElement lenseWeeksViewAll;
+    @FindBy(xpath = "//div[@class='shop_by_cont']/div[2]/div[2]/div[4]/a")
+    public WebElement clMonthlyViewAll;
+    //
+    @FindBy(xpath = "//*[@id='menuN_level_1']/li/div/div[1]/ul[1]/li[1]/a")
+    public WebElement men;
     @FindBy(xpath = "//div[@class='center_contact_left']/div[2]/a")
     public WebElement dailyglass;
     @FindBy(linkText = "Top100")
     public WebElement sunTop100;
-    @FindBy(xpath = "//*[@id='all_brand_for_contact_tab']/a/p")
-    public WebElement lenseViewAllBrands;
-    @FindBy(xpath = "//div[@class='center_contact_left']/div[2]/a")
-    public WebElement lenseDailyViewAll;
-    @FindBy(xpath = "//div[@class='shop_by_cont']/div[2]/div[2]/div[2]/a")
-    public WebElement lenseWeeksViewAll;
-    @FindBy(xpath = "//div[@class='shop_by_cont']/div[2]/div[2]/div[4]/a")
-    public WebElement lenseMonthlyViewAll;
-    //
     @FindBy(xpath = "//li[@id='signin_li_already']/a/span")
     public WebElement yourAccount;
     @FindBy(xpath = "//li[@id='signin_li_already']/div/div/p[2]/a")
@@ -74,7 +75,29 @@ public class Header extends AbstractBasePage {
     @FindBy(xpath = "//div[@id='favoriteDisplayDiv']/a/i")
     public WebElement favHeartButtonLink;
 
-    // element //mainMenuNum model index
+    // public get Element methods ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    public WebElement getMegaMenuMainElement(int mainMenuNum) {
+        return driver.findElement(By.xpath("//li[@id='menuN_" + mainMenuNum + "']/a"));
+    }
+
+    public WebElement getAllShapesElement(int mainMenuNum) {
+        return driver.findElement(By.xpath("//*[@id='menuN_level_" + mainMenuNum + "']/li/div/div[2]/div[2]/a"));
+    }
+
+    public WebElement getCLBrandsElement(int rowNum) {
+        return driver.findElement(By.xpath("//*[@id='all_brand_for_contact_list']/ul/li[" + rowNum + "]/a"));
+    }
+
+    public WebElement getLeftSubMenuElement(int mainMenuNum, int sectionNum, int rowNum) {
+        mouseOverMainMenu(mainMenuNum);
+        return driver.findElement(By.xpath("//ul[@id='menuN_level_" + mainMenuNum + "']/li/div/div[1]/ul[" + sectionNum + "]/li[" + rowNum + "]/a"));
+    }
+
+    public WebElement getMiddleSubmenuElement(int mainMenuNum, int model, int rowNum) {
+        mouseOverMainMenu(mainMenuNum);
+        return driver.findElement(By.xpath("//ul[@id='menuN_level_" + mainMenuNum + "']/li/div/div[2]/ul[" + model + "]/li[" + rowNum + "]/a"));
+    }
+
     /**
      * 
      * mainMenuNumber is 1 to 6;
@@ -83,7 +106,7 @@ public class Header extends AbstractBasePage {
      * @param brandLogoNum
      * @return
      */
-    private WebElement getMegaMenuBrandLogoImage(int mainMenuNum, int brandLogoNum) {
+    public WebElement getMegaMenuBrandLogoImage(int mainMenuNum, int brandLogoNum) {
         WebElement a = null;
         switch (mainMenuNum) {
         case 1:
@@ -117,7 +140,7 @@ public class Header extends AbstractBasePage {
      * @param rowNum
      * @return
      */
-    private WebElement getMegaMenuBrandsNameElement(int mainMenuNum, String firstLetter, int colNumber, int rowNum) {
+    public WebElement getMegaMenuBrandsNameElement(int mainMenuNum, String firstLetter, int colNumber, int rowNum) {
         WebElement ele = null;
         switch (mainMenuNum) {
         case 1:
@@ -135,6 +158,8 @@ public class Header extends AbstractBasePage {
         }
         return ele;
     }
+
+    // private get Element methods ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
 
     /**
      * mainMenuNumber is 1 & 2 & 4;
@@ -163,37 +188,52 @@ public class Header extends AbstractBasePage {
         // return driver.findElement(By.cssSelector("span[id^='sub_'][id$='_" + firstWorld + "_tab'] a"));
     }
 
-    public WebElement getMegaMenuMainElement(int mainMenuNum) {
-        return driver.findElement(By.xpath("//li[@id='menuN_" + mainMenuNum + "']/a"));
+    private WebElement getCLDailyElement(int rowNum) {
+        return driver.findElement(By.xpath("//ul[@id='menuN_level_5']/li/div/div[2]/div[1]/ul/li[" + rowNum + "]/a"));
     }
 
-    private WebElement getLeftSubmenuElement(int mainMenuNum, int sectionNum, int rowNum) {
-        return driver.findElement(By.xpath("//ul[@id='menuN_level_" + mainMenuNum + "']/li/div/div[1]/ul[" + sectionNum + "]/li[" + rowNum + "]/a"));
+    private WebElement getCLWeeklyElement(int rowNum) {
+        return driver.findElement(By.xpath("//ul[@id='menuN_level_5']/li/div/div[2]/div[2]/ul[1]/li[" + rowNum + "]/a"));
     }
 
-    private WebElement getMiddleSubmenuElement(int mainMenuNum, int model, int index) {// TODO
-        return driver.findElement(By.xpath("//ul[@id='menuN_level_" + mainMenuNum + "']/li/div/div[2]/ul[" + model + "]/li[" + index + "]/a"));
+    private WebElement getLenseMonthlyElement(int rowNum) {
+        return driver.findElement(By.xpath("//ul[@id='menuN_level_5']/li/div/div[2]/div[2]/ul[2]/li[" + rowNum + "]/a"));
     }
 
-    private WebElement getCLDailyElement(int index) {// TODO
-        return driver.findElement(By.xpath("//ul[@id='menuN_level_5']/li/div/div[2]/div[1]/ul/li[" + index + "]/a"));
-    }// *[@id='menuN_level_5']/li/div/div[2]/div[1]/ul/li[1]/a
-     // *[@id='menuN_level_5']/li/div/div[2]/div[1]/ul/li[2]/a
-
-    private WebElement getCLWeeklyElement(int index) {// TODO
-        return driver.findElement(By.xpath("//ul[@id='menuN_level_5']/li/div/div[2]/div[2]/ul[1]/li[" + index + "]/a"));
-    }// *[@id='menuN_level_5']/li/div/div[2]/div[2]/ul[1]/li[1]/a
-     // *[@id='menuN_level_5']/li/div/div[2]/div[2]/ul[1]/li[2]/a
-
-    private WebElement getLenseMonthlyElement(int index) {// TODO
-        return driver.findElement(By.xpath("//ul[@id='menuN_level_5']/li/div/div[2]/div[2]/ul[2]/li[" + index + "]/a"));
-    }// *[@id='menuN_level_5']/li/div/div[2]/div[2]/ul[2]/li[1]/a
-     // *[@id='menuN_level_5']/li/div/div[2]/div[2]/ul[2]/li[2]/a
-
-    public WebElement getAllShapesElement(int mainMenuNum) {
-        return driver.findElement(By.xpath("//*[@id='menuN_level_" + mainMenuNum + "']/li/div/div[2]/div[2]/a"));
+    // Glass Style ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    public WebElement getStyleUserGenderElement(int genderNum) {
+        return driver.findElement(By.xpath("//*[@id='step-1']/div[1]/div[" + genderNum + "]/h4"));
     }
 
+    public WebElement getStyleSunOrSportOrFrameElement(int typeNum) {
+        return driver.findElement(By.xpath("//*[@id='step-2']/div/div[" + typeNum + "]/div"));
+    }
+
+    public WebElement getStyleSportGlassStyleElement(int typeNum) {
+        return driver.findElement(By.xpath("//*[@id='step-3']/div/div[" + typeNum + "]/h4"));
+    }
+
+    public WebElement getStyleSunGlassStyleElement(int typeNum) {
+        return driver.findElement(By.xpath("//*[@id='step-4']/div/div[" + typeNum + "]/div"));
+    }
+
+    public WebElement getStyleFrameMaterialElement(int typeNum) {
+        return driver.findElement(By.xpath("//*[@id='step-5']/div/div[" + typeNum + "]/div"));
+    }
+
+    public WebElement getStyleFrameRimElement(int typeNum) {
+        return driver.findElement(By.xpath("//*[@id='step-6']/div/div[" + typeNum + "]/div"));
+    }
+
+    public WebElement getStyleFrameShapeElement(int typeNum) {
+        return driver.findElement(By.xpath("//*[@id='step-7']/div/div[" + typeNum + "]/h4"));
+    }
+
+    public WebElement getStyleFrameColorElement(int typeNum) {
+        return driver.findElement(By.xpath("//*[@id='step-8']/div[1]/div[" + typeNum + "]/img"));
+    }
+
+    // ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     public String[] countryIDs = new String[] { "74", "4", "41", "48", "6", "60", "66", "62", "51", "12", "23", "49", "39", "16", "73", "21", "56", "70", "61",
             "14", "7", "64", "42", "68", "57", "67", "40", "24", "18", "58", "22", "11", "1", "71", "8", "59", "5", "10", "9" };
 
@@ -227,6 +267,7 @@ public class Header extends AbstractBasePage {
 
     }
 
+    // click step methods ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     public void clickMiddleSubMenu(int mainMenuNum, int sectionNum, int rowNum) {
         mouseOverMainMenu(mainMenuNum);
         if (mainMenuNum < 5)
@@ -234,37 +275,61 @@ public class Header extends AbstractBasePage {
         else {
             switch (sectionNum) {
             case 1:
-                getCLDailyElement(rowNum);
+                getCLDailyElement(rowNum).click();
                 break;
             case 2:
-                getLenseMonthlyElement(rowNum);
+                getCLWeeklyElement(rowNum).click();
                 break;
             case 3:
-                getCLWeeklyElement(rowNum);
+                getLenseMonthlyElement(rowNum).click();
                 break;
             }
         }
     }
 
+    public void clickLeftSubMenu(int mainMenuNum, int sectionNum, int rowNum) {
+        mouseOverMainMenu(mainMenuNum);
+        getLeftSubMenuElement(mainMenuNum, sectionNum, rowNum).click();
+    }
+
+    public void clickGlassImg(int mainMenuNum, int rowNum) {
+        mouseOverMainMenu(mainMenuNum);
+        getMegaMenuBrandLogoImage(mainMenuNum, rowNum).click();
+    }
+
+    public void clickBrands(int mainMenuNum, String firstLetter, int col, int rowNum) {
+        mouseOverMainMenu(mainMenuNum);
+        mouseOver(getMegaMenuBrandInitialElement(mainMenuNum, firstLetter));
+        getMegaMenuBrandsNameElement(mainMenuNum, firstLetter, col, rowNum).click();
+    }
+
     public void mouseOverMainMenu(int mainMenuNum) throws Error {
-        this.mouseOver(getMegaMenuMainElement(mainMenuNum));
-        this.waitForVisibility(By.cssSelector("#menuN_" + mainMenuNum + " .current"), 1);
+        try {
+            Thread.sleep(300);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        mouseOver(getMegaMenuMainElement(mainMenuNum));
+        waitForVisibility(By.cssSelector("#menuN_" + mainMenuNum + " .current"), 2);
     }
 
-    public void clickLeftIndex(int mainMenuNum, int model, int index) {// TODO
-        mouseOverMainMenu(mainMenuNum);
-        getLeftSubmenuElement(mainMenuNum, model, index).click();
+    public void confirmPage(String initUrl) {
+        String laterUrl = driver.getCurrentUrl();
+        int i = 0;
+        while (initUrl.equalsIgnoreCase(laterUrl)) {
+            try {
+                Thread.sleep(200);
+                if (i == 9) {
+                    initUrl = "a";
+                    laterUrl = "a";
+                }
+            }
+            catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            laterUrl = driver.getCurrentUrl();
+            i++;
+        }
     }
-
-    public void clickLogo(int mainMenuNum, int index) {
-        mouseOverMainMenu(mainMenuNum);
-        getMegaMenuBrandLogoImage(mainMenuNum, index).click();
-    }
-
-    public void clickBrands(int mainMenuNum, String firstLetter, int col, int index) {
-        mouseOverMainMenu(mainMenuNum);
-        this.mouseOver(getMegaMenuBrandInitialElement(mainMenuNum, firstLetter));
-        getMegaMenuBrandsNameElement(mainMenuNum, firstLetter, col, index).click();
-    }
-
 }
