@@ -85,8 +85,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "acceptance", "au" })
     public void testSearchResultPage() {
-        driver.get(
-                "http://www.visiondirect.com.au/search?keywords=rayban&searchHashcode=1445407688101619#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]");
+        driver.get("http://www.visiondirect.com.au/search?keywords=rayban&searchHashcode=1445407688101619#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]");
         Header header = new Header();
         header.acceptAlert();
         SearchResultPage searchResultPage = new SearchResultPage();

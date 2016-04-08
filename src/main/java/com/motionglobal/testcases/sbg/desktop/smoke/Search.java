@@ -9,8 +9,18 @@ import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class Search extends AbstractBaseSbgDesktopTestCase {
+    @DataProvider
+    public Object[][] dp() {
+        return new Object[][] { new Object[] { "http://www.visiondirect.com.au" }, { "http://www.smartbuyglasses.co.uk" },
+                { "http://www.smartbuyglasses.com" }, { "http://www.smartbuyglasses.de" }, { "http://www.smartbuyglasses.ca" },
+                { "http://www.smartbuyglasses.com.hk" }, { "http://www.smartbuyglasses.se" }, { "http://www.smartbuyglasses.dk" },
+                { "http://www.smartbuyglasses.nl" }, { "http://www.smartbuyglasses.co.nz" } };
+    }
 
-    @Test(dataProvider = "dp")
+    // return new Object[][] { new Object[] { "http://www.smartbuyglasses.com" } };
+    // }
+
+    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void SearchTest(String url) {
         driver.get(url);
         // driver.navigate().refresh();
@@ -18,13 +28,14 @@ public class Search extends AbstractBaseSbgDesktopTestCase {
         header.inputSearch.sendKeys("ray ban");
         header.iconSearch.click();
         SearchResultPage resultPage = new SearchResultPage();
-        Assert.assertTrue(resultPage.rayPanEles.getText().contains("Ray-Ban"), "Expected Ray-ban displayed, but no");
-        // System.out.println(resultPage.rayPanEles.getText());
-    }
-
-    @DataProvider
-    public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://www.smartbuyglasses.com.hk/" }, };
+        String raybanBand = resultPage.resultGrid().getItem(0).getBrand();
+        Assert.assertTrue(raybanBand.contains("Ray-Ban"), "Expected Ray-ban displayed, but no");
+        header.logo.click();
+        // header.inputSearch.clear();
+        header.inputSearch.sendKeys("acuvue");
+        header.iconSearch.click();
+        String acuvueBand = resultPage.resultGrid().getItem(0).getBrand();
+        Assert.assertTrue(acuvueBand.contains("Acuvue"), "Expected acuvue displayed, but no");
     }
 
     @Override

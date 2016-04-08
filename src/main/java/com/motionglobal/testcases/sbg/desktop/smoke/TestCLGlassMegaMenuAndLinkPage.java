@@ -1,6 +1,6 @@
 package com.motionglobal.testcases.sbg.desktop.smoke;
 
-import org.junit.Assert;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -27,7 +27,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
     // return new Object[][] { new Object[] { "http://www.smartbuyglasses.com" } };
     // }
 
-    @Test(dataProvider = "dp", groups = "debug")
+    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subLeftMenuSectionNum1(String url) {
         driver.get(url);
         Header header = new Header();
@@ -39,21 +39,21 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         header.clickLeftSubMenu(5, 1, 1);
         String url1 = header.getURL();
         CLProductGridPage clProductGridPage = new CLProductGridPage();
-        Assert.assertTrue(spherical.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
+        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(1).getText(), spherical);
         header.clickLeftSubMenu(5, 1, 2);
         String url2 = header.getURL();
         header.confirmPage(url1);
-        Assert.assertTrue(toric.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
+        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(2).getText(), toric);
         header.clickLeftSubMenu(5, 1, 3);
         String url3 = header.getURL();
         header.confirmPage(url2);
-        Assert.assertTrue(multifocal.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
+        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(3).getText(), multifocal);
         header.clickLeftSubMenu(5, 1, 4);
         header.confirmPage(url3);
-        Assert.assertTrue(aspherical.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
+        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(4).getText(), aspherical);
     }
 
-    @Test(dataProvider = "dp", groups = "debug")
+    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subLeftMenuSectionNum2(String url) {
         driver.get(url);
         Header header = new Header();
@@ -64,17 +64,17 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         header.clickLeftSubMenu(5, 2, 1);
         String url1 = header.getURL();
         CLProductGridPage clProductGridPage = new CLProductGridPage();
-        Assert.assertTrue(extendedWear.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
+        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(1).getText(), extendedWear);
         header.clickLeftSubMenu(5, 2, 2);
         String url2 = header.getURL();
         header.confirmPage(url1);
-        Assert.assertTrue(siliconeHydrogel.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
+        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(2).getText(), siliconeHydrogel);
         header.clickLeftSubMenu(5, 2, 3);
         header.confirmPage(url2);
-        Assert.assertTrue(coloured.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
+        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(3).getText(), coloured);
     }
 
-    @Test(dataProvider = "dp", groups = "debug")
+    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subLeftMenuSectionNum3(String url) {
         driver.get(url);
         Header header = new Header();
@@ -86,21 +86,21 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         header.clickLeftSubMenu(5, 3, 1);
         String url1 = header.getURL();
         CLProductGridPage clProductGridPage = new CLProductGridPage();
-        Assert.assertTrue(bausch.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
+        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel3(1).getText(), bausch);
         header.clickLeftSubMenu(5, 3, 2);
         String url2 = header.getURL();
         header.confirmPage(url1);
-        Assert.assertTrue(ciba.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
+        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel3(2).getText(), ciba);
         header.clickLeftSubMenu(5, 3, 3);
         String url3 = header.getURL();
         header.confirmPage(url2);
-        Assert.assertTrue(coopervision.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
+        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel3(3).getText(), coopervision);
         header.clickLeftSubMenu(5, 3, 4);
         header.confirmPage(url3);
-        Assert.assertTrue(johnson.contains(clProductGridPage.regexPage(clProductGridPage.submenuCLLeftClickedLabel.getText())));
+        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel3(4).getText(), johnson);
     }
 
-    @Test(dataProvider = "dp", groups = "debug0")
+    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum1(String url) {
         driver.get(url);
         Header header = new Header();
@@ -112,29 +112,33 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         Assert.assertTrue(id.contains("information"));
         header.clickMiddleSubMenu(5, 1, 3);
         Assert.assertTrue(id.contains("information"));
-        header.clickMiddleSubMenu(5, 1, 4);
-        Assert.assertTrue(id.contains("information"));
-        header.clickMiddleSubMenu(5, 1, 5);
-        Assert.assertTrue(id.contains("information"));
-        header.clickMiddleSubMenu(5, 1, 6);
-        Assert.assertTrue(id.contains("information"));
-        header.clickMiddleSubMenu(5, 1, 7);
-        Assert.assertTrue(id.contains("information"));
-        header.clickMiddleSubMenu(5, 1, 8);
-        Assert.assertTrue(id.contains("information"));
-        header.clickMiddleSubMenu(5, 1, 9);
-        Assert.assertTrue(id.contains("information"));
-        header.clickMiddleSubMenu(5, 1, 10);
-        Assert.assertTrue(id.contains("information"));
-        header.clickMiddleSubMenu(5, 1, 11);
-        Assert.assertTrue(id.contains("information"));
-        header.clickMiddleSubMenu(5, 1, 12);
-        Assert.assertTrue(id.contains("information"));
-        header.clickMiddleSubMenu(5, 1, 13);
-        Assert.assertTrue(id.contains("information"));
+        if (!(url.equals("http://www.smartbuyglasses.com.hk"))) {
+            header.clickMiddleSubMenu(5, 1, 4);
+            Assert.assertTrue(id.contains("information"));
+            header.clickMiddleSubMenu(5, 1, 5);
+            Assert.assertTrue(id.contains("information"));
+            header.clickMiddleSubMenu(5, 1, 6);
+            Assert.assertTrue(id.contains("information"));
+            header.clickMiddleSubMenu(5, 1, 7);
+            Assert.assertTrue(id.contains("information"));
+            header.clickMiddleSubMenu(5, 1, 8);
+            Assert.assertTrue(id.contains("information"));
+            header.clickMiddleSubMenu(5, 1, 9);
+            Assert.assertTrue(id.contains("information"));
+            header.clickMiddleSubMenu(5, 1, 10);
+            Assert.assertTrue(id.contains("information"));
+            header.clickMiddleSubMenu(5, 1, 11);
+            Assert.assertTrue(id.contains("information"));
+            header.clickMiddleSubMenu(5, 1, 12);
+            Assert.assertTrue(id.contains("information"));
+            if (!(url.equals("http://www.smartbuyglasses.co.nz"))) {
+                header.clickMiddleSubMenu(5, 1, 13);
+                Assert.assertTrue(id.contains("information"));
+            }
+        }
     }
 
-    @Test(dataProvider = "dp", groups = "debug")
+    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum2(String url) {
         driver.get(url);
         Header header = new Header();
@@ -144,17 +148,24 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         Assert.assertTrue(id.contains("information"));
         header.clickMiddleSubMenu(5, 2, 2);
         Assert.assertTrue(id.contains("information"));
-        header.clickMiddleSubMenu(5, 2, 3);
-        Assert.assertTrue(id.contains("information"));
-        header.clickMiddleSubMenu(5, 2, 4);
-        Assert.assertTrue(id.contains("information"));
-        header.clickMiddleSubMenu(5, 2, 5);
-        Assert.assertTrue(id.contains("information"));
-        header.clickMiddleSubMenu(5, 2, 6);
-        Assert.assertTrue(id.contains("information"));
+        if (!(url.equals("http://www.smartbuyglasses.com.hk") | url.equals("http://www.smartbuyglasses.se"))) {
+            header.clickMiddleSubMenu(5, 2, 3);
+            Assert.assertTrue(id.contains("information"));
+            if (!(url.equals("http://www.smartbuyglasses.dk"))) {
+                header.clickMiddleSubMenu(5, 2, 4);
+                Assert.assertTrue(id.contains("information"));
+                if (!(url.equals("http://www.smartbuyglasses.co.uk") | url.equals("http://www.smartbuyglasses.de") | url
+                        .equals("http://www.smartbuyglasses.nl"))) {
+                    header.clickMiddleSubMenu(5, 2, 5);
+                    Assert.assertTrue(id.contains("information"));
+                    header.clickMiddleSubMenu(5, 2, 6);
+                    Assert.assertTrue(id.contains("information"));
+                }
+            }
+        }
     }
 
-    @Test(dataProvider = "dp", groups = "debug")
+    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum3(String url) {
         driver.get(url);
         Header header = new Header();
@@ -164,13 +175,15 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         Assert.assertTrue(id.contains("information"));
         header.clickMiddleSubMenu(5, 3, 2);
         Assert.assertTrue(id.contains("information"));
-        header.clickMiddleSubMenu(5, 3, 3);
-        Assert.assertTrue(id.contains("information"));
-        header.clickMiddleSubMenu(5, 3, 4);
-        Assert.assertTrue(id.contains("information"));
+        if (!(url.equals("http://www.smartbuyglasses.com.hk"))) {
+            header.clickMiddleSubMenu(5, 3, 3);
+            Assert.assertTrue(id.contains("information"));
+            header.clickMiddleSubMenu(5, 3, 4);
+            Assert.assertTrue(id.contains("information"));
+        }
     }
 
-    @Test(dataProvider = "dp", groups = "debug")
+    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subRightMenu(String url) {
         driver.get(url);
         Header header = new Header();

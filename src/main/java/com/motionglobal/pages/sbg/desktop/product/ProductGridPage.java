@@ -11,31 +11,60 @@ import org.openqa.selenium.support.FindBy;
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class ProductGridPage extends AbstractBaseSbgDesktopPage {
+    @FindBy(xpath = "//*[@id='suspend_product_image']/div[2]/div[2]/div[7]/a[2]/span")
+    public WebElement buyNowButton;
+    // List WebElement
+    @FindBy(className = "quick_view_text")
+    public WebElement quickView;
+    @FindBy(className = "recProInfo")
+    public List<WebElement> proInfo;
+    @FindBy(xpath = "//div[@class='pro_right_size']/a")
+    public List<WebElement> eyeproSize;
+    @FindBy(css = "label.clearfix")
+    public List<WebElement> frameOrAdd;
 
     // assert_element！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     @FindBy(className = "proCell_click")
     public List<WebElement> sunTop100Eles;
-    @FindBy(className = "pho")
-    public List<WebElement> lenseDailyEles;
-    // subMenu clicked page label// Label contains click
-    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]")
-    public WebElement submenuGenderClickedLabel;
-    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]")
-    public WebElement submenuMaterialClickedLabel;
-    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]")
-    public WebElement submenuMidClickedLabel;
-    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]")
-    public WebElement submenuCategoryPrescriptionClickedLabel;
-    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]")
-    public WebElement submenuCategoryPolarizedClickedLabel;
+    @FindBy(className = "size_s_bor")
+    public WebElement sizeClicked;
+    @FindBy(className = "on")
+    public WebElement frameOrAddClicked;
 
-    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[1]/a")
-    public WebElement submenuCategorySportsClickedLabel;
-    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[1]/a")
-    public WebElement submenuBrandsClickedLabel;
-    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]/a")
-    public WebElement submenuSkiClickedLabel;
+    public enum Label {
+        gender, material, mid, pre, polarized, sports, brands, ski;
+    }
 
+    public WebElement submenuPageLabelElement(Label label) {
+        WebElement element = null;
+        switch (label) {
+        case gender:
+        case material:
+        case mid:
+        case pre:
+        case polarized:
+            element = driver.findElement(By.xpath("//*[@id='wrapper']/div[4]/div[2]/span[2]"));
+            break;
+        case sports:
+            element = driver.findElement(By.xpath("//*[@id='wrapper']/div[4]/div[2]/span[1]/a"));
+            break;
+        case brands:
+        case ski:
+            element = driver.findElement(By.xpath("//*[@id='wrapper']/div[4]/div[2]/span[2]/a"));
+            break;
+        default:
+            System.out.println("_ don't right page !_");
+            break;
+        }
+        return element;
+    }
+
+    /**
+     * ~ change - of price
+     * 
+     * @param pagetext
+     * @return
+     */
     public String regexPage(String pagetext) {
         Pattern pattern = Pattern.compile("~");
         Matcher matcher = pattern.matcher(pagetext);

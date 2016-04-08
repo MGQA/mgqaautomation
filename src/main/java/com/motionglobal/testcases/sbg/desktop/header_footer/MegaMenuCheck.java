@@ -10,7 +10,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class MegaMenuCheck extends AbstractBaseSbgDesktopTestCase {
 
-    @Test(groups = "smoke")
+    @Test(groups = { "smoke", "debug" })
     public void mencheck() {
         driver.get("http://www.smartbuyglasses.com/");
         HomePage homepage = new HomePage();

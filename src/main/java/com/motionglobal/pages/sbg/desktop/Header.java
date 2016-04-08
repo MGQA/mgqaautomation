@@ -3,10 +3,8 @@ package com.motionglobal.pages.sbg.desktop;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
 
 import com.motionglobal.pages.AbstractBasePage;
-import com.motionglobal.pages.sbg.desktop.home.HomePage;
 
 public class Header extends AbstractBasePage {
     @FindBy(id = "logo")
@@ -17,7 +15,7 @@ public class Header extends AbstractBasePage {
     @FindBy(xpath = "//li[@id='signin_li']/a/span")
     public WebElement loginlable;
     // after moveover heard login links
-    @FindBy(xpath = "//li[@id='signin_li']/div/div/span/a")
+    @FindBy(xpath = "//li[@id='signin_li']//span/a")
     public WebElement signin;
     // after press login button : Loginin new Windows
     @FindBy(xpath = "//form[@id='loginFormNew']/span")
@@ -70,7 +68,7 @@ public class Header extends AbstractBasePage {
     public WebElement referAFriend;
     @FindBy(id = "by_email_btn")
     public WebElement shareByEmail;
-    @FindBy(className = "newhead_banner_english")
+    @FindBy(xpath = "//div[@class='inf_cnt'][2]/div/p[1]/a")
     public WebElement optical_center;
     @FindBy(xpath = "//div[@id='favoriteDisplayDiv']/a/i")
     public WebElement favHeartButtonLink;
@@ -89,12 +87,10 @@ public class Header extends AbstractBasePage {
     }
 
     public WebElement getLeftSubMenuElement(int mainMenuNum, int sectionNum, int rowNum) {
-        mouseOverMainMenu(mainMenuNum);
         return driver.findElement(By.xpath("//ul[@id='menuN_level_" + mainMenuNum + "']/li/div/div[1]/ul[" + sectionNum + "]/li[" + rowNum + "]/a"));
     }
 
     public WebElement getMiddleSubmenuElement(int mainMenuNum, int model, int rowNum) {
-        mouseOverMainMenu(mainMenuNum);
         return driver.findElement(By.xpath("//ul[@id='menuN_level_" + mainMenuNum + "']/li/div/div[2]/ul[" + model + "]/li[" + rowNum + "]/a"));
     }
 
@@ -159,8 +155,6 @@ public class Header extends AbstractBasePage {
         return ele;
     }
 
-    // private get Element methods ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-
     /**
      * mainMenuNumber is 1 & 2 & 4;
      * 
@@ -168,7 +162,7 @@ public class Header extends AbstractBasePage {
      * @param firstLetter
      * @return
      */
-    private WebElement getMegaMenuBrandInitialElement(int mainMenuNum, String firstLetter) {
+    public WebElement getMegaMenuBrandInitialElement(int mainMenuNum, String firstLetter) {
         WebElement ele = null;
         switch (mainMenuNum) {
         case 1:
@@ -187,6 +181,8 @@ public class Header extends AbstractBasePage {
         return ele;
         // return driver.findElement(By.cssSelector("span[id^='sub_'][id$='_" + firstWorld + "_tab'] a"));
     }
+
+    // private get Element methods ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
 
     private WebElement getCLDailyElement(int rowNum) {
         return driver.findElement(By.xpath("//ul[@id='menuN_level_5']/li/div/div[2]/div[1]/ul/li[" + rowNum + "]/a"));
@@ -233,34 +229,6 @@ public class Header extends AbstractBasePage {
         return driver.findElement(By.xpath("//*[@id='step-8']/div[1]/div[" + typeNum + "]/img"));
     }
 
-    // ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-    public String[] countryIDs = new String[] { "74", "4", "41", "48", "6", "60", "66", "62", "51", "12", "23", "49", "39", "16", "73", "21", "56", "70", "61",
-            "14", "7", "64", "42", "68", "57", "67", "40", "24", "18", "58", "22", "11", "1", "71", "8", "59", "5", "10", "9" };
-
-    public String getCountryIcon() {
-        return null;
-    }
-
-    public String getCurrentLanguage() {
-        return driver.findElement(By.cssSelector("#header_lang_select .country-name")).getText();
-    }
-
-    public HomePage selectCountryLanguageByIndex(String countryValue, int languageIndex) {
-        driver.findElement(By.id("header_lang_select")).click();
-        WebElement countrySelect = driver.findElement(By.cssSelector(".select-country select.country-select"));
-        countrySelect.click();
-        Select selCountry = new Select(countrySelect);
-        selCountry.selectByValue(countryValue);
-
-        // WebElement languageSelect = driver.findElement(By.cssSelector(".select-country select.language-select"));
-        // languageSelect.click();
-        // Select selLanguage = new Select(languageSelect);
-        // selLanguage.selectByIndex(languageIndex);
-
-        driver.findElement(By.cssSelector(".select-country .btn")).click();
-        return new HomePage();
-    }
-
     @Override
     protected void waitPageLoad() {
         // TODO Auto-generated method stub
@@ -304,14 +272,19 @@ public class Header extends AbstractBasePage {
     }
 
     public void mouseOverMainMenu(int mainMenuNum) throws Error {
+        if (mainMenuNum == 2)
+            mouseOver(getMegaMenuMainElement(1));
+        else
+            mouseOver(getMegaMenuMainElement(2));
+
+        mouseOver(getMegaMenuMainElement(mainMenuNum));
+        waitForVisibility(By.cssSelector("#menuN_" + mainMenuNum + " .current"), 2);
         try {
-            Thread.sleep(300);
+            Thread.sleep(100);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
         }
-        mouseOver(getMegaMenuMainElement(mainMenuNum));
-        waitForVisibility(By.cssSelector("#menuN_" + mainMenuNum + " .current"), 2);
     }
 
     public void confirmPage(String initUrl) {

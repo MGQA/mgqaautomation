@@ -14,6 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -61,6 +62,10 @@ public class InitializeUtility {
         case "chrome":
             System.setProperty("webdriver.chrome.driver", CONFIG.getProperty(browser));
             driver = new ChromeDriver();
+
+            break;
+        case "html":
+            driver = new HtmlUnitDriver();
 
             break;
         default:
