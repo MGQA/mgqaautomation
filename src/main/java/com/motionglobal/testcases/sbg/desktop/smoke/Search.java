@@ -21,19 +21,23 @@ public class Search extends AbstractBaseSbgDesktopTestCase {
     // }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
-    public void SearchTest(String url) {
+    public void TestSearchRayBan(String url) {
         driver.get(url);
-        // driver.navigate().refresh();
         Header header = new Header();
         header.inputSearch.sendKeys("ray ban");
         header.iconSearch.click();
         SearchResultPage resultPage = new SearchResultPage();
         String raybanBand = resultPage.resultGrid().getItem(0).getBrand();
         Assert.assertTrue(raybanBand.contains("Ray-Ban"), "Expected Ray-ban displayed, but no");
-        header.logo.click();
-        // header.inputSearch.clear();
+    }
+
+    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    public void TestSearchLC(String url) {
+        driver.get(url);
+        Header header = new Header();
         header.inputSearch.sendKeys("acuvue");
         header.iconSearch.click();
+        SearchResultPage resultPage = new SearchResultPage();
         String acuvueBand = resultPage.resultGrid().getItem(0).getBrand();
         Assert.assertTrue(acuvueBand.contains("Acuvue"), "Expected acuvue displayed, but no");
     }

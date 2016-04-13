@@ -8,7 +8,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class TestLanguageChange extends AbstractBaseSbgDesktopTestCase {
 
-    @Test(groups = { "smoke", "" })
+    @Test(groups = { "smoke", "debug" })
     public void testSunGlassesHeaderMenus() {
         logger().info("started...");
         driver.get("http://www.smartbuyglasses.com/");
@@ -16,10 +16,9 @@ public class TestLanguageChange extends AbstractBaseSbgDesktopTestCase {
         for (String value : language.countryIDs) {
             language.selectCountryLanguageByIndex(value, 0);
             Assert.assertArrayEquals(language.countryIDs, language.getCountryIDs());
-            p(language.languageSelect);
+            // p(language.languageSelect);
             logger().info(language.getCurrentLanguage());
         }
-
         // p(driver.findElements(By.cssSelector("select.country-select option")));
     }
 

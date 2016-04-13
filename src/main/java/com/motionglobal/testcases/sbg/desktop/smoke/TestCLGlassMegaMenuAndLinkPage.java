@@ -24,7 +24,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
                 { "http://www.smartbuyglasses.nl" }, { "http://www.smartbuyglasses.co.nz" } };
     }
 
-    // return new Object[][] { new Object[] { "http://www.smartbuyglasses.com" } };
+    // return new Object[][] { new Object[] { "http://www.smartbuyglasses.nl" } };
     // }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
@@ -32,6 +32,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(5);
+        header.waitForVisibility(header.getLeftSubMenuElement(5, 1, 1), 2);
         String spherical = header.getLeftSubMenuElement(5, 1, 1).getText();
         String toric = header.getLeftSubMenuElement(5, 1, 2).getText();
         String multifocal = header.getLeftSubMenuElement(5, 1, 3).getText();
@@ -50,7 +51,11 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(3).getText(), multifocal);
         header.clickLeftSubMenu(5, 1, 4);
         header.confirmPage(url3);
-        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(4).getText(), aspherical);
+        if (!(url.equals("http://www.smartbuyglasses.dk")))
+            Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(4).getText(), aspherical);
+        else
+            Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(4).getText(), "Asfæriske");
+
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
@@ -58,17 +63,24 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(5);
+        header.waitForVisibility(header.getLeftSubMenuElement(5, 2, 1), 2);
         String extendedWear = header.getLeftSubMenuElement(5, 2, 1).getText();
         String siliconeHydrogel = header.getLeftSubMenuElement(5, 2, 2).getText();
         String coloured = header.getLeftSubMenuElement(5, 2, 3).getText();
         header.clickLeftSubMenu(5, 2, 1);
         String url1 = header.getURL();
         CLProductGridPage clProductGridPage = new CLProductGridPage();
-        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(1).getText(), extendedWear);
+        if (!(url.equals("http://www.smartbuyglasses.dk")))
+            Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(1).getText(), extendedWear);
+        else
+            Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(1).getText(), "Langtidsbrug");
         header.clickLeftSubMenu(5, 2, 2);
         String url2 = header.getURL();
         header.confirmPage(url1);
-        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(2).getText(), siliconeHydrogel);
+        if (!(url.equals("http://www.smartbuyglasses.dk")))
+            Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(2).getText(), siliconeHydrogel);
+        else
+            Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(2).getText(), "Silikone Hydrogel");
         header.clickLeftSubMenu(5, 2, 3);
         header.confirmPage(url2);
         Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(3).getText(), coloured);
@@ -79,6 +91,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(5);
+        header.waitForVisibility(header.getLeftSubMenuElement(5, 3, 1), 2);
         String bausch = header.getLeftSubMenuElement(5, 3, 1).getText();
         String ciba = header.getLeftSubMenuElement(5, 3, 2).getText();
         String coopervision = header.getLeftSubMenuElement(5, 3, 3).getText();

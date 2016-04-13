@@ -25,7 +25,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
                 { "http://www.smartbuyglasses.nl" }, { "http://www.smartbuyglasses.co.nz" }, { "http://www.smartbuyglasses.cn" } };
     }
 
-    // return new Object[][] { new Object[] { "http://www.smartbuyglasses.com" } };
+    // return new Object[][] { new Object[] { "http://www.smartbuyglasses.nl" } };
     // }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
@@ -33,6 +33,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(1);
+        header.waitForVisibility(header.getLeftSubMenuElement(1, 1, 1), 2);
         String men = header.getLeftSubMenuElement(1, 1, 1).getText();
         String women = header.getLeftSubMenuElement(1, 1, 2).getText();
         String kid = header.getLeftSubMenuElement(1, 1, 3).getText();
@@ -64,6 +65,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         // header.styleNextButton.click();
         // header.getStyleFrameColorElement(5).click();
         // header.styleRecommend.click();
+        // header.waitForVisibility(header.getLeftSubMenuElement(1, 2, 2), 10);
         if (!(url.equals("http://www.smartbuyglasses.cn"))) {
             header.clickLeftSubMenu(1, 2, 2);
             VirtualPage virtualPage = new VirtualPage();
@@ -86,22 +88,71 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(1);
+        header.waitForVisibility(header.getLeftSubMenuElement(1, 3, 1), 2);
         String prescription = header.getLeftSubMenuElement(1, 3, 1).getText();
         String polarized = header.getLeftSubMenuElement(1, 3, 2).getText();
         String sports = header.getLeftSubMenuElement(1, 3, 3).getText();
         String skiGoggles = header.getLeftSubMenuElement(1, 3, 4).getText();
         header.clickLeftSubMenu(1, 3, 1);
         ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.pre).getText().contains(prescription), "Page disagree");
+        //
+        if (!(url.equals("http://www.smartbuyglasses.de") | url.equals("http://www.smartbuyglasses.dk") | url.equals("http://www.smartbuyglasses.se")
+                | url.equals("http://www.smartbuyglasses.cn") | url.equals("http://www.smartbuyglasses.nl")))
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.pre).getText(), prescription);
+        else {
+            switch (url) {
+            case "http://www.smartbuyglasses.de":
+                Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.pre).getText(), "Verschreibung");
+                break;
+            case "http://www.smartbuyglasses.dk":
+                Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.pre).getText(), "Med styrke");
+                break;
+            case "http://www.smartbuyglasses.se":
+                Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.pre).getText(), "Receptbelagda");
+                break;
+            case "http://www.smartbuyglasses.nl":
+                Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.pre).getText(), "Op Sterkte");
+                break;
+            case "http://www.smartbuyglasses.cn":
+                Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.pre).getText(), "度数处方");
+                break;
+            default:
+                break;
+            }
+        }
         header.clickLeftSubMenu(1, 3, 2);
         String url1 = header.getURL();
-        Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.polarized).getText().contains(polarized), "Page disagree");
+        if (!(url.equals("http://www.smartbuyglasses.se") | url.equals("http://www.smartbuyglasses.co.nz") | url.equals("http://www.smartbuyglasses.co.uk") | url
+                .equals("http://www.smartbuyglasses.cn")))
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.polarized).getText(), polarized);
+        else {
+            switch (url) {
+            case "http://www.smartbuyglasses.cn":
+                Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.polarized).getText(), "偏光系列");
+                break;
+            case "http://www.smartbuyglasses.se":
+                Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.polarized).getText(), "Polariserade");
+                break;
+            case "http://www.smartbuyglasses.co.nz":
+                Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.polarized).getText(), "Polarized");
+                break;
+            case "http://www.smartbuyglasses.co.uk":
+                Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.polarized).getText(), "Polarised");
+                break;
+            default:
+                break;
+            }
+        }
         header.clickLeftSubMenu(1, 3, 3);
         String url2 = header.getURL();
+        if (!(url.equals("http://www.smartbuyglasses.com.hk")))
+            Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.sports).getText().contains(sports));
+        else
+            Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.sports).getText().contains("運動專用太陽眼鏡"));
         header.confirmPage(url1);
         header.clickLeftSubMenu(1, 3, 4);
         header.confirmPage(url2);
-        Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.ski).getText().contains(skiGoggles), "Page disagree");
+        Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.ski).getText().contains(skiGoggles), "mismatch ski page");
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
@@ -109,6 +160,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(1);
+        header.waitForVisibility(header.getMiddleSubmenuElement(1, 1, 1), 2);
         String pilot = header.getMiddleSubmenuElement(1, 1, 1).getText();
         String square = header.getMiddleSubmenuElement(1, 1, 2).getText();
         String rectangle = header.getMiddleSubmenuElement(1, 1, 3).getText();
@@ -132,7 +184,10 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), oversized);
         header.clickMiddleSubMenu(1, 1, 5);
         header.confirmPage(url4);
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), singleLens);
+        if (!(url.equals("http://www.smartbuyglasses.nl")))
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), singleLens);
+        else
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), "Enkele Lens");
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
@@ -140,10 +195,10 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(1);
+        header.waitForVisibility(header.getMiddleSubmenuElement(1, 2, 1), 2);
         String price1 = header.getMiddleSubmenuElement(1, 2, 1).getText();
         String price2 = header.getMiddleSubmenuElement(1, 2, 2).getText();
         String price3 = header.getMiddleSubmenuElement(1, 2, 3).getText();
-        String price4 = header.getMiddleSubmenuElement(1, 2, 4).getText();
         header.clickMiddleSubMenu(1, 2, 1);
         String url1 = header.getURL();
         ProductGridPage productGridPage = new ProductGridPage();
@@ -156,6 +211,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         header.confirmPage(url2);
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), productGridPage.regexPage(price3));
         header.clickMiddleSubMenu(1, 2, 4);
+        Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.mid).getText().contains("999"));
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })

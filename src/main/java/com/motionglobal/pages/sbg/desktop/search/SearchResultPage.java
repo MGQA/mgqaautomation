@@ -15,6 +15,8 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     public WebElement quickView;
     @FindBy(xpath = "//*[@id='suspend_product_image']/div[2]/div[2]/div[7]/a[2]/span")
     public WebElement buyNowButton;
+    @FindBy(className = "detail_link")
+    public WebElement detailBtn;
     // List WebElement
     @FindBy(className = "recProInfo")
     public List<WebElement> proInfo;
@@ -29,19 +31,42 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     public WebElement sizeClicked;
     @FindBy(className = "on")
     public WebElement frameOrAddClicked;
+    @FindBy(xpath = "//input[contains(@onclick,'Bebe')]")
+    public WebElement BebeBrank;
+    @FindBy(className = "srg_number")
+    public WebElement brankNum;
 
     public SearchResultPage() {
         super();
         this.resultGrid = new ResultGrid();
     }
 
-    @Override
-    protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".s_r_product_number"), 40);
-    }
-
     public ResultGrid resultGrid() {
         return this.resultGrid;
     }
 
+    public void waitPage(String beforeBrankName) {
+        for (int i = 0; i < 50; i++) {
+            String newBrankName = brankNum.getText();
+            if (beforeBrankName.equals(newBrankName)) {
+                try {
+                    Thread.sleep(100);
+                }
+                catch (InterruptedException e) {
+                }
+            }
+            else
+                break;
+        }
+        try {
+            Thread.sleep(500);
+        }
+        catch (Exception e) {
+        }
+    }
+
+    @Override
+    protected void waitPageLoad() {
+        waitForVisibility(By.cssSelector(".s_r_product_number"), 40);
+    }
 }

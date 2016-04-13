@@ -7,8 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import com.motionglobal.pages.AbstractBasePage;
 
 public class Header extends AbstractBasePage {
+    //
     @FindBy(id = "logo")
     public WebElement logo;
+    @FindBy(id = "mini_cart_items_total")
+    public WebElement cartProductNum;
     @FindBy(xpath = "//div[@id='cart']/a/i")
     public WebElement cartBox;
     // heard login link

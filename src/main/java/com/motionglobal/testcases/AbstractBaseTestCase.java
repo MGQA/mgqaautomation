@@ -1,13 +1,11 @@
 package com.motionglobal.testcases;
 
 import java.util.Iterator;
-import java.util.List;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
@@ -127,9 +125,9 @@ public abstract class AbstractBaseTestCase {
         System.out.println(str);
     }
 
-    protected void p(List<WebElement> list) {
-        for (WebElement s : list) {
-            System.out.println(s.getAttribute("value"));
-        }
-    }
+    // protected void p(List<WebElement> list) {
+    // for (WebElement s : list) {
+    // System.out.println(s.getAttribute("value"));
+    // }
+    // }
 }

@@ -25,7 +25,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
                 { "http://www.smartbuyglasses.nl" }, { "http://www.smartbuyglasses.co.nz" }, { "http://www.smartbuyglasses.cn" } };
     }
 
-    // return new Object[][] { new Object[] { "http://www.smartbuyglasses.com" } };
+    // return new Object[][] { new Object[] { "http://www.smartbuyglasses.se" } };
     // }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
@@ -33,6 +33,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(2);
+        header.waitForVisibility(header.getLeftSubMenuElement(2, 1, 1), 2);
         String men = header.getLeftSubMenuElement(2, 1, 1).getText();
         String women = header.getLeftSubMenuElement(2, 1, 2).getText();
         String kid = header.getLeftSubMenuElement(2, 1, 3).getText();
@@ -65,6 +66,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         // header.styleNextButton.click();
         // header.getStyleFrameColorElement(5).click();
         // header.styleRecommend.click();
+        // header.waitForVisibility(header.getLeftSubMenuElement(1, 2, 2), 10);
         if (!(url.equals("http://www.smartbuyglasses.cn"))) {
             header.clickLeftSubMenu(2, 2, 2);
             VirtualPage virtualPage = new VirtualPage();
@@ -89,6 +91,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(2);
+        header.waitForVisibility(header.getLeftSubMenuElement(2, 3, 1), 2);
         String plastic = header.getLeftSubMenuElement(2, 3, 1).getText();
         String metal = header.getLeftSubMenuElement(2, 3, 2).getText();
         String titanium = header.getLeftSubMenuElement(2, 3, 3).getText();
@@ -110,6 +113,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(2);
+        header.waitForVisibility(header.getMiddleSubmenuElement(2, 1, 1), 2);
         String pilot = header.getMiddleSubmenuElement(2, 1, 1).getText();
         String square = header.getMiddleSubmenuElement(2, 1, 2).getText();
         String oval = header.getMiddleSubmenuElement(2, 1, 3).getText();
@@ -138,17 +142,26 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(2);
+        header.waitForVisibility(header.getMiddleSubmenuElement(2, 2, 1), 2);
         String fullRim = header.getMiddleSubmenuElement(2, 2, 1).getText();
         String semiRim = header.getMiddleSubmenuElement(2, 2, 2).getText();
         String rimless = header.getMiddleSubmenuElement(2, 2, 3).getText();
         header.clickMiddleSubMenu(2, 2, 1);
         String url1 = header.getURL();
         ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), fullRim);
+        if (!(url.equals("http://www.smartbuyglasses.nl") | url.equals("http://www.smartbuyglasses.se")))
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), fullRim);
+        if (url.equals("http://www.smartbuyglasses.nl"))
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), "Volledig Omrand");
+        if (url.equals("http://www.smartbuyglasses.se"))
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), "Hel ram");
         header.clickMiddleSubMenu(2, 2, 2);
         String url2 = header.getURL();
         header.confirmPage(url1);
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), semiRim);
+        if (!(url.equals("http://www.smartbuyglasses.se")))
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), semiRim);
+        else
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), "Delvis ramlös");
         header.clickMiddleSubMenu(2, 2, 3);
         header.confirmPage(url2);
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), rimless);
@@ -159,10 +172,10 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(2);
+        header.waitForVisibility(header.getMiddleSubmenuElement(2, 3, 1), 2);
         String price1 = header.getMiddleSubmenuElement(2, 3, 1).getText();
         String price2 = header.getMiddleSubmenuElement(2, 3, 2).getText();
         String price3 = header.getMiddleSubmenuElement(2, 3, 3).getText();
-        String price4 = header.getMiddleSubmenuElement(2, 3, 4).getText();
         header.clickMiddleSubMenu(2, 3, 1);
         String url1 = header.getURL();
         ProductGridPage productGridPage = new ProductGridPage();
@@ -177,6 +190,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), productGridPage.regexPage(price3));
         header.clickMiddleSubMenu(2, 3, 4);
         header.confirmPage(url3);
+        Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.mid).getText().contains("999"), "mismatch: price 999 page ");
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })

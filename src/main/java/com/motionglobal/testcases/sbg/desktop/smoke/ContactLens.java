@@ -9,9 +9,13 @@ import com.motionglobal.pages.sbg.desktop.product.CLProductGridPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class ContactLens extends AbstractBaseSbgDesktopTestCase {
+    @DataProvider
+    public Object[][] dp() {
+        return new Object[][] { new Object[] { "http://www.smartbuyglasses.com.hk/", 18 } };
+    }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
-    public void Daily(String url, int num) throws InterruptedException {
+    public void Daily(String url, int num) {
         driver.get(url);
         // driver.navigate().refresh();
         Header header = new Header();
@@ -21,12 +25,6 @@ public class ContactLens extends AbstractBaseSbgDesktopTestCase {
         // List<WebElement> dailyglassEles = driver.findElements(By.className("pho"));
         Assert.assertEquals(productGridPage.lenseDailyEles.size(), num, "daily contact lens count : disagree");
         // System.out.println(header.dailyglassEles.size());
-
-    }
-
-    @DataProvider
-    public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://www.smartbuyglasses.com.hk/", 18 } };
     }
 
     @Override

@@ -8,7 +8,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class TestHeaderMenu extends AbstractBaseSbgDesktopTestCase {
 
-    @Test(groups = { "debug0", "smoke" })
+    @Test(groups = { "debug", "smoke" })
     public void testSunGlassesHeaderMenus() {
         logger().info("started...");
         driver.get("http://www.smartbuyglasses.com");
