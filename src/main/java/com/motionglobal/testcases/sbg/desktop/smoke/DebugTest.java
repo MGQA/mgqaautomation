@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
-public class NewTest extends AbstractBaseTestCase {
+public class DebugTest extends AbstractBaseTestCase {
 
     @Test(groups = { "!debug1" })
     public void buyNow() throws InterruptedException {
