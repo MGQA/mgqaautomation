@@ -34,23 +34,20 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         header.mouseOverMainMenu(5);
         header.waitForVisibility(header.getLeftSubMenuElement(5, 1, 1), 2);
         String spherical = header.getLeftSubMenuElement(5, 1, 1).getText();
+        header.waitForVisibility(header.getLeftSubMenuElement(5, 1, 2), 2);
         String toric = header.getLeftSubMenuElement(5, 1, 2).getText();
+        header.waitForVisibility(header.getLeftSubMenuElement(5, 1, 3), 2);
         String multifocal = header.getLeftSubMenuElement(5, 1, 3).getText();
+        header.waitForVisibility(header.getLeftSubMenuElement(5, 1, 4), 2);
         String aspherical = header.getLeftSubMenuElement(5, 1, 4).getText();
         header.clickLeftSubMenu(5, 1, 1);
-        String url1 = header.getURL();
         CLProductGridPage clProductGridPage = new CLProductGridPage();
         Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(1).getText(), spherical);
         header.clickLeftSubMenu(5, 1, 2);
-        String url2 = header.getURL();
-        header.confirmPage(url1);
         Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(2).getText(), toric);
         header.clickLeftSubMenu(5, 1, 3);
-        String url3 = header.getURL();
-        header.confirmPage(url2);
         Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(3).getText(), multifocal);
         header.clickLeftSubMenu(5, 1, 4);
-        header.confirmPage(url3);
         if (!(url.equals("http://www.smartbuyglasses.dk")))
             Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(4).getText(), aspherical);
         else
@@ -65,24 +62,22 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         header.mouseOverMainMenu(5);
         header.waitForVisibility(header.getLeftSubMenuElement(5, 2, 1), 2);
         String extendedWear = header.getLeftSubMenuElement(5, 2, 1).getText();
+        header.waitForVisibility(header.getLeftSubMenuElement(5, 2, 2), 2);
         String siliconeHydrogel = header.getLeftSubMenuElement(5, 2, 2).getText();
+        header.waitForVisibility(header.getLeftSubMenuElement(5, 2, 3), 2);
         String coloured = header.getLeftSubMenuElement(5, 2, 3).getText();
         header.clickLeftSubMenu(5, 2, 1);
-        String url1 = header.getURL();
         CLProductGridPage clProductGridPage = new CLProductGridPage();
         if (!(url.equals("http://www.smartbuyglasses.dk")))
             Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(1).getText(), extendedWear);
         else
             Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(1).getText(), "Langtidsbrug");
         header.clickLeftSubMenu(5, 2, 2);
-        String url2 = header.getURL();
-        header.confirmPage(url1);
         if (!(url.equals("http://www.smartbuyglasses.dk")))
             Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(2).getText(), siliconeHydrogel);
         else
             Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(2).getText(), "Silikone Hydrogel");
         header.clickLeftSubMenu(5, 2, 3);
-        header.confirmPage(url2);
         Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(3).getText(), coloured);
     }
 
@@ -93,23 +88,20 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         header.mouseOverMainMenu(5);
         header.waitForVisibility(header.getLeftSubMenuElement(5, 3, 1), 2);
         String bausch = header.getLeftSubMenuElement(5, 3, 1).getText();
+        header.waitForVisibility(header.getLeftSubMenuElement(5, 3, 2), 2);
         String ciba = header.getLeftSubMenuElement(5, 3, 2).getText();
+        header.waitForVisibility(header.getLeftSubMenuElement(5, 3, 3), 2);
         String coopervision = header.getLeftSubMenuElement(5, 3, 3).getText();
+        header.waitForVisibility(header.getLeftSubMenuElement(5, 3, 4), 2);
         String johnson = header.getLeftSubMenuElement(5, 3, 4).getText();
         header.clickLeftSubMenu(5, 3, 1);
-        String url1 = header.getURL();
         CLProductGridPage clProductGridPage = new CLProductGridPage();
         Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel3(1).getText(), bausch);
         header.clickLeftSubMenu(5, 3, 2);
-        String url2 = header.getURL();
-        header.confirmPage(url1);
         Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel3(2).getText(), ciba);
         header.clickLeftSubMenu(5, 3, 3);
-        String url3 = header.getURL();
-        header.confirmPage(url2);
         Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel3(3).getText(), coopervision);
         header.clickLeftSubMenu(5, 3, 4);
-        header.confirmPage(url3);
         Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel3(4).getText(), johnson);
     }
 

@@ -35,18 +35,16 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         header.mouseOverMainMenu(1);
         header.waitForVisibility(header.getLeftSubMenuElement(1, 1, 1), 2);
         String men = header.getLeftSubMenuElement(1, 1, 1).getText();
+        header.waitForVisibility(header.getLeftSubMenuElement(1, 1, 2), 2);
         String women = header.getLeftSubMenuElement(1, 1, 2).getText();
+        header.waitForVisibility(header.getLeftSubMenuElement(1, 1, 3), 2);
         String kid = header.getLeftSubMenuElement(1, 1, 3).getText();
         header.clickLeftSubMenu(1, 1, 1);
         ProductGridPage productGridPage = new ProductGridPage();
-        String url1 = header.getURL();
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.gender).getText(), men);
         header.clickLeftSubMenu(1, 1, 2);
-        String url2 = header.getURL();
-        header.confirmPage(url1);
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.gender).getText(), women);
         header.clickLeftSubMenu(1, 1, 3);
-        header.confirmPage(url2);
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.gender).getText(), kid);
     }
 
@@ -90,8 +88,11 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         header.mouseOverMainMenu(1);
         header.waitForVisibility(header.getLeftSubMenuElement(1, 3, 1), 2);
         String prescription = header.getLeftSubMenuElement(1, 3, 1).getText();
+        header.waitForVisibility(header.getLeftSubMenuElement(1, 3, 2), 2);
         String polarized = header.getLeftSubMenuElement(1, 3, 2).getText();
+        header.waitForVisibility(header.getLeftSubMenuElement(1, 3, 3), 2);
         String sports = header.getLeftSubMenuElement(1, 3, 3).getText();
+        header.waitForVisibility(header.getLeftSubMenuElement(1, 3, 4), 2);
         String skiGoggles = header.getLeftSubMenuElement(1, 3, 4).getText();
         header.clickLeftSubMenu(1, 3, 1);
         ProductGridPage productGridPage = new ProductGridPage();
@@ -121,7 +122,6 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
             }
         }
         header.clickLeftSubMenu(1, 3, 2);
-        String url1 = header.getURL();
         if (!(url.equals("http://www.smartbuyglasses.se") | url.equals("http://www.smartbuyglasses.co.nz") | url.equals("http://www.smartbuyglasses.co.uk") | url
                 .equals("http://www.smartbuyglasses.cn")))
             Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.polarized).getText(), polarized);
@@ -144,14 +144,11 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
             }
         }
         header.clickLeftSubMenu(1, 3, 3);
-        String url2 = header.getURL();
         if (!(url.equals("http://www.smartbuyglasses.com.hk")))
             Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.sports).getText().contains(sports));
         else
             Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.sports).getText().contains("ﬂ\Ñ”å£”√Ã´Íñ—€ÁR"));
-        header.confirmPage(url1);
         header.clickLeftSubMenu(1, 3, 4);
-        header.confirmPage(url2);
         Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.ski).getText().contains(skiGoggles), "mismatch ski page");
     }
 
@@ -162,28 +159,24 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         header.mouseOverMainMenu(1);
         header.waitForVisibility(header.getMiddleSubmenuElement(1, 1, 1), 2);
         String pilot = header.getMiddleSubmenuElement(1, 1, 1).getText();
+        header.waitForVisibility(header.getMiddleSubmenuElement(1, 1, 2), 2);
         String square = header.getMiddleSubmenuElement(1, 1, 2).getText();
+        header.waitForVisibility(header.getMiddleSubmenuElement(1, 1, 3), 2);
         String rectangle = header.getMiddleSubmenuElement(1, 1, 3).getText();
+        header.waitForVisibility(header.getMiddleSubmenuElement(1, 1, 4), 2);
         String oversized = header.getMiddleSubmenuElement(1, 1, 4).getText();
+        header.waitForVisibility(header.getMiddleSubmenuElement(1, 1, 5), 2);
         String singleLens = header.getMiddleSubmenuElement(1, 1, 5).getText();
         header.clickMiddleSubMenu(1, 1, 1);
-        String url1 = header.getURL();
         ProductGridPage productGridPage = new ProductGridPage();
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), pilot);
         header.clickMiddleSubMenu(1, 1, 2);
-        String url2 = header.getURL();
-        header.confirmPage(url1);
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), square);
         header.clickMiddleSubMenu(1, 1, 3);
-        String url3 = header.getURL();
-        header.confirmPage(url2);
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), rectangle);
         header.clickMiddleSubMenu(1, 1, 4);
-        String url4 = header.getURL();
-        header.confirmPage(url3);
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), oversized);
         header.clickMiddleSubMenu(1, 1, 5);
-        header.confirmPage(url4);
         if (!(url.equals("http://www.smartbuyglasses.nl")))
             Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), singleLens);
         else
@@ -197,18 +190,16 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         header.mouseOverMainMenu(1);
         header.waitForVisibility(header.getMiddleSubmenuElement(1, 2, 1), 2);
         String price1 = header.getMiddleSubmenuElement(1, 2, 1).getText();
+        header.waitForVisibility(header.getMiddleSubmenuElement(1, 2, 2), 2);
         String price2 = header.getMiddleSubmenuElement(1, 2, 2).getText();
+        header.waitForVisibility(header.getMiddleSubmenuElement(1, 2, 3), 2);
         String price3 = header.getMiddleSubmenuElement(1, 2, 3).getText();
         header.clickMiddleSubMenu(1, 2, 1);
-        String url1 = header.getURL();
         ProductGridPage productGridPage = new ProductGridPage();
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), productGridPage.regexPage(price1));
         header.clickMiddleSubMenu(1, 2, 2);
-        String url2 = header.getURL();
-        header.confirmPage(url1);
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), productGridPage.regexPage(price2));
         header.clickMiddleSubMenu(1, 2, 3);
-        header.confirmPage(url2);
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), productGridPage.regexPage(price3));
         header.clickMiddleSubMenu(1, 2, 4);
         Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.mid).getText().contains("999"));

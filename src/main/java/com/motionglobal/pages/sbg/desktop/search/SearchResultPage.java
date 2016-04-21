@@ -13,7 +13,7 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     //
     @FindBy(className = "quick_view_text")
     public WebElement quickView;
-    @FindBy(xpath = "//*[@id='suspend_product_image']/div[2]/div[2]/div[7]/a[2]/span")
+    @FindBy(xpath = "//div[@class='pro_r_buynow']/a[2]/span")
     public WebElement buyNowButton;
     @FindBy(className = "detail_link")
     public WebElement detailBtn;
@@ -33,6 +33,8 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     public WebElement frameOrAddClicked;
     @FindBy(xpath = "//input[contains(@onclick,'Bebe')]")
     public WebElement BebeBrank;
+    @FindBy(xpath = "//input[contains(@onclick,'Bebe')][@checked='checked']")
+    public WebElement BebeBrankChecked;
     @FindBy(className = "srg_number")
     public WebElement brankNum;
 
@@ -43,26 +45,6 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
 
     public ResultGrid resultGrid() {
         return this.resultGrid;
-    }
-
-    public void waitPage(String beforeBrankName) {
-        for (int i = 0; i < 50; i++) {
-            String newBrankName = brankNum.getText();
-            if (beforeBrankName.equals(newBrankName)) {
-                try {
-                    Thread.sleep(100);
-                }
-                catch (InterruptedException e) {
-                }
-            }
-            else
-                break;
-        }
-        try {
-            Thread.sleep(500);
-        }
-        catch (Exception e) {
-        }
     }
 
     @Override

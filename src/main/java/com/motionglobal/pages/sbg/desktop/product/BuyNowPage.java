@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class BuyNowPage extends AbstractBaseSbgDesktopPage {
+    // IMG 5 ;
     @FindBy(className = "lensTypeImg01")
     public WebElement lensTypeImg01;
     @FindBy(className = "lensTypeImg02")
@@ -19,7 +20,7 @@ public class BuyNowPage extends AbstractBaseSbgDesktopPage {
     public WebElement lensTypeImg04;
     @FindBy(className = "lensTypeImg04")
     public WebElement lensTypeImg05;
-    // IMG 5 ;
+    // Lens
     @FindBy(xpath = "//li[1]/h3")
     public WebElement premium;
     @FindBy(id = "recommended_lens_index_1")
@@ -82,9 +83,8 @@ public class BuyNowPage extends AbstractBaseSbgDesktopPage {
     public WebElement confirmSendLater;
 
     public void selectDegree(WebElement element, String value) {
-        element.click();
-        Select selectRSPH = new Select(element);
-        selectRSPH.selectByValue(value);
+        Select select = new Select(element);
+        select.selectByValue(value);
     }
 
     public void clickEditBtn() {

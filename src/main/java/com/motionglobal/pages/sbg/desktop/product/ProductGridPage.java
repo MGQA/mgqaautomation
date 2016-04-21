@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class ProductGridPage extends AbstractBaseSbgDesktopPage {
-    @FindBy(xpath = "//*[@id='suspend_product_image']/div[2]/div[2]/div[7]/a[2]/span")
+    @FindBy(xpath = "//div[@class='pro_r_buynow']/a[2]/span")
     public WebElement buyNowButton;
     // List WebElement
     @FindBy(className = "quick_view_text")

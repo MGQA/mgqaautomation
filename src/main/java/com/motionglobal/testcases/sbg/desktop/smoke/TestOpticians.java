@@ -22,6 +22,7 @@ public class TestOpticians extends AbstractBaseTestCase {
         ProductGridPage productGridPage = new ProductGridPage();
         header.mouseOver(productGridPage.proInfo.get(0));
         productGridPage.quickView.click();
+        productGridPage.waitForVisibility(productGridPage.buyNowButton, 5);
         productGridPage.buyNowButton.click();
         BuyNowPage buyNow = new BuyNowPage();
         //

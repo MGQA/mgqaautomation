@@ -75,6 +75,9 @@ public class Header extends AbstractBasePage {
     public WebElement optical_center;
     @FindBy(xpath = "//div[@id='favoriteDisplayDiv']/a/i")
     public WebElement favHeartButtonLink;
+    //
+    @FindBy(linkText = "Tom Ford")
+    public WebElement TomFordBrank;
 
     // public get Element methods ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     public WebElement getMegaMenuMainElement(int mainMenuNum) {
@@ -99,7 +102,7 @@ public class Header extends AbstractBasePage {
 
     /**
      * 
-     * mainMenuNumber is 1 to 6;
+     * mainMenuNumber is 1 to 5;
      * 
      * @param mainMenuNum
      * @param brandLogoNum
@@ -124,7 +127,7 @@ public class Header extends AbstractBasePage {
             a = driver.findElement(By.xpath("//div[@id='top_brand_contact_list']/ul/li[" + brandLogoNum + "]/a/img"));
             break;
         default:
-            System.out.println("mainMenuNumber is 1 to 6;");
+            System.out.println("mainMenuNumber is 1 to 5;");
             break;
         }
         return a;
@@ -287,25 +290,6 @@ public class Header extends AbstractBasePage {
         }
         catch (InterruptedException e) {
             e.printStackTrace();
-        }
-    }
-
-    public void confirmPage(String initUrl) {
-        String laterUrl = driver.getCurrentUrl();
-        int i = 0;
-        while (initUrl.equalsIgnoreCase(laterUrl)) {
-            try {
-                Thread.sleep(200);
-                if (i == 9) {
-                    initUrl = "a";
-                    laterUrl = "a";
-                }
-            }
-            catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            laterUrl = driver.getCurrentUrl();
-            i++;
         }
     }
 }

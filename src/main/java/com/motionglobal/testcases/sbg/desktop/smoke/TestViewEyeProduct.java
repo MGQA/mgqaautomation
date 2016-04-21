@@ -23,22 +23,28 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         Header header = new Header();
         header.mouseOverMainMenu(2);
         header.mouseOver(header.getMegaMenuBrandInitialElement(2, "Q"));
-        String brand = header.getMegaMenuBrandsNameElement(2, "Q", 2, 10).getText();
-        header.clickBrands(2, "Q", 2, 10);
+        header.TomFordBrank.click();
         ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.brands).getText(), brand, "Page disagree");
+        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.brands).getText(), "Tom Ford");
 
-        for (int i = 0; i < 30; i++) {
-            header.mouseOver(productGridPage.proInfo.get(i));
-            productGridPage.quickView.click();
-            if (productGridPage.eyeproSize.size() > 1) {
-                productGridPage.eyeproSize.get(1).click();
-                Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
-                productGridPage.eyeproSize.get(0).click();
-                Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
-                break;
-            }
-        }
+        header.mouseOver(productGridPage.proInfo.get(0));
+        productGridPage.quickView.click();
+        productGridPage.eyeproSize.get(1).click();
+        Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
+        productGridPage.eyeproSize.get(0).click();
+        Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
+
+        // for (int i = 0; i < 30; i++) {
+        // header.mouseOver(productGridPage.proInfo.get(i));
+        // productGridPage.quickView.click();
+        // if (productGridPage.eyeproSize.size() > 1) {
+        // productGridPage.eyeproSize.get(1).click();
+        // Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
+        // productGridPage.eyeproSize.get(0).click();
+        // Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
+        // break;
+        // }
+        // }
         productGridPage.frameOrAdd.get(1).click();
         Assert.assertTrue(productGridPage.frameOrAddClicked.isDisplayed(), "Frame with Lenses button don't click");
         productGridPage.frameOrAdd.get(0).click();

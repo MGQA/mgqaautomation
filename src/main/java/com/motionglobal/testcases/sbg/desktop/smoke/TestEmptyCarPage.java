@@ -11,7 +11,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 public class TestEmptyCarPage extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "debug", "smoke" })
-    public void US_CartEmptyPAge() {
+    public void US_CartBoxEmptyPage() {
         String url = "http://www.smartbuyglasses.com";
         driver.get(url);
         Header header = new Header();
@@ -22,7 +22,7 @@ public class TestEmptyCarPage extends AbstractBaseSbgDesktopTestCase {
     }
 
     @Test(groups = { "debug", "smoke" })
-    public void CN_CartEmptyPAge() {
+    public void CN_CartBoxEmptyPage() {
         String url = "http://www.smartbuyglasses.cn";
         driver.get(url);
         Header header = new Header();

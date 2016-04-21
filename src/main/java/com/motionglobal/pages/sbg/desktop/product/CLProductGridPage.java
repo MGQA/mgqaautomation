@@ -12,15 +12,6 @@ public class CLProductGridPage extends AbstractBaseSbgDesktopPage {
     @FindBy(className = "pho")
     public List<WebElement> lenseDailyEles;
 
-    // @FindBy(xpath = "//*[@id='CL_Breadcrumb']")
-    // public WebElement submenuCLLeftClickedLabel;
-    //
-    // public String regexPage(String pagetext) {
-    // Pattern pattern = Pattern.compile("/ ");
-    // Matcher matcher = pattern.matcher(pagetext);
-    // return matcher.replaceAll("");
-    // }
-
     public WebElement submenuCLLeftClickedLabel1(int pageLabeleNum) {
         return driver
                 .findElement(By.xpath("//*[@id='content']/div/div[1]/div[2]/ul[2]/li[" + pageLabeleNum + "]/input[@checked='checked']/../label/span/span"));
