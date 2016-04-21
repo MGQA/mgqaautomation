@@ -1,4 +1,4 @@
-package com.motionglobal.pages.sbg.desktop.product;
+package com.motionglobal.pages.sbg.mobile.product;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

@@ -1,4 +1,4 @@
-package com.motionglobal.pages.sbg.desktop.checkout;
+package com.motionglobal.pages.sbg.mobile.checkout;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

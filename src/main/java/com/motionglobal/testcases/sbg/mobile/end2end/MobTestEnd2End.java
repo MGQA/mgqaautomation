@@ -1,14 +1,14 @@
-package com.motionglobal.testcases.sbg.desktop.end2end;
+package com.motionglobal.testcases.sbg.mobile.end2end;
 
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.sbg.desktop.MobHeader;
-import com.motionglobal.pages.sbg.desktop.cart.MobCartPage;
-import com.motionglobal.pages.sbg.desktop.checkout.MobCheckOutPage;
-import com.motionglobal.pages.sbg.desktop.product.MobProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.search.MobSearchResultPage;
+import com.motionglobal.pages.sbg.mobile.MobHeader;
+import com.motionglobal.pages.sbg.mobile.cart.MobCartPage;
+import com.motionglobal.pages.sbg.mobile.checkout.MobCheckOutPage;
+import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {

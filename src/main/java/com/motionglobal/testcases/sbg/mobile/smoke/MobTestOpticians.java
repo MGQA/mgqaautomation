@@ -1,9 +1,9 @@
-package com.motionglobal.testcases.sbg.desktop.MobSmoke;
+package com.motionglobal.testcases.sbg.mobile.smoke;
 
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.sbg.desktop.product.MobOpticianPage;
-import com.motionglobal.pages.sbg.desktop.product.MobProductDetailPage;
+import com.motionglobal.pages.sbg.mobile.product.MobOpticianPage;
+import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
 public class MobTestOpticians extends AbstractBaseTestCase {

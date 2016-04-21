@@ -1,12 +1,12 @@
-package com.motionglobal.testcases.sbg.desktop.MobSmoke;
+package com.motionglobal.testcases.sbg.mobile.smoke;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.sbg.desktop.cart.MobCartPage;
-import com.motionglobal.pages.sbg.desktop.product.MobOpticianPage;
-import com.motionglobal.pages.sbg.desktop.product.MobProductDetailPage;
+import com.motionglobal.pages.sbg.mobile.cart.MobCartPage;
+import com.motionglobal.pages.sbg.mobile.product.MobOpticianPage;
+import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
 public class MobTestViewEyeProduct extends AbstractBaseTestCase {

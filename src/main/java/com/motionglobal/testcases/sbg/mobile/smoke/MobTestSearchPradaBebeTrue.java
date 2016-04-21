@@ -1,13 +1,13 @@
-package com.motionglobal.testcases.sbg.desktop.MobSmoke;
+package com.motionglobal.testcases.sbg.mobile.smoke;
 
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.sbg.desktop.MobHeader;
-import com.motionglobal.pages.sbg.desktop.product.MobProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.search.MobSearchResultPage;
+import com.motionglobal.pages.sbg.mobile.MobHeader;
+import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
 public class MobTestSearchPradaBebeTrue extends AbstractBaseTestCase {

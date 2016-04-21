@@ -1,11 +1,11 @@
-package com.motionglobal.testcases.sbg.desktop.MobSmoke;
+package com.motionglobal.testcases.sbg.mobile.smoke;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.sbg.desktop.MobHeader;
-import com.motionglobal.pages.sbg.desktop.cart.MobCartPage;
+import com.motionglobal.pages.sbg.mobile.MobHeader;
+import com.motionglobal.pages.sbg.mobile.cart.MobCartPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class MobTestEmptyCarPage extends AbstractBaseSbgDesktopTestCase {

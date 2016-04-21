@@ -1,4 +1,4 @@
-package com.motionglobal.pages.sbg.desktop;
+package com.motionglobal.pages.sbg.mobile;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

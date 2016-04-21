@@ -1,4 +1,4 @@
-package com.motionglobal.pages.sbg.desktop.product;
+package com.motionglobal.pages.sbg.mobile.product;
 
 import java.util.List;
 

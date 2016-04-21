@@ -1,4 +1,4 @@
-package com.motionglobal.pages.sbg.desktop.cart;
+package com.motionglobal.pages.sbg.mobile.cart;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

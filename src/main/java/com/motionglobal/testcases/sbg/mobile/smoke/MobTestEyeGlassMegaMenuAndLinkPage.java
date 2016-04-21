@@ -1,11 +1,11 @@
-package com.motionglobal.testcases.sbg.desktop.MobSmoke;
+package com.motionglobal.testcases.sbg.mobile.smoke;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.sbg.desktop.MobHeader;
-import com.motionglobal.pages.sbg.desktop.product.MobProductPage;
+import com.motionglobal.pages.sbg.mobile.MobHeader;
+import com.motionglobal.pages.sbg.mobile.product.MobProductPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCase {

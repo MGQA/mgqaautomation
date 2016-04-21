@@ -1,9 +1,9 @@
-package com.motionglobal.testcases.sbg.desktop.home;
+package com.motionglobal.testcases.sbg.mobile.home;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.sbg.desktop.MobHeader;
+import com.motionglobal.pages.sbg.mobile.MobHeader;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class MobTestLogin extends AbstractBaseSbgDesktopTestCase {
