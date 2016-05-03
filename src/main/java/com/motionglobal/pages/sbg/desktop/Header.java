@@ -14,6 +14,8 @@ public class Header extends AbstractBasePage {
     public WebElement cartProductNum;
     @FindBy(xpath = "//div[@id='cart']/a/i")
     public WebElement cartBox;
+    @FindBy(xpath = "//*[@id='help_li']/a/span")
+    public WebElement Help;
     // heard login link
     @FindBy(xpath = "//li[@id='signin_li']/a/span")
     public WebElement loginlable;
@@ -39,6 +41,10 @@ public class Header extends AbstractBasePage {
     public WebElement stylePrevious;
     @FindBy(xpath = "//*[@id='show_result_page']/span")
     public WebElement styleRecommend;
+    @FindBy(id = "guidewin")
+    public WebElement StyleFrame;
+    @FindBy(id = "close_style_finder_guide")
+    public WebElement StykeFrameCloseBtn;
     // header list
     @FindBy(xpath = "//*[@id='all_brand_for_contact_tab']/a/p")
     public WebElement clViewAllBrands;
@@ -80,6 +86,10 @@ public class Header extends AbstractBasePage {
     public WebElement TomFordBrank;
 
     // public get Element methods ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    public WebElement getHelpLinkElement(int Num) {
+        return driver.findElement(By.xpath("//*[@id='help_li']/div/div/ul/li[" + Num + "]/a"));
+    }
+
     public WebElement getMegaMenuMainElement(int mainMenuNum) {
         return driver.findElement(By.xpath("//li[@id='menuN_" + mainMenuNum + "']/a"));
     }

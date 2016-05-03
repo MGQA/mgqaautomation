@@ -1,5 +1,6 @@
 package com.motionglobal.testcases.sbg.desktop.smoke;
 
+import org.openqa.selenium.Alert;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,6 +15,12 @@ public class TestEmptyCarPage extends AbstractBaseSbgDesktopTestCase {
     public void US_CartBoxEmptyPage() {
         String url = "http://www.smartbuyglasses.com";
         driver.get(url);
+        try {
+            Alert alert = driver.switchTo().alert();
+            alert.accept();
+        }
+        catch (Exception e) {
+        }
         Header header = new Header();
         Assert.assertEquals(header.cartProductNum.getText(), "0");
         header.cartBox.click();
@@ -25,6 +32,12 @@ public class TestEmptyCarPage extends AbstractBaseSbgDesktopTestCase {
     public void CN_CartBoxEmptyPage() {
         String url = "http://www.smartbuyglasses.cn";
         driver.get(url);
+        try {
+            Alert alert = driver.switchTo().alert();
+            alert.accept();
+        }
+        catch (Exception e) {
+        }
         Header header = new Header();
         Assert.assertEquals(header.cartProductNum.getText(), "0");
         header.cartBox.click();

@@ -22,16 +22,14 @@ public class HomePageLinkTest extends AbstractBaseSbgDesktopTestCase {
         homepage.mouseOver(header.FREESHIPPING);
         header.freeshipmoreinfo.click();
         switchPage();
-        System.out.println(driver.getCurrentUrl());
-        Assert.assertTrue(driver.getCurrentUrl().equals("http://www.smartbuyglasses.com/fast-shipping"));
+        Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/fast-shipping");
         header.logo.click();
         // 100 DAY RETURNS
         homepage.mouseOver(header.DayReturns);
         homepage.waitForVisibility(header.DayReturnsMoreInfo, 2);
         header.DayReturnsMoreInfo.click();
         switchPage();
-        System.out.println(driver.getCurrentUrl());
-        Assert.assertTrue(driver.getCurrentUrl().equals("http://www.smartbuyglasses.com/returns"));
+        Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/returns");
         header.logo.click();
         // Refrt A Friend
         header.referAFriend.click();
@@ -41,19 +39,16 @@ public class HomePageLinkTest extends AbstractBaseSbgDesktopTestCase {
         // optical-center
         header.optical_center.click();
         switchPage();
-        System.out.println(driver.getCurrentUrl());
-        Assert.assertTrue(driver.getCurrentUrl().equals("http://www.smartbuyglasses.com/optical-center"));
+        Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/optical-center");
         header.logo.click();
         // Favourite Heart Button
         header.favHeartButtonLink.click();
         FavoritePage favoritePage = new FavoritePage();
-        System.out.println(driver.getCurrentUrl());
-        Assert.assertTrue(driver.getCurrentUrl().equals("http://www.smartbuyglasses.com/favs/"));
+        Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/favs/");
         header.logo.click();
         // Cart box
         header.cartBox.click();
-        System.out.println(driver.getCurrentUrl());
-        Assert.assertTrue(driver.getCurrentUrl().equals("http://www.smartbuyglasses.com/cart"));
+        Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/cart");
         header.logo.click();
     }
 

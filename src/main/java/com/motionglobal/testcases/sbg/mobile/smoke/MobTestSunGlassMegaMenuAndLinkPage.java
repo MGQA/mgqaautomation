@@ -25,8 +25,8 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
     // return new Object[][] { new Object[] { "http://m.smartbuyglasses.com" } };
     // }
 
-    @Test(dataProvider = "dp", groups = { "debug1", "smoke" })
-    public void menuEyeGlassGender(String url) {
+    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    public void menuSunGlassGender(String url) {
         driver.get(url);
         MobHeader header = new MobHeader();
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -46,8 +46,8 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         }
     }
 
-    @Test(dataProvider = "dp", groups = { "debug1", "smoke" })
-    public void menuEyeGlassBrank(String url) {
+    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    public void menuSunGlassBrank(String url) {
         driver.get(url);
         MobHeader header = new MobHeader();
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -72,8 +72,8 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         header.getDetailLinkElement(1, 2, header.getSubMenuElementSize(1, 2)).click();
     }
 
-    @Test(dataProvider = "dp", groups = { "debug1", "smoke" })
-    public void menuEyeGlassShape(String url) {
+    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    public void menuSunGlassShape(String url) {
         driver.get(url);
         MobHeader header = new MobHeader();
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -93,8 +93,8 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         }
     }
 
-    @Test(dataProvider = "dp", groups = { "debug1", "smoke" })
-    public void menuEyeGlassOther(String url) {
+    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    public void menuSunGlassOther(String url) {
         driver.get(url);
         MobHeader header = new MobHeader();
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -108,7 +108,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         header.getMainMenuElement(1).click();
         // String brankName = header.getDetailLinkElement(2, 4, (i + 1)).getText();
         js.executeScript("arguments[0].scrollIntoView();", header.subMenuPre);
-        header.subMenuPolarized.click();
+        header.subMenuPre.click();
         MobProductPage productPage2 = new MobProductPage();
         header.menuBtn.click();
         header.getMainMenuElement(1).click();

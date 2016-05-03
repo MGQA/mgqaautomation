@@ -17,7 +17,7 @@ public class TestLanguageChange extends AbstractBaseSbgDesktopTestCase {
             language.selectCountryLanguageByIndex(value, 0);
             Assert.assertArrayEquals(language.countryIDs, language.getCountryIDs());
             // p(language.languageSelect);
-            logger().info(language.getCurrentLanguage());
+            // logger().info(language.getCurrentLanguage());
         }
         // p(driver.findElements(By.cssSelector("select.country-select option")));
     }

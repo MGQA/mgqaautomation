@@ -7,7 +7,7 @@ import com.motionglobal.pages.sbg.desktop.home.HomePage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class LoginTest extends AbstractBaseSbgDesktopTestCase {
-    @Test(groups = { "debug0", "smoke" })
+    @Test(groups = { "debug", "smoke" })
     public void testLogin() {
         driver.get("http://www.smartbuyglasses.com");
         HomePage homepage = new HomePage();
@@ -19,6 +19,7 @@ public class LoginTest extends AbstractBaseSbgDesktopTestCase {
         homepage.header().password.clear();
         homepage.header().password.sendKeys("motion888");
         homepage.header().signInButton.click();
+        homepage.waitForVisibility(homepage.header().yourAccount, 5);
         homepage.mouseOver(homepage.header().yourAccount);
         homepage.waitForVisibility(homepage.header().signout, 5);
         Assert.assertTrue(homepage.isTextPresent("Hi test!"));

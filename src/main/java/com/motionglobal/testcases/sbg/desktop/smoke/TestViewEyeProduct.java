@@ -26,25 +26,12 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         header.TomFordBrank.click();
         ProductGridPage productGridPage = new ProductGridPage();
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.brands).getText(), "Tom Ford");
-
         header.mouseOver(productGridPage.proInfo.get(0));
         productGridPage.quickView.click();
         productGridPage.eyeproSize.get(1).click();
         Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
         productGridPage.eyeproSize.get(0).click();
         Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
-
-        // for (int i = 0; i < 30; i++) {
-        // header.mouseOver(productGridPage.proInfo.get(i));
-        // productGridPage.quickView.click();
-        // if (productGridPage.eyeproSize.size() > 1) {
-        // productGridPage.eyeproSize.get(1).click();
-        // Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
-        // productGridPage.eyeproSize.get(0).click();
-        // Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
-        // break;
-        // }
-        // }
         productGridPage.frameOrAdd.get(1).click();
         Assert.assertTrue(productGridPage.frameOrAddClicked.isDisplayed(), "Frame with Lenses button don't click");
         productGridPage.frameOrAdd.get(0).click();

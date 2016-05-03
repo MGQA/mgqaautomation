@@ -24,6 +24,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         header.inputSearch.sendKeys("Prada");
         header.iconSearch.click();
         SearchResultPage resultPage = new SearchResultPage();
+        header.waitForVisibility(resultPage.BebeBrank, 10);
         resultPage.BebeBrank.click();
         header.waitForVisibility(resultPage.BebeBrankChecked, 10);
         resultPage.mouseOver(resultPage.proInfo.get(0));
@@ -39,6 +40,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         header.inputSearch.sendKeys("Prada");
         header.iconSearch.click();
         SearchResultPage resultPage = new SearchResultPage();
+        header.waitForVisibility(resultPage.BebeBrank, 10);
         resultPage.BebeBrank.click();
         header.waitForVisibility(resultPage.BebeBrankChecked, 10);
         resultPage.mouseOver(resultPage.proInfo.get(0));

@@ -35,6 +35,7 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         checkOutPage.clearInput(checkOutPage.inputPhone, "automationTel");
         checkOutPage.clearInput(checkOutPage.inputPostAddress, "200000");
         checkOutPage.clearInput(checkOutPage.inputCity, "shanghai");
+        checkOutPage.continueBtn.click();
         checkOutPage.VISA.click();
         checkOutPage.waitForVisibility(checkOutPage.CardDiv, 10);
         Assert.assertTrue(checkOutPage.CardDiv.isDisplayed());

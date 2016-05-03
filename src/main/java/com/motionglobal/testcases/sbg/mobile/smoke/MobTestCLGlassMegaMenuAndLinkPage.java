@@ -18,7 +18,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
                 { "http://m.smartbuyglasses.dk" }, { "http://m.smartbuyglasses.nl" }, { "http://m.smartbuyglasses.co.nz" } };
     }
 
-    // return new Object[][] { new Object[] { "http://m.smartbuyglasses.com" } };
+    // return new Object[][] { new Object[] { "http://m.smartbuyglasses.co.uk" } };
     // }
 
     @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
