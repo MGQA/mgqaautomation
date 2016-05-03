@@ -147,7 +147,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         if (!(url.equals("http://www.smartbuyglasses.com.hk")))
             Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.sports).getText().contains(sports));
         else
-            Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.sports).getText().contains("ﬂ\Ñ”å£”√Ã´Íñ—€ÁR"));
+            Assert.assertTrue(driver.getCurrentUrl().contains("http://www.smartbuyglasses.com.hk/sports-sunglasses/general/---------------------"));
         header.clickLeftSubMenu(1, 3, 4);
         Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.ski).getText().contains(skiGoggles), "mismatch ski page");
     }
