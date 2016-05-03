@@ -2,6 +2,8 @@ package com.motionglobal.pages;
 
 import java.util.Set;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -19,6 +21,21 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     public void mouseOver(WebElement element) {
         Actions action = new Actions(driver);
         action.moveToElement(element).build().perform();
+    }
+
+    public void actionKey(Keys key) {
+        Actions action = new Actions(driver);
+        action.sendKeys(key).build().perform();
+    }
+
+    public void JsMouse(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView();", element);
+    }
+
+    public void JsClick(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", element);
     }
 
     protected abstract void waitPageLoad();

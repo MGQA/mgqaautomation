@@ -29,7 +29,7 @@ public class SearchResultItem extends AbstractBaseContainer {
     }
 
     public String getPrice() {
-        return this.container.findElement(By.cssSelector(".rpl_only")).getText();
+        return this.container.findElement(By.cssSelector(".proPriceN")).getText();
     }
 
     public String getBrand() {

@@ -14,7 +14,7 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
 public class TestSunGlassesMenus extends AbstractBaseTestCase {
     @DataProvider(name = "DesktopTestData")
     public static Object[][] Words() throws IOException {
-        return ExcelDataUtil.getExcelData("src/main/resources/", "DesktopTestData.xlsx", "Top100");
+        return ExcelDataUtil.getExcelData("src/main/resources/", "TestData.xlsx", "Top100");
     }
 
     @Test(dataProvider = "DesktopTestData", groups = { "smoke" })

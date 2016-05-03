@@ -6,20 +6,19 @@ import org.openqa.selenium.support.FindBy;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
-public class CartPage extends AbstractBaseSbgDesktopPage {
-
+public class CN_CartPage extends AbstractBaseSbgDesktopPage {
     @FindBy(css = ".paySecurexDo")
     public WebElement btnCheckout;
     @FindBy(className = "cartEmptyIcon")
     public WebElement cartEmptyIcon;
 
-    public CartPage() {
+    public CN_CartPage() {
         super();
     }
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".cart_detail"), 20);
+        waitForVisibility(By.cssSelector(".title.clearfix li"), 20);
     }
 
 }

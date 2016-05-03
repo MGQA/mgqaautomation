@@ -16,6 +16,8 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
     public WebElement btnFrameOnly;
     @FindBy(id = "frameOnly")
     public WebElement radioFrameOnly;
+    @FindBy(xpath = "//a[@class='pro_big_title']/h1")
+    public WebElement glassName;
 
     public ProductDetailPage() {
         super();
