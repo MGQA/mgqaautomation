@@ -1,1 +1,1 @@
-java -Dnitrogen_ates_projectid=1 -cp ./target/java.automation-0.0.1-SNAPSHOT-jar-with-dependencies.jar org.testng.TestNG src/main/resources/caseImporter.xml
+java -cp C:\ates\lib\ates-testimporter-jar-with-dependencies.jar;C:\ates\project\1\java.automation-0.0.1-SNAPSHOT-jar-with-dependencies.jar -Dnitrogen_atl_projectid=1 net.nitrogen.ates.testimporter2.CustomTestNG -testjar C:\ates\project\1\java.automation-0.0.1-SNAPSHOT-jar-with-dependencies.jar -xmlpathinjar caseImporter.xml
