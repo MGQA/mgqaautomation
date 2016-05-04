@@ -13,7 +13,7 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     //
     @FindBy(className = "quick_view_text")
     public WebElement quickView;
-    @FindBy(xpath = "//div[@class='pro_r_buynow']/a[2]/span")
+    @FindBy(xpath = "//div[contains(@class,'pro_r_buynow')]/a[2]/span")
     public WebElement buyNowButton;
     @FindBy(className = "detail_link")
     public WebElement detailBtn;

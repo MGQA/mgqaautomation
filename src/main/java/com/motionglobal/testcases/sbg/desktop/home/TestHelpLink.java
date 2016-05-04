@@ -38,6 +38,7 @@ public class TestHelpLink extends AbstractBaseSbgDesktopTestCase {
         Header header = new Header();
         header.waitForVisibility(header.Help, 5);
         header.mouseOver(header.Help);
+        header.waitForVisibility(header.getHelpLinkElement(Num), 2);
         header.getHelpLinkElement(Num).click();
     }
 

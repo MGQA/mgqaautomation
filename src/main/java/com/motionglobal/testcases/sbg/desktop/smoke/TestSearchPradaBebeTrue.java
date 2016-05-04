@@ -21,6 +21,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
     public void bebeClickText(String url) {
         driver.get(url);
         Header header = new Header();
+        header.waitForVisibility(header.inputSearch, 5);
         header.inputSearch.sendKeys("Prada");
         header.iconSearch.click();
         SearchResultPage resultPage = new SearchResultPage();

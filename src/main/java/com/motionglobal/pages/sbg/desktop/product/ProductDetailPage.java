@@ -25,7 +25,7 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.className("cl_productType"), 20);
+        waitForVisibility(By.className("jStar"), 20);
     }
 
 }

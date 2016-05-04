@@ -39,6 +39,7 @@ public class TestEmptyCarPage extends AbstractBaseSbgDesktopTestCase {
         catch (Exception e) {
         }
         Header header = new Header();
+        header.waitForVisibility(header.cartProductNum, 5);
         Assert.assertEquals(header.cartProductNum.getText(), "0");
         header.cartBox.click();
         CN_CartPage cartPage = new CN_CartPage();
