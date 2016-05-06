@@ -20,7 +20,7 @@ public class Search extends AbstractBaseSbgDesktopTestCase {
     // return new Object[][] { new Object[] { "http://www.smartbuyglasses.com" } };
     // }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(dataProvider = "dp", groups = { "debug3", "smoke" })
     public void TestSearchRayBan(String url) {
         driver.get(url);
         Header header = new Header();

@@ -20,6 +20,7 @@ public class HomePageLinkTest extends AbstractBaseSbgDesktopTestCase {
         Header header = new Header();
         // FREE SHIPPING
         homepage.mouseOver(header.FREESHIPPING);
+        header.waitForVisibility(header.freeshipmoreinfo, 2);
         header.freeshipmoreinfo.click();
         switchPage();
         Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/fast-shipping");
