@@ -38,6 +38,7 @@ public class HomePageLinkTest extends AbstractBaseSbgDesktopTestCase {
         // Assert.assertTrue(homepage.isTextPresent("free_afriend"));
         driver.navigate().refresh();
         // optical-center
+        header.waitForVisibility(header.optical_center, 2);
         header.optical_center.click();
         switchPage();
         Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/optical-center");
