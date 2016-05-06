@@ -40,7 +40,7 @@ public class HomePageLinkTest extends AbstractBaseSbgDesktopTestCase {
         // optical-center
         header.waitForVisibility(header.optical_center, 2);
         header.optical_center.click();
-        switchPage();
+        // switchPage();
         Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/optical-center");
         header.logo.click();
         // Favourite Heart Button

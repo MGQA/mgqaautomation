@@ -77,7 +77,7 @@ public class Header extends AbstractBasePage {
     public WebElement referAFriend;
     @FindBy(id = "by_email_btn")
     public WebElement shareByEmail;
-    @FindBy(className = "newhead_banner newhead_banner_1")
+    @FindBy(className = "newhead_banner_1")
     public WebElement optical_center;
     @FindBy(xpath = "//div[@id='favoriteDisplayDiv']/a/i")
     public WebElement favHeartButtonLink;
