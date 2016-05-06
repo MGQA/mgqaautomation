@@ -5,9 +5,9 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.sbg.desktop.search.MobSearchResultPage;
 import com.motionglobal.pages.sbg.mobile.MobHeader;
 import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
+import com.motionglobal.pages.sbg.mobile.search.MobSearchResultPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
 public class MobTestSearchPradaBebeTrue extends AbstractBaseTestCase {
@@ -28,6 +28,7 @@ public class MobTestSearchPradaBebeTrue extends AbstractBaseTestCase {
         Assert.assertTrue(name.contains("Prada"), "Expected Ray-ban displayed, but no");
         searchResultPage.filter.click();
         searchResultPage.branksBtn.click();
+        searchResultPage.JsMouse(searchResultPage.Bebe);
         searchResultPage.Bebe.click();
         String detailName = searchResultPage.productDetailName.getText();
         for (int i = 0; i < 30; i++) {

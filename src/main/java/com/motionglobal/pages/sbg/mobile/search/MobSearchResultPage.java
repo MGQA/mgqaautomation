@@ -1,4 +1,4 @@
-package com.motionglobal.pages.sbg.desktop.search;
+package com.motionglobal.pages.sbg.mobile.search;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class MobSearchResultPage extends AbstractBaseSbgDesktopPage {
     public WebElement filter;
     @FindBy(xpath = "//*[@id='filter_main__btn-group']/div/ul/li[3]//span")
     public WebElement branksBtn;
-    @FindBy(className = "main__glass-list__item__detail__name")
+    @FindBy(xpath = "//a[contains(@onclick,'Bebe')]")
     public WebElement Bebe;
 
     @Override
