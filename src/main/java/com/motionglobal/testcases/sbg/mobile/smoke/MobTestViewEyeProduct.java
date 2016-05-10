@@ -17,7 +17,7 @@ public class MobTestViewEyeProduct extends AbstractBaseTestCase {
 
     @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
     public void searchPro(String url) {
-        driver.get(url);
+        getURL(url);
         MobProductDetailPage detailPage = new MobProductDetailPage();
         detailPage.productSizeOne.click();
         Assert.assertEquals(detailPage.productSizeOne.getAttribute("class"), "size__select");

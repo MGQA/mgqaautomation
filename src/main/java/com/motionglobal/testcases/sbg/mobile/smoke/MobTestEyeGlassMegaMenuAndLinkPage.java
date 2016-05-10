@@ -22,7 +22,7 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
 
     @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuEyeGlassGender(String url) {
-        driver.get(url);
+        getURL(url);
         MobHeader header = new MobHeader();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         for (int i = 0; i < header.getSubMenuElementSize(2, 1); i++) {
@@ -43,7 +43,7 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
 
     @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuEyeGlassBrank(String url) {
-        driver.get(url);
+        getURL(url);
         MobHeader header = new MobHeader();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         for (int i = 0; i < header.getSubMenuElementSize(2, 2) - 1; i++) {
@@ -69,7 +69,7 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
 
     @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuEyeGlassShape(String url) {
-        driver.get(url);
+        getURL(url);
         MobHeader header = new MobHeader();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         for (int i = 0; i < header.getSubMenuElementSize(2, 3); i++) {
@@ -90,7 +90,7 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
 
     @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuEyeGlassStyle(String url) {
-        driver.get(url);
+        getURL(url);
         MobHeader header = new MobHeader();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         for (int i = 0; i < header.getSubMenuElementSize(2, 4); i++) {

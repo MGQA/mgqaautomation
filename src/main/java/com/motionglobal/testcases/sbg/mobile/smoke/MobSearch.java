@@ -22,7 +22,7 @@ public class MobSearch extends AbstractBaseSbgDesktopTestCase {
 
     @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
     public void TestSearchRayBan(String url) {
-        driver.get(url);
+        getURL(url);
         MobHeader mobHeader = new MobHeader();
         mobHeader.searchInput.click();
         mobHeader.searchInput.sendKeys("ray ban");
@@ -34,7 +34,7 @@ public class MobSearch extends AbstractBaseSbgDesktopTestCase {
 
     @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
     public void TestSearchLC(String url) {
-        driver.get(url);
+        getURL(url);
         MobHeader mobHeader = new MobHeader();
         mobHeader.searchInput.click();
         mobHeader.searchInput.sendKeys("acuvue");

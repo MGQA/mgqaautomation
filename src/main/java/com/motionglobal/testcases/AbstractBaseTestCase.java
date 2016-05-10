@@ -8,8 +8,8 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -36,13 +36,18 @@ public abstract class AbstractBaseTestCase {
         this.logger().info("Testing started... ");
     }
 
-    @BeforeClass(alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void initDriver(ITestContext context) {
         driver = InitializeUtility.initializeDriver(CONFIG.getProperty("browser"));
         this.context = context;
         context.setAttribute(ScreenshotListener.DRIVER_ATTR + Thread.currentThread().getId(), driver);
 
         initialize();
+    }
+
+    protected void getURL(String url) {
+        this.reloadDriver(true);
+        driver.get(url);
     }
 
     protected void switchDriver() {
@@ -61,11 +66,15 @@ public abstract class AbstractBaseTestCase {
         return (WebDriver) context.getAttribute(ScreenshotListener.DRIVER_ATTR + Thread.currentThread().getId());
     }
 
-    protected void reloadDriver() {
-        closeDriver(driver);
-        driver = InitializeUtility.initializeDriver(CONFIG.getProperty("browser"));
-        driver.manage().window().maximize();
-        context.setAttribute(ScreenshotListener.DRIVER_ATTR + Thread.currentThread().getId(), driver);
+    private void reloadDriver(boolean hard) {
+        if (hard) {
+            closeDriver(driver);
+        }
+        if (this.isDriverClosed(driver)) {
+            driver = InitializeUtility.initializeDriver(CONFIG.getProperty("browser"));
+            driver.manage().window().maximize();
+            context.setAttribute(ScreenshotListener.DRIVER_ATTR + Thread.currentThread().getId(), driver);
+        }
     }
 
     protected void switchWindow() {
@@ -89,8 +98,8 @@ public abstract class AbstractBaseTestCase {
         }
     }
 
-    @AfterClass(alwaysRun = true)
-    protected void quitDriver() {
+    @AfterMethod(alwaysRun = true)
+    private void quitDriver() {
         tearDown();
         // close the browsers
         closeDriver(driver);

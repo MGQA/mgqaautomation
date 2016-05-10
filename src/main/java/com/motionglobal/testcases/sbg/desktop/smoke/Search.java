@@ -22,7 +22,7 @@ public class Search extends AbstractBaseSbgDesktopTestCase {
 
     @Test(dataProvider = "dp", groups = { "debug3", "smoke" })
     public void TestSearchRayBan(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.inputSearch.sendKeys("ray ban");
         header.iconSearch.click();
@@ -33,7 +33,7 @@ public class Search extends AbstractBaseSbgDesktopTestCase {
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void TestSearchLC(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.inputSearch.sendKeys("acuvue");
         header.iconSearch.click();
