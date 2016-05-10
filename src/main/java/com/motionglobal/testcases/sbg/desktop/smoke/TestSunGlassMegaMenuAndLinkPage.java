@@ -28,9 +28,9 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
     // return new Object[][] { new Object[] { "http://www.smartbuyglasses.nl" } };
     // }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(dataProvider = "dp", groups = { "debug111", "smoke" })
     public void leftSubmenuSection1(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.mouseOverMainMenu(1);
         header.waitForVisibility(header.getLeftSubMenuElement(1, 1, 1), 2);
@@ -50,7 +50,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void leftSubmenuSectionNum2(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         // header.clickLeftSubMenu(1, 2, 1);
         // header.getStyleUserGenderElement(2).click();
@@ -83,7 +83,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void leftSubmenusubLeftMenuSectionNum3(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.mouseOverMainMenu(1);
         header.waitForVisibility(header.getLeftSubMenuElement(1, 3, 1), 2);
@@ -154,7 +154,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum1(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.mouseOverMainMenu(1);
         header.waitForVisibility(header.getMiddleSubmenuElement(1, 1, 1), 2);
@@ -185,7 +185,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum2(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.mouseOverMainMenu(1);
         header.waitForVisibility(header.getMiddleSubmenuElement(1, 2, 1), 2);
@@ -207,7 +207,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subRightMenu(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.mouseOverMainMenu(1);
         header.mouseOver(header.getMegaMenuBrandInitialElement(1, "A"));

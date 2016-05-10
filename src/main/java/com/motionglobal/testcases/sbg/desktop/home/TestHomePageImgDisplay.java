@@ -25,7 +25,7 @@ public class TestHomePageImgDisplay extends AbstractBaseSbgDesktopTestCase {
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void imgDisplay(String url) {
-        driver.get(url);
+        getURL(url);
         HomePage homePage = new HomePage();
         String handle = "";
         JavascriptExecutor js = (JavascriptExecutor) driver;

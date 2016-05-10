@@ -27,7 +27,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
 
     @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuSunGlassGender(String url) {
-        driver.get(url);
+        getURL(url);
         MobHeader header = new MobHeader();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         for (int i = 0; i < header.getSubMenuElementSize(1, 1); i++) {
