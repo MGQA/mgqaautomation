@@ -29,7 +29,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subLeftMenuSectionNum1(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.mouseOverMainMenu(5);
         header.waitForVisibility(header.getLeftSubMenuElement(5, 1, 1), 2);
@@ -57,7 +57,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subLeftMenuSectionNum2(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.mouseOverMainMenu(5);
         header.waitForVisibility(header.getLeftSubMenuElement(5, 2, 1), 2);
@@ -83,7 +83,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subLeftMenuSectionNum3(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.mouseOverMainMenu(5);
         header.waitForVisibility(header.getLeftSubMenuElement(5, 3, 1), 2);
@@ -107,7 +107,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum1(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.clickMiddleSubMenu(5, 1, 1);
         CLProductDetailPage clProductDetailPage = new CLProductDetailPage();
@@ -145,7 +145,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum2(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.clickMiddleSubMenu(5, 2, 1);
         CLProductDetailPage clProductDetailPage = new CLProductDetailPage();
@@ -172,7 +172,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum3(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.clickMiddleSubMenu(5, 3, 1);
         CLProductDetailPage clProductDetailPage = new CLProductDetailPage();
@@ -190,7 +190,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subRightMenu(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.clickGlassImg(5, 2);
         header.mouseOverMainMenu(5);

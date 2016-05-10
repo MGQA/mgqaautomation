@@ -30,7 +30,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subLeftMenuSectionNum1(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.mouseOverMainMenu(2);
         header.waitForVisibility(header.getLeftSubMenuElement(2, 1, 1), 2);
@@ -50,7 +50,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subLeftMenuSectionNum2(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         // header.clickLeftSubMenu(2, 2, 1);
         // header.waitForVisibility(header.getStyleUserGenderElement(2), 1);
@@ -86,7 +86,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subLeftMenuSectionNum3(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.mouseOverMainMenu(2);
         header.waitForVisibility(header.getLeftSubMenuElement(2, 3, 1), 2);
@@ -106,7 +106,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum1(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.mouseOverMainMenu(2);
         header.waitForVisibility(header.getMiddleSubmenuElement(2, 1, 1), 2);
@@ -130,7 +130,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum2(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.mouseOverMainMenu(2);
         header.waitForVisibility(header.getMiddleSubmenuElement(2, 2, 1), 2);
@@ -158,7 +158,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum3(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.mouseOverMainMenu(2);
         header.waitForVisibility(header.getMiddleSubmenuElement(2, 3, 1), 2);
@@ -180,7 +180,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void subRightMenu(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.mouseOverMainMenu(2);
         header.mouseOver(header.getMegaMenuBrandInitialElement(2, "A"));

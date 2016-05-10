@@ -16,7 +16,7 @@ public class MobTestEmptyCarPage extends AbstractBaseSbgDesktopTestCase {
 
     @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
     public void mobCartBoxEmptyPage(String url) {
-        driver.get(url);
+        getURL(url);
         MobHeader header = new MobHeader();
         Assert.assertFalse(header.cartNum.isDisplayed());
         header.cartBox.click();

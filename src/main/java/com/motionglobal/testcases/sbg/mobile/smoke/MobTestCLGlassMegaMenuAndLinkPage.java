@@ -23,7 +23,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
 
     @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuCLBrank(String url) {
-        driver.get(url);
+        getURL(url);
         MobHeader header = new MobHeader();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         for (int i = 0; i < header.getSubMenuElementSize(3, 1); i++) {
@@ -51,7 +51,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
     @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
     // Miss Assert
     public void menuCLType(String url) {
-        driver.get(url);
+        getURL(url);
         MobHeader header = new MobHeader();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         for (int i = 0; i < header.getSubMenuElementSize(3, 2); i++) {
@@ -73,7 +73,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
     @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
     // Miss Assert
     public void menuCLFrequency(String url) {
-        driver.get(url);
+        getURL(url);
         MobHeader header = new MobHeader();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         for (int i = 0; i < header.getSubMenuElementSize(3, 3); i++) {
