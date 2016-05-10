@@ -8,7 +8,9 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.testng.ITestContext;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
@@ -99,6 +101,8 @@ public abstract class AbstractBaseTestCase {
     }
 
     @AfterMethod(alwaysRun = true)
+    @AfterClass(alwaysRun = true)
+    @AfterSuite(alwaysRun = true)
     private void quitDriver() {
         tearDown();
         // close the browsers
