@@ -45,7 +45,7 @@ public abstract class AbstractBaseTestCase {
         initialize();
     }
 
-    public void getURL(String url) {
+    protected void getURL(String url) {
         this.reloadDriver(true);
         driver.get(url);
     }
