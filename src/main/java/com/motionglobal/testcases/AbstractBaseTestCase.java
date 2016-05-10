@@ -9,10 +9,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -38,7 +38,7 @@ public abstract class AbstractBaseTestCase {
         this.logger().info("Testing started... ");
     }
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeTest(alwaysRun = true)
     public void initDriver(ITestContext context) {
         driver = InitializeUtility.initializeDriver(CONFIG.getProperty("browser"));
         this.context = context;
@@ -100,7 +100,7 @@ public abstract class AbstractBaseTestCase {
         }
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterTest(alwaysRun = true)
     @AfterClass(alwaysRun = true)
     @AfterSuite(alwaysRun = true)
     private void quitDriver() {
