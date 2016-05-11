@@ -14,7 +14,7 @@ public class MobTestEmptyCarPage extends AbstractBaseSbgDesktopTestCase {
         return new Object[][] { { "http://m.smartbuyglasses.com" }, { "http://m.smartbuyglasses.cn" } };
     }
 
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke", "fastsmoke" })
     public void mobCartBoxEmptyPage(String url) {
         getURL(url);
         MobHeader header = new MobHeader();

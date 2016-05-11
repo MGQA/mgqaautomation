@@ -12,7 +12,7 @@ import com.motionglobal.pages.sbg.mobile.search.MobSearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
-    @Test(groups = { "smoke", "debug2" })
+    @Test(groups = { "smoke", "debug2", "fastsmoke" })
     public void mobSearchItemAndPayByGC() {
         driver.get("http://m.smartbuyglasses.com/");
         MobHeader mobHeader = new MobHeader();

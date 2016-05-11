@@ -25,7 +25,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
     // return new Object[][] { new Object[] { "http://m.smartbuyglasses.com" } };
     // }
 
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuSunGlassGender(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
@@ -46,7 +46,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         }
     }
 
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuSunGlassBrank(String url) {
         driver.get(url);
         MobHeader header = new MobHeader();
@@ -72,7 +72,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         header.getDetailLinkElement(1, 2, header.getSubMenuElementSize(1, 2)).click();
     }
 
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuSunGlassShape(String url) {
         driver.get(url);
         MobHeader header = new MobHeader();
@@ -93,7 +93,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         }
     }
 
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuSunGlassOther(String url) {
         driver.get(url);
         MobHeader header = new MobHeader();

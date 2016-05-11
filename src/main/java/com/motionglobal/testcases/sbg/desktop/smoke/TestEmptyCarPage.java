@@ -11,7 +11,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class TestEmptyCarPage extends AbstractBaseSbgDesktopTestCase {
 
-    @Test(groups = { "debug", "smoke" })
+    @Test(groups = { "debug", "smoke", "fastsmoke" })
     public void US_CartBoxEmptyPage() {
         String url = "http://www.smartbuyglasses.com";
         driver.get(url);
@@ -28,7 +28,7 @@ public class TestEmptyCarPage extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(cartPage.cartEmptyIcon.isDisplayed());
     }
 
-    @Test(groups = { "debug", "smoke" })
+    @Test(groups = { "debug", "smoke", "fastsmoke" })
     public void CN_CartBoxEmptyPage() {
         String url = "http://www.smartbuyglasses.cn";
         driver.get(url);

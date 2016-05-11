@@ -7,7 +7,7 @@ import com.motionglobal.pages.sbg.mobile.MobHeader;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class MobTestLogin extends AbstractBaseSbgDesktopTestCase {
-    @Test(groups = { "debug2", "smoke" })
+    @Test(groups = { "debug2", "smoke", "fastsmoke" })
     public void testLogin() {
         driver.get("http://m.smartbuyglasses.com");
         MobHeader header = new MobHeader();

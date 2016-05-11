@@ -15,7 +15,7 @@ public class MobTestViewEyeProduct extends AbstractBaseTestCase {
         return new Object[][] { new Object[] { "http://m.smartbuyglasses.com/designer-eyeglasses/Tom-Ford/Tom-Ford-FT5146-003-77433.html" } };
     }
 
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(dataProvider = "dp", groups = { "debug2", "smoke", "fastsmoke" })
     public void searchPro(String url) {
         getURL(url);
         MobProductDetailPage detailPage = new MobProductDetailPage();

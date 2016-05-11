@@ -27,7 +27,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
     // return new Object[][] { new Object[] { "http://www.smartbuyglasses.nl" } };
     // }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subLeftMenuSectionNum1(String url) {
         getURL(url);
         Header header = new Header();
@@ -55,7 +55,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
 
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subLeftMenuSectionNum2(String url) {
         getURL(url);
         Header header = new Header();
@@ -81,7 +81,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(3).getText(), coloured);
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subLeftMenuSectionNum3(String url) {
         getURL(url);
         Header header = new Header();
@@ -105,7 +105,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel3(4).getText(), johnson);
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum1(String url) {
         getURL(url);
         Header header = new Header();
@@ -143,7 +143,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         }
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum2(String url) {
         getURL(url);
         Header header = new Header();
@@ -170,7 +170,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         }
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum3(String url) {
         getURL(url);
         Header header = new Header();
@@ -188,7 +188,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         }
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subRightMenu(String url) {
         getURL(url);
         Header header = new Header();

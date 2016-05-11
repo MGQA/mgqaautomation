@@ -16,7 +16,7 @@ public class MobTestSearchPradaBebeTrue extends AbstractBaseTestCase {
         return new Object[][] { new Object[] { "http://m.smartbuyglasses.com" }, };
     }
 
-    @Test(dataProvider = "dp", groups = { "debug4", "smoke" })
+    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
     public void bebeClickText(String url) throws InterruptedException {
         driver.get(url);
         MobHeader mobHeader = new MobHeader();

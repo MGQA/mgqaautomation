@@ -17,7 +17,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         return new Object[][] { new Object[] { "http://www.smartbuyglasses.com" }, };
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
     public void bebeClickText(String url) {
         driver.get(url);
         Header header = new Header();

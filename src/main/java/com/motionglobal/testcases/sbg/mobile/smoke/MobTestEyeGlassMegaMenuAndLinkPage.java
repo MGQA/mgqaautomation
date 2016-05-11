@@ -20,7 +20,7 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
     // return new Object[][] { new Object[] { "http://m.smartbuyglasses.com" } };
     // }
 
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuEyeGlassGender(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
@@ -41,7 +41,7 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         }
     }
 
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuEyeGlassBrank(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
@@ -67,7 +67,7 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         header.getDetailLinkElement(2, 2, header.getSubMenuElementSize(2, 2)).click();
     }
 
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuEyeGlassShape(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
@@ -88,7 +88,7 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         }
     }
 
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuEyeGlassStyle(String url) {
         getURL(url);
         MobHeader header = new MobHeader();

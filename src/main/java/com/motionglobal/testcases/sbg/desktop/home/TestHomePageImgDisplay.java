@@ -14,16 +14,16 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 public class TestHomePageImgDisplay extends AbstractBaseSbgDesktopTestCase {
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://www.visiondirect.com.au" }, { "http://www.smartbuyglasses.co.uk" },
-                { "http://www.smartbuyglasses.com" }, { "http://www.smartbuyglasses.de" }, { "http://www.smartbuyglasses.ca" },
-                { "http://www.smartbuyglasses.com.hk" }, { "http://www.smartbuyglasses.se" }, { "http://www.smartbuyglasses.dk" },
-                { "http://www.smartbuyglasses.nl" }, { "http://www.smartbuyglasses.co.nz" }, { "http://www.smartbuyglasses.cn" } };
+        // return new Object[][] { new Object[] { "http://www.visiondirect.com.au" }, { "http://www.smartbuyglasses.co.uk" },
+        // { "http://www.smartbuyglasses.com" }, { "http://www.smartbuyglasses.de" }, { "http://www.smartbuyglasses.ca" },
+        // { "http://www.smartbuyglasses.com.hk" }, { "http://www.smartbuyglasses.se" }, { "http://www.smartbuyglasses.dk" },
+        // { "http://www.smartbuyglasses.nl" }, { "http://www.smartbuyglasses.co.nz" }, { "http://www.smartbuyglasses.cn" } };
+        // }
+
+        return new Object[][] { new Object[] { "http://www.smartbuyglasses.com.hk/" } };
     }
 
-    // return new Object[][] { new Object[] { "http://www.smartbuyglasses.com" } };
-    // }
-
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
     public void imgDisplay(String url) {
         getURL(url);
         HomePage homePage = new HomePage();

@@ -28,7 +28,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
     // return new Object[][] { new Object[] { "http://www.smartbuyglasses.se" } };
     // }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subLeftMenuSectionNum1(String url) {
         getURL(url);
         Header header = new Header();
@@ -48,7 +48,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.gender).getText(), kid);
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subLeftMenuSectionNum2(String url) {
         getURL(url);
         Header header = new Header();
@@ -84,7 +84,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         }
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subLeftMenuSectionNum3(String url) {
         getURL(url);
         Header header = new Header();
@@ -104,7 +104,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.material).getText(), titanium);
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum1(String url) {
         getURL(url);
         Header header = new Header();
@@ -128,7 +128,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), rectangle);
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum2(String url) {
         getURL(url);
         Header header = new Header();
@@ -156,7 +156,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), rimless);
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum3(String url) {
         getURL(url);
         Header header = new Header();
@@ -178,7 +178,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.mid).getText().contains("999"), "mismatch: price 999 page ");
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subRightMenu(String url) {
         getURL(url);
         Header header = new Header();
