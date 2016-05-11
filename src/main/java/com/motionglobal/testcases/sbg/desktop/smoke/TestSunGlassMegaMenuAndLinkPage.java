@@ -30,7 +30,8 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug111", "smoke" })
     public void leftSubmenuSection1(String url) {
-        getURL(url);
+        // getURL(url);
+        driver.get(url);
         Header header = new Header();
         header.mouseOverMainMenu(1);
         header.waitForVisibility(header.getLeftSubMenuElement(1, 1, 1), 2);
