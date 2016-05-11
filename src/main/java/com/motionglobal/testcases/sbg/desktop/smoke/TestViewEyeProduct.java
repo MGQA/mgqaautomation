@@ -17,7 +17,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         return new Object[][] { new Object[] { "http://www.smartbuyglasses.com/" } };
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
     public void clickBrank(String url) {
         driver.get(url);
         Header header = new Header();
@@ -40,7 +40,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         BuyNowPage buyNow = new BuyNowPage();
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
     public void searchPro(String url) {
         driver.get(url);
         Header header = new Header();

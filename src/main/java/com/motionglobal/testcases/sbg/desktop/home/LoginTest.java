@@ -7,7 +7,7 @@ import com.motionglobal.pages.sbg.desktop.home.HomePage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class LoginTest extends AbstractBaseSbgDesktopTestCase {
-    @Test(groups = { "debug", "smoke" })
+    @Test(groups = { "debug", "smoke", "fastsmoke" })
     public void testLogin() {
         driver.get("http://www.smartbuyglasses.com");
         HomePage homepage = new HomePage();

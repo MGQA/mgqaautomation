@@ -21,7 +21,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
     // return new Object[][] { new Object[] { "http://m.smartbuyglasses.co.uk" } };
     // }
 
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuCLBrank(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
@@ -48,7 +48,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         }
     }
 
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     // Miss Assert
     public void menuCLType(String url) {
         getURL(url);
@@ -70,7 +70,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         }
     }
 
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     // Miss Assert
     public void menuCLFrequency(String url) {
         getURL(url);

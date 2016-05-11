@@ -28,7 +28,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
     // return new Object[][] { new Object[] { "http://www.smartbuyglasses.nl" } };
     // }
 
-    @Test(dataProvider = "dp", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug111", "smoke" })
     public void leftSubmenuSection1(String url) {
         getURL(url);
         Header header = new Header();
@@ -48,7 +48,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.gender).getText(), kid);
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void leftSubmenuSectionNum2(String url) {
         getURL(url);
         Header header = new Header();
@@ -81,7 +81,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         }
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void leftSubmenusubLeftMenuSectionNum3(String url) {
         getURL(url);
         Header header = new Header();
@@ -152,7 +152,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.ski).getText().contains(skiGoggles), "mismatch ski page");
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum1(String url) {
         getURL(url);
         Header header = new Header();
@@ -183,7 +183,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
             Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), "Enkele Lens");
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum2(String url) {
         getURL(url);
         Header header = new Header();
@@ -205,7 +205,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.mid).getText().contains("999"));
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subRightMenu(String url) {
         getURL(url);
         Header header = new Header();

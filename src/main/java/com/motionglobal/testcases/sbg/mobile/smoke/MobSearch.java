@@ -20,7 +20,7 @@ public class MobSearch extends AbstractBaseSbgDesktopTestCase {
     // return new Object[][] { new Object[] { "http://m.smartbuyglasses.com" } };
     // }
 
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void TestSearchRayBan(String url) {
         getURL(url);
         MobHeader mobHeader = new MobHeader();
@@ -32,8 +32,39 @@ public class MobSearch extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(name.contains("Ray-Ban"), "Expected Ray-ban displayed, but no");
     }
 
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void TestSearchLC(String url) {
+        getURL(url);
+        MobHeader mobHeader = new MobHeader();
+        mobHeader.searchInput.click();
+        mobHeader.searchInput.sendKeys("acuvue");
+        mobHeader.actionKey(Keys.ENTER);
+        MobSearchResultPage searchResultPage = new MobSearchResultPage();
+        String name = searchResultPage.productName.get(0).getText();
+        Assert.assertTrue(name.contains("Acuvue"), "Expected Ray-ban displayed, but no");
+    }
+
+    // ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    @DataProvider
+    public Object[][] dp2() {
+        return new Object[][] { new Object[] { "http://m.smartbuyglasses.com" }, { "http://www.smartbuyglasses.cn/" } };
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "dp2", groups = { "fastsmoke" })
+    public void fastsmokeSearchRayBan(String url) {
+        getURL(url);
+        MobHeader mobHeader = new MobHeader();
+        mobHeader.searchInput.click();
+        mobHeader.searchInput.sendKeys("ray ban");
+        mobHeader.actionKey(Keys.ENTER);
+        MobSearchResultPage searchResultPage = new MobSearchResultPage();
+        String name = searchResultPage.productName.get(0).getText();
+        Assert.assertTrue(name.contains("Ray-Ban"), "Expected Ray-ban displayed, but no");
+    }
+
+    @Test(skipFailedInvocations = true, groups = { "fastsmoke" })
+    public void fastsmokeSearchLC() {
+        String url = "http://m.smartbuyglasses.com";
         getURL(url);
         MobHeader mobHeader = new MobHeader();
         mobHeader.searchInput.click();

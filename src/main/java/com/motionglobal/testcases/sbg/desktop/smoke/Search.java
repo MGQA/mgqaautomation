@@ -20,7 +20,7 @@ public class Search extends AbstractBaseSbgDesktopTestCase {
     // return new Object[][] { new Object[] { "http://www.smartbuyglasses.com" } };
     // }
 
-    @Test(dataProvider = "dp", groups = { "debug3", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void TestSearchRayBan(String url) {
         getURL(url);
         Header header = new Header();
@@ -31,8 +31,37 @@ public class Search extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(raybanBand.contains("Ray-Ban"), "Expected Ray-ban displayed, but no");
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void TestSearchLC(String url) {
+        getURL(url);
+        Header header = new Header();
+        header.inputSearch.sendKeys("acuvue");
+        header.iconSearch.click();
+        SearchResultPage resultPage = new SearchResultPage();
+        String acuvueBand = resultPage.resultGrid().getItem(0).getBrand();
+        Assert.assertTrue(acuvueBand.contains("Acuvue"), "Expected acuvue displayed, but no");
+    }
+
+    // ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    @DataProvider
+    public Object[][] db2() {
+        return new Object[][] { new Object[] { "http://www.smartbuyglasses.com" }, { "http://www.smartbuyglasses.cn/" } };
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "dp2", groups = { "fastsmoke" })
+    public void fastsmokeSearchRayBan(String url) {
+        getURL(url);
+        Header header = new Header();
+        header.inputSearch.sendKeys("ray ban");
+        header.iconSearch.click();
+        SearchResultPage resultPage = new SearchResultPage();
+        String raybanBand = resultPage.resultGrid().getItem(0).getBrand();
+        Assert.assertTrue(raybanBand.contains("Ray-Ban"), "Expected Ray-ban displayed, but no");
+    }
+
+    @Test(skipFailedInvocations = true, groups = { "fastsmoke" })
+    public void fastsmokeSearchLC() {
+        String url = "http://www.smartbuyglasses.com";
         getURL(url);
         Header header = new Header();
         header.inputSearch.sendKeys("acuvue");

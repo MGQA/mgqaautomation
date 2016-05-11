@@ -14,7 +14,7 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
 
 public class TestOpticians extends AbstractBaseTestCase {
 
-    @Test(groups = { "debug", "smoke" })
+    @Test(groups = { "debug", "smoke", "fastsmoke" })
     public void buyNow() {
         String url = "http://www.smartbuyglasses.com/designer-eyeglasses/Tom-Ford/";
         driver.get(url);

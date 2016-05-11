@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="JAVA Automation">
+	<parameter name="config" value="/src/main/resources/config.properties" />
+	<test name="FastSmoke" preserve-order="true">
+		<groups>
+			<run>
+				<include name="fastsmoke" />
+				<exclude name="deprecated" />
+			</run>
+		</groups>
+		<packages>
+			<package name="com.motionglobal.*" />
+		</packages>
+	</test>
+</suite> 
