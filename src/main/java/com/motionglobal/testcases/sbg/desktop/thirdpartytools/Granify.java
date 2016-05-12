@@ -19,7 +19,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "acceptance", "au" })
     public void testHomepage() {
-        driver.get("http://www.visiondirect.com.au/");
+        getURL("http://www.visiondirect.com.au/");
         Header header = new Header();
         header.acceptAlert();
         HomePage homePage = new HomePage();
@@ -31,7 +31,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "acceptance", "au" })
     public void testProductPage() {
-        driver.get("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
+        getURL("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
         Header header = new Header();
         header.acceptAlert();
         ProductDetailPage productPage = new ProductDetailPage();
@@ -40,13 +40,13 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(productPage.isTextPresent("{ page_type: \"product\" }"));
         Assert.assertFalse(productPage.isTextPresent("{ page_type: \"cart\" }"));
 
-        driver.get("http://www.visiondirect.com.au/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html");
+        getURL("http://www.visiondirect.com.au/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html");
         Assert.assertTrue(productPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
         Assert.assertTrue(productPage.isTextPresent("Granify.trackPageView("));
         Assert.assertTrue(productPage.isTextPresent("{ page_type: \"product\" }"));
         Assert.assertFalse(productPage.isTextPresent("{ page_type: \"cart\" }"));
 
-        driver.get("http://www.visiondirect.com.au/contact-lenses/1-2-weeks-disposable/Acuvue-Oasys-for-Astigmatism-6-Pack/449.html");
+        getURL("http://www.visiondirect.com.au/contact-lenses/1-2-weeks-disposable/Acuvue-Oasys-for-Astigmatism-6-Pack/449.html");
         Assert.assertTrue(productPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
         Assert.assertTrue(productPage.isTextPresent("Granify.trackPageView("));
         Assert.assertTrue(productPage.isTextPresent("{ page_type: \"product\" }"));
@@ -55,7 +55,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "acceptance", "au" })
     public void testProductGridPage() {
-        driver.get("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/");
+        getURL("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/");
         Header header = new Header();
         header.acceptAlert();
         ProductGridPage productGridPage = new ProductGridPage();
@@ -64,19 +64,19 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(productGridPage.isTextPresent("{ page_type: \"collection\" }"));
         Assert.assertFalse(productGridPage.isTextPresent("{ page_type: \"cart\" }"));
 
-        driver.get("http://www.visiondirect.com.au/designer-sunglasses/general/-Men----------------------");
+        getURL("http://www.visiondirect.com.au/designer-sunglasses/general/-Men----------------------");
         Assert.assertTrue(productGridPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
         Assert.assertTrue(productGridPage.isTextPresent("Granify.trackPageView("));
         Assert.assertTrue(productGridPage.isTextPresent("{ page_type: \"collection\" }"));
         Assert.assertFalse(productGridPage.isTextPresent("{ page_type: \"cart\" }"));
 
-        driver.get("http://www.visiondirect.com.au/designer-sunglasses/on-sale/");
+        getURL("http://www.visiondirect.com.au/designer-sunglasses/on-sale/");
         Assert.assertTrue(productGridPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
         Assert.assertTrue(productGridPage.isTextPresent("Granify.trackPageView("));
         Assert.assertTrue(productGridPage.isTextPresent("{ page_type: \"collection\" }"));
         Assert.assertFalse(productGridPage.isTextPresent("{ page_type: \"cart\" }"));
 
-        driver.get("http://www.visiondirect.com.au/contact-lenses/b/Acuvue-contact-lenses#!&s=popularity&tb=0&b=Acuvue&p=1");
+        getURL("http://www.visiondirect.com.au/contact-lenses/b/Acuvue-contact-lenses#!&s=popularity&tb=0&b=Acuvue&p=1");
         Assert.assertTrue(productGridPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
         Assert.assertTrue(productGridPage.isTextPresent("Granify.trackPageView("));
         Assert.assertTrue(productGridPage.isTextPresent("{ page_type: \"collection\" }"));
@@ -85,7 +85,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "acceptance", "au" })
     public void testSearchResultPage() {
-        driver.get("http://www.visiondirect.com.au/search?keywords=rayban&searchHashcode=1445407688101619#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]");
+        getURL("http://www.visiondirect.com.au/search?keywords=rayban&searchHashcode=1445407688101619#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]");
         Header header = new Header();
         header.acceptAlert();
         SearchResultPage searchResultPage = new SearchResultPage();
@@ -97,7 +97,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "acceptance", "au" })
     public void testOtherPage() {
-        driver.get("http://www.visiondirect.com.au/faq");
+        getURL("http://www.visiondirect.com.au/faq");
         Header header = new Header();
         header.acceptAlert();
         FaqPage faqPage = new FaqPage();
@@ -106,7 +106,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(faqPage.isTextPresent("{ page_type: \"other\" }"));
         Assert.assertFalse(faqPage.isTextPresent("{ page_type: \"cart\" }"));
 
-        driver.get("http://www.visiondirect.com.au/about-us");
+        getURL("http://www.visiondirect.com.au/about-us");
         AboutUsPage aboutUsPage = new AboutUsPage();
         Assert.assertTrue(aboutUsPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
         Assert.assertTrue(aboutUsPage.isTextPresent("Granify.trackPageView("));
@@ -116,7 +116,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "acceptance", "au" })
     public void testEmptyCartPage() {
-        driver.get("http://www.visiondirect.com.au/cart");
+        getURL("http://www.visiondirect.com.au/cart");
         Header header = new Header();
         header.acceptAlert();
         CartPage cartPage = new CartPage();
@@ -131,7 +131,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "acceptance", "au" })
     public void testNonEmptyCartPage() {
-        driver.get("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
+        getURL("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
         Header header = new Header();
         header.acceptAlert();
         ProductDetailPage productDetailPage = new ProductDetailPage();
@@ -146,7 +146,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(cartPage.isTextPresent("{\"id\":\"110094\",\"quantity\":1,\"price\":\""));
         Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
 
-        driver.get("http://www.visiondirect.com.au/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html");
+        getURL("http://www.visiondirect.com.au/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html");
         cartPage.acceptAlert();
         productDetailPage = new ProductDetailPage();
         productDetailPage.radioFrameOnly.click();
@@ -162,7 +162,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(cartPage.isTextPresent("{\"id\":\"110094\",\"quantity\":1,\"price\":"));
         Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
 
-        driver.get("http://www.visiondirect.com.au/contact-lenses/daily-disposable/1-Day-Acuvue-Moist-for-Astigmatism-90-Pack/246.html");
+        getURL("http://www.visiondirect.com.au/contact-lenses/daily-disposable/1-Day-Acuvue-Moist-for-Astigmatism-90-Pack/246.html");
         cartPage.acceptAlert();
         CLProductDetailPage clProductDetailPage = new CLProductDetailPage();
         clProductDetailPage.setRightPrescription(true, "1", "-4.50", "-1.25", "20.00");
@@ -182,7 +182,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "acceptance", "au" })
     public void testGCCheckoutPage() {
-        driver.get("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
+        getURL("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
         Header header = new Header();
         header.acceptAlert();
         ProductDetailPage productDetailPage = new ProductDetailPage();

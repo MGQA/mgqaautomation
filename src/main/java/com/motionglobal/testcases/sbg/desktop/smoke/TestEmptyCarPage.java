@@ -14,7 +14,7 @@ public class TestEmptyCarPage extends AbstractBaseSbgDesktopTestCase {
     @Test(groups = { "debug", "smoke", "fastsmoke" })
     public void US_CartBoxEmptyPage() {
         String url = "http://www.smartbuyglasses.com";
-        driver.get(url);
+        getURL(url);
         try {
             Alert alert = driver.switchTo().alert();
             alert.accept();
@@ -31,7 +31,7 @@ public class TestEmptyCarPage extends AbstractBaseSbgDesktopTestCase {
     @Test(groups = { "debug", "smoke", "fastsmoke" })
     public void CN_CartBoxEmptyPage() {
         String url = "http://www.smartbuyglasses.cn";
-        driver.get(url);
+        getURL(url);
         try {
             Alert alert = driver.switchTo().alert();
             alert.accept();

@@ -18,7 +18,7 @@ public class MobTestSearchPradaBebeTrue extends AbstractBaseTestCase {
 
     @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
     public void bebeClickText(String url) throws InterruptedException {
-        driver.get(url);
+        getURL(url);
         MobHeader mobHeader = new MobHeader();
         mobHeader.searchInput.click();
         mobHeader.searchInput.sendKeys("Prada");

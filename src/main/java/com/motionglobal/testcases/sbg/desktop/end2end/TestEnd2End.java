@@ -34,7 +34,7 @@ public class TestEnd2End extends AbstractBaseSbgDesktopTestCase {
 
     @Override
     protected void initialize() {
-        driver.get(CONFIG.getProperty("sbgDesktopURL"));
+        getURL(CONFIG.getProperty("sbgDesktopURL"));
     }
 
     @Override

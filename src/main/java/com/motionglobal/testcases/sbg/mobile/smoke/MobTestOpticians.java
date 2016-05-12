@@ -11,7 +11,7 @@ public class MobTestOpticians extends AbstractBaseTestCase {
     @Test(groups = { "debug2", "smoke", "fastsmoke" })
     public void opticianPage() {
         String url = "http://m.smartbuyglasses.com/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html";
-        driver.get(url);
+        getURL(url);
         MobProductDetailPage productDetailPage = new MobProductDetailPage();
         productDetailPage.addLens.click();
         MobOpticianPage opticianPage = new MobOpticianPage();

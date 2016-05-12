@@ -19,7 +19,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
     public void clickBrank(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.mouseOverMainMenu(2);
         header.mouseOver(header.getMegaMenuBrandInitialElement(2, "Q"));
@@ -42,7 +42,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
     public void searchPro(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         String searchContent = "Tom Ford FT5146 003";
         header.inputSearch.sendKeys(searchContent);
