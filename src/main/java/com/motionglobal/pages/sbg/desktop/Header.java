@@ -292,8 +292,8 @@ public class Header extends AbstractBasePage {
     }
 
     public void mouseOverMainMenu(int mainMenuNum) throws Error {
-        mouseOver(getMegaMenuMainElement(mainMenuNum));
         out: for (int i = 1; i < 20; i++) {
+            mouseOver(getMegaMenuMainElement(mainMenuNum));
             if (!(menuDisplay.isDisplayed())) {
                 if (mainMenuNum == 2)
                     mouseOver(getMegaMenuMainElement(1));
