@@ -44,7 +44,7 @@ public class Search extends AbstractBaseSbgDesktopTestCase {
 
     // ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     @DataProvider
-    public Object[][] db2() {
+    public Object[][] dp2() {
         return new Object[][] { new Object[] { "http://www.smartbuyglasses.com" }, { "http://www.smartbuyglasses.cn/" } };
     }
 
