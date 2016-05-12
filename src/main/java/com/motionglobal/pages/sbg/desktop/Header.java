@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import com.motionglobal.pages.AbstractBasePage;
 
 public class Header extends AbstractBasePage {
+    @FindBy(css = ".fa.fa-2x.fa-close")
+    public WebElement firstBuy;
     //
     @FindBy(id = "logo")
     public WebElement logo;
