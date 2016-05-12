@@ -28,11 +28,15 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
     // return new Object[][] { new Object[] { "http://www.smartbuyglasses.nl" } };
     // }
 
-    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void leftSubmenuSection1(String url) {
-        // getURL(url);
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
+        try {
+            header.firstBuy.click();
+        }
+        catch (Exception e) {
+        }
         header.mouseOverMainMenu(1);
         header.waitForVisibility(header.getLeftSubMenuElement(1, 1, 1), 2);
         String men = header.getLeftSubMenuElement(1, 1, 1).getText();
