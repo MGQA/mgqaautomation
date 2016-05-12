@@ -271,6 +271,7 @@ public class Header extends AbstractBasePage {
         }
     }
 
+    //
     public void clickLeftSubMenu(int mainMenuNum, int sectionNum, int rowNum) {
         mouseOverMainMenu(mainMenuNum);
         getLeftSubMenuElement(mainMenuNum, sectionNum, rowNum).click();
