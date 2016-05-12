@@ -1,7 +1,5 @@
 package com.motionglobal.testcases.sbg.desktop.smoke;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -46,13 +44,13 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         header.waitForVisibility(resultPage.BebeBrankChecked, 10);
         try {
             resultPage.mouseOver(resultPage.proInfo.get(0));
+            resultPage.quickView.click();
         }
         catch (Exception e) {
             resultPage.mouseOver(header.iconSearch);
             resultPage.mouseOver(resultPage.proInfo.get(0));
+            resultPage.quickView.click();
         }
-        new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(resultPage.quickView));
-        resultPage.quickView.click();
         resultPage.detailBtn.click();
         ProductDetailPage detailPage = new ProductDetailPage();
         Assert.assertTrue(detailPage.glassName.getText().contains("BeBe BB5051 Flattering 045"), "Page Mismatcher");

@@ -98,8 +98,9 @@ public class TestOpticians extends AbstractBaseTestCase {
         // js.executeScript("arguments[0].scrollIntoView();", header.getMegaMenuMainElement(1));
         // wait.until(ExpectedConditions.elementToBeClickable(buyNow.lensTypeImg05));
         // buyNow.lensTypeImg05.click();
-        header.waitForVisibility(buyNow.premium, 5);
+        header.waitForVisibility(buyNow.deluxe, 5);
         js.executeScript("arguments[0].click();", buyNow.deluxe);
+        header.waitForVisibility(buyNow.Dgold, 2);
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(buyNow.Dgold));
         buyNow.Dgold.click();
         Assert.assertTrue(buyNow.isPriceEqual());
