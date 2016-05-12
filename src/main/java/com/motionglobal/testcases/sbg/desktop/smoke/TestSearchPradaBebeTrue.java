@@ -44,7 +44,13 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         header.waitForVisibility(resultPage.BebeBrank, 10);
         resultPage.BebeBrank.click();
         header.waitForVisibility(resultPage.BebeBrankChecked, 10);
-        resultPage.mouseOver(resultPage.proInfo.get(0));
+        try {
+            resultPage.mouseOver(resultPage.proInfo.get(0));
+        }
+        catch (Exception e) {
+            resultPage.mouseOver(header.iconSearch);
+            resultPage.mouseOver(resultPage.proInfo.get(0));
+        }
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(resultPage.quickView));
         resultPage.quickView.click();
         resultPage.detailBtn.click();

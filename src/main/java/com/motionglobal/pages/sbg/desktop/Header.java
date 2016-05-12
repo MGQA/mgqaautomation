@@ -295,10 +295,10 @@ public class Header extends AbstractBasePage {
         out: for (int i = 1; i < 20; i++) {
             mouseOver(getMegaMenuMainElement(mainMenuNum));
             if (!(menuDisplay.isDisplayed())) {
-                if (mainMenuNum == 2)
-                    mouseOver(getMegaMenuMainElement(1));
-                else
+                if (mainMenuNum == 1)
                     mouseOver(getMegaMenuMainElement(2));
+                else
+                    mouseOver(getMegaMenuMainElement(mainMenuNum - 1));
                 try {
                     Thread.sleep(100);
                 }

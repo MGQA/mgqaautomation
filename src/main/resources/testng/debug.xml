@@ -5,7 +5,7 @@
 	<test name="Debug" preserve-order="true">
 		<groups>
 			<run>
-				<include name="debug" />
+				<include name="debug111" />
 				<exclude name="deprecated" />
 			</run>
 		</groups>

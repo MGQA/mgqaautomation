@@ -12,7 +12,15 @@ public class LoginTest extends AbstractBaseSbgDesktopTestCase {
         getURL("http://www.smartbuyglasses.com");
         HomePage homepage = new HomePage();
         homepage.mouseOver(homepage.header().loginlable);
-        homepage.waitForVisibility(homepage.header().signin, 5);
+        try {
+            homepage.waitForVisibility(homepage.header().signin, 2);
+        }
+        catch (Exception e) {
+            if (!(homepage.header().signin.isDisplayed())) {
+                homepage.mouseOver(homepage.header().Help);
+                homepage.mouseOver(homepage.header().loginlable);
+            }
+        }
         homepage.header().signin.click();
         homepage.header().username.clear();
         homepage.header().username.sendKeys("felix.ma@motionglobal.com");
