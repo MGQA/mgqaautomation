@@ -4,12 +4,11 @@ import java.util.Iterator;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -36,12 +35,10 @@ public abstract class AbstractBaseTestCase {
         this.logger().info("Testing started... ");
     }
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeClass(alwaysRun = true)
     public void initDriver(ITestContext context) {
-        driver = InitializeUtility.initializeDriver(CONFIG.getProperty("browser"));
         this.context = context;
-        context.setAttribute(ScreenshotListener.DRIVER_ATTR + Thread.currentThread().getId(), driver);
-
+        driver = newDriver();
         initialize();
     }
 
@@ -52,13 +49,11 @@ public abstract class AbstractBaseTestCase {
 
     protected void switchDriver() {
         if (isDriverClosed(driver2)) {
-            driver2 = InitializeUtility.initializeDriver(CONFIG.getProperty("browser"));
+            driver2 = newDriver();
         }
         WebDriver tempDriver = driver;
         driver = driver2;
         driver2 = tempDriver;
-        driver2.manage().window().setSize(new Dimension(80, 60)); // Bring the active window to the front
-        driver.manage().window().maximize();
         context.setAttribute(ScreenshotListener.DRIVER_ATTR + Thread.currentThread().getId(), driver);
     }
 
@@ -71,10 +66,15 @@ public abstract class AbstractBaseTestCase {
             closeDriver(driver);
         }
         if (this.isDriverClosed(driver)) {
-            driver = InitializeUtility.initializeDriver(CONFIG.getProperty("browser"));
-            driver.manage().window().maximize();
-            context.setAttribute(ScreenshotListener.DRIVER_ATTR + Thread.currentThread().getId(), driver);
+            driver = newDriver();
         }
+    }
+
+    private WebDriver newDriver() {
+        WebDriver driver = InitializeUtility.initializeDriver(CONFIG.getProperty("browser"));
+        driver.manage().window().maximize();
+        context.setAttribute(ScreenshotListener.DRIVER_ATTR + Thread.currentThread().getId(), driver);
+        return driver;
     }
 
     protected void switchWindow() {
@@ -98,8 +98,8 @@ public abstract class AbstractBaseTestCase {
         }
     }
 
-    @AfterMethod(alwaysRun = true)
-    private void quitDriver() {
+    @AfterClass(alwaysRun = true)
+    public void quitDriver() {
         tearDown();
         // close the browsers
         closeDriver(driver);
@@ -122,7 +122,7 @@ public abstract class AbstractBaseTestCase {
 
     protected void p(String[] arr) {
         for (String s : arr) {
-            System.out.println(s);
+            p(s);
         }
     }
 
@@ -133,10 +133,4 @@ public abstract class AbstractBaseTestCase {
     protected void p(int str) {
         System.out.println(str);
     }
-
-    // protected void p(List<WebElement> list) {
-    // for (WebElement s : list) {
-    // System.out.println(s.getAttribute("value"));
-    // }
-    // }
 }
