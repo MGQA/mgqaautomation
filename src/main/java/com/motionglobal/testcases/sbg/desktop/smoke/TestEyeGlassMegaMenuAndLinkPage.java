@@ -151,7 +151,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         if (!(url.equals("http://www.smartbuyglasses.se")))
             Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), semiRim);
         else
-            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), "Delvis ramlös");
+            Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.se/glas%C3%B6gon/general/---Semi+Rimless--------------------");
         header.clickMiddleSubMenu(2, 2, 3);
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), rimless);
     }
