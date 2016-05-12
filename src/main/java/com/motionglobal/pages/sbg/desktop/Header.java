@@ -9,6 +9,8 @@ import com.motionglobal.pages.AbstractBasePage;
 public class Header extends AbstractBasePage {
     @FindBy(css = ".fa.fa-2x.fa-close")
     public WebElement firstBuy;
+    @FindBy(className = "menuN_display")
+    public WebElement menuDisplay;
     //
     @FindBy(id = "logo")
     public WebElement logo;
@@ -290,18 +292,23 @@ public class Header extends AbstractBasePage {
     }
 
     public void mouseOverMainMenu(int mainMenuNum) throws Error {
-        if (mainMenuNum == 2)
-            mouseOver(getMegaMenuMainElement(1));
-        else
-            mouseOver(getMegaMenuMainElement(2));
-
         mouseOver(getMegaMenuMainElement(mainMenuNum));
+        out: for (int i = 1; i < 20; i++) {
+            if (!(menuDisplay.isDisplayed())) {
+                if (mainMenuNum == 2)
+                    mouseOver(getMegaMenuMainElement(1));
+                else
+                    mouseOver(getMegaMenuMainElement(2));
+                try {
+                    Thread.sleep(100);
+                }
+                catch (InterruptedException e) {
+                }
+            }
+            else {
+                break out;
+            }
+        }
         waitForVisibility(By.cssSelector("#menuN_" + mainMenuNum + " .current"), 2);
-        try {
-            Thread.sleep(100);
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 }
