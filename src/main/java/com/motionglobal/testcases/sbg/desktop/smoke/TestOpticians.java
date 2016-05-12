@@ -17,7 +17,7 @@ public class TestOpticians extends AbstractBaseTestCase {
     @Test(groups = { "debug", "smoke", "fastsmoke" })
     public void buyNow() {
         String url = "http://www.smartbuyglasses.com/designer-eyeglasses/Tom-Ford/";
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         ProductGridPage productGridPage = new ProductGridPage();
         header.mouseOver(productGridPage.proInfo.get(0));

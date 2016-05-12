@@ -12,7 +12,7 @@ public class MegaMenuCheck extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "smoke", "debug" })
     public void mencheck() {
-        driver.get("http://www.smartbuyglasses.com/");
+        getURL("http://www.smartbuyglasses.com/");
         HomePage homepage = new HomePage();
         Actions action = new Actions(driver);
         action.moveToElement(homepage.header().getMegaMenuMainElement(1)).perform();

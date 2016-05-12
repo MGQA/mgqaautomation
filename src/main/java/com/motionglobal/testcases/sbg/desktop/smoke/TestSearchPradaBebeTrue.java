@@ -19,7 +19,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
     public void bebeClickText(String url) {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.waitForVisibility(header.inputSearch, 5);
         header.inputSearch.sendKeys("Prada");
@@ -36,7 +36,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void bebeClickDetail(String url) throws InterruptedException {
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.inputSearch.sendKeys("Prada");
         header.iconSearch.click();

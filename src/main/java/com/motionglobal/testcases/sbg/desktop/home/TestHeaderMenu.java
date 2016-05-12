@@ -11,7 +11,7 @@ public class TestHeaderMenu extends AbstractBaseSbgDesktopTestCase {
     @Test(groups = { "debug", "smoke" })
     public void testSunGlassesHeaderMenus() {
         logger().info("started...");
-        driver.get("http://www.smartbuyglasses.com");
+        getURL("http://www.smartbuyglasses.com");
         HomePage homePage = new HomePage();
         homePage.header().inputSearch.click();
         homePage.header().inputSearch.sendKeys("ray ban");

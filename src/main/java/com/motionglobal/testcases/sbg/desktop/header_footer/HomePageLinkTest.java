@@ -15,7 +15,7 @@ public class HomePageLinkTest extends AbstractBaseSbgDesktopTestCase {
     @Test(groups = { "debug", "smoke" })
     public void homePageLinkTest() throws InterruptedException {
         String url = "http://www.smartbuyglasses.com/";
-        driver.get(url);
+        getURL(url);
         HomePage homepage = new HomePage();
         Header header = new Header();
         // FREE SHIPPING

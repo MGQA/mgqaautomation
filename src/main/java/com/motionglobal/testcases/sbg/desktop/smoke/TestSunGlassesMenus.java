@@ -13,7 +13,7 @@ public class TestSunGlassesMenus extends AbstractBaseTestCase {
     public void top100() {
         String url = "http://www.smartbuyglasses.com.hk/";
         int productNum = 103;
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         header.mouseOverMainMenu(1);
         header.sunTop100.click();

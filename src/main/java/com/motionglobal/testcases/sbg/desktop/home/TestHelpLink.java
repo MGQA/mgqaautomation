@@ -11,7 +11,7 @@ public class TestHelpLink extends AbstractBaseSbgDesktopTestCase {
     @Test(groups = { "smoke", "debug" })
     public void testHelpLink() {
         String url = "http://www.smartbuyglasses.com/";
-        driver.get(url);
+        getURL(url);
         Header header = new Header();
         clickHelpLink(1);
         Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/faq");

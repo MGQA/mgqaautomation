@@ -12,7 +12,7 @@ public class ContactLens extends AbstractBaseSbgDesktopTestCase {
     public void Daily() {
         String url = "http://www.smartbuyglasses.com.hk/";
         int productNum = 18;
-        driver.get(url);
+        getURL(url);
         // driver.navigate().refresh();
         Header header = new Header();
         header.mouseOverMainMenu(5);

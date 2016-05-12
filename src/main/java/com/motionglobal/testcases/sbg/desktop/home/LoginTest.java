@@ -9,7 +9,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 public class LoginTest extends AbstractBaseSbgDesktopTestCase {
     @Test(groups = { "debug", "smoke", "fastsmoke" })
     public void testLogin() {
-        driver.get("http://www.smartbuyglasses.com");
+        getURL("http://www.smartbuyglasses.com");
         HomePage homepage = new HomePage();
         homepage.mouseOver(homepage.header().loginlable);
         homepage.waitForVisibility(homepage.header().signin, 5);

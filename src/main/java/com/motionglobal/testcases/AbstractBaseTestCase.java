@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 
 import com.motionglobal.common.webdriver.InitializeUtility;
 import com.motionglobal.common.webdriver.ScreenshotListener;
+import com.motionglobal.pages.sbg.desktop.Header;
 
 @Test
 public abstract class AbstractBaseTestCase {
@@ -24,6 +25,7 @@ public abstract class AbstractBaseTestCase {
     private WebDriver driver2 = null;
     protected static Properties CONFIG = null;
     protected static ITestContext context;
+    private static int i;
 
     @Parameters({ "config" })
     @BeforeSuite(alwaysRun = true)
@@ -43,8 +45,18 @@ public abstract class AbstractBaseTestCase {
     }
 
     protected void getURL(String url) {
-        this.reloadDriver(true);
+        if (i == 0) {
+            this.reloadDriver(false);
+        }
         driver.get(url);
+        Header header = new Header();
+        try {
+            header.firstBuy.click();
+        }
+        catch (Exception e) {
+        }
+        i = 0;
+        System.out.println(i);
     }
 
     protected void switchDriver() {
@@ -74,6 +86,7 @@ public abstract class AbstractBaseTestCase {
         WebDriver driver = InitializeUtility.initializeDriver(CONFIG.getProperty("browser"));
         driver.manage().window().maximize();
         context.setAttribute(ScreenshotListener.DRIVER_ATTR + Thread.currentThread().getId(), driver);
+        i = 1;
         return driver;
     }
 
