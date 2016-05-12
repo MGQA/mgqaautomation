@@ -287,7 +287,13 @@ public class Header extends AbstractBasePage {
         getMegaMenuBrandsNameElement(mainMenuNum, firstLetter, col, rowNum).click();
     }
 
-    public void mouseOverMainMenu(int mainMenuNum) throws Error {
+    public void mouseOverMainMenu(int mainMenuNum) {
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         if (mainMenuNum == 2)
             mouseOver(getMegaMenuMainElement(1));
         else
@@ -296,7 +302,7 @@ public class Header extends AbstractBasePage {
         mouseOver(getMegaMenuMainElement(mainMenuNum));
         waitForVisibility(By.cssSelector("#menuN_" + mainMenuNum + " .current"), 2);
         try {
-            Thread.sleep(100);
+            Thread.sleep(1000);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
