@@ -2,6 +2,7 @@ package com.motionglobal.testcases;
 
 import java.util.Iterator;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -85,6 +86,7 @@ public abstract class AbstractBaseTestCase {
     private WebDriver newDriver() {
         WebDriver driver = InitializeUtility.initializeDriver(CONFIG.getProperty("browser"));
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         context.setAttribute(ScreenshotListener.DRIVER_ATTR + Thread.currentThread().getId(), driver);
         i = 1;
         return driver;

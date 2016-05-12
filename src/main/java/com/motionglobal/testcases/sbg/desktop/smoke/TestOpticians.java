@@ -14,7 +14,7 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
 
 public class TestOpticians extends AbstractBaseTestCase {
 
-    @Test(groups = { "debug", "smoke", "fastsmoke" })
+    @Test(groups = { "debug111", "smoke", "fastsmoke" })
     public void buyNow() {
         String url = "http://www.smartbuyglasses.com/designer-eyeglasses/Tom-Ford/";
         getURL(url);
@@ -98,7 +98,9 @@ public class TestOpticians extends AbstractBaseTestCase {
         // js.executeScript("arguments[0].scrollIntoView();", header.getMegaMenuMainElement(1));
         // wait.until(ExpectedConditions.elementToBeClickable(buyNow.lensTypeImg05));
         // buyNow.lensTypeImg05.click();
+        header.waitForVisibility(buyNow.premium, 5);
         js.executeScript("arguments[0].click();", buyNow.deluxe);
+        new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(buyNow.Dgold));
         buyNow.Dgold.click();
         Assert.assertTrue(buyNow.isPriceEqual());
         buyNow.Dplatinum.click();
