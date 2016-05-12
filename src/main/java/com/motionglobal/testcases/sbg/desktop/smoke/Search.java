@@ -45,7 +45,7 @@ public class Search extends AbstractBaseSbgDesktopTestCase {
     // ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     @DataProvider
     public Object[][] dp2() {
-        return new Object[][] { new Object[] { "http://www.smartbuyglasses.com" }, { "http://www.smartbuyglasses.cn/" } };
+        return new Object[][] { new Object[] { "http://www.smartbuyglasses.com" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp2", groups = { "fastsmoke" })

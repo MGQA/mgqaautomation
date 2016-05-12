@@ -47,7 +47,7 @@ public class MobSearch extends AbstractBaseSbgDesktopTestCase {
     // ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     @DataProvider
     public Object[][] dp2() {
-        return new Object[][] { new Object[] { "http://m.smartbuyglasses.com" }, { "http://www.smartbuyglasses.cn/" } };
+        return new Object[][] { new Object[] { "http://m.smartbuyglasses.com" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp2", groups = { "fastsmoke" })
