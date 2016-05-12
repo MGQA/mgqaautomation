@@ -51,7 +51,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         if (!(url.equals("http://www.smartbuyglasses.dk")))
             Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(4).getText(), aspherical);
         else
-            Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(4).getText(), "Asfæriske");
+            Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.dk/kontaktlinser/t/asfaeriske-linser#!&s=popularitet&tb=0&t=aspherical&p=1");
 
     }
 
