@@ -271,7 +271,6 @@ public class Header extends AbstractBasePage {
         }
     }
 
-    //
     public void clickLeftSubMenu(int mainMenuNum, int sectionNum, int rowNum) {
         mouseOverMainMenu(mainMenuNum);
         getLeftSubMenuElement(mainMenuNum, sectionNum, rowNum).click();
@@ -288,13 +287,7 @@ public class Header extends AbstractBasePage {
         getMegaMenuBrandsNameElement(mainMenuNum, firstLetter, col, rowNum).click();
     }
 
-    public void mouseOverMainMenu(int mainMenuNum) {
-        try {
-            Thread.sleep(1000);
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public void mouseOverMainMenu(int mainMenuNum) throws Error {
         if (mainMenuNum == 2)
             mouseOver(getMegaMenuMainElement(1));
         else
@@ -303,7 +296,7 @@ public class Header extends AbstractBasePage {
         mouseOver(getMegaMenuMainElement(mainMenuNum));
         waitForVisibility(By.cssSelector("#menuN_" + mainMenuNum + " .current"), 2);
         try {
-            Thread.sleep(1000);
+            Thread.sleep(100);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
