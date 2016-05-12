@@ -19,7 +19,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
     public Object[][] dp() {
         return new Object[][] { new Object[] { "http://m.visiondirect.com.au" }, { "http://m.smartbuyglasses.co.uk" }, { "http://m.smartbuyglasses.com" },
                 { "http://m.smartbuyglasses.de" }, { "http://m.smartbuyglasses.ca" }, { "http://m.smartbuyglasses.com.hk" }, { "http://m.smartbuyglasses.se" },
-                { "http://m.smartbuyglasses.dk" }, { "http://m.smartbuyglasses.nl" }, { "http://m.smartbuyglasses.co.nz" }, { "http://m.smartbuyglasses.cn" } };
+                { "http://m.smartbuyglasses.dk" }, { "http://m.smartbuyglasses.nl" }, { "http://m.smartbuyglasses.co.nz" } };
     }
 
     // return new Object[][] { new Object[] { "http://m.smartbuyglasses.com" } };
