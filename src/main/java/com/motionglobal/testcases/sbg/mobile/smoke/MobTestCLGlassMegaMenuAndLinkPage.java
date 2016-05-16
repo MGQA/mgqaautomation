@@ -28,6 +28,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         JavascriptExecutor js = (JavascriptExecutor) driver;
         for (int i = 0; i < header.getSubMenuElementSize(3, 1); i++) {
             header.menuBtn.click();
+            header.waitForVisibility(header.getMainMenuElement(3), 2);
             header.getMainMenuElement(3).click();
             header.getSubMenuElement(3, 1).click();
             String menuBrankName = header.getDetailLinkElement(3, 1, (i + 1)).getText();
@@ -70,7 +71,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         }
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke", "debug111" })
     // Miss Assert
     public void menuCLFrequency(String url) {
         getURL(url);
@@ -79,6 +80,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         for (int i = 0; i < header.getSubMenuElementSize(3, 3); i++) {
             header.menuBtn.click();
             header.getMainMenuElement(3).click();
+            header.waitForVisibility(header.getSubMenuElement(3, 3), 2);
             header.getSubMenuElement(3, 3).click();
             // String brankName = header.getDetailLinkElement(3, 2, (i + 1)).getText();
             js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(3, 3, (i + 1)));

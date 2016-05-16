@@ -23,6 +23,7 @@ public class TestEmptyCarPage extends AbstractBaseSbgDesktopTestCase {
         }
         Header header = new Header();
         Assert.assertEquals(header.cartProductNum.getText(), "0");
+        header.waitForVisibility(header.cartBox, 2);
         header.cartBox.click();
         CartPage cartPage = new CartPage();
         Assert.assertTrue(cartPage.cartEmptyIcon.isDisplayed());

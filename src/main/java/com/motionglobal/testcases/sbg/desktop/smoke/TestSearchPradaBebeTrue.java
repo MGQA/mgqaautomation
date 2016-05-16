@@ -47,7 +47,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
             resultPage.quickView.click();
         }
         catch (Exception e) {
-            resultPage.mouseOver(header.iconSearch);
+            resultPage.mouseOver(resultPage.brandName);
             resultPage.mouseOver(resultPage.proInfo.get(0));
             resultPage.quickView.click();
         }

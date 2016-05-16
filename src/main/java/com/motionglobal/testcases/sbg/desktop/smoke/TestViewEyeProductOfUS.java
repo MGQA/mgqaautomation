@@ -7,16 +7,16 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
-import com.motionglobal.pages.sbg.desktop.product.BuyNowPage;
+import com.motionglobal.pages.sbg.desktop.cart.CartPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage.Label;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
-public class TestViewEyeProduct extends AbstractBaseTestCase {
+public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://www.visiondirect.com.au/" } };
+        return new Object[][] { new Object[] { "http://www.smartbuyglasses.com/" } };
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
@@ -41,7 +41,9 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         header.waitForVisibility(productGridPage.buyNowButton, 2);
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(productGridPage.buyNowButton));
         productGridPage.buyNowButton.click();
-        BuyNowPage buyNowPage = new BuyNowPage();
+        header.waitForVisibility(productGridPage.cartBtn, 2);
+        productGridPage.cartBtn.click();
+        CartPage cartPage = new CartPage();
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
@@ -69,7 +71,9 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         header.waitForVisibility(searchResultPage.buyNowButton, 2);
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(searchResultPage.buyNowButton));
         searchResultPage.buyNowButton.click();
-        BuyNowPage buyNowPage = new BuyNowPage();
+        header.waitForVisibility(searchResultPage.carBtn, 2);
+        searchResultPage.carBtn.click();
+        CartPage cartPage = new CartPage();
     }
 
     @Override
