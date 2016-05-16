@@ -294,7 +294,6 @@ public class Header extends AbstractBasePage {
     public void mouseOverMainMenu(int mainMenuNum) throws Error {
         out: for (int i = 1; i < 20; i++) {
             mouseOver(getMegaMenuMainElement(mainMenuNum));
-            // waitForVisibility(By.cssSelector("#menuN_" + mainMenuNum + " .current"), 2);
             if (!(menuDisplay.isDisplayed())) {
                 if (mainMenuNum == 1)
                     mouseOver(getMegaMenuMainElement(2));
@@ -305,21 +304,10 @@ public class Header extends AbstractBasePage {
                 }
                 catch (InterruptedException e) {
                 }
+                waitForVisibility(menuDisplay, 2);
             }
             else {
                 break out;
-            }
-            bk: for (int j = 1; j < 20; j++) {
-                if (!(getLeftSubMenuElement(mainMenuNum, 1, 1).isDisplayed())) {
-                    try {
-                        Thread.sleep(100);
-                    }
-                    catch (InterruptedException e) {
-                    }
-                }
-                else {
-                    break bk;
-                }
             }
         }
     }
