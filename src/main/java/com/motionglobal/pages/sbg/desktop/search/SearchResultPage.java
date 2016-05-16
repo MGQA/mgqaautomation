@@ -20,10 +20,14 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     // List WebElement
     @FindBy(className = "recProInfo")
     public List<WebElement> proInfo;
+    @FindBy(className = "rplp_brand")
+    public WebElement brandName;
     @FindBy(xpath = "//div[@class='pro_right_size']/a")
     public List<WebElement> eyeproSize;
     @FindBy(css = "label.clearfix")
     public List<WebElement> frameOrAdd;
+    @FindBy(className = "cart_btn")
+    public WebElement carBtn;
     // assert_element
     @FindBy(className = "rplp_brand")
     public WebElement searchName;

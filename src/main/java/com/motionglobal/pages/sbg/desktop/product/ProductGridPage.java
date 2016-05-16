@@ -13,6 +13,8 @@ import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     @FindBy(xpath = "//div[contains(@class,'pro_r_buynow')]/a[2]/span")
     public WebElement buyNowButton;
+    @FindBy(className = "cart_btn")
+    public WebElement cartBtn;
     // List WebElement
     @FindBy(className = "quick_view_text")
     public WebElement quickView;
@@ -22,7 +24,21 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> eyeproSize;
     @FindBy(css = "label.clearfix")
     public List<WebElement> frameOrAdd;
-
+    // Opticians
+    @FindBy(id = "discount_price_promotion_display")
+    public WebElement framePrice;
+    @FindBy(className = "frame_price")
+    public WebElement frame_price;
+    @FindBy(xpath = "//li[@class='recommended cur']/a/p[2]")
+    public WebElement deluxeVeryPriece;
+    @FindBy(className = "lenses_price")
+    public WebElement lenses_price;
+    @FindBy(className = "total_price")
+    public WebElement total_price;
+    @FindBy(xpath = "//li[@data-index='deluxe']")
+    public WebElement deluxe;
+    @FindBy(xpath = "//li[@data-value='8']/a")
+    public WebElement deluxeVery;
     // assert_element！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     @FindBy(className = "proCell_click")
     public List<WebElement> sunTop100Eles;
