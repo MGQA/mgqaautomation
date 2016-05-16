@@ -25,6 +25,7 @@ public class Search extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         Header header = new Header();
         header.inputSearch.sendKeys("ray ban");
+        header.waitForVisibility(header.iconSearch, 2);
         header.iconSearch.click();
         SearchResultPage resultPage = new SearchResultPage();
         String raybanBand = resultPage.resultGrid().getItem(0).getBrand();
