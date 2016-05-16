@@ -45,6 +45,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         try {
             header.waitForVisibility(resultPage.proInfo.get(0), 2);
             resultPage.mouseOver(resultPage.proInfo.get(0));
+            header.waitForVisibility(resultPage.quickView, 2);
             resultPage.quickView.click();
         }
         catch (Exception e) {
@@ -52,6 +53,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
             resultPage.mouseOver(resultPage.brandName);
             header.waitForVisibility(resultPage.proInfo.get(0), 2);
             resultPage.mouseOver(resultPage.proInfo.get(0));
+            header.waitForVisibility(resultPage.quickView, 2);
             resultPage.quickView.click();
         }
         resultPage.detailBtn.click();
