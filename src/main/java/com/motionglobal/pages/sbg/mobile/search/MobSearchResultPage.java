@@ -13,7 +13,7 @@ public class MobSearchResultPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> productList;
     @FindBy(className = "main__glass-list__item__detail__name")
     public List<WebElement> productName;
-    @FindBy(className = "main__glass-list__item__detail__other")
+    @FindBy(xpath = "//div[contains(@class,'detail__other')][1]")
     public WebElement productDetailName;
     @FindBy(className = "main__btn-group__btnl")
     public WebElement filter;
