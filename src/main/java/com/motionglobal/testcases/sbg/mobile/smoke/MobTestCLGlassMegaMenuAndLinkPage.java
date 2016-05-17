@@ -71,7 +71,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         }
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke", "debug111" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     // Miss Assert
     public void menuCLFrequency(String url) {
         getURL(url);
