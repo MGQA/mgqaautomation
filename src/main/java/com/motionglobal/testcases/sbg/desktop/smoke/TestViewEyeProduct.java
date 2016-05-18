@@ -56,6 +56,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         Assert.assertTrue(searchContent.contains(Band), "Expected product displayed");
         //
         header.mouseOver(searchResultPage.proInfo.get(0));
+        header.waitForVisibility(searchResultPage.quickView, 2);
         searchResultPage.quickView.click();
         //
         searchResultPage.eyeproSize.get(1).click();
