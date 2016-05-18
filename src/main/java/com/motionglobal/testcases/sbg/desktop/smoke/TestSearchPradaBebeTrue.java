@@ -26,8 +26,20 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         header.waitForVisibility(resultPage.BebeBrank, 10);
         resultPage.BebeBrank.click();
         header.waitForVisibility(resultPage.BebeBrankChecked, 10);
-        resultPage.mouseOver(resultPage.proInfo.get(0));
-        resultPage.resultGrid().getItem(0).click();
+        try {
+            header.waitForVisibility(resultPage.proInfo.get(0), 2);
+            resultPage.mouseOver(resultPage.proInfo.get(0));
+            header.waitForVisibility(resultPage.quickView, 2);
+            resultPage.resultGrid().getItem(0).click();
+        }
+        catch (Exception e) {
+            header.waitForVisibility(resultPage.brandName, 2);
+            resultPage.mouseOver(resultPage.brandName);
+            header.waitForVisibility(resultPage.proInfo.get(0), 2);
+            resultPage.mouseOver(resultPage.proInfo.get(0));
+            header.waitForVisibility(resultPage.quickView, 2);
+            resultPage.resultGrid().getItem(0).click();
+        }
         ProductDetailPage detailPage = new ProductDetailPage();
         Assert.assertTrue(detailPage.glassName.getText().contains("BeBe BB5051 Flattering 045"), "Page Mismatcher");
     }
