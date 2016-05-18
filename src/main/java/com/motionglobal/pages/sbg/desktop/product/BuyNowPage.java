@@ -4,9 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
@@ -92,7 +90,7 @@ public class BuyNowPage extends AbstractBaseSbgDesktopPage {
     public void clickEditBtn() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();", header().getMegaMenuMainElement(1));
-        new WebDriverWait(driver, 1).until(ExpectedConditions.elementToBeClickable(editBtn));
+        waitForVisibility(editBtn, 1);
         editBtn.click();
     }
 

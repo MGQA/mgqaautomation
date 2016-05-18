@@ -1,4 +1,4 @@
-package com.motionglobal.testcases.sbg.desktop.smoke;
+package com.motionglobal.testcases.sbg.desktop.smoke.enable;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,7 +19,7 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
         return new Object[][] { new Object[] { "http://www.smartbuyglasses.com/" } };
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
+    @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" }, enabled = false)
     public void clickBrank(String url) {
         getURL(url);
         Header header = new Header();
@@ -29,6 +29,7 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
         ProductGridPage productGridPage = new ProductGridPage();
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.brands).getText(), "Tom Ford");
         header.mouseOver(productGridPage.proInfo.get(0));
+        header.waitForVisibility(productGridPage.quickView, 2);
         productGridPage.quickView.click();
         productGridPage.eyeproSize.get(1).click();
         Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
@@ -46,7 +47,7 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
         CartPage cartPage = new CartPage();
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
+    @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" }, enabled = false)
     public void searchPro(String url) {
         getURL(url);
         Header header = new Header();
@@ -58,6 +59,7 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
         Assert.assertTrue(searchContent.contains(Band), "Expected product displayed");
         //
         header.mouseOver(searchResultPage.proInfo.get(0));
+        header.waitForVisibility(searchResultPage.quickView, 2);
         searchResultPage.quickView.click();
         //
         searchResultPage.eyeproSize.get(1).click();
