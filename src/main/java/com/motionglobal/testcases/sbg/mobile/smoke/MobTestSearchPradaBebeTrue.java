@@ -30,6 +30,7 @@ public class MobTestSearchPradaBebeTrue extends AbstractBaseTestCase {
         searchResultPage.branksBtn.click();
         searchResultPage.JsMouse(searchResultPage.Bebe);
         searchResultPage.Bebe.click();
+        searchResultPage.waitForVisibility(searchResultPage.productDetailName, 1);
         String detailName = searchResultPage.productDetailName.getText();
         for (int i = 0; i < 30; i++) {
             if (!(detailName.contains("Bebe"))) {

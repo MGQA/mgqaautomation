@@ -11,6 +11,15 @@ public class Header extends AbstractBasePage {
     public WebElement firstBuy;
     @FindBy(className = "menuN_display")
     public WebElement menuDisplay;
+    // deals .//*[@id='menuN_level_6']/li/div/div[2]/a/div[3]
+    @FindBy(xpath = "//ul[@id='menuN_level_6']//div/a/span")
+    public WebElement dealShowNow;
+    @FindBy(xpath = "//ul[@id='menuN_level_6']//div[2]/a/div[3]")
+    public WebElement dealBuyNow;
+    @FindBy(className = "megamenu_righ_sunglasses")
+    public WebElement dealSunGlass;
+    @FindBy(className = "megamenu_righ_glasses")
+    public WebElement dealEyeGlass;
     //
     @FindBy(id = "logo")
     public WebElement logo;
