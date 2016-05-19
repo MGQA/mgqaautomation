@@ -12,7 +12,7 @@ import com.motionglobal.pages.sbg.mobile.search.MobSearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
-    @Test(groups = { "smoke", "debug2", "fastsmoke" })
+    @Test(groups = { "smoke", "debug2", "fastsmoke", "debug111" })
     public void mobSearchItemAndPayByGC() {
         getURL("http://m.smartbuyglasses.com/");
         MobHeader mobHeader = new MobHeader();
@@ -35,10 +35,13 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         checkOutPage.clearInput(checkOutPage.inputPhone, "automationTel");
         checkOutPage.clearInput(checkOutPage.inputPostAddress, "200000");
         checkOutPage.clearInput(checkOutPage.inputCity, "shanghai");
+        checkOutPage.selectStateGA();
         checkOutPage.continueBtn.click();
+        checkOutPage.waitForVisibility(checkOutPage.VISA, 2);
         checkOutPage.VISA.click();
-        checkOutPage.waitForVisibility(checkOutPage.CardDiv, 10);
-        Assert.assertTrue(checkOutPage.CardDiv.isDisplayed());
+        checkOutPage.waitForVisibility(checkOutPage.iframe, 5);
+        checkOutPage.SwitchToIframe();
+        Assert.assertTrue(checkOutPage.Card.isDisplayed());
     }
 
     @Override

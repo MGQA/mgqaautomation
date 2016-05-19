@@ -46,6 +46,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement sizeClicked;
     @FindBy(className = "on")
     public WebElement frameOrAddClicked;
+    @FindBy(xpath = "//div[@id='jp-pagination-ajax']/h3")
+    public WebElement productNum;
 
     public enum Label {
         gender, material, mid, pre, polarized, sports, brands, ski;
