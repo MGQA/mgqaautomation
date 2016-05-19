@@ -1,4 +1,4 @@
-package com.motionglobal.testcases.sbg.desktop.smoke.enable;
+package com.motionglobal.testcases.sbg.desktop.smoke;
 
 import org.openqa.selenium.Alert;
 import org.testng.Assert;
@@ -9,7 +9,7 @@ import com.motionglobal.pages.sbg.desktop.cart.CN_CartPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
 public class TestEmptyCarPageOfCN extends AbstractBaseTestCase {
-    @Test(groups = { "debug", "smoke", "fastsmoke" }, enabled = false)
+    @Test(groups = { "debug", "smoke", "fastsmoke" })
     public void CN_CartBoxEmptyPage() {
         String url = "http://www.smartbuyglasses.cn";
         getURL(url);

@@ -1,4 +1,4 @@
-package com.motionglobal.testcases.sbg.desktop.smoke.enable;
+package com.motionglobal.testcases.sbg.desktop.smoke;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,7 +9,7 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
 
 public class TestOpticiansOfUS extends AbstractBaseTestCase {
 
-    @Test(groups = { "debug", "smoke", "fastsmoke" }, enabled = false)
+    @Test(groups = { "debug", "smoke", "fastsmoke" })
     public void OpticiansOfUS() {
         String url = "http://www.smartbuyglasses.com/designer-eyeglasses/Tom-Ford/";
         getURL(url);
