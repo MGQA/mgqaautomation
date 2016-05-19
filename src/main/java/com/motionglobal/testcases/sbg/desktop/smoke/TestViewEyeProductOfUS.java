@@ -1,4 +1,4 @@
-package com.motionglobal.testcases.sbg.desktop.smoke.enable;
+package com.motionglobal.testcases.sbg.desktop.smoke;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,7 +19,7 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
         return new Object[][] { new Object[] { "http://www.smartbuyglasses.com/" } };
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" }, enabled = false)
+    @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
     public void clickBrank(String url) {
         getURL(url);
         Header header = new Header();
