@@ -28,18 +28,12 @@ public class MobCheckOutPage extends AbstractBaseSbgDesktopPage {
     public WebElement continueBtn;
     @FindBy(id = "product_122")
     public WebElement VISA;
-    @FindBy(id = "F1009")
-    public WebElement Card;
-    @FindBy(tagName = "iframe")
-    public WebElement iframe;
+    @FindBy(id = "getPaymentPage")
+    public WebElement payFrame;
 
     public void selectStateGA() {
         Select select = new Select(inputState);
         select.selectByValue("GA");
-    }
-
-    public void SwitchToIframe() {
-        driver.switchTo().frame(iframe);
     }
 
     @Override
