@@ -39,9 +39,7 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         checkOutPage.continueBtn.click();
         checkOutPage.waitForVisibility(checkOutPage.VISA, 2);
         checkOutPage.VISA.click();
-        checkOutPage.waitForVisibility(checkOutPage.iframe, 5);
-        checkOutPage.SwitchToIframe();
-        Assert.assertTrue(checkOutPage.Card.isDisplayed());
+        checkOutPage.waitForVisibility(checkOutPage.payFrame, 5);
     }
 
     @Override
