@@ -39,6 +39,11 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement deluxe;
     @FindBy(xpath = "//li[@data-value='8']/a")
     public WebElement deluxeVery;
+    // filter
+    @FindBy(partialLinkText = "Arnette")
+    public WebElement filterGenderArnette;
+    @FindBy(css = "li.frameS_av a.FrameShape")
+    public WebElement filterGenderAviator;
     // assert_element！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     @FindBy(className = "proCell_click")
     public List<WebElement> sunTop100Eles;
@@ -48,6 +53,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement frameOrAddClicked;
     @FindBy(xpath = "//div[@id='jp-pagination-ajax']/h3")
     public WebElement productNum;
+    @FindBy(className = "sideRemove")
+    public WebElement filterSide;
 
     public enum Label {
         gender, material, mid, pre, polarized, sports, brands, ski;

@@ -17,6 +17,8 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     public WebElement buyNowButton;
     @FindBy(className = "detail_link")
     public WebElement detailBtn;
+    @FindBy(id = "totleRsCount")
+    public WebElement productCount;
     // List WebElement
     @FindBy(className = "recProInfo")
     public List<WebElement> proInfo;
@@ -41,6 +43,15 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     public WebElement BebeBrankChecked;
     @FindBy(className = "srg_number")
     public WebElement brankNum;
+    // filter product
+    @FindBy(xpath = "//a[contains(@onclick,'Men')][label]")
+    public WebElement filterMen;
+    @FindBy(css = "span.count +i")
+    public WebElement filterMenChecked;
+    @FindBy(partialLinkText = "Wayfarer")
+    public WebElement filterWayfarer;
+    @FindBy(css = ".s_s_Wayfarer .current")
+    public WebElement filterWayfarerChecked;
 
     public SearchResultPage() {
         super();
