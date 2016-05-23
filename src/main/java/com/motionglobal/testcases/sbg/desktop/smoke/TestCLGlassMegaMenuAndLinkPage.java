@@ -42,14 +42,14 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         String aspherical = header.getLeftSubMenuElement(5, 1, 4).getText();
         header.clickLeftSubMenu(5, 1, 1);
         CLProductGridPage clProductGridPage = new CLProductGridPage();
-        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(1).getText(), spherical);
+        Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), spherical);
         header.clickLeftSubMenu(5, 1, 2);
-        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(2).getText(), toric);
+        Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), toric);
         header.clickLeftSubMenu(5, 1, 3);
-        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(3).getText(), multifocal);
+        Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), multifocal);
         header.clickLeftSubMenu(5, 1, 4);
         if (!(url.equals("http://www.smartbuyglasses.dk")))
-            Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel1(4).getText(), aspherical);
+            Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), aspherical);
         else
             Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.dk/kontaktlinser/t/asfaeriske-linser#!&s=popularitet&tb=0&t=aspherical&p=1");
 
@@ -69,16 +69,16 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         header.clickLeftSubMenu(5, 2, 1);
         CLProductGridPage clProductGridPage = new CLProductGridPage();
         if (!(url.equals("http://www.smartbuyglasses.dk")))
-            Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(1).getText(), extendedWear);
+            Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), extendedWear);
         else
-            Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(1).getText(), "Langtidsbrug");
+            Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), "Langtidsbrug");
         header.clickLeftSubMenu(5, 2, 2);
         if (!(url.equals("http://www.smartbuyglasses.dk")))
-            Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(2).getText(), siliconeHydrogel);
+            Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), siliconeHydrogel);
         else
-            Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(2).getText(), "Silikone Hydrogel");
+            Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), "Silikone Hydrogel");
         header.clickLeftSubMenu(5, 2, 3);
-        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel2(3).getText(), coloured);
+        Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), coloured);
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -96,13 +96,13 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         String johnson = header.getLeftSubMenuElement(5, 3, 4).getText();
         header.clickLeftSubMenu(5, 3, 1);
         CLProductGridPage clProductGridPage = new CLProductGridPage();
-        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel3(1).getText(), bausch);
+        Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), bausch);
         header.clickLeftSubMenu(5, 3, 2);
-        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel3(2).getText(), ciba);
+        Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), ciba);
         header.clickLeftSubMenu(5, 3, 3);
-        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel3(3).getText(), coopervision);
+        Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), coopervision);
         header.clickLeftSubMenu(5, 3, 4);
-        Assert.assertEquals(clProductGridPage.submenuCLLeftClickedLabel3(4).getText(), johnson);
+        Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), johnson);
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })

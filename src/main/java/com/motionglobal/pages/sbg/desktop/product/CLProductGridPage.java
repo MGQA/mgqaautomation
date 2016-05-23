@@ -11,19 +11,41 @@ import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 public class CLProductGridPage extends AbstractBaseSbgDesktopPage {
     @FindBy(className = "pho")
     public List<WebElement> lenseDailyEles;
+    @FindBy(id = "CL-ProductCount")
+    public WebElement productCountString;
+    @FindBy(className = "recProInfo")
+    public List<WebElement> ProInfo;
+    // filter
+    @FindBy(id = "CL-Acuvue-b")
+    public WebElement filterAcuvue;
+    @FindBy(id = "CL-daily-disposable-f")
+    public WebElement filterDaily;
+    @FindBy(id = "CL-spherical-t")
+    public WebElement filterSpherical;
+    // Assert Element
+    @FindBy(xpath = "//input[@checked='checked']/../label/span/span")
+    public WebElement checkedLeftSubmenuElement;
 
-    public WebElement submenuCLLeftClickedLabel1(int pageLabeleNum) {
-        return driver
-                .findElement(By.xpath("//*[@id='content']/div/div[1]/div[2]/ul[2]/li[" + pageLabeleNum + "]/input[@checked='checked']/../label/span/span"));
+    public int getProductCount() {
+        Integer count = Integer.parseInt(productCountString.getText().replace("Products (", "").replace(")", ""));
+        return count;
     }
 
-    public WebElement submenuCLLeftClickedLabel2(int pageLabeleNum) {
-        return driver
-                .findElement(By.xpath("//*[@id='content']/div/div[1]/div[2]/ul[3]/li[" + pageLabeleNum + "]/input[@checked='checked']/../label/span/span"));
-    }
-
-    public WebElement submenuCLLeftClickedLabel3(int pageLabeleNum) {
-        return driver.findElement(By.xpath("//*[@id='content']/div/div[1]/div[4]/ul/li[" + pageLabeleNum + "]/input[@data-checked-id='1']/../label/span/span"));
+    public void waitProductChange(String productText) {
+        driver.getCurrentUrl();
+        String currentProductCount = productCountString.getText();
+        for (int i = 0; i < 20; i++) {
+            if (productCountString.getText().equals(productText)) {
+                try {
+                    Thread.sleep(100);
+                }
+                catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            else
+                break;
+        }
     }
 
     @Override
