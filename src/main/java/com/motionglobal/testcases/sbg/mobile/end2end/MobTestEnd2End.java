@@ -12,7 +12,7 @@ import com.motionglobal.pages.sbg.mobile.search.MobSearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
-    @Test(groups = { "smoke", "debug2", "fastsmoke" })
+    @Test(groups = { "smoke", "debug2", "fastsmoke", "debug111" })
     public void mobSearchItemAndPayByGC() {
         getURL("http://m.smartbuyglasses.com/");
         MobHeader mobHeader = new MobHeader();
@@ -26,6 +26,7 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         MobProductDetailPage detailPage = new MobProductDetailPage();
         detailPage.buyNow.click();
         MobCartPage cartPage = new MobCartPage();
+        cartPage.waitForVisibility(cartPage.fastCheckOut, 2);
         cartPage.fastCheckOut.click();
         MobCheckOutPage checkOutPage = new MobCheckOutPage();
         checkOutPage.clearInput(checkOutPage.inputFistName, "automationFirst");
