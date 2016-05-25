@@ -17,7 +17,7 @@ public class LoginTest extends AbstractBaseSbgDesktopTestCase {
     static String url = "http://www.smartbuyglasses.com/";
     static String passWord = "helloworld123";
 
-    @Test(priority = 1, groups = { "debug", "smoke", "fastsmoke" })
+    @Test(priority = 1, groups = { "debug111", "smoke", "fastsmoke" })
     public void testRegister() {
         getURL(url);
         Header header = new Header();
@@ -42,25 +42,12 @@ public class LoginTest extends AbstractBaseSbgDesktopTestCase {
         header.registerWd.sendKeys(passWord);
         header.registerWdConfirm.sendKeys(passWord);
         header.registerCompleterBtn.click();
-        header.waitForVisibility(header.registerSuccess, 5);
+        header.waitForVisibility(header.registerSuccess, 10);
         header.registerSuccess.click();
-    }
-
-    @Test(priority = 2, groups = { "debug", "smoke", "fastsmoke" })
-    public void testSignOut() {
-        Header header = new Header();
-        header.waitForVisibility(header.yourAccount, 2);
-        header.mouseOver(header.yourAccount);
-        header.waitForVisibility(header.signout, 5);
-        Assert.assertTrue(header.isTextPresent("Hi jack"));
-        header.signout.click();
-        header.waitForVisibility(header.loginlable, 3);
-        header.mouseOver(header.loginlable);
-        Assert.assertTrue(header.register.isDisplayed());
         driver.quit();
     }
 
-    @Test(priority = 3, groups = { "debug", "smoke", "fastsmoke" })
+    @Test(dependsOnMethods = "testRegister", groups = { "debug111", "smoke", "fastsmoke" })
     public void testLogin() {
         getURL(url);
         Header header = new Header();
@@ -81,7 +68,7 @@ public class LoginTest extends AbstractBaseSbgDesktopTestCase {
         header.password.clear();
         header.password.sendKeys(passWord);
         header.signInButton.click();
-        header.waitForVisibility(header.yourAccount, 5);
+        header.waitForVisibility(header.yourAccount, 10);
         header.mouseOver(header.yourAccount);
         header.waitForVisibility(header.signout, 5);
         Assert.assertTrue(header.isTextPresent("Hi jack!"));
