@@ -20,7 +20,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         resultPage.waitForVisibility(resultPage.filterMenChecked, 10);
         int procuctMenCount = Integer.parseInt(resultPage.productCount.getText());
         Assert.assertNotEquals(procuctCount, procuctMenCount);
-        resultPage.waitForVisibility(resultPage.filterWayfarer, 2);
+        resultPage.waitForVisibility(resultPage.filterWayfarer, 5);
         resultPage.filterWayfarer.click();
         resultPage.waitForVisibility(resultPage.filterWayfarerChecked, 10);
         int procuctWayfarerCount = Integer.parseInt(resultPage.productCount.getText());
@@ -34,12 +34,12 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         ProductGridPage gridPage = new ProductGridPage();
         Assert.assertTrue(gridPage.filterSide.getText().contains("Men"), " fiter fail ");
         Assert.assertTrue(gridPage.proInfo.size() > 0);
-        gridPage.waitForVisibility(gridPage.filterGenderArnette, 2);
-        gridPage.filterGenderArnette.click();
+        gridPage.waitForVisibility(gridPage.filterArnette, 2);
+        gridPage.filterArnette.click();
         Assert.assertTrue(gridPage.proInfo.get(0).getText().contains("Arnette"));
-        gridPage.waitForVisibility(gridPage.filterGenderAviator, 2);
-        gridPage.JsMouse(gridPage.filterGenderAviator);
-        gridPage.filterGenderAviator.click();
+        gridPage.waitForVisibility(gridPage.filterAviator, 5);
+        gridPage.JsMouse(gridPage.filterAviator);
+        gridPage.filterAviator.click();
         Assert.assertTrue(gridPage.filterSide.getText().contains("Aviator"), " fiter fail ");
     }
 

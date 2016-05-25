@@ -6,7 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -41,6 +41,10 @@ public class InitializeUtility {
             FirefoxProfile profile = new FirefoxProfile();
             profile.setPreference("webdriver_accept_untrusted_certs", true);
             // profile.setAssumeUntrustedCertificateIssuer(false);
+            //
+            ProfilesIni allProfiles = new ProfilesIni();
+            profile = allProfiles.getProfile("default");
+            //
             profile.setPreference("browser.download.folderList", 2);
             profile.setPreference("security.OCSP.enabled", 0);
             profile.setPreference("browser.download.dir", CONFIG.getProperty("downloaddir"));
@@ -59,7 +63,7 @@ public class InitializeUtility {
 
             break;
         case "chrome":
-            System.setProperty("webdriver.chrome.driver", CONFIG.getProperty(browser));
+            // System.setProperty("webdriver.chrome.driver", CONFIG.getProperty(browser));
             driver = new ChromeDriver();
 
             break;
@@ -69,9 +73,6 @@ public class InitializeUtility {
         default:
             break;
         }
-        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
         return driver;
     }
 

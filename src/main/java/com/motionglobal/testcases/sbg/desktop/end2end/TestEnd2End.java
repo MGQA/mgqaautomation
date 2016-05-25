@@ -13,7 +13,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class TestEnd2End extends AbstractBaseSbgDesktopTestCase {
 
-    @Test(groups = { "smoke", "debug111", "fastsmoke" })
+    @Test(groups = { "smoke", "debug", "fastsmoke" })
     public void testSearchItemAndPayByGC() {
         logger().info("started...");
         HomePage homePage = new HomePage();
