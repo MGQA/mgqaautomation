@@ -42,6 +42,23 @@ public class Header extends AbstractBasePage {
     public WebElement username;
     @FindBy(id = "password")
     public WebElement password;
+    // register
+    @FindBy(xpath = "//li[@id='signin_li']/div/div/p/a")
+    public WebElement register;
+    @FindBy(id = "step1_username")
+    public WebElement registerName;
+    @FindBy(id = "register_step1_btn")
+    public WebElement registerBtn;
+    @FindBy(id = "step2_username")
+    public WebElement registerFirstName;
+    @FindBy(id = "step2_password")
+    public WebElement registerWd;
+    @FindBy(id = "step2_pConfirmation")
+    public WebElement registerWdConfirm;
+    @FindBy(partialLinkText = "Complete registration")
+    public WebElement registerCompleterBtn;
+    @FindBy(id = "removeOnProductGlass")
+    public WebElement registerSuccess;
     // Search
     @FindBy(id = "search_input")
     public WebElement inputSearch;
@@ -74,9 +91,9 @@ public class Header extends AbstractBasePage {
     public WebElement dailyglass;
     @FindBy(linkText = "Top100")
     public WebElement sunTop100;
-    @FindBy(xpath = "//li[@id='signin_li_already']/a/span")
+    @FindBy(xpath = "//span[text()='Your Account']")
     public WebElement yourAccount;
-    @FindBy(xpath = "//li[@id='signin_li_already']/div/div/p[2]/a")
+    @FindBy(className = "menulogout")
     public WebElement signout;
     @FindBy(xpath = "//div[@id='top']/ul[1]/li[1]/a")
     public WebElement FREESHIPPING;

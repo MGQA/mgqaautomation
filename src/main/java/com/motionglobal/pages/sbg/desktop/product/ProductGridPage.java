@@ -41,9 +41,9 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement deluxeVery;
     // filter
     @FindBy(partialLinkText = "Arnette")
-    public WebElement filterGenderArnette;
+    public WebElement filterArnette;
     @FindBy(css = "li.frameS_av a.FrameShape")
-    public WebElement filterGenderAviator;
+    public WebElement filterAviator;
     // assert_element！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     @FindBy(className = "proCell_click")
     public List<WebElement> sunTop100Eles;
