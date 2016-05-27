@@ -1,5 +1,7 @@
 package com.motionglobal.testcases.sbg.desktop.smoke;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -21,7 +23,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         int procuctMenCount = Integer.parseInt(resultPage.productCount.getText());
         Assert.assertNotEquals(procuctCount, procuctMenCount);
         resultPage.waitForVisibility(resultPage.filterWayfarer, 5);
-        resultPage.filterWayfarer.click();
+        new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(resultPage.filterWayfarer));
         resultPage.waitForVisibility(resultPage.filterWayfarerChecked, 10);
         int procuctWayfarerCount = Integer.parseInt(resultPage.productCount.getText());
         Assert.assertNotEquals(procuctWayfarerCount, procuctMenCount);
