@@ -68,6 +68,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
             header.waitForVisibility(resultPage.quickView, 2);
             resultPage.quickView.click();
         }
+        header.waitForVisibility(resultPage.detailBtn, 5);
         resultPage.detailBtn.click();
         ProductDetailPage detailPage = new ProductDetailPage();
         Assert.assertTrue(detailPage.glassName.getText().contains("BeBe BB5051 Flattering 045"), "Page Mismatcher");

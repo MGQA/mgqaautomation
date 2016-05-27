@@ -23,7 +23,7 @@ public class TestHomePageImgDisplay extends AbstractBaseSbgDesktopTestCase {
         return new Object[][] { new Object[] { "http://www.smartbuyglasses.com.hk/" } };
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
+    @Test(enabled = false, dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
     public void imgDisplay(String url) {
         getURL(url);
         HomePage homePage = new HomePage();
