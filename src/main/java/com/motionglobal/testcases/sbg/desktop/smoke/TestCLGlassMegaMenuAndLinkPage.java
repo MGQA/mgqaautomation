@@ -117,30 +117,30 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         Assert.assertTrue(id.contains("information"));
         header.clickMiddleSubMenu(5, 1, 3);
         Assert.assertTrue(id.contains("information"));
-        if (!(url.equals("http://www.smartbuyglasses.com.hk"))) {
-            header.clickMiddleSubMenu(5, 1, 4);
-            Assert.assertTrue(id.contains("information"));
-            header.clickMiddleSubMenu(5, 1, 5);
-            Assert.assertTrue(id.contains("information"));
-            header.clickMiddleSubMenu(5, 1, 6);
-            Assert.assertTrue(id.contains("information"));
-            header.clickMiddleSubMenu(5, 1, 7);
-            Assert.assertTrue(id.contains("information"));
-            header.clickMiddleSubMenu(5, 1, 8);
-            Assert.assertTrue(id.contains("information"));
-            header.clickMiddleSubMenu(5, 1, 9);
-            Assert.assertTrue(id.contains("information"));
-            header.clickMiddleSubMenu(5, 1, 10);
-            Assert.assertTrue(id.contains("information"));
-            header.clickMiddleSubMenu(5, 1, 11);
-            Assert.assertTrue(id.contains("information"));
-            header.clickMiddleSubMenu(5, 1, 12);
-            Assert.assertTrue(id.contains("information"));
-            if (!(url.equals("http://www.smartbuyglasses.co.nz"))) {
-                header.clickMiddleSubMenu(5, 1, 13);
-                Assert.assertTrue(id.contains("information"));
-            }
-        }
+        // if (!(url.equals("http://www.smartbuyglasses.com.hk"))) {
+        // header.clickMiddleSubMenu(5, 1, 4);
+        // Assert.assertTrue(id.contains("information"));
+        // header.clickMiddleSubMenu(5, 1, 5);
+        // Assert.assertTrue(id.contains("information"));
+        // header.clickMiddleSubMenu(5, 1, 6);
+        // Assert.assertTrue(id.contains("information"));
+        // header.clickMiddleSubMenu(5, 1, 7);
+        // Assert.assertTrue(id.contains("information"));
+        // header.clickMiddleSubMenu(5, 1, 8);
+        // Assert.assertTrue(id.contains("information"));
+        // header.clickMiddleSubMenu(5, 1, 9);
+        // Assert.assertTrue(id.contains("information"));
+        // header.clickMiddleSubMenu(5, 1, 10);
+        // Assert.assertTrue(id.contains("information"));
+        // header.clickMiddleSubMenu(5, 1, 11);
+        // Assert.assertTrue(id.contains("information"));
+        // header.clickMiddleSubMenu(5, 1, 12);
+        // Assert.assertTrue(id.contains("information"));
+        // if (!(url.equals("http://www.smartbuyglasses.co.nz"))) {
+        // header.clickMiddleSubMenu(5, 1, 13);
+        // Assert.assertTrue(id.contains("information"));
+        // }
+        // }
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -153,21 +153,21 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         Assert.assertTrue(id.contains("information"));
         header.clickMiddleSubMenu(5, 2, 2);
         Assert.assertTrue(id.contains("information"));
-        if (!(url.equals("http://www.smartbuyglasses.com.hk") | url.equals("http://www.smartbuyglasses.se"))) {
-            header.clickMiddleSubMenu(5, 2, 3);
-            Assert.assertTrue(id.contains("information"));
-            if (!(url.equals("http://www.smartbuyglasses.dk"))) {
-                header.clickMiddleSubMenu(5, 2, 4);
-                Assert.assertTrue(id.contains("information"));
-                if (!(url.equals("http://www.smartbuyglasses.co.uk") | url.equals("http://www.smartbuyglasses.de") | url
-                        .equals("http://www.smartbuyglasses.nl"))) {
-                    header.clickMiddleSubMenu(5, 2, 5);
-                    Assert.assertTrue(id.contains("information"));
-                    header.clickMiddleSubMenu(5, 2, 6);
-                    Assert.assertTrue(id.contains("information"));
-                }
-            }
-        }
+        // if (!(url.equals("http://www.smartbuyglasses.com.hk") | url.equals("http://www.smartbuyglasses.se"))) {
+        // header.clickMiddleSubMenu(5, 2, 3);
+        // Assert.assertTrue(id.contains("information"));
+        // if (!(url.equals("http://www.smartbuyglasses.dk"))) {
+        // header.clickMiddleSubMenu(5, 2, 4);
+        // Assert.assertTrue(id.contains("information"));
+        // if (!(url.equals("http://www.smartbuyglasses.co.uk") | url.equals("http://www.smartbuyglasses.de") | url
+        // .equals("http://www.smartbuyglasses.nl"))) {
+        // header.clickMiddleSubMenu(5, 2, 5);
+        // Assert.assertTrue(id.contains("information"));
+        // header.clickMiddleSubMenu(5, 2, 6);
+        // Assert.assertTrue(id.contains("information"));
+        // }
+        // }
+        // }
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -180,12 +180,12 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         Assert.assertTrue(id.contains("information"));
         header.clickMiddleSubMenu(5, 3, 2);
         Assert.assertTrue(id.contains("information"));
-        if (!(url.equals("http://www.smartbuyglasses.com.hk"))) {
-            header.clickMiddleSubMenu(5, 3, 3);
-            Assert.assertTrue(id.contains("information"));
-            header.clickMiddleSubMenu(5, 3, 4);
-            Assert.assertTrue(id.contains("information"));
-        }
+        // if (!(url.equals("http://www.smartbuyglasses.com.hk"))) {
+        // header.clickMiddleSubMenu(5, 3, 3);
+        // Assert.assertTrue(id.contains("information"));
+        // header.clickMiddleSubMenu(5, 3, 4);
+        // Assert.assertTrue(id.contains("information"));
+        // }
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
