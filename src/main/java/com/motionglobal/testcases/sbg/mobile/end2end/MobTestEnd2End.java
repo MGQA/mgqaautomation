@@ -26,8 +26,13 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         MobProductDetailPage detailPage = new MobProductDetailPage();
         detailPage.buyNow.click();
         MobCartPage cartPage = new MobCartPage();
-        cartPage.waitForVisibility(cartPage.fastCheckOut, 2);
-        cartPage.fastCheckOut.click();
+        cartPage.waitForVisibility(cartPage.fastCheckOut, 5);
+        try {
+            cartPage.fastCheckOut.click();
+        }
+        catch (Exception e) {
+            cartPage.JsClick(cartPage.fastCheckOut);
+        }
         MobCheckOutPage checkOutPage = new MobCheckOutPage();
         checkOutPage.clearInput(checkOutPage.inputFistName, "automationFirst");
         checkOutPage.clearInput(checkOutPage.inputLastName, "automationLast");

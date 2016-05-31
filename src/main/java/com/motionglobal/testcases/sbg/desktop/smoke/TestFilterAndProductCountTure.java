@@ -24,6 +24,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         Assert.assertNotEquals(procuctCount, procuctMenCount);
         resultPage.waitForVisibility(resultPage.filterWayfarer, 5);
         new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(resultPage.filterWayfarer));
+        resultPage.filterWayfarer.click();
         resultPage.waitForVisibility(resultPage.filterWayfarerChecked, 10);
         int procuctWayfarerCount = Integer.parseInt(resultPage.productCount.getText());
         Assert.assertNotEquals(procuctWayfarerCount, procuctMenCount);

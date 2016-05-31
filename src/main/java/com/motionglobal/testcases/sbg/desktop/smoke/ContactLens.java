@@ -19,6 +19,7 @@ public class ContactLens extends AbstractBaseSbgDesktopTestCase {
         header.dailyglass.click();
         CLProductGridPage productGridPage = new CLProductGridPage();
         // List<WebElement> dailyglassEles = driver.findElements(By.className("pho"));
+        productGridPage.waitForVisibility(productGridPage.lenseDailyEles.get(0), 5);
         Assert.assertEquals(productGridPage.lenseDailyEles.size(), productNum, "daily contact lens count : disagree");
         // System.out.println(header.dailyglassEles.size());
     }
