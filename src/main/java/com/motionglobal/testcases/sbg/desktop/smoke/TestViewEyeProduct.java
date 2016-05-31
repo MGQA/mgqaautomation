@@ -30,7 +30,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.brands).getText(), "Tom Ford");
         header.mouseOver(productGridPage.proInfo.get(0));
         productGridPage.quickView.click();
-        header.waitForVisibility(productGridPage.eyeproSize.get(1), 5);
+        header.waitForVisibility(productGridPage.eyeproSize.get(1), 10);
         productGridPage.eyeproSize.get(1).click();
         Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
         productGridPage.eyeproSize.get(0).click();
@@ -60,7 +60,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         header.waitForVisibility(searchResultPage.quickView, 2);
         searchResultPage.quickView.click();
         //
-        header.waitForVisibility(searchResultPage.eyeproSize.get(1), 5);
+        header.waitForVisibility(searchResultPage.eyeproSize.get(1), 10);
         searchResultPage.eyeproSize.get(1).click();
         Assert.assertTrue(searchResultPage.sizeClicked.isDisplayed(), "size button don't click");
         searchResultPage.eyeproSize.get(0).click();
