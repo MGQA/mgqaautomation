@@ -1,5 +1,8 @@
 package com.motionglobal.testcases.sbg.desktop.smoke;
 
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -30,7 +33,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.brands).getText(), "Tom Ford");
         header.mouseOver(productGridPage.proInfo.get(0));
         productGridPage.quickView.click();
-        header.waitForVisibility(productGridPage.eyeproSize.get(1), 10);
+        waitSize(productGridPage.eyeproSize);
         productGridPage.eyeproSize.get(1).click();
         Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
         productGridPage.eyeproSize.get(0).click();
@@ -60,7 +63,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         header.waitForVisibility(searchResultPage.quickView, 2);
         searchResultPage.quickView.click();
         //
-        header.waitForVisibility(searchResultPage.eyeproSize.get(1), 10);
+        waitSize(searchResultPage.eyeproSize);
         searchResultPage.eyeproSize.get(1).click();
         Assert.assertTrue(searchResultPage.sizeClicked.isDisplayed(), "size button don't click");
         searchResultPage.eyeproSize.get(0).click();
@@ -73,6 +76,20 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(searchResultPage.buyNowButton));
         searchResultPage.buyNowButton.click();
         BuyNowPage buyNowPage = new BuyNowPage();
+    }
+
+    public void waitSize(List<WebElement> element) {
+        for (int i = 0; i < 50; i++) {
+            if (element.size() <= 1) {
+                try {
+                    Thread.sleep(100);
+                }
+                catch (InterruptedException e) {
+                }
+            }
+            else
+                break;
+        }
     }
 
     @Override
