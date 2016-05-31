@@ -1,5 +1,8 @@
 package com.motionglobal.testcases.sbg.desktop.smoke;
 
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -31,7 +34,7 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
         header.mouseOver(productGridPage.proInfo.get(0));
         header.waitForVisibility(productGridPage.quickView, 2);
         productGridPage.quickView.click();
-        header.waitForVisibility(productGridPage.eyeproSize.get(1), 5);
+        waitSize(productGridPage.eyeproSize);
         productGridPage.eyeproSize.get(1).click();
         Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
         productGridPage.eyeproSize.get(0).click();
@@ -63,7 +66,7 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
         header.waitForVisibility(searchResultPage.quickView, 2);
         searchResultPage.quickView.click();
         //
-        header.waitForVisibility(searchResultPage.eyeproSize.get(1), 5);
+        waitSize(searchResultPage.eyeproSize);
         searchResultPage.eyeproSize.get(1).click();
         Assert.assertTrue(searchResultPage.sizeClicked.isDisplayed(), "size button don't click");
         searchResultPage.eyeproSize.get(0).click();
@@ -78,6 +81,20 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
         header.waitForVisibility(searchResultPage.carBtn, 2);
         searchResultPage.carBtn.click();
         CartPage cartPage = new CartPage();
+    }
+
+    public void waitSize(List<WebElement> element) {
+        for (int i = 0; i < 50; i++) {
+            if (element.size() <= 1) {
+                try {
+                    Thread.sleep(100);
+                }
+                catch (InterruptedException e) {
+                }
+            }
+            else
+                break;
+        }
     }
 
     @Override
