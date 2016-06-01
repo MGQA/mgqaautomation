@@ -12,7 +12,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class LoginTest extends AbstractBaseSbgDesktopTestCase {
     static Random random = new Random();
-    static int randomInt = random.nextInt(99999);
+    static int randomInt = random.nextInt(999999999);
     static String email = "motionglobal@" + randomInt + ".com";
     static String url = "http://www.smartbuyglasses.com/";
     static String passWord = "helloworld123";
@@ -44,13 +44,12 @@ public class LoginTest extends AbstractBaseSbgDesktopTestCase {
         header.registerCompleterBtn.click();
         header.waitForVisibility(header.registerSuccess, 10);
         header.registerSuccess.click();
-        driver.quit();
-    }
-
-    @Test(dependsOnMethods = "testRegister", groups = { "debug111", "smoke", "fastsmoke" })
-    public void testLogin() {
         getURL(url);
-        Header header = new Header();
+        header.waitForVisibility(header.yourAccount, 10);
+        header.mouseOver(header.yourAccount);
+        header.waitForVisibility(header.signout, 5);
+        header.signout.click();
+        getURL(url);
         header.waitForVisibility(header.loginlable, 5);
         header.mouseOver(header.loginlable);
         try {
@@ -72,6 +71,34 @@ public class LoginTest extends AbstractBaseSbgDesktopTestCase {
         header.mouseOver(header.yourAccount);
         header.waitForVisibility(header.signout, 5);
         Assert.assertTrue(header.isTextPresent("Hi jack!"));
+    }
+
+    @Test(groups = { "debug", "smoke", "fastsmoke" })
+    public void testLogin() {
+        getURL(url);
+        Header header = new Header();
+        header.waitForVisibility(header.loginlable, 5);
+        header.mouseOver(header.loginlable);
+        try {
+            header.waitForVisibility(header.signin, 1);
+        }
+        catch (Exception e) {
+            header.mouseOver(header.Help);
+            header.waitForVisibility(header.getHelpLinkElement(1), 2);
+            header.mouseOver(header.loginlable);
+            header.waitForVisibility(header.signin, 1);
+        }
+        header.signin.click();
+        header.username.clear();
+        header.username.sendKeys("felix.ma@motionglobal.com");
+        header.password.clear();
+        header.password.sendKeys("motion888");
+        header.signInButton.click();
+        header.waitForVisibility(header.yourAccount, 10);
+        header.mouseOver(header.yourAccount);
+        header.waitForVisibility(header.signout, 5);
+        Assert.assertTrue(header.isTextPresent("Hi test!"));
+        driver.quit();
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.motionglobal.testcases.sbg.desktop.smoke;
 
+import java.util.Random;
+
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -32,6 +34,8 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
     public void subLeftMenuSectionNum1(String url) {
         getURL(url);
         Header header = new Header();
+        Random random = new Random();
+        int dice = random.nextInt(2);
         header.mouseOverMainMenu(2);
         header.waitForVisibility(header.getLeftSubMenuElement(2, 1, 1), 2);
         String men = header.getLeftSubMenuElement(2, 1, 1).getText();
@@ -42,10 +46,16 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         header.clickLeftSubMenu(2, 1, 1);
         ProductGridPage productGridPage = new ProductGridPage();
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.gender).getText(), men);
-        header.clickLeftSubMenu(2, 1, 2);
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.gender).getText(), women);
-        header.clickLeftSubMenu(2, 1, 3);
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.gender).getText(), kid);
+        switch (dice) {
+        case 0:
+            header.clickLeftSubMenu(2, 1, 2);
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.gender).getText(), women);
+            break;
+        default:
+            header.clickLeftSubMenu(2, 1, 3);
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.gender).getText(), kid);
+            break;
+        }
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -88,6 +98,8 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
     public void subLeftMenuSectionNum3(String url) {
         getURL(url);
         Header header = new Header();
+        Random random = new Random();
+        int dice = random.nextInt(3);
         header.mouseOverMainMenu(2);
         header.waitForVisibility(header.getLeftSubMenuElement(2, 3, 1), 2);
         String plastic = header.getLeftSubMenuElement(2, 3, 1).getText();
@@ -95,19 +107,33 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         String metal = header.getLeftSubMenuElement(2, 3, 2).getText();
         header.waitForVisibility(header.getLeftSubMenuElement(2, 3, 3), 2);
         String titanium = header.getLeftSubMenuElement(2, 3, 3).getText();
+        header.waitForVisibility(header.getLeftSubMenuElement(2, 3, 4), 2);
+        String wood = header.getLeftSubMenuElement(2, 3, 4).getText();
         header.clickLeftSubMenu(2, 3, 1);
         ProductGridPage productGridPage = new ProductGridPage();
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.material).getText(), plastic);
-        header.clickLeftSubMenu(2, 3, 2);
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.material).getText(), metal);
-        header.clickLeftSubMenu(2, 3, 3);
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.material).getText(), titanium);
+        switch (dice) {
+        case 0:
+            header.clickLeftSubMenu(2, 3, 2);
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.material).getText(), metal);
+            break;
+        case 1:
+            header.clickLeftSubMenu(2, 3, 3);
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.material).getText(), titanium);
+            break;
+        default:
+            header.clickLeftSubMenu(2, 3, 4);
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.material).getText(), wood);
+            break;
+        }
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum1(String url) {
         getURL(url);
         Header header = new Header();
+        Random random = new Random();
+        int dice = random.nextInt(3);
         header.mouseOverMainMenu(2);
         header.waitForVisibility(header.getMiddleSubmenuElement(2, 1, 1), 2);
         String pilot = header.getMiddleSubmenuElement(2, 1, 1).getText();
@@ -120,18 +146,28 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         header.clickMiddleSubMenu(2, 1, 1);
         ProductGridPage productGridPage = new ProductGridPage();
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), pilot);
-        header.clickMiddleSubMenu(2, 1, 2);
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), square);
-        header.clickMiddleSubMenu(2, 1, 3);
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), oval);
-        header.clickMiddleSubMenu(2, 1, 4);
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), rectangle);
+        switch (dice) {
+        case 0:
+            header.clickMiddleSubMenu(2, 1, 2);
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), square);
+            break;
+        case 1:
+            header.clickMiddleSubMenu(2, 1, 3);
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), oval);
+            break;
+        default:
+            header.clickMiddleSubMenu(2, 1, 4);
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), rectangle);
+            break;
+        }
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum2(String url) {
         getURL(url);
         Header header = new Header();
+        Random random = new Random();
+        int dice = random.nextInt(2);
         header.mouseOverMainMenu(2);
         header.waitForVisibility(header.getMiddleSubmenuElement(2, 2, 1), 2);
         String fullRim = header.getMiddleSubmenuElement(2, 2, 1).getText();
@@ -147,19 +183,27 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
             Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), "Volledig Omrand");
         if (url.equals("http://www.smartbuyglasses.se"))
             Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), "Hel ram");
-        header.clickMiddleSubMenu(2, 2, 2);
-        if (!(url.equals("http://www.smartbuyglasses.se")))
-            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), semiRim);
-        else
-            Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.se/glas%C3%B6gon/general/---Semi+Rimless--------------------");
-        header.clickMiddleSubMenu(2, 2, 3);
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), rimless);
+        switch (dice) {
+        case 0:
+            header.clickMiddleSubMenu(2, 2, 2);
+            if (!(url.equals("http://www.smartbuyglasses.se")))
+                Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), semiRim);
+            else
+                Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.se/glas%C3%B6gon/general/---Semi+Rimless--------------------");
+            break;
+        default:
+            header.clickMiddleSubMenu(2, 2, 3);
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), rimless);
+            break;
+        }
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subMidMenuSectionNum3(String url) {
         getURL(url);
         Header header = new Header();
+        Random random = new Random();
+        int dice = random.nextInt(3);
         header.mouseOverMainMenu(2);
         header.waitForVisibility(header.getMiddleSubmenuElement(2, 3, 1), 2);
         String price1 = header.getMiddleSubmenuElement(2, 3, 1).getText();
@@ -170,12 +214,20 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         header.clickMiddleSubMenu(2, 3, 1);
         ProductGridPage productGridPage = new ProductGridPage();
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), productGridPage.regexPage(price1));
-        header.clickMiddleSubMenu(2, 3, 2);
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), productGridPage.regexPage(price2));
-        header.clickMiddleSubMenu(2, 3, 3);
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), productGridPage.regexPage(price3));
-        header.clickMiddleSubMenu(2, 3, 4);
-        Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.mid).getText().contains("999"), "mismatch: price 999 page ");
+        switch (dice) {
+        case 0:
+            header.clickMiddleSubMenu(2, 3, 2);
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), productGridPage.regexPage(price2));
+            break;
+        case 1:
+            header.clickMiddleSubMenu(2, 3, 3);
+            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), productGridPage.regexPage(price3));
+            break;
+        default:
+            header.clickMiddleSubMenu(2, 3, 4);
+            Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.mid).getText().contains("999"), "mismatch: price 999 page ");
+            break;
+        }
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
