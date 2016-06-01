@@ -12,6 +12,7 @@ public class MobTestLogin extends AbstractBaseSbgDesktopTestCase {
         driver.get("http://m.smartbuyglasses.com");
         MobHeader header = new MobHeader();
         header.menuBtn.click();
+        header.JsMouse(header.loginBtn);
         header.loginBtn.click();
         header.emailAddress.sendKeys("felix.ma@motionglobal.com");
         header.passWord.sendKeys("motion888");

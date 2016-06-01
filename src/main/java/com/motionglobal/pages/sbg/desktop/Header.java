@@ -134,7 +134,7 @@ public class Header extends AbstractBasePage {
 
     public WebElement getLeftSubMenuElement(int mainMenuNum, int sectionNum, int rowNum) {
         return driver.findElement(By.xpath("//ul[@id='menuN_level_" + mainMenuNum + "']/li/div/div[1]/ul[" + sectionNum + "]/li[" + rowNum + "]/a"));
-    }
+    }                                           
 
     public WebElement getMiddleSubmenuElement(int mainMenuNum, int model, int rowNum) {
         return driver.findElement(By.xpath("//ul[@id='menuN_level_" + mainMenuNum + "']/li/div/div[2]/ul[" + model + "]/li[" + rowNum + "]/a"));

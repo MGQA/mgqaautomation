@@ -83,7 +83,7 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
         CartPage cartPage = new CartPage();
     }
 
-    public void waitSize(List<WebElement> element) {
+    private void waitSize(List<WebElement> element) {
         for (int i = 0; i < 50; i++) {
             if (element.size() <= 1) {
                 try {

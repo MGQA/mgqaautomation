@@ -78,7 +78,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         BuyNowPage buyNowPage = new BuyNowPage();
     }
 
-    public void waitSize(List<WebElement> element) {
+    private void waitSize(List<WebElement> element) {
         for (int i = 0; i < 50; i++) {
             if (element.size() <= 1) {
                 try {
