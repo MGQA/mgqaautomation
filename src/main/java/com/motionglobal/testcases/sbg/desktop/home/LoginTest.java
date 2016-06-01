@@ -17,7 +17,7 @@ public class LoginTest extends AbstractBaseSbgDesktopTestCase {
     static String url = "http://www.smartbuyglasses.com/";
     static String passWord = "helloworld123";
 
-    @Test(priority = 1, groups = { "debug111", "smoke", "fastsmoke" })
+    @Test(priority = 1, groups = { "debug", "smoke", "fastsmoke" })
     public void testRegister() {
         getURL(url);
         Header header = new Header();
