@@ -112,7 +112,7 @@ public class Header extends AbstractBasePage {
     @FindBy(xpath = "//div[@id='favoriteDisplayDiv']/a/i")
     public WebElement favHeartButtonLink;
     //
-    @FindBy(linkText = "Tom Ford")
+    @FindBy(partialLinkText = "Tom Ford")
     public WebElement TomFordBrank;
 
     // public get Element methods ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
