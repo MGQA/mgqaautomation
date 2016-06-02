@@ -1,5 +1,6 @@
 package com.motionglobal.testcases.sbg.desktop.smoke;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -11,7 +12,7 @@ import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCase {
-    @Test(groups = { "debug", "smoke" })
+    @Test(groups = { "debug111", "smoke" })
     public void Search() {
         String url = "http://www.smartbuyglasses.com/search?keywords=burberry&searchHashcode=1463977020526497#q=burberry&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
         getURL(url);
@@ -23,6 +24,8 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         int procuctMenCount = Integer.parseInt(resultPage.productCount.getText());
         Assert.assertNotEquals(procuctCount, procuctMenCount);
         resultPage.waitForVisibility(resultPage.filterWayfarer, 5);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].style.display='none';", resultPage.header().letTalk);
         new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(resultPage.filterWayfarer));
         resultPage.filterWayfarer.click();
         resultPage.waitForVisibility(resultPage.filterWayfarerChecked, 10);
