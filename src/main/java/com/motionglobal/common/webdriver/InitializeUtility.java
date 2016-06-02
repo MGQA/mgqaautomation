@@ -63,7 +63,7 @@ public class InitializeUtility {
 
             break;
         case "chrome":
-            System.setProperty("webdriver.chrome.driver", CONFIG.getProperty(browser));
+            // System.setProperty("webdriver.chrome.driver", CONFIG.getProperty(browser));
             driver = new ChromeDriver();
 
             break;

@@ -22,7 +22,7 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
         return new Object[][] { new Object[] { "http://www.smartbuyglasses.com/" } };
     }
 
-    @Test(dataProvider = "dp", groups = { "debug111", "smoke", "fastsmoke" })
+    @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
     public void clickBrank(String url) {
         getURL(url);
         Header header = new Header();

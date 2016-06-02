@@ -112,8 +112,10 @@ public class Header extends AbstractBasePage {
     @FindBy(xpath = "//div[@id='favoriteDisplayDiv']/a/i")
     public WebElement favHeartButtonLink;
     //
-    @FindBy(partialLinkText = "Tom Ford")
+    @FindBy(xpath = "//div[@id='sub_Eyeglasses_Q_list']//a[text()='Tom Ford']")
     public WebElement TomFordBrank;
+    @FindBy(id = "lc_chat_layout")
+    public WebElement letTalk;
 
     // public get Element methods ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     public WebElement getHelpLinkElement(int Num) {
@@ -134,7 +136,7 @@ public class Header extends AbstractBasePage {
 
     public WebElement getLeftSubMenuElement(int mainMenuNum, int sectionNum, int rowNum) {
         return driver.findElement(By.xpath("//ul[@id='menuN_level_" + mainMenuNum + "']/li/div/div[1]/ul[" + sectionNum + "]/li[" + rowNum + "]/a"));
-    }                                           
+    }
 
     public WebElement getMiddleSubmenuElement(int mainMenuNum, int model, int rowNum) {
         return driver.findElement(By.xpath("//ul[@id='menuN_level_" + mainMenuNum + "']/li/div/div[2]/ul[" + model + "]/li[" + rowNum + "]/a"));
