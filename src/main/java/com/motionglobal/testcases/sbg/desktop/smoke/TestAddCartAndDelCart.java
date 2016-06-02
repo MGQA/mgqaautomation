@@ -13,7 +13,7 @@ public class TestAddCartAndDelCart extends AbstractBaseSbgDesktopTestCase {
     static String url = "http://www.smartbuyglasses.com/";
 
     @Test(groups = { "smoke", "debug" })
-    public void addCart() {
+    public void addAndDel() {
         getURL(url);
         HomePage homePage = new HomePage();
         homePage.waitForVisibility(homePage.TopSell2, 2);
@@ -29,7 +29,7 @@ public class TestAddCartAndDelCart extends AbstractBaseSbgDesktopTestCase {
         driver.navigate().refresh();
         CartPage page = new CartPage();
         Assert.assertEquals(page.productName.size(), 3);
-        page.productRemove.get(1).click();
+        page.productRemove.get(0).click();
         Alert alert = driver.switchTo().alert();
         alert.accept();
         driver.navigate().refresh();

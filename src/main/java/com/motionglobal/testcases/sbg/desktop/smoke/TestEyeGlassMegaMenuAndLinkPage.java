@@ -99,7 +99,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         getURL(url);
         Header header = new Header();
         Random random = new Random();
-        int dice = random.nextInt(3);
+        int dice = random.nextInt(2);
         header.mouseOverMainMenu(2);
         header.waitForVisibility(header.getLeftSubMenuElement(2, 3, 1), 2);
         String plastic = header.getLeftSubMenuElement(2, 3, 1).getText();
@@ -107,8 +107,8 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         String metal = header.getLeftSubMenuElement(2, 3, 2).getText();
         header.waitForVisibility(header.getLeftSubMenuElement(2, 3, 3), 2);
         String titanium = header.getLeftSubMenuElement(2, 3, 3).getText();
-        header.waitForVisibility(header.getLeftSubMenuElement(2, 3, 4), 2);
-        String wood = header.getLeftSubMenuElement(2, 3, 4).getText();
+        // header.waitForVisibility(header.getLeftSubMenuElement(2, 3, 4), 2);
+        // String wood = header.getLeftSubMenuElement(2, 3, 4).getText();
         header.clickLeftSubMenu(2, 3, 1);
         ProductGridPage productGridPage = new ProductGridPage();
         Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.material).getText(), plastic);
@@ -117,14 +117,14 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
             header.clickLeftSubMenu(2, 3, 2);
             Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.material).getText(), metal);
             break;
-        case 1:
+        default:
             header.clickLeftSubMenu(2, 3, 3);
             Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.material).getText(), titanium);
             break;
-        default:
-            header.clickLeftSubMenu(2, 3, 4);
-            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.material).getText(), wood);
-            break;
+        // case 1:
+        // header.clickLeftSubMenu(2, 3, 4);
+        // Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.material).getText(), wood);
+        // break;
         }
     }
 
