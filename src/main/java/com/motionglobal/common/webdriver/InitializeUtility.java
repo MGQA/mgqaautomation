@@ -65,7 +65,6 @@ public class InitializeUtility {
         case "chrome":
             System.setProperty("webdriver.chrome.driver", CONFIG.getProperty(browser));
             driver = new ChromeDriver();
-            driver.manage().window().maximize();
 
             break;
         case "html":

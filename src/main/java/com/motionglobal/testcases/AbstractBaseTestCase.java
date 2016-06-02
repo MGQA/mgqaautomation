@@ -57,6 +57,7 @@ public abstract class AbstractBaseTestCase {
         }
         i = 0;
         System.out.println(i);
+        driver.manage().window().maximize();
     }
 
     protected void switchDriver() {
