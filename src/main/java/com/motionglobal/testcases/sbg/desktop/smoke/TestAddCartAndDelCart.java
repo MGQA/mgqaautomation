@@ -5,19 +5,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.cart.CartPage;
-import com.motionglobal.pages.sbg.desktop.home.HomePage;
 import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class TestAddCartAndDelCart extends AbstractBaseSbgDesktopTestCase {
-    static String url = "http://www.smartbuyglasses.com/";
+    static String url = "http://www.smartbuyglasses.com/designer-sunglasses/Gucci/Gucci-GG-3500/S-WNQ/02-108457.html/";
 
     @Test(groups = { "smoke", "debug" })
     public void addAndDel() {
         getURL(url);
-        HomePage homePage = new HomePage();
-        homePage.waitForVisibility(homePage.TopSell2, 2);
-        homePage.TopSell2.click();
         ProductDetailPage detailPage = new ProductDetailPage();
         detailPage.waitForVisibility(detailPage.btnBuyNow, 2);
         detailPage.btnBuyNow.click();
