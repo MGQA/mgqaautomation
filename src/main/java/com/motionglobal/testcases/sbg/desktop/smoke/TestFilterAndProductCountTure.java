@@ -13,7 +13,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCase {
 
-    @Test(groups = { "debug111", "smoke" })
+    @Test(groups = { "debug", "smoke" })
     public void Search() {
         String url = "http://www.smartbuyglasses.com/search?keywords=burberry&searchHashcode=1463977020526497#q=burberry&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
         getURL(url);

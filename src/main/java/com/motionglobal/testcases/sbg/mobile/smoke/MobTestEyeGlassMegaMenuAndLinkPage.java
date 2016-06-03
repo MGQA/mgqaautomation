@@ -1,5 +1,7 @@
 package com.motionglobal.testcases.sbg.mobile.smoke;
 
+import java.util.Random;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -20,25 +22,28 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
     // return new Object[][] { new Object[] { "http://m.smartbuyglasses.com" } };
     // }
 
-    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void menuEyeGlassGender(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        for (int i = 0; i < header.getSubMenuElementSize(2, 1); i++) {
-            header.menuBtn.click();
-            header.getMainMenuElement(2).click();
-            header.getSubMenuElement(2, 1).click();
-            // String brankName = header.getDetailLinkElement(2, 1, (i + 1)).getText();
-            js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 1, (i + 1)));
-            header.getDetailLinkElement(2, 1, (i + 1)).click();
-            MobProductPage productPage = new MobProductPage();
-            // String brankNameList = "";
-            // for (int j = 0; j < productPage.productList.size(); j++) {
-            // brankNameList += productPage.getProductName(j);
-            // }
-            // Assert.assertTrue(brankNameList.contains(brankName));
-        }
+        // for (int i = 0; i < header.getSubMenuElementSize(2, 1); i++) {
+        Random random = new Random();
+        int num = random.nextInt(header.getSubMenuElementSize(2, 1));
+        System.out.println(num);
+        header.menuBtn.click();
+        header.getMainMenuElement(2).click();
+        header.getSubMenuElement(2, 1).click();
+        // String brankName = header.getDetailLinkElement(2, 1, (i + 1)).getText();
+        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 1, (num + 1)));
+        header.getDetailLinkElement(2, 1, (num + 1)).click();
+        MobProductPage productPage = new MobProductPage();
+        // String brankNameList = "";
+        // for (int j = 0; j < productPage.productList.size(); j++) {
+        // brankNameList += productPage.getProductName(j);
+        // }
+        // Assert.assertTrue(brankNameList.contains(brankName));
+        // }
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
@@ -46,20 +51,23 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         getURL(url);
         MobHeader header = new MobHeader();
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        for (int i = 0; i < header.getSubMenuElementSize(2, 2) - 1; i++) {
-            header.menuBtn.click();
-            header.getMainMenuElement(2).click();
-            header.getSubMenuElement(2, 2).click();
-            // String brankName = header.getDetailLinkElement(2, 2, (i + 1)).getText();
-            js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 2, (i + 1)));
-            header.getDetailLinkElement(2, 2, (i + 1)).click();
-            MobProductPage productPage = new MobProductPage();
-            // String brankNameList = "";
-            // for (int j = 0; j < productPage.productList.size(); j++) {
-            // brankNameList += productPage.getProductName(j);
-            // }
-            // Assert.assertTrue(brankNameList.contains(brankName));
-        }
+        // for (int i = 0; i < header.getSubMenuElementSize(2, 2) - 1; i++) {
+        Random random = new Random();
+        int num = random.nextInt(header.getSubMenuElementSize(2, 2));
+        header.menuBtn.click();
+        header.getMainMenuElement(2).click();
+        header.getSubMenuElement(2, 2).click();
+        // String brankName = header.getDetailLinkElement(2, 2, (i + 1)).getText();
+        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 2, (num + 1)));
+        header.getDetailLinkElement(2, 2, (num + 1)).click();
+        MobProductPage productPage = new MobProductPage();
+        // String brankNameList = "";
+        // for (int j = 0; j < productPage.productList.size(); j++) {
+        // brankNameList += productPage.getProductName(j);
+        // }
+        // Assert.assertTrue(brankNameList.contains(brankName));
+        // }
+        //
         header.menuBtn.click();
         header.getMainMenuElement(2).click();
         header.getSubMenuElement(2, 2).click();
@@ -72,20 +80,22 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         getURL(url);
         MobHeader header = new MobHeader();
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        for (int i = 0; i < header.getSubMenuElementSize(2, 3); i++) {
-            header.menuBtn.click();
-            header.getMainMenuElement(2).click();
-            header.getSubMenuElement(2, 3).click();
-            // String brankName = header.getDetailLinkElement(2, 3, (i + 1)).getText();
-            js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 3, (i + 1)));
-            header.getDetailLinkElement(2, 3, (i + 1)).click();
-            MobProductPage productPage = new MobProductPage();
-            // String brankNameList = "";
-            // for (int j = 0; j < productPage.productList.size(); j++) {
-            // brankNameList += productPage.getProductName(j);
-            // }
-            // Assert.assertTrue(brankNameList.contains(brankName));
-        }
+        // for (int i = 0; i < header.getSubMenuElementSize(2, 3); i++) {
+        Random random = new Random();
+        int num = random.nextInt(header.getSubMenuElementSize(2, 3));
+        header.menuBtn.click();
+        header.getMainMenuElement(2).click();
+        header.getSubMenuElement(2, 3).click();
+        // String brankName = header.getDetailLinkElement(2, 3, (i + 1)).getText();
+        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 3, (num + 1)));
+        header.getDetailLinkElement(2, 3, (num + 1)).click();
+        MobProductPage productPage = new MobProductPage();
+        // String brankNameList = "";
+        // for (int j = 0; j < productPage.productList.size(); j++) {
+        // brankNameList += productPage.getProductName(j);
+        // }
+        // Assert.assertTrue(brankNameList.contains(brankName));
+        // }
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
@@ -93,20 +103,22 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         getURL(url);
         MobHeader header = new MobHeader();
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        for (int i = 0; i < header.getSubMenuElementSize(2, 4); i++) {
-            header.menuBtn.click();
-            header.getMainMenuElement(2).click();
-            header.getSubMenuElement(2, 4).click();
-            // String brankName = header.getDetailLinkElement(2, 4, (i + 1)).getText();
-            js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 4, (i + 1)));
-            header.getDetailLinkElement(2, 4, (i + 1)).click();
-            MobProductPage productPage = new MobProductPage();
-            // String brankNameList = "";
-            // for (int j = 0; j < productPage.productList.size(); j++) {
-            // brankNameList += productPage.getProductName(j);
-            // }
-            // Assert.assertTrue(brankNameList.contains(brankName));
-        }
+        // for (int i = 0; i < header.getSubMenuElementSize(2, 4); i++) {
+        Random random = new Random();
+        int num = random.nextInt(header.getSubMenuElementSize(2, 4));
+        header.menuBtn.click();
+        header.getMainMenuElement(2).click();
+        header.getSubMenuElement(2, 4).click();
+        // String brankName = header.getDetailLinkElement(2, 4, (i + 1)).getText();
+        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 4, (num + 1)));
+        header.getDetailLinkElement(2, 4, (num + 1)).click();
+        MobProductPage productPage = new MobProductPage();
+        // String brankNameList = "";
+        // for (int j = 0; j < productPage.productList.size(); j++) {
+        // brankNameList += productPage.getProductName(j);
+        // }
+        // Assert.assertTrue(brankNameList.contains(brankName));
+        // }
     }
 
     @Override
