@@ -30,14 +30,14 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         JavascriptExecutor js = (JavascriptExecutor) driver;
         // for (int i = 0; i < header.getSubMenuElementSize(3, 1); i++) {
         Random random = new Random();
-        int num = random.nextInt(header.getSubMenuElementSize(3, 1));
+        int num = random.nextInt(header.getSubMenuElementSize(4, 1));
         header.menuBtn.click();
-        header.waitForVisibility(header.getMainMenuElement(3), 2);
-        header.getMainMenuElement(3).click();
-        header.getSubMenuElement(3, 1).click();
-        String menuBrankName = header.getDetailLinkElement(3, 1, (num + 1)).getText();
-        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(3, 1, (num + 1)));
-        header.getDetailLinkElement(3, 1, (num + 1)).click();
+        header.waitForVisibility(header.getMainMenuElement(4), 2);
+        header.getMainMenuElement(4).click();
+        header.getSubMenuElement(4, 1).click();
+        String menuBrankName = header.getDetailLinkElement(4, 1, (num + 1)).getText();
+        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(4, 1, (num + 1)));
+        header.getDetailLinkElement(4, 1, (num + 1)).click();
         MobProductPage productPage = new MobProductPage();
         String productBrankName = "";
         for (int j = 0; j < productPage.productList.size(); j++) {
@@ -61,13 +61,13 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         JavascriptExecutor js = (JavascriptExecutor) driver;
         // for (int i = 0; i < header.getSubMenuElementSize(3, 2); i++) {
         Random random = new Random();
-        int num = random.nextInt(header.getSubMenuElementSize(3, 2));
+        int num = random.nextInt(header.getSubMenuElementSize(4, 2));
         header.menuBtn.click();
-        header.getMainMenuElement(3).click();
-        header.getSubMenuElement(3, 2).click();
+        header.getMainMenuElement(4).click();
+        header.getSubMenuElement(4, 2).click();
         // String brankName = header.getDetailLinkElement(3, 2, (i + 1)).getText();
-        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(3, 2, (num + 1)));
-        header.getDetailLinkElement(3, 2, (num + 1)).click();
+        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(4, 2, (num + 1)));
+        header.getDetailLinkElement(4, 2, (num + 1)).click();
         MobProductPage productPage = new MobProductPage();
         // String brankNameList = "";
         // for (int j = 0; j < productPage.productList.size(); j++) {
@@ -85,14 +85,14 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         JavascriptExecutor js = (JavascriptExecutor) driver;
         // for (int i = 0; i < header.getSubMenuElementSize(3, 3); i++) {
         Random random = new Random();
-        int num = random.nextInt(header.getSubMenuElementSize(3, 3));
+        int num = random.nextInt(header.getSubMenuElementSize(4, 3));
         header.menuBtn.click();
-        header.getMainMenuElement(3).click();
-        header.waitForVisibility(header.getSubMenuElement(3, 3), 2);
-        header.getSubMenuElement(3, 3).click();
+        header.getMainMenuElement(4).click();
+        header.waitForVisibility(header.getSubMenuElement(4, 3), 2);
+        header.getSubMenuElement(4, 3).click();
         // String brankName = header.getDetailLinkElement(3, 2, (i + 1)).getText();
-        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(3, 3, (num + 1)));
-        header.getDetailLinkElement(3, 3, (num + 1)).click();
+        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(4, 3, (num + 1)));
+        header.getDetailLinkElement(4, 3, (num + 1)).click();
         MobProductPage productPage = new MobProductPage();
         // String brankNameList = "";
         // for (int j = 0; j < productPage.productList.size(); j++) {

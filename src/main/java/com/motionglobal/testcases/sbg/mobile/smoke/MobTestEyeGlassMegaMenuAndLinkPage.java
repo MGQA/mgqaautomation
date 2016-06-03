@@ -22,7 +22,7 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
     // return new Object[][] { new Object[] { "http://m.smartbuyglasses.com" } };
     // }
 
-    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuEyeGlassGender(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
@@ -54,13 +54,15 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         // for (int i = 0; i < header.getSubMenuElementSize(2, 2) - 1; i++) {
         Random random = new Random();
         int num = random.nextInt(header.getSubMenuElementSize(2, 2));
-        header.menuBtn.click();
-        header.getMainMenuElement(2).click();
-        header.getSubMenuElement(2, 2).click();
-        // String brankName = header.getDetailLinkElement(2, 2, (i + 1)).getText();
-        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 2, (num + 1)));
-        header.getDetailLinkElement(2, 2, (num + 1)).click();
-        MobProductPage productPage = new MobProductPage();
+        if (!(num == (header.getSubMenuElementSize(2, 2) - 1))) {
+            header.menuBtn.click();
+            header.getMainMenuElement(2).click();
+            header.getSubMenuElement(2, 2).click();
+            // String brankName = header.getDetailLinkElement(2, 2, (i + 1)).getText();
+            js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 2, (num + 1)));
+            header.getDetailLinkElement(2, 2, (num + 1)).click();
+            MobProductPage productPage = new MobProductPage();
+        }
         // String brankNameList = "";
         // for (int j = 0; j < productPage.productList.size(); j++) {
         // brankNameList += productPage.getProductName(j);
@@ -68,11 +70,13 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         // Assert.assertTrue(brankNameList.contains(brankName));
         // }
         //
-        header.menuBtn.click();
-        header.getMainMenuElement(2).click();
-        header.getSubMenuElement(2, 2).click();
-        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 2, (header.getSubMenuElementSize(2, 2))));
-        header.getDetailLinkElement(2, 2, header.getSubMenuElementSize(2, 2)).click();
+        else {
+            header.menuBtn.click();
+            header.getMainMenuElement(2).click();
+            header.getSubMenuElement(2, 2).click();
+            js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 2, (header.getSubMenuElementSize(2, 2))));
+            header.getDetailLinkElement(2, 2, header.getSubMenuElementSize(2, 2)).click();
+        }
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
