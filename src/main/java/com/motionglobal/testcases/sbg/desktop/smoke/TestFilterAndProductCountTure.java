@@ -12,6 +12,7 @@ import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCase {
+
     @Test(groups = { "debug111", "smoke" })
     public void Search() {
         String url = "http://www.smartbuyglasses.com/search?keywords=burberry&searchHashcode=1463977020526497#q=burberry&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
@@ -26,6 +27,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         resultPage.waitForVisibility(resultPage.filterWayfarer, 5);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].style.display='none';", resultPage.header().letTalk);
+        resultPage.waitForVisibility(resultPage.filterWayfarer, 3);
         new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(resultPage.filterWayfarer));
         resultPage.filterWayfarer.click();
         resultPage.waitForVisibility(resultPage.filterWayfarerChecked, 10);
