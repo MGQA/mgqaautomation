@@ -37,6 +37,7 @@ public class MobTestSearchPradaBebeTrue extends AbstractBaseTestCase {
         for (int i = 0; i < 30; i++) {
             if (!(detailName.contains("Bebe"))) {
                 Thread.sleep(100);
+                searchResultPage.waitForVisibility(searchResultPage.productDetailName, 5);
                 detailName = searchResultPage.productDetailName.getText();
             }
         }
