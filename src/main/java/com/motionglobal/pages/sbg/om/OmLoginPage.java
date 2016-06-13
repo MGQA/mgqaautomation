@@ -19,4 +19,13 @@ public class OmLoginPage extends AbstractBasePage {
         waitForVisibility(By.className("uname"), 20);
     }
 
+    public void OmLogin() {
+        waitForVisibility(userName, 2);
+        userName.sendKeys("jack.zhong");
+        waitForVisibility(passWord, 2);
+        passWord.sendKeys("motion@888");
+        waitForVisibility(submit, 2);
+        submit.click();
+    }
+
 }

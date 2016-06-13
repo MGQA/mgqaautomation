@@ -4,15 +4,16 @@ import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.om.OmHeader;
+import com.motionglobal.pages.sbg.om.OmLoginPage;
 import com.motionglobal.pages.sbg.om.OrderPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
 public class OmSunGlasses extends AbstractBaseTestCase {
 
-    @Test(groups = "debug")
+    @Test(groups = "debug111")
     public void SunGlasses() {
         getURL("http://omtest.motionglobal.com/login/login/");
-        new OmLogin();
+        new OmLoginPage().OmLogin();
         OmHeader header = new OmHeader();
         header.waitForVisibility(header.getHeader(3), 20);
         header.getHeader(3).click();
