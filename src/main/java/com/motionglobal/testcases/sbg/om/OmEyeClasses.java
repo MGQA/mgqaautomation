@@ -6,7 +6,7 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
 
 public class OmEyeClasses extends AbstractBaseTestCase {
 
-    @Test()
+    @Test(enabled = false)
     public void eyeClasses() {
 
     }
