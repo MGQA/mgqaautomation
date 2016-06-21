@@ -56,7 +56,6 @@ public abstract class AbstractBaseTestCase {
         catch (Exception e) {
         }
         i = 0;
-        System.out.println(i);
     }
 
     protected void switchDriver() {
@@ -133,17 +132,9 @@ public abstract class AbstractBaseTestCase {
     // To be implement in the sub class
     protected abstract void tearDown();
 
-    protected void p(String[] arr) {
-        for (String s : arr) {
-            p(s);
+    protected void print(Object... obj) {
+        for (Object s : obj) {
+            System.out.println(s);
         }
-    }
-
-    protected void p(String str) {
-        System.out.println(str);
-    }
-
-    protected void p(int str) {
-        System.out.println(str);
     }
 }
