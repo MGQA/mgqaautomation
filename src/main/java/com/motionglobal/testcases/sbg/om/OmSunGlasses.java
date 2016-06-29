@@ -15,10 +15,10 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
 
 public class OmSunGlasses extends AbstractBaseTestCase {
 
-    @Test(groups = { "debug111", "smoke" })
+    @Test(groups = { "debug3", "smoke", "om" })
     public void SunGlassesHaveInventory() {
         String url = "http://omtest.motionglobal.com/login/login/";
-        getURL("http://www.aaa.aaa");
+        getURL(url);
         new OmLoginPage().OmLogin();
         OmHeader header = new OmHeader();
         header.waitForVisibility(header.getHeader(3), 20);
@@ -174,7 +174,7 @@ public class OmSunGlasses extends AbstractBaseTestCase {
     }
 
     // FIXME
-    @Test(groups = { "debug3", "smoke" })
+    @Test(groups = { "debug3", "smoke", "om" })
     public void SunGlassesNoInventory() {
         getURL("http://omtest.motionglobal.com/login/login/");
         new OmLoginPage().OmLogin();
