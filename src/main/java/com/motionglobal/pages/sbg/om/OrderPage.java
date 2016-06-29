@@ -37,6 +37,8 @@ public class OrderPage extends AbstractBasePage {
     public WebElement AddLineItemBtn;
     @FindBy(id = "product_id")
     public WebElement productID;
+    @FindBy(id = "cl_id")
+    public WebElement CLid;
     @FindBy(css = "[value='Add']")
     public WebElement addBtn;
     @FindBy(id = "button")
@@ -68,8 +70,23 @@ public class OrderPage extends AbstractBasePage {
     public WebElement InputPhone;
     @FindBy(id = "customer_email")
     public WebElement InputEmail;
+    // CL бу
+    @FindBy(id = "R_power")
+    private WebElement R_power;
+    @FindBy(id = "R_curve")
+    private WebElement R_curve;
+    @FindBy(id = "R_diameter")
+    private WebElement R_diameter;
+    @FindBy(id = "L_power")
+    private WebElement L_power;
+    @FindBy(id = "L_curve")
+    private WebElement L_curve;
+    @FindBy(id = "L_diameter")
+    private WebElement L_diameter;
 
     // wait brand exist
+    @FindBy(xpath = "//*[text()='1-Day Acuvue TruEye 30 Pack']")
+    public WebElement CL451Exist;
     @FindBy(xpath = "//*[text()='Tom Ford FT0237 SNOWDON 52N']")
     public WebElement TomFordExist;
     @FindBy(xpath = "//*[text()='Nine West NW535S 615']")
@@ -113,6 +130,43 @@ public class OrderPage extends AbstractBasePage {
         waitForVisibility(payStatu, 5);
         Select select = new Select(payStatu);
         select.selectByValue("1");
+    }
+
+    // CL select
+    public void selectR_power(String value) {
+        waitForVisibility(R_power, 5);
+        Select select = new Select(R_power);
+        select.selectByValue(value);
+    }
+
+    public void selectR_curve(String value) {
+        waitForVisibility(R_curve, 5);
+        Select select = new Select(R_curve);
+        select.selectByValue(value);
+    }
+
+    public void selectR_diameter(String value) {
+        waitForVisibility(R_diameter, 5);
+        Select select = new Select(R_diameter);
+        select.selectByValue(value);
+    }
+
+    public void selectL_power(String value) {
+        waitForVisibility(L_power, 5);
+        Select select = new Select(L_power);
+        select.selectByValue(value);
+    }
+
+    public void selectL_curve(String value) {
+        waitForVisibility(L_curve, 5);
+        Select select = new Select(L_curve);
+        select.selectByValue(value);
+    }
+
+    public void selectL_diameter(String value) {
+        waitForVisibility(L_diameter, 5);
+        Select select = new Select(L_diameter);
+        select.selectByValue(value);
     }
 
     @Override

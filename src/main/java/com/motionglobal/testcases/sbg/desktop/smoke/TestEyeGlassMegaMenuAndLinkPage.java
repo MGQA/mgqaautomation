@@ -235,6 +235,8 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         getURL(url);
         Header header = new Header();
         header.mouseOverMainMenu(2);
+        // String[] ImgName = header.getMegaMenuBrandLogoImage(2, 2).findElement(By.xpath("..")).getAttribute("onclick").split(" - ");
+        // System.out.println(ImgName[2].replace("')", ""));
         header.mouseOver(header.getMegaMenuBrandInitialElement(2, "A"));
         String BrandsA = header.getMegaMenuBrandsNameElement(2, "A", 1, 1).getText();
         header.mouseOver(header.getMegaMenuBrandInitialElement(2, "Q"));
@@ -242,9 +244,9 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         header.clickGlassImg(2, 2);
         header.clickBrands(2, "A", 1, 1);
         ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.brands).getText().contains(BrandsA), "Page disagree");
+        Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.brands).getText().contains(BrandsA.replace(" NEW !", "")), "Page disagree");
         header.clickBrands(2, "Q", 2, 2);
-        Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.brands).getText().contains(BrandsQ), "Page disagree");
+        Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.brands).getText().contains(BrandsQ.replace(" NEW !", "")), "Page disagree");
     }
 
     @Override

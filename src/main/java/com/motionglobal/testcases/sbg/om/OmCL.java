@@ -15,10 +15,12 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
 
 public class OmCL extends AbstractBaseTestCase {
 
-    @Test(enabled = false, groups = { "debug3", "smoke" })
+    @Test(groups = { "debug3", "smoke", "om" })
     public void CLHaveInventory() {
+        // productID=451.power=5.50.
         String productID = "451";
         getURL("http://omtest.motionglobal.com/login/login/");
+        //
         new OmLoginPage().OmLogin();
         OmHeader header = new OmHeader();
         header.waitForVisibility(header.getHeader(3), 20);
@@ -33,7 +35,7 @@ public class OmCL extends AbstractBaseTestCase {
         }
         catch (Exception e) {
         }
-        //
+        // choose product
         orderPage.waitForVisibility(orderPage.AddManualOrder, 5);
         orderPage.AddManualOrder.click();
         orderPage.selectUrl("2");
@@ -41,12 +43,19 @@ public class OmCL extends AbstractBaseTestCase {
         orderPage.btn.click();
         orderPage.waitForVisibility(orderPage.AddLineItemBtn, 5);
         orderPage.AddLineItemBtn.click();
-        orderPage.waitForVisibility(orderPage.productID, 5);
-        orderPage.productID.click();
-        orderPage.productID.sendKeys(productID);
+        orderPage.selectCL();
+        orderPage.waitForVisibility(orderPage.CLid, 5);
+        orderPage.CLid.click();
+        orderPage.CLid.sendKeys(productID);
         orderPage.actionKey(Keys.ENTER);
-        orderPage.waitForVisibility(orderPage.TomFordExist, 10);
-        orderPage.selectType("Sunglasses");
+        orderPage.waitForVisibility(orderPage.CL451Exist, 10);
+        // CL бу
+        orderPage.selectR_power("5.50");
+        orderPage.selectR_curve("8.5");
+        orderPage.selectR_diameter("14.2");
+        orderPage.selectL_power("5.50");
+        orderPage.selectL_curve("8.5");
+        orderPage.selectL_diameter("14.2");
         orderPage.addBtn.click();
 
         // fill detail massage
@@ -76,15 +85,18 @@ public class OmCL extends AbstractBaseTestCase {
         // get orderID\hand
         orderPage.waitForVisibility(orderPage.OrderID, 5);
         String orderID = orderPage.OrderID.getText().substring(0, 13);
-        // .replace("   ", "");
         System.out.println(orderID);
         String oderPageHand = driver.getWindowHandle();
+
+        // firm pay
         orderPage.JsMouse(orderPage.Date);
         orderPage.Date.click();
         orderPage.confirmAllBtn.click();
         orderPage.confirmStatu();
         orderPage.waitForVisibility(orderPage.payConfirm, 5);
         orderPage.JsClick(orderPage.payConfirm);
+
+        // Assert status
         driver.navigate().refresh();
         orderPage.waitForVisibility(orderPage.orderStatu, 5);
         Assert.assertEquals(orderPage.orderStatu.getText(), "Approved & In Processing");
@@ -100,21 +112,24 @@ public class OmCL extends AbstractBaseTestCase {
         supplier.waitForVisibility(supplier.menuCreatePO, 5);
         supplier.menuCreatePO.click();
 
-        // HK wareHouse
-        supplier.waitForVisibility(supplier.submenuHKPO, 5);
-        supplier.submenuHKPO.click();
+        // CL HK wareHouse
+        supplier.waitForVisibility(supplier.submenuCLHK, 5);
+        supplier.submenuCLHK.click();
         supplier.waitForVisibility(supplier.goBtn, 5);
         supplier.order.sendKeys(orderID);
         supplier.goBtn.click();
-        supplier.waitForVisibility(supplier.check, 10);
-        supplier.check.click();
+        supplier.waitForVisibility(supplier.checkAll, 10);
+        supplier.checkAll.click();
         supplier.waitForVisibility(supplier.createBtn, 5);
         supplier.createBtn.click();
-        //
+
+        // Assert status
         driver.switchTo().window(oderPageHand);
         driver.navigate().refresh();
         Assert.assertEquals(orderPage.orderStatu.getText(), "wait for status update");
         orderPage.switch2NewWindow();
+
+        //
         supplier.waitForVisibility(supplier.menuEditAllPO, 10);
         supplier.menuEditAllPO.click();
         supplier.waitForVisibility(supplier.Edit1, 5);
@@ -140,10 +155,19 @@ public class OmCL extends AbstractBaseTestCase {
         wareHouse.menuManifest.click();
         wareHouse.waitForVisibility(wareHouse.submenuCreateShipManifest, 5);
         wareHouse.submenuCreateShipManifest.click();
+
+        // add CL
+        wareHouse.waitForVisibility(wareHouse.InputCL, 5);
+        wareHouse.InputCL.click();
+        wareHouse.InputGlasses.click();
+        wareHouse.goBtn.click();
+
+        // confirm
         wareHouse.waitForVisibility(wareHouse.getManifestInput(orderID), 10);
         wareHouse.getManifestInput(orderID).click();
         wareHouse.confirmUpDate.click();
-        //
+
+        // assert status
         driver.switchTo().window(oderPageHand);
         driver.navigate().refresh();
         Assert.assertEquals(orderPage.orderStatu.getText(), "Wait for Tracking #");
@@ -173,9 +197,12 @@ public class OmCL extends AbstractBaseTestCase {
     }
 
     // FIXME
-    @Test(groups = { "debug3", "smoke" })
+    @Test(groups = { "debug3", "smoke", "om" })
     public void CLNoInventory() {
+        // productID=451. power=4.50.
+        String productID = "451";
         getURL("http://omtest.motionglobal.com/login/login/");
+        //
         new OmLoginPage().OmLogin();
         OmHeader header = new OmHeader();
         header.waitForVisibility(header.getHeader(3), 20);
@@ -190,7 +217,7 @@ public class OmCL extends AbstractBaseTestCase {
         }
         catch (Exception e) {
         }
-        //
+        // choose product
         orderPage.waitForVisibility(orderPage.AddManualOrder, 5);
         orderPage.AddManualOrder.click();
         orderPage.selectUrl("2");
@@ -198,13 +225,19 @@ public class OmCL extends AbstractBaseTestCase {
         orderPage.btn.click();
         orderPage.waitForVisibility(orderPage.AddLineItemBtn, 5);
         orderPage.AddLineItemBtn.click();
-        orderPage.waitForVisibility(orderPage.productID, 5);
-        orderPage.productID.click();
-        orderPage.productID.sendKeys("260885");
+        orderPage.selectCL();
+        orderPage.waitForVisibility(orderPage.CLid, 5);
+        orderPage.CLid.click();
+        orderPage.CLid.sendKeys(productID);
         orderPage.actionKey(Keys.ENTER);
-        orderPage.waitForVisibility(orderPage.nineWestExist, 10);
-        orderPage.selectSize("53");
-        orderPage.selectType("Sunglasses");
+        orderPage.waitForVisibility(orderPage.CL451Exist, 10);
+        // CL бу
+        orderPage.selectR_power("4.50");
+        orderPage.selectR_curve("8.5");
+        orderPage.selectR_diameter("14.2");
+        orderPage.selectL_power("4.50");
+        orderPage.selectL_curve("8.5");
+        orderPage.selectL_diameter("14.2");
         orderPage.addBtn.click();
 
         // fill detail massage
@@ -234,15 +267,18 @@ public class OmCL extends AbstractBaseTestCase {
         // get orderID\hand
         orderPage.waitForVisibility(orderPage.OrderID, 5);
         String orderID = orderPage.OrderID.getText().substring(0, 13);
-        // .replace("   ", "");
         System.out.println(orderID);
         String oderPageHand = driver.getWindowHandle();
+
+        // firm pay
         orderPage.JsMouse(orderPage.Date);
         orderPage.Date.click();
         orderPage.confirmAllBtn.click();
         orderPage.confirmStatu();
         orderPage.waitForVisibility(orderPage.payConfirm, 5);
         orderPage.JsClick(orderPage.payConfirm);
+
+        // Assert status
         driver.navigate().refresh();
         orderPage.waitForVisibility(orderPage.orderStatu, 5);
         Assert.assertEquals(orderPage.orderStatu.getText(), "Approved & In Processing");
@@ -258,26 +294,30 @@ public class OmCL extends AbstractBaseTestCase {
         supplier.waitForVisibility(supplier.menuCreatePO, 5);
         supplier.menuCreatePO.click();
 
-        // supplier
-        supplier.waitForVisibility(supplier.submenuSupplier, 5);
-        supplier.submenuSupplier.click();
-        supplier.waitForVisibility(supplier.order, 5);
+        // CL HK wareHouse
+        supplier.waitForVisibility(supplier.submenuCLSupplier, 5);
+        supplier.submenuCLSupplier.click();
+        supplier.waitForVisibility(supplier.goBtn, 5);
         supplier.order.sendKeys(orderID);
         supplier.goBtn.click();
+        supplier.waitForVisibility(supplier.checkAll, 10);
         supplier.checkAll.click();
+        supplier.waitForVisibility(supplier.createBtn, 5);
         supplier.createBtn.click();
-        //
+
+        // Assert status
         driver.switchTo().window(oderPageHand);
         driver.navigate().refresh();
         Assert.assertEquals(orderPage.orderStatu.getText(), "wait for status update");
         orderPage.switch2NewWindow();
+
         //
         supplier.waitForVisibility(supplier.menuEditAllPO, 5);
         supplier.menuEditAllPO.click();
         supplier.waitForVisibility(supplier.Edit1, 5);
         supplier.Edit1.click();
-        supplier.waitForVisibility(supplier.check, 2);
-        supplier.check.click();
+        supplier.waitForVisibility(supplier.checkAll, 2);
+        supplier.checkAll.click();
         supplier.confirmSupplier();
         try {
             Thread.sleep(500);
@@ -301,16 +341,20 @@ public class OmCL extends AbstractBaseTestCase {
         wareHouse.waitForVisibility(wareHouse.importShipment, 5);
         wareHouse.importShipment.click();
         wareHouse.waitForVisibility(wareHouse.manualRadio, 5);
-        wareHouse.confirmImportPopular();
+
+        // confirm shipment
+        wareHouse.confirmCLSupplier();
         wareHouse.confirmImportFulfillment();
         wareHouse.manualRadio.click();
         wareHouse.POListSizeGT0();
         int POSize = wareHouse.POList.size();
         wareHouse.POList.get(POSize - 1).click();
+        wareHouse.POList.get(POSize - 2).click();
         wareHouse.manualCreate.click();
         wareHouse.waitForVisibility(wareHouse.confirmUpDate, 5);
         wareHouse.confirmUpDate.click();
-        //
+
+        // assert status
         driver.switchTo().window(oderPageHand);
         driver.navigate().refresh();
         Assert.assertEquals(orderPage.orderStatu.getText(), "stock in transition");
@@ -343,6 +387,13 @@ public class OmCL extends AbstractBaseTestCase {
         wareHouse.menuManifest.click();
         wareHouse.waitForVisibility(wareHouse.submenuCreateShipManifest, 5);
         wareHouse.submenuCreateShipManifest.click();
+
+        // add CL
+        wareHouse.waitForVisibility(wareHouse.InputCL, 5);
+        wareHouse.InputCL.click();
+        wareHouse.InputGlasses.click();
+        wareHouse.goBtn.click();
+        //
         wareHouse.waitForVisibility(wareHouse.getManifestInput(orderID), 5);
         wareHouse.getManifestInput(orderID).click();
         wareHouse.confirmUpDate.click();

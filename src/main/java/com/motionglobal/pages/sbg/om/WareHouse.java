@@ -49,6 +49,14 @@ public class WareHouse extends AbstractBasePage {
     @FindBy(id = "manualCreate")
     public WebElement manualCreate;
 
+    // CL
+    @FindBy(id = "Glasses")
+    public WebElement InputGlasses;
+    @FindBy(id = "ContactLens")
+    public WebElement InputCL;
+    @FindBy(id = "button")
+    public WebElement goBtn;
+
     public WebElement getManifestInput(String orderID) {
         return driver.findElement(By.xpath("//a[text()='" + orderID + "']/../../td[1]/input[1]"));
     }
@@ -75,6 +83,12 @@ public class WareHouse extends AbstractBasePage {
         waitForVisibility(importSupplier, 5);
         Select select = new Select(importSupplier);
         select.selectByValue("72");
+    }
+
+    public void confirmCLSupplier() {
+        waitForVisibility(importSupplier, 5);
+        Select select = new Select(importSupplier);
+        select.selectByValue("45");
     }
 
     public void confirmImportPopular() {

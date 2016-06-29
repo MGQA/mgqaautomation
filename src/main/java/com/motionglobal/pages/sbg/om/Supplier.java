@@ -13,6 +13,7 @@ public class Supplier extends AbstractBasePage {
     public WebElement menuCreatePO;
     @FindBy(css = "[node^='Edit']>a")
     public WebElement menuEditAllPO;
+
     // common
     @FindBy(id = "order_code")
     public WebElement order;
@@ -29,6 +30,10 @@ public class Supplier extends AbstractBasePage {
     public WebElement submenuSupplier;
     @FindBy(xpath = "//a[contains(text(),'Create HK')]")
     public WebElement submenuHKPO;
+    @FindBy(xpath = "//a[contains(text(),'Lens HK')]")
+    public WebElement submenuCLHK;
+    @FindBy(xpath = "//a[contains(text(),'Lens Supplier PO')]")
+    public WebElement submenuCLSupplier;
     // edit
     @FindBy(xpath = "//tr[1]//a[text()='Edit']")
     public WebElement Edit1;
