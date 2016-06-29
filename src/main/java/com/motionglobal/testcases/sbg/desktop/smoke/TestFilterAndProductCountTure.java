@@ -45,10 +45,12 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         gridPage.waitForVisibility(gridPage.filterArnette, 2);
         gridPage.filterArnette.click();
         Assert.assertTrue(gridPage.proInfo.get(0).getText().contains("Arnette"));
-        gridPage.waitForVisibility(gridPage.filterAviator, 5);
-        gridPage.JsMouse(gridPage.filterAviator);
-        gridPage.filterAviator.click();
-        Assert.assertTrue(gridPage.filterSide.getText().contains("Aviator"), " fiter fail ");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].style.display='none';", gridPage.header().letTalk);
+        gridPage.waitForVisibility(gridPage.filterWayfarer, 5);
+        gridPage.JsMouse(gridPage.filterWayfarer);
+        gridPage.filterWayfarer.click();
+        Assert.assertTrue(gridPage.filterSide.getText().contains("Wayfarer"), " fiter fail ");
     }
 
     @Test(groups = { "debug", "smoke" })

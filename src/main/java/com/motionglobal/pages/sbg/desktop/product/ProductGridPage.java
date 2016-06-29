@@ -42,8 +42,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     // filter
     @FindBy(partialLinkText = "Arnette")
     public WebElement filterArnette;
-    @FindBy(css = "li.frameS_av a.FrameShape")
-    public WebElement filterAviator;
+    @FindBy(css = "[name='Wayfarer']")
+    public WebElement filterWayfarer;
     // assert_element！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     @FindBy(className = "proCell_click")
     public List<WebElement> sunTop100Eles;
