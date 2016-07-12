@@ -52,7 +52,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].style.display='none';", gridPage.header().letTalk);
         gridPage.waitForVisibility(gridPage.filterWayfarer, 5);
-        gridPage.JsMouse(gridPage.filterWayfarer);
+        // gridPage.JsMouse(gridPage.filterWayfarer);
         gridPage.filterWayfarer.click();
         Assert.assertTrue(gridPage.filterSide.getText().contains("Wayfarer"), " fiter fail ");
     }
