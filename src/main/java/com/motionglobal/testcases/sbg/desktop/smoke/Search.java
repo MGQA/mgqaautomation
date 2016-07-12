@@ -8,6 +8,10 @@ import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * 10 main domain Test £º search ray-ban and acuvue
+ * 
+ */
 public class Search extends AbstractBaseSbgDesktopTestCase {
     @DataProvider
     public Object[][] dp() {

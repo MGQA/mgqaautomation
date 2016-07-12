@@ -10,6 +10,10 @@ import com.motionglobal.pages.sbg.mobile.MobHeader;
 import com.motionglobal.pages.sbg.mobile.product.MobProductPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * m.10 main domain Test £º Header menu of m.EyeGlass ¡£ click section menu link(random 1)
+ * 
+ */
 public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider

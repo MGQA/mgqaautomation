@@ -8,6 +8,10 @@ import com.motionglobal.pages.sbg.mobile.MobHeader;
 import com.motionglobal.pages.sbg.mobile.cart.MobCartPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * m.com and m.cn Test :empty cartBox
+ * 
+ */
 public class MobTestEmptyCarPage extends AbstractBaseSbgDesktopTestCase {
     @DataProvider
     public Object[][] dp() {

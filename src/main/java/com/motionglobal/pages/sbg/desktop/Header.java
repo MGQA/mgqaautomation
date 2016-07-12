@@ -11,15 +11,17 @@ public class Header extends AbstractBasePage {
     public WebElement firstBuy;
     @FindBy(className = "menuN_display")
     public WebElement menuDisplay;
-    // deals .//*[@id='menuN_level_6']/li/div/div[2]/a/div[3]
-    @FindBy(xpath = "//ul[@id='menuN_level_6']//div/a/span")
+    // deals
+    @FindBy(css = ".megamenu_left_all>a>span")
     public WebElement dealShowNow;
-    @FindBy(xpath = "//ul[@id='menuN_level_6']//div[2]/a/div[3]")
+    @FindBy(className = "megamenu_center_buynow")
     public WebElement dealBuyNow;
-    @FindBy(className = "megamenu_righ_sunglasses")
+    @FindBy(css = ".megamenu_righ_sunglasses>a")
     public WebElement dealSunGlass;
-    @FindBy(className = "megamenu_righ_glasses")
+    @FindBy(css = ".megamenu_righ_glasses>a")
     public WebElement dealEyeGlass;
+    @FindBy(className = "center_span_number")
+    public WebElement dealPrice;
     //
     @FindBy(id = "logo")
     public WebElement logo;
@@ -32,6 +34,8 @@ public class Header extends AbstractBasePage {
     // heard login link
     @FindBy(xpath = "//li[@id='signin_li']/a/span")
     public WebElement loginlable;
+    @FindBy(css = ".sign_inlist_span>em")
+    public WebElement priceCoupon;
     // after moveover heard login links
     @FindBy(xpath = "//li[@id='signin_li']//span/a")
     public WebElement signin;
@@ -176,7 +180,7 @@ public class Header extends AbstractBasePage {
     }
 
     /**
-     * mainMenuNumber is 1 & 2 & 4;
+     * mainMenuNumber is 1 and 2 and 4;
      * 
      * @param mainMenuNum
      * @param firstLetter
@@ -197,14 +201,14 @@ public class Header extends AbstractBasePage {
             ele = driver.findElement(By.xpath("//div[@id='sub_Prescription_Sunglasses_" + firstLetter + "_list']/ul[" + colNumber + "]/li[" + rowNum + "]/a"));
             break;
         default:
-            System.out.println("mainMenuNumber is 1 & 2 & 4;");
+            System.out.println("mainMenuNumber is 1 and 2 and 4;");
             break;
         }
         return ele;
     }
 
     /**
-     * mainMenuNumber is 1 & 2 & 4;
+     * mainMenuNumber is 1 and 2 and 4;
      * 
      * @param mainMenuNum
      * @param firstLetter
@@ -223,7 +227,7 @@ public class Header extends AbstractBasePage {
             ele = driver.findElement(By.xpath("//span[@id='sub_Prescription_Sunglasses_" + firstLetter + "_tab']/a"));
             break;
         default:
-            System.out.println("mainMenuNumber is 1 & 2 & 4;");
+            System.out.println("mainMenuNumber is 1 and 2 and 4;");
             break;
         }
         return ele;

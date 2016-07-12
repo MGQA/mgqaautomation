@@ -6,6 +6,10 @@ import com.motionglobal.pages.sbg.mobile.product.MobOpticianPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
+/**
+ * m.com Test option ≈‰æµ
+ * 
+ */
 public class MobTestOpticians extends AbstractBaseTestCase {
 
     @Test(groups = { "debug2", "smoke", "fastsmoke" })

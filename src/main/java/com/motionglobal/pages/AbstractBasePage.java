@@ -38,6 +38,16 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         js.executeScript("arguments[0].click();", element);
     }
 
+    public void JsDisplayNone(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].style.display='none';", element);
+    }
+
+    public void JsDisplayBlock(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].style.display='block';", element);
+    }
+
     protected abstract void waitPageLoad();
 
     public void switch2NewWindow() {

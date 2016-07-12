@@ -11,6 +11,10 @@ import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
 import com.motionglobal.pages.sbg.mobile.search.MobSearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * m.com Test £º search ray-ban µ½Ö§¸¶Ò³Ãæ
+ * 
+ */
 public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
     @Test(groups = { "smoke", "debug2", "fastsmoke" })
     public void mobSearchItemAndPayByGC() {

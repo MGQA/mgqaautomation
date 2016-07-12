@@ -9,6 +9,10 @@ import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
+/**
+ * com Test : click brands(prada) detail(Bebe)
+ * 
+ */
 public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] dp() {
@@ -23,6 +27,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         header.inputSearch.sendKeys("Prada");
         header.iconSearch.click();
         SearchResultPage resultPage = new SearchResultPage();
+        resultPage.JsDisplayNone(resultPage.header().letTalk);
         header.waitForVisibility(resultPage.BebeBrank, 10);
         resultPage.BebeBrank.click();
         header.waitForVisibility(resultPage.BebeBrankChecked, 10);
@@ -51,6 +56,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         header.inputSearch.sendKeys("Prada");
         header.iconSearch.click();
         SearchResultPage resultPage = new SearchResultPage();
+        resultPage.JsDisplayNone(resultPage.header().letTalk);
         header.waitForVisibility(resultPage.BebeBrank, 10);
         resultPage.BebeBrank.click();
         header.waitForVisibility(resultPage.BebeBrankChecked, 10);

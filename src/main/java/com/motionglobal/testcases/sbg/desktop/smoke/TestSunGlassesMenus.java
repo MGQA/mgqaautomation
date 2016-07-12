@@ -7,6 +7,10 @@ import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
+/**
+ * Hk Test : sunglass Top 100£»
+ * 
+ */
 public class TestSunGlassesMenus extends AbstractBaseTestCase {
 
     @Test(groups = { "debug", "smoke" })

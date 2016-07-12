@@ -8,6 +8,10 @@ import com.motionglobal.pages.sbg.desktop.cart.CartPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * com Test £º cart add and del
+ * 
+ */
 public class TestAddCartAndDelCart extends AbstractBaseSbgDesktopTestCase {
     static String url = "http://www.smartbuyglasses.com/designer-sunglasses/Gucci/Gucci-GG-3500/S-WNQ/02-108457.html/";
 

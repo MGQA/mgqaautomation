@@ -13,7 +13,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -42,8 +41,8 @@ public class InitializeUtility {
             profile.setPreference("webdriver_accept_untrusted_certs", true);
             // profile.setAssumeUntrustedCertificateIssuer(false);
             //
-            ProfilesIni allProfiles = new ProfilesIni();
-            profile = allProfiles.getProfile("default");
+            // ProfilesIni allProfiles = new ProfilesIni();
+            // profile = allProfiles.getProfile("default");
             //
             profile.setPreference("browser.download.folderList", 2);
             profile.setPreference("security.OCSP.enabled", 0);

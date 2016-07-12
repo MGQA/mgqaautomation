@@ -8,6 +8,10 @@ import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.cart.CartPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * US Test £ºempty cartBox
+ * 
+ */
 public class TestEmptyCarPageOfUS extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "debug", "smoke", "fastsmoke" })

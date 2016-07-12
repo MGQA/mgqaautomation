@@ -12,6 +12,10 @@ import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
 import com.motionglobal.pages.sbg.mobile.search.MobSearchResultPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
+/**
+ * m.com Test : click product(prada) brand(Bebe)
+ * 
+ */
 public class MobTestSearchPradaBebeTrue extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] dp() {

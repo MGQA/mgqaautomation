@@ -16,6 +16,10 @@ import com.motionglobal.pages.sbg.desktop.product.ProductGridPage.Label;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
+/**
+ * au Test £º product size clickable
+ * 
+ */
 public class TestViewEyeProduct extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] dp() {

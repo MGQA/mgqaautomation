@@ -9,6 +9,10 @@ import com.motionglobal.pages.sbg.mobile.MobHeader;
 import com.motionglobal.pages.sbg.mobile.search.MobSearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * m.10 main domain Test £º search ray-ban and acuvue
+ * 
+ */
 public class MobSearch extends AbstractBaseSbgDesktopTestCase {
     @DataProvider
     public Object[][] dp() {

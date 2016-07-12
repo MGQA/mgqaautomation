@@ -7,6 +7,10 @@ import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
+/**
+ * 美国的新配镜
+ * 
+ */
 public class TestOpticiansOfUS extends AbstractBaseTestCase {
 
     @Test(groups = { "debug", "smoke", "fastsmoke" })

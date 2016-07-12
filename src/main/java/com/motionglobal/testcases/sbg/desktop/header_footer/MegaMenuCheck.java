@@ -8,6 +8,10 @@ import com.motionglobal.pages.sbg.desktop.home.HomePage;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * com Test£º ²Ëµ¥ men£»
+ * 
+ */
 public class MegaMenuCheck extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "smoke", "debug" })
