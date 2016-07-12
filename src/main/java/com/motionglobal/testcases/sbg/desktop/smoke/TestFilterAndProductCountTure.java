@@ -52,7 +52,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         gridPage.filterArnette.click();
         Assert.assertTrue(gridPage.proInfo.get(0).getText().contains("Arnette"));
         gridPage.waitForVisibility(gridPage.filterWayfarer, 5);
-        gridPage.JsMouse(gridPage.filterWayfarer);
+        // gridPage.JsMouse(gridPage.filterWayfarer);
         gridPage.filterWayfarer.click();
         Assert.assertTrue(gridPage.filterSide.getText().contains("Wayfarer"), " fiter fail ");
     }
