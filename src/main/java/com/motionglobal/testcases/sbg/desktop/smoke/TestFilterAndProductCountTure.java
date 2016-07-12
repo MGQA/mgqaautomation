@@ -43,6 +43,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
     public void SunGlass() {
         String url = "http://www.smartbuyglasses.com/designer-sunglasses/general/-Men----------------------";
         getURL(url);
+        driver.manage().window().maximize();
         ProductGridPage gridPage = new ProductGridPage();
         Assert.assertTrue(gridPage.filterSide.getText().contains("Men"), " fiter fail ");
         Assert.assertTrue(gridPage.proInfo.size() > 0);
