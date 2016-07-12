@@ -11,6 +11,9 @@ import com.motionglobal.pages.sbg.desktop.product.CLProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.product.CLProductGridPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * 10 main domain Test: Header menu of CL. click section menu link(1 and other)
+ */
 public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCase {
 
     // @DataProvider(name = "DesktopTestData")

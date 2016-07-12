@@ -24,6 +24,7 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> eyeproSize;
     @FindBy(css = "label.clearfix")
     public List<WebElement> frameOrAdd;
+
     // Opticians
     @FindBy(id = "discount_price_promotion_display")
     public WebElement framePrice;
@@ -39,11 +40,17 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement deluxe;
     @FindBy(xpath = "//li[@data-value='8']/a")
     public WebElement deluxeVery;
+
+    // // pay
+    // @FindBy()
+    // public WebElement
+    //
     // filter
     @FindBy(partialLinkText = "Arnette")
     public WebElement filterArnette;
     @FindBy(css = "[name='Wayfarer']")
     public WebElement filterWayfarer;
+
     // assert_element！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     @FindBy(className = "proCell_click")
     public List<WebElement> sunTop100Eles;
@@ -57,7 +64,7 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement filterSide;
 
     public enum Label {
-        gender, material, mid, pre, polarized, sports, brands, ski;
+        gender, material, mid, pre, polarized, sports, brands, ski, designer;
     }
 
     public WebElement submenuPageLabelElement(Label label) {
@@ -70,6 +77,7 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
         case polarized:
             element = driver.findElement(By.xpath("//*[@id='wrapper']/div[4]/div[2]/span[2]"));
             break;
+        case designer:
         case sports:
             element = driver.findElement(By.xpath("//*[@id='wrapper']/div[4]/div[2]/span[1]/a"));
             break;

@@ -13,6 +13,10 @@ import com.motionglobal.pages.sbg.om.Supplier;
 import com.motionglobal.pages.sbg.om.WareHouse;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
+/**
+ * OM sunglass flow
+ * 
+ */
 public class OmSunGlasses extends AbstractBaseTestCase {
 
     @Test(groups = { "debug3", "smoke", "om" })

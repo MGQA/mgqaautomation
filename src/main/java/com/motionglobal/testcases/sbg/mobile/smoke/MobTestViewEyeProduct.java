@@ -9,6 +9,10 @@ import com.motionglobal.pages.sbg.mobile.product.MobOpticianPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
+/**
+ * .m.com Test : product size clickable
+ * 
+ */
 public class MobTestViewEyeProduct extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] dp() {

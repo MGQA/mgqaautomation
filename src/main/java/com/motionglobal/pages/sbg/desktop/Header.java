@@ -34,6 +34,8 @@ public class Header extends AbstractBasePage {
     // heard login link
     @FindBy(xpath = "//li[@id='signin_li']/a/span")
     public WebElement loginlable;
+    @FindBy(css = ".sign_inlist_span>em")
+    public WebElement priceCoupon;
     // after moveover heard login links
     @FindBy(xpath = "//li[@id='signin_li']//span/a")
     public WebElement signin;
@@ -178,7 +180,7 @@ public class Header extends AbstractBasePage {
     }
 
     /**
-     * mainMenuNumber is 1 & 2 & 4;
+     * mainMenuNumber is 1 and 2 and 4;
      * 
      * @param mainMenuNum
      * @param firstLetter
@@ -199,14 +201,14 @@ public class Header extends AbstractBasePage {
             ele = driver.findElement(By.xpath("//div[@id='sub_Prescription_Sunglasses_" + firstLetter + "_list']/ul[" + colNumber + "]/li[" + rowNum + "]/a"));
             break;
         default:
-            System.out.println("mainMenuNumber is 1 & 2 & 4;");
+            System.out.println("mainMenuNumber is 1 and 2 and 4;");
             break;
         }
         return ele;
     }
 
     /**
-     * mainMenuNumber is 1 & 2 & 4;
+     * mainMenuNumber is 1 and 2 and 4;
      * 
      * @param mainMenuNum
      * @param firstLetter
@@ -225,7 +227,7 @@ public class Header extends AbstractBasePage {
             ele = driver.findElement(By.xpath("//span[@id='sub_Prescription_Sunglasses_" + firstLetter + "_tab']/a"));
             break;
         default:
-            System.out.println("mainMenuNumber is 1 & 2 & 4;");
+            System.out.println("mainMenuNumber is 1 and 2 and 4;");
             break;
         }
         return ele;

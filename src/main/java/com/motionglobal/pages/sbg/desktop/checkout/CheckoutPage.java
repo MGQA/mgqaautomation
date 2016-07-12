@@ -11,9 +11,11 @@ public class CheckoutPage extends AbstractBaseSbgDesktopPage {
 
     @FindBy(id = "gc-payment")
     public WebElement btnGcPayment;
+    @FindBy(css = ".total_price.td_r")
+    public WebElement priceTotal;
     @FindBy(css = "#payment_product_1 input")
     private WebElement radioVISA;
-
+    //
     @FindBy(id = "billing_first_name")
     private WebElement inputBillingFirstName;
     @FindBy(id = "billing_last_name")
@@ -67,6 +69,7 @@ public class CheckoutPage extends AbstractBaseSbgDesktopPage {
     public CheckoutPage clickVISA() {
         // Not accurate. to be fixed.
         // We are now using index, rather than text in the payment
+        waitForVisibility(radioVISA, 2);
         this.radioVISA.click();
         return this;
     }

@@ -12,6 +12,10 @@ import com.motionglobal.pages.sbg.desktop.product.BuyNowPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
+/**
+ * au Test £∫Opticians ≈‰æµ
+ * 
+ */
 public class TestOpticians extends AbstractBaseTestCase {
 
     @Test(groups = { "debug", "smoke", "fastsmoke" })

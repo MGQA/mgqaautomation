@@ -13,6 +13,10 @@ import com.motionglobal.pages.sbg.om.Supplier;
 import com.motionglobal.pages.sbg.om.WareHouse;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
+/**
+ * OM Test £º CL flow
+ * 
+ */
 public class OmCL extends AbstractBaseTestCase {
 
     @Test(groups = { "debug3", "smoke", "om" })

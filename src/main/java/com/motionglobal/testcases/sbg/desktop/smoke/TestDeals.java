@@ -7,8 +7,12 @@ import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * com Test : click Deals section(ShowNow¡¢BuyNow¡¢SunGlass¡¢EyeGlass)
+ * 
+ */
 public class TestDeals extends AbstractBaseSbgDesktopTestCase {
-    @Test(groups = { "debug111", "smoke", "fastsmoke" })
+    @Test(groups = { "debug", "smoke", "fastsmoke" })
     public void Deals() {
         String url = "http://www.smartbuyglasses.com/";
         getURL(url);

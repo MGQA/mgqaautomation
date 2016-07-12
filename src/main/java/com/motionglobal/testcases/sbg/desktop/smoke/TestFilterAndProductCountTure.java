@@ -11,6 +11,10 @@ import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * com Test : Filter product
+ * 
+ */
 public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "debug", "smoke" })

@@ -6,6 +6,10 @@ import org.testng.annotations.Test;
 import com.motionglobal.pages.sbg.desktop.home.HomePage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * search ray ban
+ * 
+ */
 public class TestHeaderMenu extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "debug", "smoke" })

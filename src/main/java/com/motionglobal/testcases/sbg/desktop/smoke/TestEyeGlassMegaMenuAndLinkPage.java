@@ -12,6 +12,10 @@ import com.motionglobal.pages.sbg.desktop.product.ProductGridPage.Label;
 import com.motionglobal.pages.sbg.desktop.product.VirtualPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * 10 main domain Test : Header menu of EyeGlass. click section menu link(1 and other)
+ * 
+ */
 public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCase {
 
     // @DataProvider(name = "DesktopTestData")

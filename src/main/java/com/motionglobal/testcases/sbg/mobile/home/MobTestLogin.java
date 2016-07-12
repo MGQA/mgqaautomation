@@ -6,6 +6,10 @@ import org.testng.annotations.Test;
 import com.motionglobal.pages.sbg.mobile.MobHeader;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * m.com test £º login
+ * 
+ */
 public class MobTestLogin extends AbstractBaseSbgDesktopTestCase {
     @Test(groups = { "debug2", "smoke", "fastsmoke" })
     public void testLogin() {

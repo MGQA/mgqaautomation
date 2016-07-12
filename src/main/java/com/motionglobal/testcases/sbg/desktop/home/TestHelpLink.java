@@ -7,6 +7,10 @@ import org.testng.annotations.Test;
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * com £º header ¡ª¡ª help link
+ * 
+ */
 public class TestHelpLink extends AbstractBaseSbgDesktopTestCase {
     @Test(groups = { "smoke", "debug" })
     public void testHelpLink() {

@@ -7,6 +7,10 @@ import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.product.CLProductGridPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * HK Test £º CL lenseDaily is 18 product
+ * 
+ */
 public class ContactLens extends AbstractBaseSbgDesktopTestCase {
     @Test(groups = { "debug", "smoke" })
     public void Daily() {

@@ -11,6 +11,9 @@ import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * HK Test: ËÑË÷ ray ban µ½Ö§¸¶Ò³Ãæ
+ */
 public class TestEnd2End extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "smoke", "debug", "fastsmoke" })

@@ -10,6 +10,10 @@ import org.testng.annotations.Test;
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * com Test £º register and sign in
+ * 
+ */
 public class LoginTest extends AbstractBaseSbgDesktopTestCase {
     static Random random = new Random();
     static int randomInt = random.nextInt(999999999);
