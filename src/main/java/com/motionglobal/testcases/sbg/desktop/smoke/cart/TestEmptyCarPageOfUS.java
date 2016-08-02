@@ -1,21 +1,22 @@
-package com.motionglobal.testcases.sbg.desktop.smoke;
+package com.motionglobal.testcases.sbg.desktop.smoke.cart;
 
 import org.openqa.selenium.Alert;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
-import com.motionglobal.pages.sbg.desktop.cart.CN_CartPage;
-import com.motionglobal.testcases.AbstractBaseTestCase;
+import com.motionglobal.pages.sbg.desktop.cart.CartPage;
+import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 /**
- * CN Test £ºempty cartBox
+ * US Test £ºempty cartBox
  * 
  */
-public class TestEmptyCarPageOfCN extends AbstractBaseTestCase {
+public class TestEmptyCarPageOfUS extends AbstractBaseSbgDesktopTestCase {
+
     @Test(groups = { "debug", "smoke", "fastsmoke" })
-    public void CN_CartBoxEmptyPage() {
-        String url = "http://www.smartbuyglasses.cn";
+    public void US_CartBoxEmptyPage() {
+        String url = "http://www.smartbuyglasses.com";
         getURL(url);
         try {
             Alert alert = driver.switchTo().alert();
@@ -24,10 +25,10 @@ public class TestEmptyCarPageOfCN extends AbstractBaseTestCase {
         catch (Exception e) {
         }
         Header header = new Header();
-        header.waitForVisibility(header.cartProductNum, 5);
         Assert.assertEquals(header.cartProductNum.getText(), "0");
+        header.waitForVisibility(header.cartBox, 2);
         header.cartBox.click();
-        CN_CartPage cartPage = new CN_CartPage();
+        CartPage cartPage = new CartPage();
         Assert.assertTrue(cartPage.cartEmptyIcon.isDisplayed());
     }
 
@@ -42,5 +43,4 @@ public class TestEmptyCarPageOfCN extends AbstractBaseTestCase {
         // TODO Auto-generated method stub
 
     }
-
 }

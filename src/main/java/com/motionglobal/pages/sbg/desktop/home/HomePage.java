@@ -10,18 +10,21 @@ import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class HomePage extends AbstractBaseSbgDesktopPage {
 
-    @FindBy(xpath = "//div[@class='glasslink']/a[1]")
-    public List<WebElement> LinkSunGleas;
-    @FindBy(xpath = "//div[@class='glasslink']/a[2]")
-    public List<WebElement> LinkEyeGleas;
-
-    public WebElement getFeaturedDesignerDealsElement(int Num) {
-        return driver.findElement(By.xpath("//div[@class='pro_slider_eyeglasses']/div/ul/li[" + Num + "]/a"));
-    }
-
-    public WebElement getFeaturedImgElement(int Num) {
-        return driver.findElement(By.xpath("//div[@class='featured_deals']/div[" + Num + "]//img"));
-    }
+    @FindBy(xpath = "//ul[@class='sli_ul']/li[*]/a")
+    public List<WebElement> listServiceItem;
+    @FindBy(xpath = "// div[@class='glasslink']/a[1]")
+    public List<WebElement> linkSun_ImgBelow;
+    @FindBy(xpath = "// div[@class='glasslink']/a[2]")
+    public List<WebElement> linkEye_ImgBelow;
+    @FindBy(xpath = "//div[@class='featured_deals']/div//img")
+    public List<WebElement> imgFeature;
+    @FindBy(css = "h3")
+    public List<WebElement> textBrandName;
+    //
+    @FindBy(className = "v_aeye_btn")
+    public WebElement linkViewSun;
+    @FindBy(className = "v_asun_btn")
+    public WebElement linkViewEye;
 
     @Override
     protected void waitPageLoad() {

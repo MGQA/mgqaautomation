@@ -7,6 +7,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import com.motionglobal.pages.sbg.desktop.Header;
+
 public abstract class AbstractBasePage extends AbstractBaseContainer {
 
     private final String parentWindowHandle;
@@ -46,6 +48,13 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     public void JsDisplayBlock(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].style.display='block';", element);
+    }
+
+    public void deleteHead() {
+        Header header = new Header();
+        JsDisplayNone(header.delBlackHead);
+        JsDisplayNone(header.delDiscount);
+        JsDisplayNone(header.delSearchHead);
     }
 
     protected abstract void waitPageLoad();
