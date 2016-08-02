@@ -1,4 +1,4 @@
-package com.motionglobal.testcases.sbg.desktop.smoke;
+package com.motionglobal.testcases.sbg.desktop.smoke.headerlink;
 
 import java.util.Random;
 

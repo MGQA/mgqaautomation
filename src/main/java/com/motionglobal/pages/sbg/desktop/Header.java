@@ -7,6 +7,13 @@ import org.openqa.selenium.support.FindBy;
 import com.motionglobal.pages.AbstractBasePage;
 
 public class Header extends AbstractBasePage {
+    // need delete head
+    @FindBy(css = ".hp_topsmallad_box")
+    public WebElement delDiscount;
+    @FindBy(css = ".header_box")
+    public WebElement delSearchHead;
+    @FindBy(css = ".topbar_box")
+    public WebElement delBlackHead;
     @FindBy(css = ".fa.fa-2x.fa-close")
     public WebElement firstBuy;
     @FindBy(className = "menuN_display")
@@ -79,6 +86,7 @@ public class Header extends AbstractBasePage {
     public WebElement StyleFrame;
     @FindBy(id = "close_style_finder_guide")
     public WebElement StykeFrameCloseBtn;
+
     // header list
     @FindBy(xpath = "//*[@id='all_brand_for_contact_tab']/a/p")
     public WebElement clViewAllBrands;

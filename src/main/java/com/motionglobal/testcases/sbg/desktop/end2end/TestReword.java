@@ -22,7 +22,7 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
     /**
      * Test : cash coupon ¡¢coupon and discount . back page then forward in pay page.
      */
-    @Test(groups = { "debug111", "smoke" })
+    @Test(groups = { "debug", "smoke" })
     public void couponPageBackThenForward() {
         // FIXME login
         getURL(url);

@@ -1,4 +1,4 @@
-package com.motionglobal.testcases.sbg.desktop.smoke;
+package com.motionglobal.testcases.sbg.desktop.smoke.cart;
 
 import org.openqa.selenium.Alert;
 import org.testng.Assert;
