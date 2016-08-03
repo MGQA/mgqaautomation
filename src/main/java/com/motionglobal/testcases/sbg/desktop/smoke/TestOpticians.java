@@ -13,7 +13,7 @@ import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
 /**
- * au Test £∫Opticians ≈‰æµ
+ * au Test £∫RX
  * 
  */
 public class TestOpticians extends AbstractBaseTestCase {

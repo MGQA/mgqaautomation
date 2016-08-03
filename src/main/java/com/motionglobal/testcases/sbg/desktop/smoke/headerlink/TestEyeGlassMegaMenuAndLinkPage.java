@@ -49,15 +49,15 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         String kid = header.getLeftSubMenuElement(2, 1, 3).getText();
         header.clickLeftSubMenu(2, 1, 1);
         ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.gender).getText(), men);
+        Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.gender), men);
         switch (dice) {
         case 0:
             header.clickLeftSubMenu(2, 1, 2);
-            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.gender).getText(), women);
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.gender), women);
             break;
         default:
             header.clickLeftSubMenu(2, 1, 3);
-            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.gender).getText(), kid);
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.gender), kid);
             break;
         }
     }
@@ -115,19 +115,19 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         // String wood = header.getLeftSubMenuElement(2, 3, 4).getText();
         header.clickLeftSubMenu(2, 3, 1);
         ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.material).getText(), plastic);
+        Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.material), plastic);
         switch (dice) {
         case 0:
             header.clickLeftSubMenu(2, 3, 2);
-            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.material).getText(), metal);
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.material), metal);
             break;
         default:
             header.clickLeftSubMenu(2, 3, 3);
-            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.material).getText(), titanium);
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.material), titanium);
             break;
         // case 1:
         // header.clickLeftSubMenu(2, 3, 4);
-        // Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.material).getText(), wood);
+        // Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.material).getText(), wood);
         // break;
         }
     }
@@ -149,19 +149,19 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         String rectangle = header.getMiddleSubmenuElement(2, 1, 4).getText();
         header.clickMiddleSubMenu(2, 1, 1);
         ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), pilot);
+        Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), pilot);
         switch (dice) {
         case 0:
             header.clickMiddleSubMenu(2, 1, 2);
-            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), square);
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), square);
             break;
         case 1:
             header.clickMiddleSubMenu(2, 1, 3);
-            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), oval);
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), oval);
             break;
         default:
             header.clickMiddleSubMenu(2, 1, 4);
-            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), rectangle);
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), rectangle);
             break;
         }
     }
@@ -182,22 +182,22 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         header.clickMiddleSubMenu(2, 2, 1);
         ProductGridPage productGridPage = new ProductGridPage();
         if (!(url.equals("http://www.smartbuyglasses.nl") | url.equals("http://www.smartbuyglasses.se")))
-            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), fullRim);
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), fullRim);
         if (url.equals("http://www.smartbuyglasses.nl"))
-            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), "Volledig Omrand");
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), "Volledig Omrand");
         if (url.equals("http://www.smartbuyglasses.se"))
-            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), "Hel ram");
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), "Hel ram");
         switch (dice) {
         case 0:
             header.clickMiddleSubMenu(2, 2, 2);
             if (!(url.equals("http://www.smartbuyglasses.se")))
-                Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), semiRim);
+                Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), semiRim);
             else
                 Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.se/glas%C3%B6gon/general/---Semi+Rimless--------------------");
             break;
         default:
             header.clickMiddleSubMenu(2, 2, 3);
-            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), rimless);
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), rimless);
             break;
         }
     }
@@ -217,19 +217,19 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         String price3 = header.getMiddleSubmenuElement(2, 3, 3).getText();
         header.clickMiddleSubMenu(2, 3, 1);
         ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), productGridPage.regexPage(price1));
+        Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), productGridPage.regexPage(price1));
         switch (dice) {
         case 0:
             header.clickMiddleSubMenu(2, 3, 2);
-            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), productGridPage.regexPage(price2));
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), productGridPage.regexPage(price2));
             break;
         case 1:
             header.clickMiddleSubMenu(2, 3, 3);
-            Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.mid).getText(), productGridPage.regexPage(price3));
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), productGridPage.regexPage(price3));
             break;
         default:
             header.clickMiddleSubMenu(2, 3, 4);
-            Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.mid).getText().contains("999"), "mismatch: price 999 page ");
+            Assert.assertTrue(productGridPage.getSubmenuPageLabelText(Label.mid).contains("999"), "mismatch: price 999 page ");
             break;
         }
     }
@@ -248,9 +248,9 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         header.clickGlassImg(2, 2);
         header.clickBrands(2, "A", 1, 1);
         ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.brands).getText().contains(BrandsA.replace(" NEW !", "")), "Page disagree");
+        Assert.assertTrue(productGridPage.getSubmenuPageLabelText(Label.brands).contains(BrandsA.replace(" NEW !", "")), "Page disagree");
         header.clickBrands(2, "Q", 2, 2);
-        Assert.assertTrue(productGridPage.submenuPageLabelElement(Label.brands).getText().contains(BrandsQ.replace(" NEW !", "")), "Page disagree");
+        Assert.assertTrue(productGridPage.getSubmenuPageLabelText(Label.brands).contains(BrandsQ.replace(" NEW !", "")), "Page disagree");
     }
 
     @Override

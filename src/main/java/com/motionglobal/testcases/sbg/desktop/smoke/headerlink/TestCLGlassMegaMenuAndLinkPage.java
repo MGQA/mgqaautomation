@@ -112,28 +112,30 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         Random random = new Random();
         int dice = random.nextInt(3);
         header.mouseOverMainMenu(5);
-        header.waitForVisibility(header.getLeftSubMenuElement(5, 3, 1), 2);
-        String bausch = header.getLeftSubMenuElement(5, 3, 1).getText();
-        header.waitForVisibility(header.getLeftSubMenuElement(5, 3, 2), 2);
-        String ciba = header.getLeftSubMenuElement(5, 3, 2).getText();
-        header.waitForVisibility(header.getLeftSubMenuElement(5, 3, 3), 2);
-        String coopervision = header.getLeftSubMenuElement(5, 3, 3).getText();
-        header.waitForVisibility(header.getLeftSubMenuElement(5, 3, 4), 2);
-        String johnson = header.getLeftSubMenuElement(5, 3, 4).getText();
-        header.clickLeftSubMenu(5, 3, 1);
+
+        // 531 change to 541 because add a <ul/> .but seem it is excess;
+        header.waitForVisibility(header.getLeftSubMenuElement(5, 4, 1), 2);
+        String bausch = header.getLeftSubMenuElement(5, 4, 1).getText();
+        header.waitForVisibility(header.getLeftSubMenuElement(5, 4, 2), 2);
+        String ciba = header.getLeftSubMenuElement(5, 4, 2).getText();
+        header.waitForVisibility(header.getLeftSubMenuElement(5, 4, 3), 2);
+        String coopervision = header.getLeftSubMenuElement(5, 4, 3).getText();
+        header.waitForVisibility(header.getLeftSubMenuElement(5, 4, 4), 2);
+        String johnson = header.getLeftSubMenuElement(5, 4, 4).getText();
+        header.clickLeftSubMenu(5, 4, 1);
         CLProductGridPage clProductGridPage = new CLProductGridPage();
         Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), bausch);
         switch (dice) {
         case 0:
-            header.clickLeftSubMenu(5, 3, 2);
+            header.clickLeftSubMenu(5, 4, 2);
             Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), ciba);
             break;
         case 1:
-            header.clickLeftSubMenu(5, 3, 3);
+            header.clickLeftSubMenu(5, 4, 3);
             Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), coopervision);
             break;
         default:
-            header.clickLeftSubMenu(5, 3, 4);
+            header.clickLeftSubMenu(5, 4, 4);
             Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), johnson);
             break;
         }

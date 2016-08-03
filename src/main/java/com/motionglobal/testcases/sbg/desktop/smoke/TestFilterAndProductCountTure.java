@@ -52,10 +52,10 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         js.executeScript("arguments[0].style.display='none';", gridPage.header().letTalk);
         gridPage.filterArnette.click();
         Assert.assertTrue(gridPage.proInfo.get(0).getText().contains("Arnette"));
-        gridPage.waitForVisibility(gridPage.filterWayfarer, 5);
+        gridPage.waitForVisibility(gridPage.filterAviator, 5);
         // gridPage.JsMouse(gridPage.filterWayfarer);
         js.executeScript("arguments[0].style.display='none';", gridPage.header().letTalk);
-        gridPage.filterWayfarer.click();
+        gridPage.filterAviator.click();
         Assert.assertTrue(gridPage.filterSide.getText().contains("Wayfarer"), " fiter fail ");
     }
 
