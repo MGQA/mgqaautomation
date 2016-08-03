@@ -15,7 +15,7 @@ public class TestFeatured extends AbstractBaseSbgDesktopTestCase {
         return new Object[][] { { "http://www.smartbuyglasses.co.uk/" }, { "http://www.smartbuyglasses.com/" }, { "http://www.smartbuyglasses.dk/" } };
     }
 
-    @Test(dataProvider = "db", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void viewSun(String url) {
         getURL(url);
         HomePage homePage = new HomePage();
