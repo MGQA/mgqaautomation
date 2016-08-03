@@ -10,6 +10,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.home.HomePage;
+import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 /**
@@ -38,7 +39,7 @@ public class TestImgDisplay extends AbstractBaseSbgDesktopTestCase {
             js.executeScript("window.open('" + imgSrc + "')");
             Set<String> handles = driver.getWindowHandles();
 
-            // check ImgUrl
+            // check Img and Url match
             String textName = homePage.textBrandName.get(i).getText();
             String brandName = null;
             try {
@@ -49,7 +50,7 @@ public class TestImgDisplay extends AbstractBaseSbgDesktopTestCase {
             }
             WebElement hrefEle = homePage.imgFeature.get(i).findElement(By.xpath(".."));
             String actualUrl = hrefEle.getAttribute("href").toString();
-            Assert.assertTrue(actualUrl.contains(brandName));
+            Assert.assertTrue(actualUrl.contains(brandName), "FAIL !!! brandName IS :" + brandName);
 
             // check img is display
             for (String window : handles) {
@@ -61,7 +62,9 @@ public class TestImgDisplay extends AbstractBaseSbgDesktopTestCase {
             }
             driver.switchTo().window(handle);
         }
-
+        homePage.waitForVisibility(homePage.linkFeatureImgNo1, 5);
+        homePage.linkFeatureImgNo1.click();
+        ProductGridPage gridPage = new ProductGridPage();
     }
 
     @Override

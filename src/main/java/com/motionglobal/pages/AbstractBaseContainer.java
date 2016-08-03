@@ -36,6 +36,11 @@ public abstract class AbstractBaseContainer implements IWaiter {
         new WebDriverWait(driver, seconds).until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
+    @Override
+    public void waitForVisibility(List<WebElement> element, int seconds) throws Error {
+        new WebDriverWait(driver, seconds).until(ExpectedConditions.visibilityOfAllElements(element));
+    }
+
     /**
      * This function is used to check whether a specific text is displayed on the page.
      * 

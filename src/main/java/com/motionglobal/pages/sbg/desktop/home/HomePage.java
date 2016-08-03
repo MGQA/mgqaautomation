@@ -20,11 +20,31 @@ public class HomePage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> imgFeature;
     @FindBy(css = "h3")
     public List<WebElement> textBrandName;
-    //
+    @FindBy(css = ".inf_cnt_txt>p>a")
+    public List<WebElement> linkFooterS;
+    // pimcore
+    @FindBy(css = ".newhead_banner")
+    public WebElement linkPimcore;
+
+    // top sell
+    @FindBy(css = ".tempWrap img")
+    public List<WebElement> linkTopSellImg;
+    @FindBy(css = ".pro_sli_name")
+    public List<WebElement> textTopSellBrandName;
+    @FindBy(css = ".pro_slider_ul>li>a")
+    public List<WebElement> linkTopSellLabelA;
+    @FindBy(xpath = "//*[@id='content']/div[7]//li[5]")
+    public WebElement linkSunNo1;
+    @FindBy(xpath = "//*[@id='content']/div[8]//li[5]")
+    public WebElement linkEyeNo1;
+
+    // feature
     @FindBy(className = "v_aeye_btn")
     public WebElement linkViewSun;
     @FindBy(className = "v_asun_btn")
     public WebElement linkViewEye;
+    @FindBy(xpath = "//div[@class='featured_deals']/div[1]//img")
+    public WebElement linkFeatureImgNo1;
 
     @Override
     protected void waitPageLoad() {

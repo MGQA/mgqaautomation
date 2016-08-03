@@ -17,7 +17,7 @@ public class TestImgBelowLink extends AbstractBaseSbgDesktopTestCase {
         return new Object[][] { { "http://www.smartbuyglasses.co.uk/" }, { "http://www.smartbuyglasses.com/" }, { "http://www.smartbuyglasses.dk/" } };
     }
 
-    @Test(dataProvider = "db", groups = { "debug,smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug,smoke" })
     public void imgBelowLinkSun(String url) {
         getURL(url);
         HomePage homePage = new HomePage();
@@ -29,8 +29,8 @@ public class TestImgBelowLink extends AbstractBaseSbgDesktopTestCase {
         String onclickString = linkSun.getAttribute("onclick");
         String brand = (onclickString.split(" - "))[1];
         String expectedUrl = url + "designer-sunglasses/" + brand + "/";
-        //
 
+        // random click one url
         homePage.deleteHead();
         homePage.waitForVisibility(linkSun, 5);
         linkSun.click();
@@ -50,8 +50,8 @@ public class TestImgBelowLink extends AbstractBaseSbgDesktopTestCase {
         String onclickString = linkSun.getAttribute("onclick");
         String brand = (onclickString.split(" - "))[1];
         String expectedUrl = url + "designer-eyeglasses/" + brand + "/";
-        //
 
+        // random click one url
         homePage.deleteHead();
         homePage.waitForVisibility(linkSun, 5);
         linkSun.click();

@@ -53,7 +53,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
             if (url.equals("http://m.smartbuyglasses.com.hk") && productBrankName.contains("Dailies AquaComfort"))
                 productBrankName = "Focus";
         }
-        Assert.assertTrue(productBrankName.contains(menuBrankName));
+        Assert.assertTrue(productBrankName.contains(menuBrankName), "FAIL i IS :" + (num + 1) + " !!! productBrankName IS :" + menuBrankName);
         // }
     }
 
