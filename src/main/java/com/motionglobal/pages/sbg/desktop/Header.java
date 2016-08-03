@@ -303,12 +303,15 @@ public class Header extends AbstractBasePage {
         else {
             switch (sectionNum) {
             case 1:
+                waitForVisibility(getCLDailyElement(rowNum), 5);
                 getCLDailyElement(rowNum).click();
                 break;
             case 2:
+                waitForVisibility(getCLWeeklyElement(rowNum), 5);
                 getCLWeeklyElement(rowNum).click();
                 break;
             case 3:
+                waitForVisibility(getLenseMonthlyElement(rowNum), 5);
                 getLenseMonthlyElement(rowNum).click();
                 break;
             }

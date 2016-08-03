@@ -34,7 +34,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         header.mouseOver(header.getMegaMenuBrandInitialElement(2, "Q"));
         header.TomFordBrank.click();
         ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertEquals(productGridPage.submenuPageLabelElement(Label.brands).getText(), "Tom Ford");
+        Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.brands), "Tom Ford");
         header.mouseOver(productGridPage.proInfo.get(0));
         productGridPage.quickView.click();
         waitSize(productGridPage.eyeproSize);

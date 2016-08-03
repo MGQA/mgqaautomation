@@ -48,8 +48,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     // filter
     @FindBy(partialLinkText = "Arnette")
     public WebElement filterArnette;
-    @FindBy(css = "[name='Wayfarer']")
-    public WebElement filterWayfarer;
+    @FindBy(css = "[name='Aviator']")
+    public WebElement filterAviator;
 
     // assert_element！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     @FindBy(className = "proCell_click")
@@ -67,29 +67,37 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
         gender, material, mid, pre, polarized, sports, brands, ski, designer;
     }
 
-    public WebElement submenuPageLabelElement(Label label) {
-        WebElement element = null;
+    // getSubmenuPageLabelText element
+    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]")
+    private WebElement lableA;
+    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[1]/a")
+    private WebElement lableB;
+    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]/a")
+    private WebElement lableC;
+
+    public String getSubmenuPageLabelText(Label label) {
+        String text = null;
         switch (label) {
         case gender:
         case material:
         case mid:
         case pre:
         case polarized:
-            element = driver.findElement(By.xpath("//*[@id='wrapper']/div[4]/div[2]/span[2]"));
+            text = lableA.getText();
             break;
         case designer:
         case sports:
-            element = driver.findElement(By.xpath("//*[@id='wrapper']/div[4]/div[2]/span[1]/a"));
+            text = lableB.getText();
             break;
         case brands:
         case ski:
-            element = driver.findElement(By.xpath("//*[@id='wrapper']/div[4]/div[2]/span[2]/a"));
+            text = lableC.getText();
             break;
         default:
             System.out.println("_ don't right page !_");
             break;
         }
-        return element;
+        return text;
     }
 
     /**

@@ -24,7 +24,6 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
      */
     @Test(groups = { "debug", "smoke" })
     public void couponPageBackThenForward() {
-        // FIXME login
         getURL(url);
         Header header = new Header();
         header.waitForVisibility(header.loginlable, 5);
@@ -49,7 +48,7 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
         header.waitForVisibility(header.signout, 5);
         Assert.assertTrue(header.isTextPresent("Hi test!"));
 
-        // get Double of coupon price
+        // get Double of coupon price TODO
         header.waitForVisibility(header.priceCoupon, 5);
         String StringcouponPrice = header.priceCoupon.getText().replace("$", "");
         Double couponTotal = Double.parseDouble(StringcouponPrice);
