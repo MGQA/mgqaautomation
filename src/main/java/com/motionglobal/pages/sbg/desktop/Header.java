@@ -1,5 +1,7 @@
 package com.motionglobal.pages.sbg.desktop;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,6 +18,9 @@ public class Header extends AbstractBasePage {
     public WebElement delBlackHead;
     @FindBy(css = ".fa.fa-2x.fa-close")
     public WebElement firstBuy;
+    @FindBy(id = "lc_chat_layout")
+    public WebElement letTalk;
+    // menu
     @FindBy(className = "menuN_display")
     public WebElement menuDisplay;
     // deals
@@ -29,6 +34,8 @@ public class Header extends AbstractBasePage {
     public WebElement dealEyeGlass;
     @FindBy(className = "center_span_number")
     public WebElement dealPrice;
+    @FindBy(css = ".top_brand_details")
+    public List<WebElement> dealIMG;
     //
     @FindBy(id = "logo")
     public WebElement logo;
@@ -126,8 +133,6 @@ public class Header extends AbstractBasePage {
     //
     @FindBy(xpath = "//div[@id='sub_Eyeglasses_Q_list']//a[text()='Tom Ford']")
     public WebElement TomFordBrank;
-    @FindBy(id = "lc_chat_layout")
-    public WebElement letTalk;
 
     // public get Element methods ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     public WebElement getHelpLinkElement(int Num) {

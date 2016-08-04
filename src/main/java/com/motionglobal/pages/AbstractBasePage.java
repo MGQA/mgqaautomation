@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 import com.motionglobal.pages.sbg.desktop.Header;
 
@@ -55,6 +56,19 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         JsDisplayNone(header.delBlackHead);
         JsDisplayNone(header.delDiscount);
         JsDisplayNone(header.delSearchHead);
+    }
+
+    public void deleteLetTalk() {
+        Header header = new Header();
+        JsDisplayNone(header.letTalk);
+    }
+
+    public void AsssetEquals(Object actual, Object expected) {
+        Assert.assertEquals(actual, expected);
+    }
+
+    public void AsssetTrue(Boolean condition, String description) {
+        Assert.assertTrue(condition, description);
     }
 
     protected abstract void waitPageLoad();

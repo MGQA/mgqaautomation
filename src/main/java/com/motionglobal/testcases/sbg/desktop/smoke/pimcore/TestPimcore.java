@@ -1,13 +1,23 @@
 package com.motionglobal.testcases.sbg.desktop.smoke.pimcore;
 
+import java.util.Random;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.home.HomePage;
 import com.motionglobal.pages.sbg.desktop.pimcore.PimcorePage;
+import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
+/**
+ * pimcor page search , menu , header menu
+ */
 public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
@@ -85,6 +95,41 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         Assert.assertEquals(actualTitle4, expectTitle4);
     }
 
+    @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
+    public void menuSearch(String url) {
+        getURL(url);
+        String searchContent = "glasses";
+        String urlAppend = "/search-results?term=glasses";
+        PimcorePage pimcorePage = new PimcorePage();
+        pimcorePage.inputSearch.sendKeys(searchContent);
+        pimcorePage.buttonSearch.click();
+        String actualUrl = pimcorePage.getCurrentUrl();
+        String expectUrl = url + urlAppend;
+        pimcorePage.AsssetEquals(actualUrl, expectUrl);
+        pimcorePage.waitForVisibility(pimcorePage.linkSearchAppendMenu, 5);
+        pimcorePage.AsssetEquals(pimcorePage.linkSearchAppendMenu.get(0).getAttribute("href"), expectUrl + "&category=eyeglasses&page=1&popular=0");
+        pimcorePage.AsssetEquals(pimcorePage.linkSearchAppendMenu.get(1).getAttribute("href"), expectUrl + "&category=sunglasses&page=1&popular=0");
+        pimcorePage.AsssetEquals(pimcorePage.linkSearchAppendMenu.get(2).getAttribute("href"), expectUrl + "&category=contact-lenses&page=1&popular=0");
+        pimcorePage.AsssetEquals(pimcorePage.linkSearchAppendMenu.get(3).getAttribute("href"), expectUrl + "&category=eye-health&page=1&popular=0");
+        pimcorePage.AsssetEquals(pimcorePage.linkSearchAppendMenu.get(4).getAttribute("href"), expectUrl + "&category=optician&page=1&popular=0");
+        pimcorePage.waitForVisibility(pimcorePage.linkSearchResult, 5);
+        pimcorePage.AsssetTrue(pimcorePage.linkSearchResult.size() > 0, " DON'T FIND THE SEARCH RESULT !!!");
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
+    public void menuOptician(String url) {
+        getURL(url);
+        PimcorePage pimcorePage = new PimcorePage();
+        pimcorePage.waitForVisibility(pimcorePage.linkOptician, 5);
+        pimcorePage.deleteHead();
+        pimcorePage.linkOptician.click();
+        String actualUrl = pimcorePage.getCurrentUrl();
+        String expectUrl = url + "/optician";
+        pimcorePage.AsssetEquals(actualUrl, expectUrl);
+        pimcorePage.waitForVisibility(pimcorePage.divOpticianContent, 5);
+        pimcorePage.AsssetTrue(pimcorePage.divOpticianContent.size() > 0, " DON'T FIND THE OPTICIAN MESSAGE !!!");
+    }
+
     @Test(groups = { "debug", "smoke" })
     public void menuMG() {
         String url = "http://www.smartbuyglasses.co.uk/optical-centre";
@@ -98,15 +143,153 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         Assert.assertEquals(actualTitle7, "smart glasses of 2016");
     }
 
+    @Test(groups = { "debug", "smoke" })
+    public void menuSearchResultAppendMenu() {
+        String url = "http://www.smartbuyglasses.com/optical-center/search-results?term=glasses";
+        getURL(url);
+        PimcorePage pimcorePage = new PimcorePage();
+        pimcorePage.deleteHead();
+        Random random = new Random();
+        int num = random.nextInt(5);
+        pimcorePage.waitForVisibility(pimcorePage.linkSearchAppendMenu, 5);
+        pimcorePage.linkSearchAppendMenu.get(num).click();
+        pimcorePage.waitForVisibility(pimcorePage.linkAppendMenuClicked, 5);
+        pimcorePage.waitForVisibility(pimcorePage.linkSearchResult, 5);
+        pimcorePage.AsssetTrue(pimcorePage.linkSearchResult.size() > 0, " DON'T FIND THE DATE¡¡MESSAGE !!!");
+    }
+
+    // FIXME
+    /**
+     * because pimcore is different with other page , so we need check header
+     */
+    @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
+    public void headerSearchRayban(String url) {
+        getURL(url);
+        PimcorePage pimcorePage = new PimcorePage();
+        Header header = new Header();
+        header.inputSearch.sendKeys("rayban");
+        header.waitForVisibility(header.iconSearch, 2);
+        header.iconSearch.click();
+        SearchResultPage resultPage = new SearchResultPage();
+        String brand = resultPage.resultGrid().getItem(0).getBrand();
+        header.AsssetEquals(brand, "Ray-Ban");
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
+    public void headerSearchAcuVue(String url) {
+        getURL(url);
+        PimcorePage pimcorePage = new PimcorePage();
+        Header header = new Header();
+        header.inputSearch.sendKeys("acuvue");
+        header.waitForVisibility(header.iconSearch, 2);
+        header.iconSearch.click();
+        SearchResultPage resultPage = new SearchResultPage();
+        String acuvueBand = resultPage.resultGrid().getItem(0).getBrand();
+        Assert.assertTrue(acuvueBand.contains("Acuvue"), "Expected acuvue displayed, but no");
+
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
+    public void headerMenuSun(String url) {
+        getURL(url);
+        PimcorePage pimcorePage = new PimcorePage();
+        Header header = new Header();
+        String menuNo1 = header.getLeftSubMenuElement(1, 1, 1).getAttribute("href");
+        String slitUrl = url.split("/")[2];
+        String expectUrl1 = "http://" + slitUrl + "/designer-sunglasses/general/-Men----------------------";
+        header.AsssetEquals(menuNo1, expectUrl1);
+        String menuNo2 = header.getLeftSubMenuElement(1, 2, 3).getAttribute("href");
+        String expectUrl2 = "http://" + slitUrl + "/designer-sunglasses/general/--------------1---------";
+        header.AsssetEquals(menuNo2, expectUrl2);
+        String menuNo3 = header.getLeftSubMenuElement(1, 3, 1).getAttribute("href");
+        String expectUrl3 = "http://" + slitUrl + "/designer-sunglasses/general/---------------------prescription--";
+        header.AsssetEquals(menuNo3, expectUrl3);
+        if (!(url == "http://www.smartbuyglasses.dk/optisk-center")) {
+            String menuNo21 = header.getMiddleSubmenuElement(1, 1, 1).getAttribute("href");
+            String expectUrl21 = "http://" + slitUrl + "/designer-sunglasses/general/--Aviator---------------------";
+            header.AsssetEquals(menuNo21, expectUrl21);
+        }
+        else {
+            String menuNo21 = header.getMiddleSubmenuElement(1, 1, 1).getAttribute("href");
+            String expectUrl21 = "http://www.smartbuyglasses.dk/designer-sunglasses/general/--Pilot---------------------";
+            header.AsssetEquals(menuNo21, expectUrl21);
+        }
+        String menuNo23 = header.getMiddleSubmenuElement(1, 3, 1).getAttribute("href");
+        String expectUrl23 = "http://" + slitUrl + "/designer-sunglasses/general/-------Plastic----------------";
+        header.AsssetEquals(menuNo23, expectUrl23);
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
+    public void headerMenuBrank(String url) {
+        getURL(url);
+        PimcorePage pimcorePage = new PimcorePage();
+        Header header = new Header();
+        header.mouseOverMainMenu(1);
+        header.mouseOver(header.getMegaMenuBrandInitialElement(1, "A"));
+        pimcorePage.waitForVisibility(pimcorePage.linkMenuBrandASection, 2);
+        String adidas = pimcorePage.linkMenuBrandASection.getText();
+        header.AsssetEquals(adidas, "Adidas");
+        String brankUrl = pimcorePage.linkMenuBrandASection.getAttribute("href");
+        String slitUrl = url.split("/")[2];
+        String expectUrl = "http://" + slitUrl + "/designer-sunglasses/Adidas/";
+        header.AsssetEquals(brankUrl, expectUrl);
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
+    public void headerMenuBrandImg(String url) {
+        getURL(url);
+        PimcorePage pimcorePage = new PimcorePage();
+        Header header = new Header();
+        header.mouseOverMainMenu(1);
+        pimcorePage.waitForVisibility(pimcorePage.linkMenuBrandIMG, 2);
+        String imgSrc = null;
+        String imgDataUrl = null;
+        String raybanIMG = "http://cdn1.smartbuyglasses.com/public/images/showbrand/brand_Ray%20Ban.gif";
+        for (int i = 0; i < 16; i++) {
+            imgSrc += pimcorePage.linkMenuBrandIMG.get(i).getAttribute("src");
+            imgDataUrl += pimcorePage.linkMenuBrandIMG.get(i).getAttribute("data-url");
+        }
+        header.AsssetTrue(imgSrc.contains(raybanIMG), " DON'T CONTAINS RAYBAN BRAND !!!");
+        header.AsssetTrue(imgDataUrl.contains(raybanIMG), " DON'T CONTAINS RAYBAN BRAND !!!");
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
+    public void headerMenuDealsIMG(String url) {
+        getURL(url);
+        PimcorePage pimcorePage = new PimcorePage();
+        Header header = new Header();
+        header.mouseOverMainMenu(7);
+        header.waitForVisibility(header.dealShowNow, 1);
+        header.waitForVisibility(header.dealBuyNow, 1);
+        header.waitForVisibility(header.dealSunGlass, 1);
+        header.waitForVisibility(header.dealEyeGlass, 1);
+        //
+        String handle = "";
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        for (int i = 0; i < 2; i++) {
+            handle = driver.getWindowHandle();
+            String imgSrc = header.dealIMG.get(i).getAttribute("src").toString();
+            js.executeScript("window.open('" + imgSrc + "')");
+            Set<String> handles = driver.getWindowHandles();
+            // check img is display
+            for (String window : handles) {
+                if (!(window.equals(handle))) {
+                    driver.switchTo().window(window);
+                    Assert.assertTrue(driver.findElement(By.xpath("//img")).isDisplayed());
+                    driver.close();
+                }
+            }
+            driver.switchTo().window(handle);
+        }
+    }
+
     @Override
     protected void initialize() {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     protected void tearDown() {
-        // TODO Auto-generated method stub
 
     }
 
