@@ -103,8 +103,6 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     /**
      * ~ change - of price
      * 
-     * @param pagetext
-     * @return
      */
     public String regexPage(String pagetext) {
         Pattern pattern = Pattern.compile("~");
@@ -121,9 +119,4 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     protected void waitPageLoad() {
         waitForVisibility(By.id("jp-pagination-ajax"), 10);
     }
-    //
-    //
-    //
-    //
-    //
 }

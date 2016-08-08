@@ -82,6 +82,7 @@ public class TestTopSell extends AbstractBaseSbgDesktopTestCase {
         // check label can clicked
         homePage.deleteHead();
         homePage.waitForVisibility(homePage.linkSunNo1, 5);
+        homePage.deleteLetTalk();
         homePage.linkSunNo1.click();
         ProductDetailPage detailPage = new ProductDetailPage();
     }
@@ -100,6 +101,7 @@ public class TestTopSell extends AbstractBaseSbgDesktopTestCase {
         // check label can clicked
         homePage.deleteHead();
         homePage.waitForVisibility(homePage.linkEyeNo1, 5);
+        homePage.deleteLetTalk();
         homePage.linkEyeNo1.click();
         ProductDetailPage detailPage = new ProductDetailPage();
     }

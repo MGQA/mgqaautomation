@@ -1,5 +1,7 @@
 package com.motionglobal.pages.sbg.desktop;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,6 +18,9 @@ public class Header extends AbstractBasePage {
     public WebElement delBlackHead;
     @FindBy(css = ".fa.fa-2x.fa-close")
     public WebElement firstBuy;
+    @FindBy(id = "lc_chat_layout")
+    public WebElement letTalk;
+    // menu
     @FindBy(className = "menuN_display")
     public WebElement menuDisplay;
     // deals
@@ -29,6 +34,8 @@ public class Header extends AbstractBasePage {
     public WebElement dealEyeGlass;
     @FindBy(className = "center_span_number")
     public WebElement dealPrice;
+    @FindBy(css = ".top_brand_details")
+    public List<WebElement> dealIMG;
     //
     @FindBy(id = "logo")
     public WebElement logo;
@@ -107,6 +114,8 @@ public class Header extends AbstractBasePage {
     public WebElement yourAccount;
     @FindBy(className = "menulogout")
     public WebElement signout;
+
+    // header and footer
     @FindBy(xpath = "//div[@id='top']/ul[1]/li[1]/a")
     public WebElement FREESHIPPING;
     @FindBy(xpath = "//div[@id='top']/ul/li[1]/div/ul/li[4]/a")
@@ -121,13 +130,17 @@ public class Header extends AbstractBasePage {
     public WebElement shareByEmail;
     @FindBy(className = "newhead_banner_1")
     public WebElement optical_center;
-    @FindBy(xpath = "//div[@id='favoriteDisplayDiv']/a/i")
-    public WebElement favHeartButtonLink;
+
+    // heart/favorite
+    @FindBy(css = ".fa.fa-heart-o")
+    public WebElement iHeart;
+    @FindBy(css = ".clearfixes>li>a")
+    public List<WebElement> iHeartSGuide;
+    @FindBy(css = "#cart li>a ")
+    public List<WebElement> cartSGuide;
     //
     @FindBy(xpath = "//div[@id='sub_Eyeglasses_Q_list']//a[text()='Tom Ford']")
     public WebElement TomFordBrank;
-    @FindBy(id = "lc_chat_layout")
-    public WebElement letTalk;
 
     // public get Element methods ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     public WebElement getHelpLinkElement(int Num) {
