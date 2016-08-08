@@ -52,7 +52,7 @@ public class HomePageLinkTest extends AbstractBaseSbgDesktopTestCase {
         header.logo.click();
 
         // Favourite Heart Button
-        header.favHeartButtonLink.click();
+        header.iHeart.click();
         FavoritePage favoritePage = new FavoritePage();
         Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/favs/");
         header.logo.click();

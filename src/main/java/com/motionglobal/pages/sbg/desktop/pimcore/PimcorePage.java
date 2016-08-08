@@ -22,6 +22,12 @@ public class PimcorePage extends AbstractBaseSbgDesktopPage {
     public WebElement linkOptician;
     @FindBy(className = "content")
     public List<WebElement> divOpticianContent;
+    @FindBy(css = ".cat-article>a")
+    public List<WebElement> divPimcoreHomeContent;
+    @FindBy(xpath = "//div[@class='row']/div[1]/article/a")
+    public List<WebElement> divPimcoreHomeContentNo1;
+    @FindBy(css = ".article-header>img")
+    public WebElement imgContentDETAIL;
 
     // assert
     @FindBy(css = ".active>a")
@@ -46,6 +52,10 @@ public class PimcorePage extends AbstractBaseSbgDesktopPage {
     public WebElement inputSearch;
     @FindBy(css = "button#search")
     public WebElement buttonSearch;
+
+    // most popular post
+    @FindBy(css = ".hidden-xs>ul>li>a")
+    public List<WebElement> MostPopluarPostS;
 
     @Override
     protected void waitPageLoad() {

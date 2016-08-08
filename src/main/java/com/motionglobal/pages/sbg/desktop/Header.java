@@ -114,6 +114,8 @@ public class Header extends AbstractBasePage {
     public WebElement yourAccount;
     @FindBy(className = "menulogout")
     public WebElement signout;
+
+    // header and footer
     @FindBy(xpath = "//div[@id='top']/ul[1]/li[1]/a")
     public WebElement FREESHIPPING;
     @FindBy(xpath = "//div[@id='top']/ul/li[1]/div/ul/li[4]/a")
@@ -128,8 +130,14 @@ public class Header extends AbstractBasePage {
     public WebElement shareByEmail;
     @FindBy(className = "newhead_banner_1")
     public WebElement optical_center;
-    @FindBy(xpath = "//div[@id='favoriteDisplayDiv']/a/i")
-    public WebElement favHeartButtonLink;
+
+    // heart/favorite
+    @FindBy(css = ".fa.fa-heart-o")
+    public WebElement iHeart;
+    @FindBy(css = ".clearfixes>li>a")
+    public List<WebElement> iHeartSGuide;
+    @FindBy(css = "#cart li>a ")
+    public List<WebElement> cartSGuide;
     //
     @FindBy(xpath = "//div[@id='sub_Eyeglasses_Q_list']//a[text()='Tom Ford']")
     public WebElement TomFordBrank;

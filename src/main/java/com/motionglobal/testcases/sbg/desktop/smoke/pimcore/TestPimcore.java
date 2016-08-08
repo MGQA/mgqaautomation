@@ -38,6 +38,8 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         homePage.waitForVisibility(homePage.linkPimcore, 5);
         homePage.linkPimcore.click();
         PimcorePage pimcorePage = new PimcorePage();
+        pimcorePage.waitForVisibility(pimcorePage.divPimcoreHomeContent, 5);
+        pimcorePage.AsssetTrue(pimcorePage.divPimcoreHomeContent.size() > 0, " PIMCORE HOME PAGE IS EMPTY £¡£¡£¡");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
@@ -128,6 +130,48 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         pimcorePage.AsssetEquals(actualUrl, expectUrl);
         pimcorePage.waitForVisibility(pimcorePage.divOpticianContent, 5);
         pimcorePage.AsssetTrue(pimcorePage.divOpticianContent.size() > 0, " DON'T FIND THE OPTICIAN MESSAGE !!!");
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
+    public void menuContent(String url) {
+        getURL(url);
+        PimcorePage pimcorePage = new PimcorePage();
+        pimcorePage.waitForVisibility(pimcorePage.divPimcoreHomeContentNo1, 5);
+        pimcorePage.deleteHead();
+        pimcorePage.AsssetTrue(pimcorePage.divPimcoreHomeContent.size() > 0, " PIMCORE HOMEPAGE CONTENT IS EMPTY !!!");
+        //
+        Random random = new Random();
+        int num = random.nextInt(9);
+        String splitUrl = url.split("/")[3];
+        String href = pimcorePage.divPimcoreHomeContent.get(num).getAttribute("href");
+        pimcorePage.AsssetTrue(href.contains(splitUrl), " HREF DON'T CONTAINS " + splitUrl + " !!! ");
+        pimcorePage.divPimcoreHomeContent.get(num).click();
+        pimcorePage.waitForVisibility(pimcorePage.textMGTitle, 5);
+        pimcorePage.waitForVisibility(pimcorePage.imgContentDETAIL, 5);
+    }
+
+    //
+    @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
+    public void mostPopularPost(String url) {
+        getURL(url);
+        PimcorePage pimcorePage = new PimcorePage();
+        pimcorePage.waitForVisibility(pimcorePage.MostPopluarPostS, 10);
+        pimcorePage.deleteHead();
+        Random random = new Random();
+        int num = random.nextInt(4) + 1;
+        String splitUrl = url.split("/")[3];
+        String href = pimcorePage.MostPopluarPostS.get(num).getAttribute("href");
+        pimcorePage.AsssetTrue(href.contains(splitUrl), " HREF DON'T CONTAINS " + splitUrl + " !!! ");
+        pimcorePage.MostPopluarPostS.get(num).click();
+        pimcorePage.waitForVisibility(pimcorePage.textMGTitle, 5);
+        pimcorePage.waitForVisibility(pimcorePage.imgContentDETAIL, 5);
+        //
+        pimcorePage.deleteHead();
+        String href0 = pimcorePage.MostPopluarPostS.get(0).getAttribute("href");
+        pimcorePage.AsssetTrue(href0.contains(splitUrl), " HREF DON'T CONTAINS " + splitUrl + " !!! ");
+        pimcorePage.MostPopluarPostS.get(0).click();
+        pimcorePage.waitForVisibility(pimcorePage.textMGTitle, 5);
+        pimcorePage.waitForVisibility(pimcorePage.imgContentDETAIL, 5);
     }
 
     @Test(groups = { "debug", "smoke" })
