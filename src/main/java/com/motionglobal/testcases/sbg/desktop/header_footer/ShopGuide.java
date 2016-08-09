@@ -14,7 +14,7 @@ public class ShopGuide extends AbstractBaseSbgDesktopTestCase {
         return new Object[][] { { "http://www.smartbuyglasses.co.uk/" }, { "http://www.smartbuyglasses.dk/" }, { "http://www.smartbuyglasses.com/" } };
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void heartGuide(String url) {
         getURL(url);
         Header header = new Header();
@@ -43,7 +43,7 @@ public class ShopGuide extends AbstractBaseSbgDesktopTestCase {
         ProductGridPage gridPage = new ProductGridPage();
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void cartGuide(String url) {
         getURL(url);
         Header header = new Header();
@@ -67,7 +67,7 @@ public class ShopGuide extends AbstractBaseSbgDesktopTestCase {
         header.AsssetEquals(topSunUrl, url + "designer-sunglasses/general/--------------1--------");
         String topEyeUrl = header.cartSGuide.get(3).getAttribute("href");
         header.AsssetEquals(topEyeUrl, url + "designer-eyeglasses/general/--------------1--------");
-        header.iHeartSGuide.get(2).click();
+        header.cartSGuide.get(2).click();
         ProductGridPage gridPage = new ProductGridPage();
     }
 

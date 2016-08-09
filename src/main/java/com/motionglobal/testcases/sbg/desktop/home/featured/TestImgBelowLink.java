@@ -31,7 +31,12 @@ public class TestImgBelowLink extends AbstractBaseSbgDesktopTestCase {
         String expectedUrl = url + "designer-sunglasses/" + brand + "/";
 
         // random click one url
-        homePage.deleteHead();
+        try {
+            homePage.deleteHead();
+            homePage.deleteLetTalk();
+        }
+        catch (Exception e) {
+        }
         homePage.waitForVisibility(linkSun, 5);
         linkSun.click();
         String actualUrl = driver.getCurrentUrl();
@@ -52,7 +57,12 @@ public class TestImgBelowLink extends AbstractBaseSbgDesktopTestCase {
         String expectedUrl = url + "designer-eyeglasses/" + brand + "/";
 
         // random click one url
-        homePage.deleteHead();
+        try {
+            homePage.deleteHead();
+            homePage.deleteLetTalk();
+        }
+        catch (Exception e) {
+        }
         homePage.waitForVisibility(linkSun, 5);
         linkSun.click();
         String actualUrl = driver.getCurrentUrl();

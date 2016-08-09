@@ -138,6 +138,13 @@ public class Header extends AbstractBasePage {
     public List<WebElement> iHeartSGuide;
     @FindBy(css = "#cart li>a ")
     public List<WebElement> cartSGuide;
+
+    //
+    @FindBy(css = "img[height='33'][usemap='#Map2']")
+    public WebElement discountSmallIMG;
+    @FindBy(css = "img[height='160'][usemap='#Map1']")
+    public WebElement discountBigIMG;
+
     //
     @FindBy(xpath = "//div[@id='sub_Eyeglasses_Q_list']//a[text()='Tom Ford']")
     public WebElement TomFordBrank;

@@ -1,4 +1,4 @@
-package com.motionglobal.testcases.sbg.desktop.smoke.pimcore;
+package com.motionglobal.testcases.sbg.desktop.pimcore;
 
 import java.util.Random;
 import java.util.Set;
@@ -38,8 +38,7 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         homePage.waitForVisibility(homePage.linkPimcore, 5);
         homePage.linkPimcore.click();
         PimcorePage pimcorePage = new PimcorePage();
-        pimcorePage.waitForVisibility(pimcorePage.divPimcoreHomeContent, 5);
-        pimcorePage.AsssetTrue(pimcorePage.divPimcoreHomeContent.size() > 0, " PIMCORE HOME PAGE IS EMPTY £¡£¡£¡");
+        pimcorePage.waitForVisibility(pimcorePage.divPimcoreHomeContentNo1, 5);
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
@@ -124,6 +123,7 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         PimcorePage pimcorePage = new PimcorePage();
         pimcorePage.waitForVisibility(pimcorePage.linkOptician, 5);
         pimcorePage.deleteHead();
+        pimcorePage.waitForVisibility(pimcorePage.linkOptician, 5);
         pimcorePage.linkOptician.click();
         String actualUrl = pimcorePage.getCurrentUrl();
         String expectUrl = url + "/optician";
@@ -138,14 +138,14 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         PimcorePage pimcorePage = new PimcorePage();
         pimcorePage.waitForVisibility(pimcorePage.divPimcoreHomeContentNo1, 5);
         pimcorePage.deleteHead();
-        pimcorePage.AsssetTrue(pimcorePage.divPimcoreHomeContent.size() > 0, " PIMCORE HOMEPAGE CONTENT IS EMPTY !!!");
         //
         Random random = new Random();
-        int num = random.nextInt(9);
+        int num = random.nextInt(4);
         String splitUrl = url.split("/")[3];
-        String href = pimcorePage.divPimcoreHomeContent.get(num).getAttribute("href");
+        String href = pimcorePage.divPimcoreHomeContentNo1.get(num).getAttribute("href");
         pimcorePage.AsssetTrue(href.contains(splitUrl), " HREF DON'T CONTAINS " + splitUrl + " !!! ");
-        pimcorePage.divPimcoreHomeContent.get(num).click();
+        pimcorePage.waitForVisibility(pimcorePage.divPimcoreHomeContentNo1, 5);
+        pimcorePage.divPimcoreHomeContentNo1.get(num).click();
         pimcorePage.waitForVisibility(pimcorePage.textMGTitle, 5);
         pimcorePage.waitForVisibility(pimcorePage.imgContentDETAIL, 5);
     }
@@ -162,6 +162,7 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         String splitUrl = url.split("/")[3];
         String href = pimcorePage.MostPopluarPostS.get(num).getAttribute("href");
         pimcorePage.AsssetTrue(href.contains(splitUrl), " HREF DON'T CONTAINS " + splitUrl + " !!! ");
+        pimcorePage.waitForVisibility(pimcorePage.MostPopluarPostS.get(num), 10);
         pimcorePage.MostPopluarPostS.get(num).click();
         pimcorePage.waitForVisibility(pimcorePage.textMGTitle, 5);
         pimcorePage.waitForVisibility(pimcorePage.imgContentDETAIL, 5);
@@ -169,6 +170,7 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         pimcorePage.deleteHead();
         String href0 = pimcorePage.MostPopluarPostS.get(0).getAttribute("href");
         pimcorePage.AsssetTrue(href0.contains(splitUrl), " HREF DON'T CONTAINS " + splitUrl + " !!! ");
+        pimcorePage.waitForVisibility(pimcorePage.MostPopluarPostS.get(0), 5);
         pimcorePage.MostPopluarPostS.get(0).click();
         pimcorePage.waitForVisibility(pimcorePage.textMGTitle, 5);
         pimcorePage.waitForVisibility(pimcorePage.imgContentDETAIL, 5);

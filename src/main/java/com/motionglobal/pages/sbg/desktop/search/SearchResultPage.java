@@ -43,7 +43,10 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     public WebElement BebeBrankChecked;
     @FindBy(className = "srg_number")
     public WebElement brankNum;
+
     // filter product
+    @FindBy(css = ".search_category_container>li>a")
+    public List<WebElement> filterGlasses;
     @FindBy(xpath = "//a[contains(@onclick,'Men')][label]")
     public WebElement filterMen;
     @FindBy(css = "span.count +i")
@@ -52,6 +55,10 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     public WebElement filterWayfarer;
     @FindBy(css = ".s_s_Wayfarer .current")
     public WebElement filterWayfarerChecked;
+    @FindBy(css = ".s_sf_item .list-group-item")
+    public List<WebElement> filterFeature;
+    @FindBy(css = ".refined.list-group-item")
+    public List<WebElement> filterFeatureChecked;
 
     public SearchResultPage() {
         super();
