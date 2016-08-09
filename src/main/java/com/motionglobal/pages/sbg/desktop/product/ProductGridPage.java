@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
@@ -24,6 +25,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> eyeproSize;
     @FindBy(css = "label.clearfix")
     public List<WebElement> frameOrAdd;
+    @FindBy(css = ".proPriceN")
+    public List<WebElement> productPriceS;
 
     // Opticians
     @FindBy(id = "discount_price_promotion_display")
@@ -41,15 +44,33 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     @FindBy(xpath = "//li[@data-value='8']/a")
     public WebElement deluxeVery;
 
-    // // pay
-    // @FindBy()
-    // public WebElement
-    //
+    // sort and page
+    @FindBy(css = "#sortByDrop>dt>a")
+    public WebElement SortDrop;
+    @FindBy(css = "#sortByDrop li>a")
+    public List<WebElement> SortSection;
+    @FindBy(css = ".pagination.bottom_pagination>a")
+    public List<WebElement> productPageNum;
+    @FindBy(id = "half_left")
+    public WebElement popularLeftBtn;
+    @FindBy(id = "half_right")
+    public WebElement popularRightBtn;
+    @FindAll({ @FindBy(css = "ul[id^=half][style='display: block;']"), @FindBy(css = "ul[id^=half][style='']") })
+    public WebElement popularBrands;
+    @FindBy(xpath = "//ul[@id='half_1']/li[1]/a")
+    public WebElement popularBrandIMG1;
+
     // filter
     @FindBy(partialLinkText = "Arnette")
     public WebElement filterArnette;
     @FindBy(css = "[name='Aviator']")
     public WebElement filterAviator;
+    @FindBy(xpath = "//div[@class='choose_model']/p[3]/a")
+    public WebElement filterRayban2132;
+    @FindBy(css = "a.FrameType")
+    public List<WebElement> filterFrameType;
+    @FindBy(xpath = "//*[@id='content']//div[7]/ul/li/a")
+    public List<WebElement> filterPrice;
 
     // assert_element！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     @FindBy(className = "proCell_click")

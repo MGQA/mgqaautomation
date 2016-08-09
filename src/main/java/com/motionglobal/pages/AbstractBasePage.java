@@ -1,6 +1,8 @@
 package com.motionglobal.pages;
 
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -60,6 +62,7 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
 
     public void deleteLetTalk() {
         Header header = new Header();
+        waitForVisibility(header.letTalk, 5);
         JsDisplayNone(header.letTalk);
     }
 
@@ -69,6 +72,14 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
 
     public void AsssetTrue(Boolean condition, String description) {
         Assert.assertTrue(condition, description);
+    }
+
+    public Double regexGetMath(String matcher) {
+        Pattern pattern = Pattern.compile("[^0-9/.]");
+        Matcher match = pattern.matcher(matcher);
+        String getStr = match.replaceAll("");
+        Double getNum = Double.parseDouble(getStr);
+        return getNum;
     }
 
     protected abstract void waitPageLoad();

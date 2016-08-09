@@ -22,8 +22,6 @@ public class PimcorePage extends AbstractBaseSbgDesktopPage {
     public WebElement linkOptician;
     @FindBy(className = "content")
     public List<WebElement> divOpticianContent;
-    @FindBy(css = ".cat-article>a")
-    public List<WebElement> divPimcoreHomeContent;
     @FindBy(xpath = "//div[@class='row']/div[1]/article/a")
     public List<WebElement> divPimcoreHomeContentNo1;
     @FindBy(css = ".article-header>img")
