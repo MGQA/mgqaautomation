@@ -125,6 +125,7 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         pimcorePage.waitForVisibility(pimcorePage.linkOptician, 5);
         pimcorePage.deleteHead();
         pimcorePage.waitForVisibility(pimcorePage.linkOptician, 5);
+        pimcorePage.JsMouse(pimcorePage.linkOptician);
         pimcorePage.linkOptician.click();
         String actualUrl = pimcorePage.getCurrentUrl();
         String expectUrl = url + "/optician";
@@ -163,6 +164,7 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         String href = pimcorePage.MostPopluarPostS.get(num).getAttribute("href");
         pimcorePage.AsssetTrue(href.contains(splitUrl), " HREF DON'T CONTAINS " + splitUrl + " !!! ");
         pimcorePage.waitForVisibility(pimcorePage.MostPopluarPostS.get(num), 10);
+        pimcorePage.JsMouse(pimcorePage.MostPopluarPostS.get(num));
         pimcorePage.MostPopluarPostS.get(num).click();
         pimcorePage.waitForVisibility(pimcorePage.textMGTitle, 5);
         pimcorePage.waitForVisibility(pimcorePage.imgContentDETAIL, 5);

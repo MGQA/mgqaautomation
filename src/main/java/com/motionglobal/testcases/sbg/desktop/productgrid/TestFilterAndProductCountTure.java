@@ -143,6 +143,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         catch (Exception e) {
         }
         gridPage.waitForVisibility(gridPage.filterFrameType, 5);
+        gridPage.JsMouse(gridPage.filterPriceNo2);
         gridPage.filterPriceNo2.click();
         gridPage.waitForVisibility(gridPage.productPriceS, 5);
         for (int j = 0; j < gridPage.productPriceS.size(); j++) {
@@ -167,7 +168,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
 
     // FIXME algolia
     @Test(groups = { "debug", "smoke" })
-    public void algoliaEyeOrSun() {
+    public void algoliaEye() {
         String url = "http://www.smartbuyglasses.com/search?keywords=rayban&searchHashcode=1470715095524430#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
         getURL(url);
         SearchResultPage resultPage = new SearchResultPage();
@@ -180,7 +181,13 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
             String cid = resultPage.proInfo.get(i).getAttribute("data-cid");
             resultPage.AsssetEquals(cid, "2");
         }
+    }
+
+    @Test(groups = { "debug", "smoke" })
+    public void algoliaSun() {
+        String url = "http://www.smartbuyglasses.com/search?keywords=rayban&searchHashcode=1470715095524430#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
         getURL(url);
+        SearchResultPage resultPage = new SearchResultPage();
         resultPage.waitForVisibility(resultPage.filterGlasses, 5);
         resultPage.filterGlasses.get(1).click();
         resultPage.waitForVisibility(resultPage.filterSunCkecked, 5);
