@@ -80,8 +80,12 @@ public class TestTopSell extends AbstractBaseSbgDesktopTestCase {
         }
 
         // check label can clicked
-        homePage.deleteHead();
-        homePage.deleteLetTalk();
+        try {
+            homePage.deleteHead();
+            homePage.deleteLetTalk();
+        }
+        catch (Exception e) {
+        }
         homePage.waitForVisibility(homePage.linkSunNo1, 5);
         homePage.JsMouse(homePage.linkFeatureImgNo1);
         homePage.linkSunNo1.click();
@@ -100,9 +104,13 @@ public class TestTopSell extends AbstractBaseSbgDesktopTestCase {
             Assert.assertTrue(actualUrl.contains(textBrandName), "FAIL i IS :" + i + " !!! BRAND IS:" + textBrandName);
         }
         // check label can clicked
-        homePage.deleteHead();
+        try {
+            homePage.deleteHead();
+            homePage.deleteLetTalk();
+        }
+        catch (Exception e) {
+        }
         homePage.waitForVisibility(homePage.linkEyeNo1, 5);
-        homePage.deleteLetTalk();
         homePage.JsMouse(homePage.linkSunNo1);
         homePage.linkEyeNo1.click();
         ProductDetailPage detailPage = new ProductDetailPage();

@@ -1,0 +1,32 @@
+package com.motionglobal.testcases.sbg.desktop.smoke;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
+
+public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
+
+    @DataProvider
+    public Object[][] db() {
+        return new Object[][] { { "http://www.smartbuyglasses.co.uk/" }, { "http://www.smartbuyglasses.dk/" }, { "http://www.smartbuyglasses.com/" } };
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
+    public void topSellImg(String url) {
+        getURL(url);
+    }
+
+    @Override
+    protected void initialize() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    protected void tearDown() {
+        // TODO Auto-generated method stub
+
+    }
+
+}
