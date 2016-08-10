@@ -123,8 +123,8 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         catch (Exception e) {
         }
         gridPage.waitForVisibility(gridPage.filterFrameType, 5);
-        // gridPage.filterFrameType.click();
-        gridPage.click(gridPage.filterFrameType);
+        gridPage.JsMouse(gridPage.filterFrameType);
+        gridPage.filterFrameType.click();
         gridPage.waitForVisibility(gridPage.filterSide, 5);
         String currentUrl = gridPage.getCurrentUrl();
         gridPage.AsssetTrue(gridPage.filterSide.getText().contains("Frame Type: Full Rim"), " Full Rim Page Ture");
