@@ -12,9 +12,9 @@ public class HomePage extends AbstractBaseSbgDesktopPage {
 
     @FindBy(xpath = "//ul[@class='sli_ul']/li[*]/a")
     public List<WebElement> listServiceItem;
-    @FindBy(xpath = "// div[@class='glasslink']/a[1]/img")
+    @FindBy(xpath = "//div[@class='glasslink']/a[1]")
     public List<WebElement> linkSun_ImgBelow;
-    @FindBy(xpath = "// div[@class='glasslink']/a[2]/img")
+    @FindBy(xpath = "//div[@class='glasslink']/a[2]")
     public List<WebElement> linkEye_ImgBelow;
     @FindBy(xpath = "//div[@class='featured_deals']/div//img")
     public List<WebElement> imgFeature;

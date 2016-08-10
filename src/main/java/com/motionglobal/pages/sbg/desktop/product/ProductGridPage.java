@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
@@ -55,7 +54,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement popularLeftBtn;
     @FindBy(id = "half_right")
     public WebElement popularRightBtn;
-    @FindAll({ @FindBy(css = "ul[id^=half][style='display: block;']"), @FindBy(css = "ul[id^=half][style='']") })
+    // @FindAll({ @FindBy(css = "ul[id^=half][style='display: block;']"),
+    @FindBy(css = "ul[id^=half][style='']")
     public WebElement popularBrands;
     @FindBy(xpath = "//ul[@id='half_1']/li[1]/a")
     public WebElement popularBrandIMG1;
@@ -67,10 +67,16 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement filterAviator;
     @FindBy(xpath = "//div[@class='choose_model']/p[3]/a")
     public WebElement filterRayban2132;
-    @FindBy(css = "a.FrameType")
-    public List<WebElement> filterFrameType;
-    @FindBy(xpath = "//*[@id='content']//div[7]/ul/li/a")
-    public List<WebElement> filterPrice;
+    // @FindBy(css = "a.FrameType")
+    // public List<WebElement> filterFrameType;
+    @FindBy(xpath = "//*[@id='content']/div[1]/div/div[6]/ul/li[1]/a")
+    public WebElement filterFrameType;
+    // @FindBy(xpath = "//*[@id='content']//div[7]/ul/li/a")
+    // public List<WebElement> filterPrice;
+    @FindBy(xpath = "//*[@id='content']/div[1]/div/div[7]/ul/li[2]/a")
+    public WebElement filterPriceNo2;
+    @FindBy(xpath = "//*[@id='content']/div[1]/div/div[7]/ul/li[3]/a")
+    public WebElement filterPriceNo3;
 
     // assert_element！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     @FindBy(className = "proCell_click")

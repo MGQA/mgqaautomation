@@ -18,7 +18,7 @@ public class TestDiscount extends AbstractBaseSbgDesktopTestCase {
     public void intoDiscount(String url) {
         getURL(url);
         Header header = new Header();
-        header.waitForVisibility(header.discountBigIMG, 5);
+        header.waitForVisibility(header.discountSmallIMG, 5);
         header.discountSmallIMG.click();
         header.waitForVisibility(header.discountBigIMG, 5);
         header.discountBigIMG.click();

@@ -82,6 +82,16 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         return getNum;
     }
 
+    /**
+     * @param domain
+     *            domain example: http://www.smartbuyglasses.co.uk/
+     */
+    final public static String getLoginRequest(String domain) {
+        String loginRequest = domain
+                + "order/login?jsoncallback=jQuery16408493127196615433_1470738431732&username=felix.ma%40motionglobal.com&password=f8b708301cea089f3490279a90fcdb6b&remember_me=1&fromMember=Membership&_=1470738448814";
+        return loginRequest;
+    }
+
     protected abstract void waitPageLoad();
 
     public void switch2NewWindow() {
