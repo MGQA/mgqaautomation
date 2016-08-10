@@ -71,7 +71,7 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
         gridPage.waitForVisibility(gridPage.popularRightBtn, 5);
         String popularBrandName1 = gridPage.popularBrands.getText();
         gridPage.popularLeftBtn.click();
-        gridPage.waitForVisibility(gridPage.popularBrands, 2);
+        gridPage.waitForVisibility(gridPage.popularBrands, 5);
         String popularBrandID3 = gridPage.popularBrands.getAttribute("id");
         String popularBrandName3 = gridPage.popularBrands.getText();
         gridPage.AsssetEquals(popularBrandID3, "half_3");

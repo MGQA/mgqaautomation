@@ -25,7 +25,7 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
     /**
      * Test : cash coupon ¡¢coupon and discount . back page then forward in pay page.
      */
-    @Test(groups = { "debug", "smoke" })
+    @Test(groups = { "debug111", "smoke" })
     public void couponPageBackThenForward() {
         try {
             MysqlConnect219Util
