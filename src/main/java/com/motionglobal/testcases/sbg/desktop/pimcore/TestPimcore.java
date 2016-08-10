@@ -120,6 +120,7 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
     @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
     public void menuOptician(String url) {
         getURL(url);
+        driver.manage().window().maximize();
         PimcorePage pimcorePage = new PimcorePage();
         pimcorePage.waitForVisibility(pimcorePage.linkOptician, 5);
         pimcorePage.deleteHead();
@@ -139,13 +140,11 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         pimcorePage.waitForVisibility(pimcorePage.divPimcoreHomeContentNo1, 5);
         pimcorePage.deleteHead();
         //
-        Random random = new Random();
-        int num = random.nextInt(4);
         String splitUrl = url.split("/")[3];
-        String href = pimcorePage.divPimcoreHomeContentNo1.get(num).getAttribute("href");
+        String href = pimcorePage.divPimcoreHomeContentNo1.getAttribute("href");
         pimcorePage.AsssetTrue(href.contains(splitUrl), " HREF DON'T CONTAINS " + splitUrl + " !!! ");
         pimcorePage.waitForVisibility(pimcorePage.divPimcoreHomeContentNo1, 5);
-        pimcorePage.divPimcoreHomeContentNo1.get(num).click();
+        pimcorePage.divPimcoreHomeContentNo1.click();
         pimcorePage.waitForVisibility(pimcorePage.textMGTitle, 5);
         pimcorePage.waitForVisibility(pimcorePage.imgContentDETAIL, 5);
     }
@@ -154,6 +153,7 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
     @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
     public void mostPopularPost(String url) {
         getURL(url);
+        driver.manage().window().maximize();
         PimcorePage pimcorePage = new PimcorePage();
         pimcorePage.waitForVisibility(pimcorePage.MostPopluarPostS, 10);
         pimcorePage.deleteHead();

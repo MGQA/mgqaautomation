@@ -111,7 +111,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
 
     }
 
-    @Test(groups = { "debug", "smoke" })
+    @Test(groups = { "debug111", "smoke" })
     public void frameType() {
         String url = "http://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/";
         getURL(url);
@@ -123,7 +123,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         catch (Exception e) {
         }
         gridPage.waitForVisibility(gridPage.filterFrameType, 5);
-        gridPage.filterFrameType.get(0).click();
+        gridPage.filterFrameType.click();
         gridPage.waitForVisibility(gridPage.filterSide, 5);
         String currentUrl = gridPage.getCurrentUrl();
         gridPage.AsssetTrue(gridPage.filterSide.getText().contains("Frame Type: Full Rim"), " Full Rim Page Ture");
@@ -142,7 +142,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         catch (Exception e) {
         }
         gridPage.waitForVisibility(gridPage.filterFrameType, 5);
-        gridPage.filterPrice.get(1).click();
+        gridPage.filterPriceNo2.click();
         gridPage.waitForVisibility(gridPage.productPriceS, 5);
         for (int j = 0; j < gridPage.productPriceS.size(); j++) {
             Double price = gridPage.regexGetMath(gridPage.productPriceS.get(j).getText());
@@ -156,7 +156,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         catch (Exception e) {
         }
         gridPage.waitForVisibility(gridPage.filterFrameType, 5);
-        gridPage.filterPrice.get(2).click();
+        gridPage.filterPriceNo3.click();
         gridPage.waitForVisibility(gridPage.productPriceS, 5);
         for (int j = 0; j < gridPage.productPriceS.size(); j++) {
             Double price = gridPage.regexGetMath(gridPage.productPriceS.get(j).getText());
@@ -172,6 +172,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         SearchResultPage resultPage = new SearchResultPage();
         resultPage.waitForVisibility(resultPage.filterGlasses, 5);
         resultPage.filterGlasses.get(0).click();
+        resultPage.waitForVisibility(resultPage.filterEyeChecked, 5);
         resultPage.waitForVisibility(resultPage.proInfo, 5);
         for (int i = 0; i < resultPage.proInfo.size(); i++) {
             String cid = resultPage.proInfo.get(i).getAttribute("data-cid");
@@ -180,6 +181,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         getURL(url);
         resultPage.waitForVisibility(resultPage.filterGlasses, 5);
         resultPage.filterGlasses.get(1).click();
+        resultPage.waitForVisibility(resultPage.filterSunCkecked, 5);
         resultPage.waitForVisibility(resultPage.proInfo, 5);
         for (int i = 0; i < resultPage.proInfo.size(); i++) {
             String cid = resultPage.proInfo.get(i).getAttribute("data-cid");

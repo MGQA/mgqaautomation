@@ -43,6 +43,10 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     public WebElement BebeBrankChecked;
     @FindBy(className = "srg_number")
     public WebElement brankNum;
+    @FindBy(xpath = "//*[@id='wrapper']/div[5]/div[2]/div[1]/ul/li[1]/i")
+    public WebElement filterEyeChecked;
+    @FindBy(xpath = "//*[@id='wrapper']/div[5]/div[2]/div[1]/ul/li[2]/i")
+    public WebElement filterSunCkecked;
 
     // filter product
     @FindBy(css = ".search_category_container>li>a")

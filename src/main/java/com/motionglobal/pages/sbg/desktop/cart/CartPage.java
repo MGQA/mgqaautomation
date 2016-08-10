@@ -25,6 +25,8 @@ public class CartPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> productRemove;
 
     // pay
+    @FindBy(css = "#paypal_submit>img")
+    public WebElement paypalBtn;
     // @FindBy(css = ".p_2>span")
     // public WebElement price;
     @FindBy(css = ".frbox .orange")
