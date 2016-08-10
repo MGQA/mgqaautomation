@@ -73,15 +73,14 @@ public class CartPage extends AbstractBaseSbgDesktopPage {
     // coupon
     public Double couponPrice(Double couponTotal) {
         Double coupon;
-        Double maxCoupon = (Double.parseDouble(priceGlassTotal.getText().replace("$", ""))) * 0.2;
+        Double maxCoupon = (regexGetMath(priceGlassTotal.getText())) * 0.2;
         if (maxCoupon > couponTotal) {
             coupon = couponTotal;
         }
         else {
             coupon = maxCoupon;
         }
-        Double coupon2 = ((double) (Math.round(coupon * 10))) / 10;
-        return coupon2;
+        return coupon;
     }
 
     public CartPage() {

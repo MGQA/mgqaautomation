@@ -12,25 +12,20 @@ import org.testng.annotations.Test;
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.cart.CartPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
-import com.motionglobal.pages.sbg.desktop.product.ProductGridPage.Label;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
 public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://www.smartbuyglasses.com/" } };
+        return new Object[][] { new Object[] { "http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/" } };
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
     public void clickBrank(String url) {
         getURL(url);
         Header header = new Header();
-        header.mouseOverMainMenu(2);
-        header.mouseOver(header.getMegaMenuBrandInitialElement(2, "Q"));
-        header.TomFordBrank.click();
         ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.brands), "Tom Ford");
         header.mouseOver(productGridPage.proInfo.get(0));
         header.waitForVisibility(productGridPage.quickView, 2);
         productGridPage.quickView.click();
