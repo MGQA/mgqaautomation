@@ -1,14 +1,17 @@
 package com.motionglobal.testcases.sbg.desktop.end2end;
 
+import java.sql.SQLException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.motionglobal.common.utils.MysqlConnect219Util;
+import com.motionglobal.pages.AbstractBasePage;
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.cart.CartPage;
 import com.motionglobal.pages.sbg.desktop.checkout.CheckoutPage;
 import com.motionglobal.pages.sbg.desktop.payment3rdparty.GcPaymentPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
-import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.pages.sbg.desktop.thankyou.ThankYouPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
@@ -24,25 +27,16 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
      */
     @Test(groups = { "debug", "smoke" })
     public void couponPageBackThenForward() {
+        try {
+            MysqlConnect219Util
+                    .updateSQL("UPDATE om_pay_rewards_log SET member_id='775310',currency_code='AUD' WHERE currency_code='EUR' and is_active=1 and `status`=1 LIMIT 1;");
+        }
+        catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+        getURL(AbstractBasePage.getLoginRequest(url));
         getURL(url);
         Header header = new Header();
-        header.waitForVisibility(header.loginlable, 5);
-        header.mouseOver(header.loginlable);
-        try {
-            header.waitForVisibility(header.signin, 1);
-        }
-        catch (Exception e) {
-            header.mouseOver(header.Help);
-            header.waitForVisibility(header.getHelpLinkElement(1), 2);
-            header.mouseOver(header.loginlable);
-            header.waitForVisibility(header.signin, 1);
-        }
-        header.signin.click();
-        header.username.clear();
-        header.username.sendKeys("felix.ma@motionglobal.com");
-        header.password.clear();
-        header.password.sendKeys("motion888");
-        header.signInButton.click();
         header.waitForVisibility(header.yourAccount, 10);
         header.mouseOver(header.yourAccount);
         header.waitForVisibility(header.signout, 5);
@@ -50,16 +44,11 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
 
         // get Double of coupon price TODO
         header.waitForVisibility(header.priceCoupon, 5);
-        String StringcouponPrice = header.priceCoupon.getText().replace("$", "");
-        Double couponTotal = Double.parseDouble(StringcouponPrice);
-
-        // into 50% discount page then select product
-        getURL("http://www.visiondirect.com.au/designer-sunglasses/on-sale/-----------------------50-/");
-        ProductGridPage productGridPage = new ProductGridPage();
-        productGridPage.waitForVisibility(productGridPage.proInfo.get(0), 5);
-        productGridPage.proInfo.get(0).click();
+        Double couponTotal = header.regexGetMath(header.priceCoupon.getText());
+        System.out.println(couponTotal + " BO");
 
         // into product details page
+        getURL("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/Ray-Ban-RB4171-Erika-865/13-117665.html");
         ProductDetailPage detailPage = new ProductDetailPage();
         detailPage.waitForVisibility(detailPage.btnBuyNow, 5);
         detailPage.btnBuyNow.click();
@@ -67,12 +56,10 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
         // into cart page then get glass price and shipping price
         CartPage cartPage = new CartPage();
         cartPage.waitForVisibility(cartPage.priceGlassTotal, 5);
-        String StringGlassPrice = cartPage.priceGlassTotal.getText().replace("$", "");
-        Double priceGlass = Double.parseDouble(StringGlassPrice);
+        Double priceGlass = cartPage.regexGetMath(cartPage.priceGlassTotal.getText());
         Double priceShipping;
         try {
-            String StringShippingPrice = cartPage.priceShipping.getText().replace("$", "");
-            priceShipping = Double.parseDouble(StringShippingPrice);
+            priceShipping = cartPage.regexGetMath(cartPage.priceShipping.getText());
         }
         catch (Exception e) {
             priceShipping = 0.0;
@@ -80,30 +67,24 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
 
         // sum discount and assert and select
         Double priceExpectCoupon = cartPage.couponPrice(couponTotal);
-        String StringpriceActualCoupon = cartPage.priceCoupon.getText().replace("- $", "");
-        Double PriceActualCoupon = Double.parseDouble(StringpriceActualCoupon);
+        System.out.println(priceExpectCoupon);
+        Double PriceActualCoupon = cartPage.regexGetMath(cartPage.priceCoupon.getText());
         Assert.assertEquals(PriceActualCoupon, priceExpectCoupon);
         cartPage.JsMouse(cartPage.kit);
         cartPage.InputUseReWard.click();
-        String sOldTotal = cartPage.priceTotal.getText().replace("$", "");
-        Double dOldTotal = Double.parseDouble(sOldTotal);
-        cartPage.waitPriceTotalChange(dOldTotal);
 
         // get Insuance price
         cartPage.selectInsurance1();
         Double priceInsuance;
         try {
-            String StringInsurancePrice = cartPage.priceInsurance.getText().replace("$", "");
-            priceInsuance = Double.parseDouble(StringInsurancePrice);
+            priceInsuance = cartPage.regexGetMath(cartPage.priceInsurance.getText());
         }
         catch (Exception e) {
             priceInsuance = 0.0;
         }
 
         // total price
-        cartPage.waitForVisibility(cartPage.priceTotal, 5);
-        String StringTotal = cartPage.priceTotal.getText().replace("$", "");
-        Double priceActualTotal = Double.parseDouble(StringTotal);
+        Double priceActualTotal = cartPage.regexGetMath(cartPage.priceTotal.getText());
 
         // sum total(glass + shipping + insuance -coupon) and assert
         Double priceExpectTotal = priceGlass + priceShipping + priceInsuance - PriceActualCoupon;
@@ -117,8 +98,7 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
         // into checkout page then input message
         CheckoutPage checkoutPage = new CheckoutPage();
         checkoutPage.waitForVisibility(checkoutPage.priceTotal, 2);
-        String sPriceCheckOut = checkoutPage.priceTotal.getText().replace("$", "");
-        Double PriceCheckOut = Double.parseDouble(sPriceCheckOut);
+        Double PriceCheckOut = checkoutPage.regexGetMath(checkoutPage.priceTotal.getText());
         Assert.assertEquals(PriceCheckOut, priceActualTotal);
 
         // select VISA click payBtn

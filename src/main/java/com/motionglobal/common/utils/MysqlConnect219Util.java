@@ -52,4 +52,28 @@ public class MysqlConnect219Util {
         }
         return results;
     }
+
+    public static void updateSQL(String sql) throws SQLException {
+        String driver = "com.mysql.jdbc.Driver";
+        String url = "jdbc:mysql://180.150.153.219:3306/sbg2012";
+        String user = "dev_update_0607";
+        String password = "zPXrfyqzcm02QtlOyrX9@dev";
+        try {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(url, user, password);
+            if (!conn.isClosed()) {
+                System.out.println("connection mysql database success");
+            }
+            Statement statement = conn.createStatement();
+            //
+            // String sql = "select * from " + tablename + ";";
+            // String sql = "SELECT payment_product_id FROM gc_payment_country WHERE country_id=63;";
+            //
+            ResultSet rs = statement.executeQuery(sql);
+            ResultSetMetaData rsMetaData = rs.getMetaData();
+        }
+        catch (ClassNotFoundException e) {
+            System.out.println("don't find Mysql driver");
+        }
+    }
 }

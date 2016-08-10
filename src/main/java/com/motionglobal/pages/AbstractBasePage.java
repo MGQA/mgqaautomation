@@ -1,11 +1,14 @@
 package com.motionglobal.pages;
 
+import java.util.List;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -121,5 +124,28 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
 
     public String getCurrentUrl() {
         return driver.getCurrentUrl();
+    }
+
+    public void click(WebElement button) {
+        try {
+            button.click();
+        }
+        catch (WebDriverException e) {
+            List<WebElement> availables = button.findElements(By.tagName("div"));
+            availables.addAll(button.findElements(By.tagName("span")));
+            tryClick(availables);
+        }
+    }
+
+    public void tryClick(List<WebElement> availables) {
+        for (WebElement candidate : availables) {
+            try {
+                candidate.click();
+                return;
+            }
+            catch (WebDriverException e) {
+                continue;
+            }
+        }
     }
 }
