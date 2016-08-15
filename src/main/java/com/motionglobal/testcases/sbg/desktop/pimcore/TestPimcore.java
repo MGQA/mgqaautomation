@@ -120,7 +120,6 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
     @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
     public void menuOptician(String url) {
         getURL(url);
-        driver.manage().window().maximize();
         PimcorePage pimcorePage = new PimcorePage();
         pimcorePage.waitForVisibility(pimcorePage.linkOptician, 5);
         pimcorePage.deleteHead();
@@ -154,7 +153,6 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
     @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
     public void mostPopularPost(String url) {
         getURL(url);
-        driver.manage().window().maximize();
         PimcorePage pimcorePage = new PimcorePage();
         pimcorePage.waitForVisibility(pimcorePage.MostPopluarPostS, 10);
         pimcorePage.deleteHead();

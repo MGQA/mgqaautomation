@@ -51,7 +51,9 @@ public abstract class AbstractBaseTestCase {
         driver.get(url);
         Header header = new Header();
         try {
-            header.firstBuy.click();
+            if (!(url == "http://www.smartbuyglasses.co.uk/?birthday"))
+                header.firstBuy.click();
+            Thread.sleep(100);
         }
         catch (Exception e) {
         }

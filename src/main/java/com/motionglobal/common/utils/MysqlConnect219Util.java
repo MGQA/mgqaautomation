@@ -20,14 +20,7 @@ public class MysqlConnect219Util {
         try {
             Class.forName(driver);
             Connection conn = DriverManager.getConnection(url, user, password);
-            // if (!conn.isClosed()) {
-            // System.out.println("connection mysql database success");
-            // }
             Statement statement = conn.createStatement();
-            //
-            // String sql = "select * from " + tablename + ";";
-            // String sql = "SELECT payment_product_id FROM gc_payment_country WHERE country_id=63;";
-            //
             ResultSet rs = statement.executeQuery(sql);
             ResultSetMetaData rsMetaData = rs.getMetaData();
             int cols = rsMetaData.getColumnCount();
@@ -65,12 +58,7 @@ public class MysqlConnect219Util {
                 System.out.println("connection mysql database success");
             }
             Statement statement = conn.createStatement();
-            //
-            // String sql = "select * from " + tablename + ";";
-            // String sql = "SELECT payment_product_id FROM gc_payment_country WHERE country_id=63;";
-            //
-            ResultSet rs = statement.executeQuery(sql);
-            ResultSetMetaData rsMetaData = rs.getMetaData();
+            statement.executeUpdate(sql);
         }
         catch (ClassNotFoundException e) {
             System.out.println("don't find Mysql driver");

@@ -18,7 +18,7 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
 public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/" } };
+        return new Object[][] { new Object[] { "http://www.smartbuyglasses.com/designer-eyeglasses/Ray-Ban/" } };
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })

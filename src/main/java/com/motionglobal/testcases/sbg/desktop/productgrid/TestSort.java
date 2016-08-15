@@ -70,6 +70,12 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
         // leftBtn
         gridPage.waitForVisibility(gridPage.popularRightBtn, 5);
         String popularBrandName1 = gridPage.popularBrands.getText();
+        try {
+            gridPage.deleteHead();
+            gridPage.deleteLetTalk();
+        }
+        catch (Exception e) {
+        }
         gridPage.popularLeftBtn.click();
         gridPage.waitForVisibility(gridPage.popularBrands, 5);
         String popularBrandID3 = gridPage.popularBrands.getAttribute("id");

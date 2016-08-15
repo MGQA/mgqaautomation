@@ -15,6 +15,11 @@ public class CLProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement productCountString;
     @FindBy(className = "recProInfo")
     public List<WebElement> ProInfo;
+
+    //
+    @FindBy(className = "dailies")
+    public WebElement daily;
+
     // filter
     @FindBy(id = "CL-Acuvue-b")
     public WebElement filterAcuvue;
@@ -22,9 +27,12 @@ public class CLProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement filterDaily;
     @FindBy(id = "CL-spherical-t")
     public WebElement filterSpherical;
+
     // Assert Element
     @FindBy(xpath = "//input[@checked='checked']/../label/span/span")
     public WebElement checkedLeftSubmenuElement;
+    @FindBy(id = "CL-daily-disposable-f")
+    public WebElement checkedDaily;
 
     public int getProductCount() {
         Integer count = Integer.parseInt(productCountString.getText().replace("Products (", "").replace(")", ""));
@@ -50,6 +58,6 @@ public class CLProductGridPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.id("CL-ProductCount"), 20);
+        waitForVisibility(By.className("cl_rightList"), 20);
     }
 }

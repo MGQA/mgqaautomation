@@ -63,8 +63,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     // filter
     @FindBy(partialLinkText = "Arnette")
     public WebElement filterArnette;
-    @FindBy(css = "[name='Aviator']")
-    public WebElement filterAviator;
+    @FindBy(xpath = "//*[@id='content']/div[1]/div/div[4]/ul/li[2]/a")
+    public WebElement shapesMostPopular;
     @FindBy(xpath = "//div[@class='choose_model']/p[3]/a")
     public WebElement filterRayban2132;
     // @FindBy(css = "a.FrameType")

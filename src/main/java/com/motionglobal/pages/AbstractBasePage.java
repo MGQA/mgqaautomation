@@ -1,5 +1,6 @@
 package com.motionglobal.pages;
 
+import java.math.BigDecimal;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -80,6 +81,23 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         String getStr = match.replaceAll("");
         Double getNum = Double.parseDouble(getStr);
         return getNum;
+    }
+
+    /**
+     * mathAdd and mathSub can use to doub fuzzy 在double精确度不好的时候用
+     */
+    public static double mathAdd(double d1, double d2) {
+        BigDecimal b1 = new BigDecimal(Double.toString(d1));
+        BigDecimal b2 = new BigDecimal(Double.toString(d2));
+        return b1.add(b2).doubleValue();
+
+    }
+
+    public static double mathSub(double d1, double d2) {
+        BigDecimal b1 = new BigDecimal(Double.toString(d1));
+        BigDecimal b2 = new BigDecimal(Double.toString(d2));
+        return b1.subtract(b2).doubleValue();
+
     }
 
     /**

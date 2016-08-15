@@ -25,7 +25,7 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
     /**
      * Test : cash coupon ¡¢coupon and discount . back page then forward in pay page.
      */
-    @Test(groups = { "debug111", "smoke" })
+    @Test(groups = { "debug", "smoke" })
     public void couponPageBackThenForward() {
         try {
             MysqlConnect219Util
@@ -87,7 +87,9 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
         Double priceActualTotal = cartPage.regexGetMath(cartPage.priceTotal.getText());
 
         // sum total(glass + shipping + insuance -coupon) and assert
-        Double priceExpectTotal = priceGlass + priceShipping + priceInsuance - PriceActualCoupon;
+        // Double priceExpectTotal = priceGlass + priceShipping + priceInsuance - PriceActualCoupon;
+        Double priceExpectTotal = CartPage.mathAdd(CartPage.mathAdd(priceGlass, priceShipping), CartPage.mathSub(priceInsuance, PriceActualCoupon));
+
         System.out.println(priceGlass + " _ " + priceShipping + " _ " + priceInsuance + " _ " + PriceActualCoupon);
         Assert.assertEquals(priceActualTotal, priceExpectTotal);
 
