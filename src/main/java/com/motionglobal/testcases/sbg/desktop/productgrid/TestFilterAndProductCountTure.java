@@ -65,15 +65,15 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         }
         gridPage.filterArnette.click();
         Assert.assertTrue(gridPage.proInfo.get(0).getText().contains("Arnette"));
-        gridPage.waitForVisibility(gridPage.filterAviator, 5);
-        // gridPage.JsMouse(gridPage.filterWayfarer);
+        gridPage.waitForVisibility(gridPage.shapesMostPopular, 5);
+        // gridPage.JsMouse(gridPage.shapesMostPopular);
         try {
             gridPage.deleteHead();
             gridPage.deleteLetTalk();
         }
         catch (Exception e) {
         }
-        gridPage.filterAviator.click();
+        gridPage.shapesMostPopular.click();
         Assert.assertTrue(gridPage.filterSide.getText().contains("Aviator"), " fiter fail ");
     }
 

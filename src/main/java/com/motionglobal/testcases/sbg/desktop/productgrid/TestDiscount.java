@@ -1,5 +1,7 @@
 package com.motionglobal.testcases.sbg.desktop.productgrid;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -21,6 +23,7 @@ public class TestDiscount extends AbstractBaseSbgDesktopTestCase {
         header.waitForVisibility(header.discountSmallIMG, 5);
         header.discountSmallIMG.click();
         header.waitForVisibility(header.discountBigIMG, 5);
+        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(header.discountBigIMG));
         header.discountBigIMG.click();
         ProductGridPage gridPage = new ProductGridPage();
     }

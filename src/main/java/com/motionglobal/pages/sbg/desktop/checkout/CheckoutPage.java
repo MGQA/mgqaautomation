@@ -1,5 +1,7 @@
 package com.motionglobal.pages.sbg.desktop.checkout;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,6 +36,10 @@ public class CheckoutPage extends AbstractBaseSbgDesktopPage {
     private WebElement selBillingCountry;
     @FindBy(name = "billing_telephone")
     private WebElement inputBillingTelephone;
+
+    //
+    @FindBy(css = "[id^=payment_product_]")
+    public List<WebElement> cardID;
 
     public CheckoutPage inputBillingFirstName(String firstName) {
         clearInput(this.inputBillingFirstName, firstName);

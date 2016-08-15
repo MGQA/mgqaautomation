@@ -16,8 +16,6 @@ public class Header extends AbstractBasePage {
     public WebElement delSearchHead;
     @FindBy(css = ".topbar_box")
     public WebElement delBlackHead;
-    @FindBy(css = ".fa.fa-2x.fa-close")
-    public WebElement firstBuy;
     @FindBy(id = "lc_chat_layout")
     public WebElement letTalk;
     // menu
@@ -82,6 +80,7 @@ public class Header extends AbstractBasePage {
     public WebElement inputSearch;
     @FindBy(css = ".search_image i.fa-search")
     public WebElement iconSearch;
+
     // Style of Glasses button
     @FindBy(id = "buttonNext")
     public WebElement styleNextButton;
@@ -138,6 +137,36 @@ public class Header extends AbstractBasePage {
     public List<WebElement> iHeartSGuide;
     @FindBy(css = "#cart li>a ")
     public List<WebElement> cartSGuide;
+
+    // birthday
+    @FindBy(css = ".fa.fa-2x.fa-close")
+    public WebElement firstBuy;
+    @FindBy(css = ".thankyou i")
+    public WebElement birthdayClose;
+    @FindBy(id = "email")
+    public WebElement email;
+    @FindBy(id = "bday")
+    public WebElement bDay;
+    @FindBy(className = "male")
+    public WebElement man;
+    @FindBy(xpath = "//body/div[2]/div[2]/p[1]")
+    public WebElement birthdaySuccess;
+
+    // recommend
+    @FindBy(className = "newhead_banner2_en")
+    public WebElement recommend;
+    @FindBy(id = "referral_first_name")
+    public WebElement recommendFirstName;
+    @FindBy(id = "referral_email")
+    public WebElement recommendEmail;
+    @FindBy(id = "by_email_btn")
+    public WebElement recommendShareBtn;
+    @FindBy(id = "referral_to_emails")
+    public WebElement recommendToEmail;
+    @FindBy(id = "referral_send_email_btn")
+    public WebElement recommendSendBtn;
+    @FindBy(id = "referral_email_tips_lable")
+    public WebElement recommendThank;
 
     //
     @FindBy(css = "img[height='33'][usemap='#Map2']")

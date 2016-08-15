@@ -22,7 +22,7 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
 public class TestViewEyeProduct extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/" } };
+        return new Object[][] { new Object[] { "http://www.smartbuyglasses.com/designer-eyeglasses/Ray-Ban/" } };
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
@@ -74,6 +74,12 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         header.waitForVisibility(searchResultPage.buyNowButton, 2);
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(searchResultPage.buyNowButton));
         searchResultPage.buyNowButton.click();
+        try {
+            header.waitForVisibility(searchResultPage.carBtn, 2);
+            searchResultPage.carBtn.click();
+        }
+        catch (Exception e) {
+        }
         BuyNowPage buyNowPage = new BuyNowPage();
     }
 
