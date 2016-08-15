@@ -60,7 +60,7 @@ public class TestMenuLink extends AbstractBaseSbgDesktopTestCase {
         gridPage.AsssetEquals(currentUrl, "http://www.smartbuyglasses.co.uk/designer-eyeglasses/Ray-Ban/");
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void CL(String url) {
         getURL(url);
         Header header = new Header();

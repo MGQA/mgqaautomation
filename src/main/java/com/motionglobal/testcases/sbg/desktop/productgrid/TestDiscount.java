@@ -1,7 +1,5 @@
 package com.motionglobal.testcases.sbg.desktop.productgrid;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -16,14 +14,13 @@ public class TestDiscount extends AbstractBaseSbgDesktopTestCase {
         return new Object[][] { { "http://www.smartbuyglasses.co.uk/" }, { "http://www.smartbuyglasses.dk/" }, { "http://www.smartbuyglasses.com/" } };
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
     public void intoDiscount(String url) {
         getURL(url);
         Header header = new Header();
         header.waitForVisibility(header.discountSmallIMG, 5);
         header.discountSmallIMG.click();
         header.waitForVisibility(header.discountBigIMG, 5);
-        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(header.discountBigIMG));
         header.discountBigIMG.click();
         ProductGridPage gridPage = new ProductGridPage();
     }

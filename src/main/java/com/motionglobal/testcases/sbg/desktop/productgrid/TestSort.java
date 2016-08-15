@@ -36,11 +36,11 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
         gridPage.AsssetEquals(dropUrl4, url + "-----------2-------");
 
         //
-        for (int i = 2; i < 7; i++) {
+        for (int i = 2; i < gridPage.productPageNum.size() - 1; i++) {
             String productPageUrl = gridPage.productPageNum.get(i).getAttribute("href");
             gridPage.AsssetEquals(productPageUrl, url + "------------" + i + "------");
         }
-        String rightUrl = gridPage.productPageNum.get(7).getAttribute("href");
+        String rightUrl = gridPage.productPageNum.get(gridPage.productPageNum.size() - 1).getAttribute("href");
         gridPage.AsssetEquals(rightUrl, url + "------------2------");
         //
         Random random = new Random();

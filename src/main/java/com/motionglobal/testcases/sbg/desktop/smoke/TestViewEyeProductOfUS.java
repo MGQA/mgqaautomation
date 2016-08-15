@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.cart.CartPage;
+import com.motionglobal.pages.sbg.desktop.cart.NewCartPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
@@ -43,7 +44,12 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
         productGridPage.buyNowButton.click();
         header.waitForVisibility(productGridPage.cartBtn, 2);
         productGridPage.cartBtn.click();
-        CartPage cartPage = new CartPage();
+        try {
+            CartPage cartPage = new CartPage();
+        }
+        catch (Exception e) {
+            NewCartPage newCartPage = new NewCartPage();
+        }
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" }, enabled = false)

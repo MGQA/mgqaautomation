@@ -171,6 +171,7 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         String href0 = pimcorePage.MostPopluarPostS.get(0).getAttribute("href");
         pimcorePage.AsssetTrue(href0.contains(splitUrl), " HREF DON'T CONTAINS " + splitUrl + " !!! ");
         pimcorePage.waitForVisibility(pimcorePage.MostPopluarPostS.get(0), 5);
+        pimcorePage.JsMouse(pimcorePage.MostPopluarPostS.get(0));
         pimcorePage.MostPopluarPostS.get(0).click();
         pimcorePage.waitForVisibility(pimcorePage.textMGTitle, 5);
         pimcorePage.waitForVisibility(pimcorePage.imgContentDETAIL, 5);
