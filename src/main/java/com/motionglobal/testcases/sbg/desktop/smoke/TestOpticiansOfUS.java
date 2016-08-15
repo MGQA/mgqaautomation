@@ -3,6 +3,7 @@ package com.motionglobal.testcases.sbg.desktop.smoke;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.motionglobal.pages.AbstractBasePage;
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
@@ -24,17 +25,16 @@ public class TestOpticiansOfUS extends AbstractBaseTestCase {
         productGridPage.quickView.click();
         productGridPage.waitForVisibility(productGridPage.buyNowButton, 5);
         header.waitForVisibility(productGridPage.buyNowButton, 2);
-        String framePrice = productGridPage.framePrice.getText().replace("$", "").replace(".", "");
-        productGridPage.buyNowButton.click();
+        Double framePrice = productGridPage.regexGetMath(productGridPage.framePrice.getText());
         header.waitForVisibility(productGridPage.cartBtn, 2);
         productGridPage.deluxe.click();
         header.waitForVisibility(productGridPage.deluxeVery, 2);
         productGridPage.deluxeVery.click();
-        String lensePrice = productGridPage.lenses_price.getText().replace("$", "").replace(".", "");
-        Assert.assertEquals(productGridPage.frame_price.getText().replace("$", "").replace(".", ""), framePrice);
-        Assert.assertEquals(productGridPage.deluxeVeryPriece.getText().replace("$", "").replace(".", "") + "00", lensePrice);
-        String price = Integer.toString(Integer.parseInt(lensePrice) + Integer.parseInt(framePrice));
-        Assert.assertEquals(productGridPage.total_price.getText().replace("$", "").replace(".", ""), price);
+        Double lensePrice = productGridPage.regexGetMath(productGridPage.lenses_price.getText());
+        Assert.assertEquals(productGridPage.regexGetMath(productGridPage.frame_price.getText()), framePrice);
+        Assert.assertEquals(productGridPage.regexGetMath(productGridPage.deluxeVeryPriece.getText()), lensePrice);
+        double price = AbstractBasePage.mathAdd(lensePrice, framePrice);
+        Assert.assertEquals(productGridPage.regexGetMath(productGridPage.total_price.getText()), price);
     }
 
     @Override

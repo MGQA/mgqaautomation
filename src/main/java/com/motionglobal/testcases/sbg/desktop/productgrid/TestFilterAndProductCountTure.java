@@ -73,8 +73,9 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         }
         catch (Exception e) {
         }
+        String type = gridPage.shapesMostPopular.getText();
         gridPage.shapesMostPopular.click();
-        Assert.assertTrue(gridPage.filterSide.getText().contains("Aviator"), " fiter fail ");
+        Assert.assertTrue(gridPage.filterSide.getText().contains(type), " fiter fail ");
     }
 
     @Test(groups = { "debug", "smoke" })
@@ -158,6 +159,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         catch (Exception e) {
         }
         gridPage.waitForVisibility(gridPage.filterFrameType, 5);
+        gridPage.JsMouse(gridPage.filterPriceNo3);
         gridPage.filterPriceNo3.click();
         gridPage.waitForVisibility(gridPage.productPriceS, 5);
         for (int j = 0; j < gridPage.productPriceS.size(); j++) {

@@ -18,17 +18,23 @@ public class MobTestOpticians extends AbstractBaseTestCase {
         getURL(url);
         MobProductDetailPage productDetailPage = new MobProductDetailPage();
         productDetailPage.addLens.click();
-        MobOpticianPage opticianPage = new MobOpticianPage();
-        opticianPage.distance.click();
-        opticianPage.selectDegree(opticianPage.rightSPH, "-4.50");
-        opticianPage.selectDegree(opticianPage.rightCYL, "+4.75");
-        opticianPage.selectDegree(opticianPage.rightAX, "1");
-        //
-        opticianPage.selectDegree(opticianPage.leftSPH, "-4.50");
-        opticianPage.selectDegree(opticianPage.leftCYL, "+4.75");
-        opticianPage.selectDegree(opticianPage.leftAX, "1");
-        opticianPage.checkBox.click();
-        opticianPage.continueBtn.click();
+        try {
+
+        }
+        catch (Exception e) {
+            // old RX
+            MobOpticianPage opticianPage = new MobOpticianPage();
+            opticianPage.distance.click();
+            opticianPage.selectDegree(opticianPage.rightSPH, "-4.50");
+            opticianPage.selectDegree(opticianPage.rightCYL, "+4.75");
+            opticianPage.selectDegree(opticianPage.rightAX, "1");
+            //
+            opticianPage.selectDegree(opticianPage.leftSPH, "-4.50");
+            opticianPage.selectDegree(opticianPage.leftCYL, "+4.75");
+            opticianPage.selectDegree(opticianPage.leftAX, "1");
+            opticianPage.checkBox.click();
+            opticianPage.continueBtn.click();
+        }
     }
 
     @Override
