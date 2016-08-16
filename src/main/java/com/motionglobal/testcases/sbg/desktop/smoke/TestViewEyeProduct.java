@@ -44,22 +44,27 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         header.waitForVisibility(productGridPage.buyNowButton, 2);
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(productGridPage.buyNowButton));
         productGridPage.buyNowButton.click();
-        BuyNowPage buyNowPage = new BuyNowPage();
+        try {
+            // new RX
+            header.waitForVisibility(productGridPage.cartBtn, 2);
+        }
+        catch (Exception e) {
+            // old RX
+            BuyNowPage buyNowPage = new BuyNowPage();
+        }
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
-    public void searchPro(String url) {
+    @Test(groups = { "debug", "smoke", "fastsmoke" })
+    public void searchPro() {
+        String url = "http://www.smartbuyglasses.com/search?keywords=Tom+Ford+FT5146+003&searchHashcode=1471256007793346#q=Tom%20Ford%20FT5146%20003&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
         getURL(url);
-        Header header = new Header();
         String searchContent = "Tom Ford FT5146 003";
-        header.inputSearch.sendKeys(searchContent);
-        header.iconSearch.click();
         SearchResultPage searchResultPage = new SearchResultPage();
         String Band = searchResultPage.resultGrid().getItem(0).getBrand();
         Assert.assertTrue(searchContent.contains(Band), "Expected product displayed");
         //
-        header.mouseOver(searchResultPage.proInfo.get(0));
-        header.waitForVisibility(searchResultPage.quickView, 2);
+        searchResultPage.mouseOver(searchResultPage.proInfo.get(0));
+        searchResultPage.waitForVisibility(searchResultPage.quickView, 5);
         searchResultPage.quickView.click();
         //
         waitSize(searchResultPage.eyeproSize);
@@ -71,16 +76,16 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         Assert.assertTrue(searchResultPage.frameOrAddClicked.isDisplayed(), "Frame with Lenses button don't click");
         searchResultPage.frameOrAdd.get(0).click();
         Assert.assertTrue(searchResultPage.frameOrAddClicked.isDisplayed(), "Frame Only button don't click");
-        header.waitForVisibility(searchResultPage.buyNowButton, 2);
+        searchResultPage.waitForVisibility(searchResultPage.buyNowButton, 2);
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(searchResultPage.buyNowButton));
         searchResultPage.buyNowButton.click();
         try {
-            header.waitForVisibility(searchResultPage.carBtn, 2);
+            searchResultPage.waitForVisibility(searchResultPage.carBtn, 2);
             searchResultPage.carBtn.click();
         }
         catch (Exception e) {
+            BuyNowPage buyNowPage = new BuyNowPage();
         }
-        BuyNowPage buyNowPage = new BuyNowPage();
     }
 
     private void waitSize(List<WebElement> element) {

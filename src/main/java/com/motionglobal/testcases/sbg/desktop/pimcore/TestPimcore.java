@@ -31,6 +31,13 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
                 { "http://www.smartbuyglasses.dk/optisk-center" } };
     }
 
+    @DataProvider
+    public Object[][] pop() {
+        return new Object[][] { { "http://www.smartbuyglasses.co.uk/optical-centre/search-results?popular=true" },
+                { "http://www.smartbuyglasses.com/optical-center/search-results?popular=true" },
+                { "http://www.smartbuyglasses.dk/optisk-center/search-results?popular=true" } };
+    }
+
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void intoPimcore(String url) {
         getURL(url);
@@ -149,7 +156,7 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         pimcorePage.waitForVisibility(pimcorePage.imgContentDETAIL, 5);
     }
 
-    //
+    // FIXME
     @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
     public void mostPopularPost(String url) {
         getURL(url);

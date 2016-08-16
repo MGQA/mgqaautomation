@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
@@ -55,8 +54,10 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement popularLeftBtn;
     @FindBy(id = "half_right")
     public WebElement popularRightBtn;
-    @FindAll({ @FindBy(css = "ul[id^=half][style='display: block;']"), @FindBy(css = "ul[id^=half][style='']") })
-    public WebElement popularBrands;
+    @FindBy(id = "half_1")
+    public WebElement popularBrands1;
+    @FindBy(id = "half_3")
+    public WebElement popularBrands3;
     @FindBy(xpath = "//ul[@id='half_1']/li[1]/a")
     public WebElement popularBrandIMG1;
 

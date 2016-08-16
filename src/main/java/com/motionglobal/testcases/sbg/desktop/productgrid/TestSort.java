@@ -69,7 +69,7 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
         ProductGridPage gridPage = new ProductGridPage();
         // leftBtn
         gridPage.waitForVisibility(gridPage.popularRightBtn, 5);
-        String popularBrandName1 = gridPage.popularBrands.getText();
+        String popularBrandName1 = gridPage.popularBrands1.getText();
         try {
             gridPage.deleteHead();
             gridPage.deleteLetTalk();
@@ -77,18 +77,14 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
         catch (Exception e) {
         }
         gridPage.popularLeftBtn.click();
-        gridPage.waitForVisibility(gridPage.popularBrands, 5);
-        String popularBrandID3 = gridPage.popularBrands.getAttribute("id");
-        String popularBrandName3 = gridPage.popularBrands.getText();
-        gridPage.AsssetEquals(popularBrandID3, "half_3");
+        gridPage.waitForVisibility(gridPage.popularBrands3, 5);
+        String popularBrandName3 = gridPage.popularBrands3.getText();
         Assert.assertNotEquals(popularBrandName1, popularBrandName3);
 
         // rigthBtn
         gridPage.waitForVisibility(gridPage.popularRightBtn, 5);
         gridPage.popularRightBtn.click();
-        gridPage.waitForVisibility(gridPage.popularBrands, 2);
-        String popularBrandID1 = gridPage.popularBrands.getAttribute("id");
-        gridPage.AsssetEquals(popularBrandID1, "half_1");
+        gridPage.waitForVisibility(gridPage.popularBrands1, 2);
         Assert.assertNotEquals(popularBrandName1, popularBrandName3);
 
         // click IMG

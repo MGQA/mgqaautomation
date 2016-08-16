@@ -42,7 +42,7 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
         header.waitForVisibility(productGridPage.buyNowButton, 2);
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(productGridPage.buyNowButton));
         productGridPage.buyNowButton.click();
-        header.waitForVisibility(productGridPage.cartBtn, 2);
+        header.waitForVisibility(productGridPage.cartBtn, 8);
         productGridPage.cartBtn.click();
         try {
             CartPage cartPage = new CartPage();
