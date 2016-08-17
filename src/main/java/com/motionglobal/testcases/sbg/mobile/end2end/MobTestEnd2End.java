@@ -47,7 +47,7 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         checkOutPage.clearInput(checkOutPage.inputCity, "shanghai");
         checkOutPage.selectStateGA();
         checkOutPage.continueBtn.click();
-        checkOutPage.waitForVisibility(checkOutPage.VISA, 2);
+        checkOutPage.waitForVisibility(checkOutPage.VISA, 10);
         checkOutPage.VISA.click();
         checkOutPage.waitForVisibility(checkOutPage.payFrame, 10);
     }

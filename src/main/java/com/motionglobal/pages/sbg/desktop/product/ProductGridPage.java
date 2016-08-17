@@ -26,6 +26,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> frameOrAdd;
     @FindBy(css = ".proPriceN")
     public List<WebElement> productPriceS;
+    @FindBy(className = "price_clearance_new_tag")
+    public WebElement discountIcon;
 
     // Opticians
     @FindBy(id = "discount_price_promotion_display")

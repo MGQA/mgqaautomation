@@ -3,7 +3,6 @@ package com.motionglobal.testcases.sbg.desktop.smoke;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.AbstractBasePage;
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
@@ -23,8 +22,8 @@ public class TestOpticiansOfUS extends AbstractBaseTestCase {
         header.mouseOver(productGridPage.proInfo.get(0));
         header.waitForVisibility(productGridPage.quickView, 2);
         productGridPage.quickView.click();
-        productGridPage.waitForVisibility(productGridPage.buyNowButton, 5);
-        header.waitForVisibility(productGridPage.buyNowButton, 2);
+        productGridPage.waitForVisibility(productGridPage.buyNowButton, 10);
+        productGridPage.buyNowButton.click();
         Double framePrice = productGridPage.regexGetMath(productGridPage.framePrice.getText());
         header.waitForVisibility(productGridPage.cartBtn, 10);
         productGridPage.deluxe.click();
@@ -33,7 +32,7 @@ public class TestOpticiansOfUS extends AbstractBaseTestCase {
         Double lensePrice = productGridPage.regexGetMath(productGridPage.lenses_price.getText());
         Assert.assertEquals(productGridPage.regexGetMath(productGridPage.frame_price.getText()), framePrice);
         Assert.assertEquals(productGridPage.regexGetMath(productGridPage.deluxeVeryPriece.getText()), lensePrice);
-        double price = AbstractBasePage.mathAdd(lensePrice, framePrice);
+        double price = productGridPage.mathAdd(lensePrice, framePrice);
         Assert.assertEquals(productGridPage.regexGetMath(productGridPage.total_price.getText()), price);
     }
 

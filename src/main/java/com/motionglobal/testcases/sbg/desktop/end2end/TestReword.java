@@ -85,10 +85,7 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
 
         // total price
         Double priceActualTotal = cartPage.regexGetMath(cartPage.priceTotal.getText());
-
-        // sum total(glass + shipping + insuance -coupon) and assert
-        // Double priceExpectTotal = priceGlass + priceShipping + priceInsuance - PriceActualCoupon;
-        Double priceExpectTotal = CartPage.mathAdd(CartPage.mathAdd(priceGlass, priceShipping), CartPage.mathSub(priceInsuance, PriceActualCoupon));
+        Double priceExpectTotal = cartPage.mathAdd(cartPage.mathAdd(priceGlass, priceShipping), cartPage.mathSub(priceInsuance, PriceActualCoupon));
 
         System.out.println(priceGlass + " _ " + priceShipping + " _ " + priceInsuance + " _ " + PriceActualCoupon);
         Assert.assertEquals(priceActualTotal, priceExpectTotal);

@@ -2,7 +2,7 @@ package com.motionglobal.testcases.sbg.mobile.smoke;
 
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.sbg.mobile.product.MobOpticianPage;
+import com.motionglobal.pages.sbg.mobile.product.MobNewOpticianPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
@@ -18,23 +18,34 @@ public class MobTestOpticians extends AbstractBaseTestCase {
         getURL(url);
         MobProductDetailPage productDetailPage = new MobProductDetailPage();
         productDetailPage.addLens.click();
-        try {
-
-        }
-        catch (Exception e) {
-            // old RX
-            MobOpticianPage opticianPage = new MobOpticianPage();
-            opticianPage.distance.click();
-            opticianPage.selectDegree(opticianPage.rightSPH, "-4.50");
-            opticianPage.selectDegree(opticianPage.rightCYL, "+4.75");
-            opticianPage.selectDegree(opticianPage.rightAX, "1");
-            //
-            opticianPage.selectDegree(opticianPage.leftSPH, "-4.50");
-            opticianPage.selectDegree(opticianPage.leftCYL, "+4.75");
-            opticianPage.selectDegree(opticianPage.leftAX, "1");
-            opticianPage.checkBox.click();
-            opticianPage.continueBtn.click();
-        }
+        // try {
+        MobNewOpticianPage opticianPage = new MobNewOpticianPage();
+        opticianPage.waitForVisibility(opticianPage.priceTotal, 5);
+        double priceFrame = opticianPage.regexGetMath(opticianPage.priceFrame.getText());
+        double buyFrame = opticianPage.regexGetMath(opticianPage.buyFrame.getText());
+        double priceLens = opticianPage.regexGetMath(opticianPage.priceLens.getText());
+        double actualTotal = opticianPage.regexGetMath(opticianPage.priceTotal.getText());
+        double expectTotal = opticianPage.mathAdd(priceFrame, priceLens);
+        opticianPage.AsssetEquals(actualTotal, expectTotal);
+        opticianPage.AsssetEquals(priceFrame, buyFrame);
+        opticianPage.waitForVisibility(opticianPage.continueBtn, 5);
+        opticianPage.JsMouse(opticianPage.continueBtn);
+        opticianPage.continueBtn.click();
+        // }
+        // catch (Exception e) {
+        // // old RX
+        // MobOpticianPage opticianPage = new MobOpticianPage();
+        // opticianPage.distance.click();
+        // opticianPage.selectDegree(opticianPage.rightSPH, "-4.50");
+        // opticianPage.selectDegree(opticianPage.rightCYL, "+4.75");
+        // opticianPage.selectDegree(opticianPage.rightAX, "1");
+        // //
+        // opticianPage.selectDegree(opticianPage.leftSPH, "-4.50");
+        // opticianPage.selectDegree(opticianPage.leftCYL, "+4.75");
+        // opticianPage.selectDegree(opticianPage.leftAX, "1");
+        // opticianPage.checkBox.click();
+        // opticianPage.continueBtn.click();
+        // }
     }
 
     @Override
