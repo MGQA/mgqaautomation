@@ -21,7 +21,7 @@ public class NewCartPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".left-column-content.clearfixes.fullWidth"), 30);
+        waitForVisibility(By.id("main-wrapper"), 30);
     }
 
 }

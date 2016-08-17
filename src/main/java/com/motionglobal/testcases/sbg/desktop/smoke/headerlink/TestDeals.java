@@ -7,7 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.sbg.desktop.Header;
+import com.motionglobal.pages.sbg.desktop.Menu;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
@@ -20,36 +20,36 @@ public class TestDeals extends AbstractBaseSbgDesktopTestCase {
     public void Deals() {
         String url = "http://www.smartbuyglasses.com/";
         getURL(url);
-        Header header = new Header();
+        Menu menu = new Menu();
 
         // deal showNow
-        header.mouseOverMainMenu(7);
-        header.waitForVisibility(header.dealShowNow, 1);
-        header.dealShowNow.click();
+        menu.mouseOverMainMenu(7);
+        menu.waitForVisibility(menu.dealShowNow, 1);
+        menu.dealShowNow.click();
         ProductGridPage page1 = new ProductGridPage();
         Assert.assertEquals(page1.proInfo.size() > 1, true, "expect product Num > 1£¬but no ! ");
         Assert.assertTrue(page1.productNum.getText().contains("1"), "expect product Num > 1, but no ! ");
 
         // deal BuyNow
-        header.mouseOverMainMenu(7);
-        header.waitForVisibility(header.dealBuyNow, 1);
-        header.dealBuyNow.click();
+        menu.mouseOverMainMenu(7);
+        menu.waitForVisibility(menu.dealBuyNow, 1);
+        menu.dealBuyNow.click();
         ProductGridPage page2 = new ProductGridPage();
         Assert.assertEquals(page2.proInfo.size() > 1, true, "expect product Num > 1£¬but no ! ");
         Assert.assertTrue(page2.productNum.getText().contains("1"), "expect product Num > 1, but no ! ");
 
         // deal SunGlass
-        header.mouseOverMainMenu(7);
-        header.waitForVisibility(header.dealSunGlass, 1);
-        header.dealSunGlass.click();
+        menu.mouseOverMainMenu(7);
+        menu.waitForVisibility(menu.dealSunGlass, 1);
+        menu.dealSunGlass.click();
         ProductGridPage page3 = new ProductGridPage();
         Assert.assertEquals(page3.proInfo.size() > 1, true, "expect product Num > 1£¬but no ! ");
         Assert.assertTrue(page3.productNum.getText().contains("1"), "expect product Num > 1, but no ! ");
 
         // deal EyeGlass
-        header.mouseOverMainMenu(7);
-        header.waitForVisibility(header.dealEyeGlass, 1);
-        header.dealEyeGlass.click();
+        menu.mouseOverMainMenu(7);
+        menu.waitForVisibility(menu.dealEyeGlass, 1);
+        menu.dealEyeGlass.click();
         ProductGridPage page4 = new ProductGridPage();
         Assert.assertEquals(page4.proInfo.size() > 1, true, "expect product Num > 1£¬but no ! ");
         Assert.assertTrue(page4.productNum.getText().contains("1"), "expect product Num > 1, but no ! ");
@@ -61,7 +61,7 @@ public class TestDeals extends AbstractBaseSbgDesktopTestCase {
         String url = "http://www.smartbuyglasses.com/";
         //
         getURL(url);
-        Header header = new Header();
+        Menu header = new Menu();
         String handle = "";
         JavascriptExecutor js = (JavascriptExecutor) driver;
         for (int i = 0; i < 2; i++) {

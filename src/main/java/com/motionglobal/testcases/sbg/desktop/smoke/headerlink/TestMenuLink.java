@@ -3,7 +3,7 @@ package com.motionglobal.testcases.sbg.desktop.smoke.headerlink;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.sbg.desktop.Header;
+import com.motionglobal.pages.sbg.desktop.Menu;
 import com.motionglobal.pages.sbg.desktop.product.AllProduct;
 import com.motionglobal.pages.sbg.desktop.product.CLProductGridPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
@@ -19,9 +19,9 @@ public class TestMenuLink extends AbstractBaseSbgDesktopTestCase {
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void sungless(String url) {
         getURL(url);
-        Header header = new Header();
-        header.waitForVisibility(header.getMegaMenuMainElement(1), 5);
-        header.getMegaMenuMainElement(1).click();
+        Menu Menu = new Menu();
+        Menu.waitForVisibility(Menu.getMegaMenuMainElement(1), 5);
+        Menu.getMegaMenuMainElement(1).click();
         AllProduct allProduct = new AllProduct();
         try {
             allProduct.deleteHead();
@@ -41,9 +41,9 @@ public class TestMenuLink extends AbstractBaseSbgDesktopTestCase {
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void eyegless(String url) {
         getURL(url);
-        Header header = new Header();
-        header.waitForVisibility(header.getMegaMenuMainElement(2), 5);
-        header.getMegaMenuMainElement(2).click();
+        Menu Menu = new Menu();
+        Menu.waitForVisibility(Menu.getMegaMenuMainElement(2), 5);
+        Menu.getMegaMenuMainElement(2).click();
         AllProduct allProduct = new AllProduct();
         try {
             allProduct.deleteHead();
@@ -63,9 +63,9 @@ public class TestMenuLink extends AbstractBaseSbgDesktopTestCase {
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void CL(String url) {
         getURL(url);
-        Header header = new Header();
-        header.waitForVisibility(header.getMegaMenuMainElement(5), 5);
-        header.getMegaMenuMainElement(5).click();
+        Menu Menu = new Menu();
+        Menu.waitForVisibility(Menu.getMegaMenuMainElement(5), 5);
+        Menu.getMegaMenuMainElement(5).click();
         CLProductGridPage gridPage = new CLProductGridPage();
         try {
             gridPage.deleteHead();

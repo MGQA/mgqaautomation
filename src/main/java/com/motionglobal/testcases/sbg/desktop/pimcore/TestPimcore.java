@@ -10,6 +10,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
+import com.motionglobal.pages.sbg.desktop.Menu;
 import com.motionglobal.pages.sbg.desktop.home.HomePage;
 import com.motionglobal.pages.sbg.desktop.pimcore.PimcorePage;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
@@ -247,54 +248,54 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
     public void headerMenuSun(String url) {
         getURL(url);
         PimcorePage pimcorePage = new PimcorePage();
-        Header header = new Header();
-        String menuNo1 = header.getLeftSubMenuElement(1, 1, 1).getAttribute("href");
+        Menu menu = new Menu();
+        String menuNo1 = menu.getLeftSubMenuElement(1, 1, 1).getAttribute("href");
         String slitUrl = url.split("/")[2];
         String expectUrl1 = "http://" + slitUrl + "/designer-sunglasses/general/-Men----------------------";
-        header.AsssetEquals(menuNo1, expectUrl1);
-        String menuNo2 = header.getLeftSubMenuElement(1, 2, 3).getAttribute("href");
+        menu.AsssetEquals(menuNo1, expectUrl1);
+        String menuNo2 = menu.getLeftSubMenuElement(1, 2, 3).getAttribute("href");
         String expectUrl2 = "http://" + slitUrl + "/designer-sunglasses/general/--------------1---------";
-        header.AsssetEquals(menuNo2, expectUrl2);
-        String menuNo3 = header.getLeftSubMenuElement(1, 3, 1).getAttribute("href");
+        menu.AsssetEquals(menuNo2, expectUrl2);
+        String menuNo3 = menu.getLeftSubMenuElement(1, 3, 1).getAttribute("href");
         String expectUrl3 = "http://" + slitUrl + "/designer-sunglasses/general/---------------------prescription--";
-        header.AsssetEquals(menuNo3, expectUrl3);
+        menu.AsssetEquals(menuNo3, expectUrl3);
         if (!(url == "http://www.smartbuyglasses.dk/optisk-center")) {
-            String menuNo21 = header.getMiddleSubmenuElement(1, 1, 1).getAttribute("href");
+            String menuNo21 = menu.getMiddleSubmenuElement(1, 1, 1).getAttribute("href");
             String expectUrl21 = "http://" + slitUrl + "/designer-sunglasses/general/--Aviator---------------------";
-            header.AsssetEquals(menuNo21, expectUrl21);
+            menu.AsssetEquals(menuNo21, expectUrl21);
         }
         else {
-            String menuNo21 = header.getMiddleSubmenuElement(1, 1, 1).getAttribute("href");
+            String menuNo21 = menu.getMiddleSubmenuElement(1, 1, 1).getAttribute("href");
             String expectUrl21 = "http://www.smartbuyglasses.dk/designer-sunglasses/general/--Pilot---------------------";
-            header.AsssetEquals(menuNo21, expectUrl21);
+            menu.AsssetEquals(menuNo21, expectUrl21);
         }
-        String menuNo23 = header.getMiddleSubmenuElement(1, 3, 1).getAttribute("href");
+        String menuNo23 = menu.getMiddleSubmenuElement(1, 3, 1).getAttribute("href");
         String expectUrl23 = "http://" + slitUrl + "/designer-sunglasses/general/-------Plastic----------------";
-        header.AsssetEquals(menuNo23, expectUrl23);
+        menu.AsssetEquals(menuNo23, expectUrl23);
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
     public void headerMenuBrank(String url) {
         getURL(url);
         PimcorePage pimcorePage = new PimcorePage();
-        Header header = new Header();
-        header.mouseOverMainMenu(1);
-        header.mouseOver(header.getMegaMenuBrandInitialElement(1, "A"));
+        Menu menu = new Menu();
+        menu.mouseOverMainMenu(1);
+        menu.mouseOver(menu.getMegaMenuBrandInitialElement(1, "A"));
         pimcorePage.waitForVisibility(pimcorePage.linkMenuBrandASection, 2);
         String adidas = pimcorePage.linkMenuBrandASection.getText();
-        header.AsssetEquals(adidas, "Adidas");
+        menu.AsssetEquals(adidas, "Adidas");
         String brankUrl = pimcorePage.linkMenuBrandASection.getAttribute("href");
         String slitUrl = url.split("/")[2];
         String expectUrl = "http://" + slitUrl + "/designer-sunglasses/Adidas/";
-        header.AsssetEquals(brankUrl, expectUrl);
+        menu.AsssetEquals(brankUrl, expectUrl);
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
     public void headerMenuBrandImg(String url) {
         getURL(url);
         PimcorePage pimcorePage = new PimcorePage();
-        Header header = new Header();
-        header.mouseOverMainMenu(1);
+        Menu menu = new Menu();
+        menu.mouseOverMainMenu(1);
         pimcorePage.waitForVisibility(pimcorePage.linkMenuBrandIMG, 2);
         String imgSrc = null;
         String imgDataUrl = null;
@@ -303,26 +304,26 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
             imgSrc += pimcorePage.linkMenuBrandIMG.get(i).getAttribute("src");
             imgDataUrl += pimcorePage.linkMenuBrandIMG.get(i).getAttribute("data-url");
         }
-        header.AsssetTrue(imgSrc.contains(raybanIMG), " DON'T CONTAINS RAYBAN BRAND !!!");
-        header.AsssetTrue(imgDataUrl.contains(raybanIMG), " DON'T CONTAINS RAYBAN BRAND !!!");
+        menu.AsssetTrue(imgSrc.contains(raybanIMG), " DON'T CONTAINS RAYBAN BRAND !!!");
+        menu.AsssetTrue(imgDataUrl.contains(raybanIMG), " DON'T CONTAINS RAYBAN BRAND !!!");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
     public void headerMenuDealsIMG(String url) {
         getURL(url);
         PimcorePage pimcorePage = new PimcorePage();
-        Header header = new Header();
-        header.mouseOverMainMenu(7);
-        header.waitForVisibility(header.dealShowNow, 1);
-        header.waitForVisibility(header.dealBuyNow, 1);
-        header.waitForVisibility(header.dealSunGlass, 1);
-        header.waitForVisibility(header.dealEyeGlass, 1);
+        Menu menu = new Menu();
+        menu.mouseOverMainMenu(7);
+        menu.waitForVisibility(menu.dealShowNow, 1);
+        menu.waitForVisibility(menu.dealBuyNow, 1);
+        menu.waitForVisibility(menu.dealSunGlass, 1);
+        menu.waitForVisibility(menu.dealEyeGlass, 1);
         //
         String handle = "";
         JavascriptExecutor js = (JavascriptExecutor) driver;
         for (int i = 0; i < 2; i++) {
             handle = driver.getWindowHandle();
-            String imgSrc = header.dealIMG.get(i).getAttribute("src").toString();
+            String imgSrc = menu.dealIMG.get(i).getAttribute("src").toString();
             js.executeScript("window.open('" + imgSrc + "')");
             Set<String> handles = driver.getWindowHandles();
             // check img is display

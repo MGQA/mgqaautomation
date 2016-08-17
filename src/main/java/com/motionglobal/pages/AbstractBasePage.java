@@ -55,6 +55,11 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         js.executeScript("arguments[0].style.display='block';", element);
     }
 
+    public void JSMenuDisplay(WebElement element) {
+        JavascriptExecutor js = ((JavascriptExecutor) driver);
+        js.executeScript("arguments[0].setAttribute('class','nav_submenu menuN_display');", element);
+    }
+
     public void deleteHead() {
         Header header = new Header();
         JsDisplayNone(header.delBlackHead);

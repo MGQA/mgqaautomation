@@ -3,7 +3,7 @@ package com.motionglobal.testcases.sbg.desktop.smoke;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.sbg.desktop.Header;
+import com.motionglobal.pages.sbg.desktop.Menu;
 import com.motionglobal.pages.sbg.desktop.product.CLProductGridPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
@@ -18,9 +18,9 @@ public class ContactLens extends AbstractBaseSbgDesktopTestCase {
         int productNum = 18;
         getURL(url);
         // driver.navigate().refresh();
-        Header header = new Header();
-        header.mouseOverMainMenu(5);
-        header.dailyglass.click();
+        Menu menu = new Menu();
+        menu.mouseOverMainMenu(5);
+        menu.dailyglass.click();
         CLProductGridPage productGridPage = new CLProductGridPage();
         // List<WebElement> dailyglassEles = driver.findElements(By.className("pho"));
         productGridPage.waitForVisibility(productGridPage.lenseDailyEles, 10);

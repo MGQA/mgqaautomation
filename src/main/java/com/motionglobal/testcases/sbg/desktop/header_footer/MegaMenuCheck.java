@@ -19,7 +19,7 @@ public class MegaMenuCheck extends AbstractBaseSbgDesktopTestCase {
         getURL("http://www.smartbuyglasses.com/");
         HomePage homepage = new HomePage();
         Actions action = new Actions(driver);
-        action.moveToElement(homepage.header().getMegaMenuMainElement(1)).perform();
+        action.moveToElement(homepage.menu().getMegaMenuMainElement(1)).perform();
         homepage.waitForVisibility(homepage.header().men, 5);
         homepage.header().men.click();
         ProductGridPage productGridPage = new ProductGridPage();

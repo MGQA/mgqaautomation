@@ -89,7 +89,7 @@ public class BuyNowPage extends AbstractBaseSbgDesktopPage {
 
     public void clickEditBtn() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView();", header().getMegaMenuMainElement(1));
+        js.executeScript("arguments[0].scrollIntoView();", menu().getMegaMenuMainElement(1));
         waitForVisibility(editBtn, 1);
         editBtn.click();
     }

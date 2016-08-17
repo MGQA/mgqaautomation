@@ -3,7 +3,7 @@ package com.motionglobal.pages.sbg.desktop;
 import com.motionglobal.pages.AbstractBasePage;
 
 public abstract class AbstractBaseSbgDesktopPage extends AbstractBasePage {
-    private Header header;
+    private final Header header;
 
     public AbstractBaseSbgDesktopPage() {
         super();
@@ -14,4 +14,7 @@ public abstract class AbstractBaseSbgDesktopPage extends AbstractBasePage {
         return header;
     }
 
+    public Menu menu() {
+        return new Menu();
+    }
 }
