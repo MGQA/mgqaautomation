@@ -6,7 +6,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.AbstractBasePage;
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.cart.CartPage;
 import com.motionglobal.pages.sbg.desktop.product.BuyNowPage;
@@ -32,23 +31,32 @@ public class TestOpticians extends AbstractBaseTestCase {
         header.waitForVisibility(productGridPage.buyNowButton, 2);
         productGridPage.buyNowButton.click();
         //
+        String RX = "";
+        BuyNowPage buyNow = null;
         try {
             // new RX
+            header.waitForVisibility(productGridPage.cartBtn, 5);
+            RX = "new";
+        }
+        catch (Exception e) {
+            // old RX
+            buyNow = new BuyNowPage();
+            RX = "old";
+        }
+        if (RX.equals("new")) {
+            // new RX
             Double framePrice = productGridPage.regexGetMath(productGridPage.framePrice.getText());
-            header.waitForVisibility(productGridPage.cartBtn, 2);
             productGridPage.deluxe.click();
             header.waitForVisibility(productGridPage.deluxeVery, 2);
             productGridPage.deluxeVery.click();
             Double lensePrice = productGridPage.regexGetMath(productGridPage.lenses_price.getText());
             Assert.assertEquals(productGridPage.regexGetMath(productGridPage.frame_price.getText()), framePrice);
             Assert.assertEquals(productGridPage.regexGetMath(productGridPage.deluxeVeryPriece.getText()), lensePrice);
-            double price = AbstractBasePage.mathAdd(lensePrice, framePrice);
+            double price = productGridPage.mathAdd(lensePrice, framePrice);
             Assert.assertEquals(productGridPage.regexGetMath(productGridPage.total_price.getText()), price);
         }
-        catch (Exception e) {
+        else {
             // old RX
-            BuyNowPage buyNow = new BuyNowPage();
-            //
             WebDriverWait wait = new WebDriverWait(driver, 5);
             JavascriptExecutor js = (JavascriptExecutor) driver;
             //

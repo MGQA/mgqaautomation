@@ -11,7 +11,7 @@ public class TestDiscount extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
-        return new Object[][] { { "http://www.smartbuyglasses.co.uk/" }, { "http://www.smartbuyglasses.dk/" }, { "http://www.smartbuyglasses.com/" } };
+        return new Object[][] { { "http://www.smartbuyglasses.co.uk/" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
@@ -22,7 +22,10 @@ public class TestDiscount extends AbstractBaseSbgDesktopTestCase {
         header.discountSmallIMG.click();
         header.waitForVisibility(header.discountBigIMG, 5);
         header.discountBigIMG.click();
+        header.switch2NewWindow();
         ProductGridPage gridPage = new ProductGridPage();
+        gridPage.waitForVisibility(gridPage.discountIcon, 10);
+
     }
 
     @Override

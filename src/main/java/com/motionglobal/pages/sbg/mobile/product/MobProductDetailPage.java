@@ -20,10 +20,6 @@ public class MobProductDetailPage extends AbstractBaseSbgDesktopPage {
     @FindBy(xpath = "//div[@class='main__product__view__size']/i[2]")
     public WebElement productSizeTwo;
 
-    public String getPrice() {
-        return price.getText().replace("$", "").replace(".", "");
-    }
-
     @Override
     protected void waitPageLoad() {
         waitForVisibility(productName, 30);

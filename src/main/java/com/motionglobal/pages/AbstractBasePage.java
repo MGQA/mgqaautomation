@@ -9,6 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import com.motionglobal.pages.sbg.desktop.Header;
@@ -67,6 +68,11 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         JsDisplayNone(header.letTalk);
     }
 
+    public void selectValue(WebElement element, String value) {
+        Select select = new Select(element);
+        select.selectByValue(value);
+    }
+
     public void AsssetEquals(Object actual, Object expected) {
         Assert.assertEquals(actual, expected);
     }
@@ -86,14 +92,14 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     /**
      * mathAdd and mathSub can use to doub fuzzy 在double精确度不好的时候用
      */
-    public static double mathAdd(double d1, double d2) {
+    public double mathAdd(double d1, double d2) {
         BigDecimal b1 = new BigDecimal(Double.toString(d1));
         BigDecimal b2 = new BigDecimal(Double.toString(d2));
         return b1.add(b2).doubleValue();
 
     }
 
-    public static double mathSub(double d1, double d2) {
+    public double mathSub(double d1, double d2) {
         BigDecimal b1 = new BigDecimal(Double.toString(d1));
         BigDecimal b2 = new BigDecimal(Double.toString(d2));
         return b1.subtract(b2).doubleValue();
