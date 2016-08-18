@@ -1,5 +1,7 @@
 package com.motionglobal.testcases.sbg.desktop.explore;
 
+import java.util.Iterator;
+
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -27,7 +29,10 @@ public class TestCelebrityGlass extends AbstractBaseSbgDesktopTestCase {
         celebrityPage.waitForVisibility(celebrityPage.swift, 5);
         celebrityPage.JsMouse(celebrityPage.swift);
         celebrityPage.mouseOver(celebrityPage.swift);
+        celebrityPage.waitForVisibility(celebrityPage.swiftGlass, 5);
+        String handle = driver.getWindowHandle();
         celebrityPage.swiftGlass.click();
+        celebrityPage.switch2NewWindow();
         celebrityPage.waitForVisibility(celebrityPage.buyNowBtn, 5);
         try {
             celebrityPage.deleteHead();
@@ -35,8 +40,14 @@ public class TestCelebrityGlass extends AbstractBaseSbgDesktopTestCase {
         }
         catch (Exception e) {
         }
+        String newHandle = driver.getWindowHandle();
         celebrityPage.buyNowBtn.click();
-        celebrityPage.switch2NewWindow();
+        Iterator<String> allHandle = driver.getWindowHandles().iterator();
+        while (allHandle.hasNext()) {
+            if ((allHandle.next() != handle) && (allHandle.next() != newHandle)) {
+                driver.switchTo().window(allHandle.next());
+            }
+        }
         ProductDetailPage detailPage = new ProductDetailPage();
     }
 
