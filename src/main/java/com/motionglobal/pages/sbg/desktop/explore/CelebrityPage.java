@@ -10,7 +10,7 @@ public class CelebrityPage extends AbstractBaseSbgDesktopPage {
 
     @FindBy(xpath = "//*[@id='wrapper']//li[5]/a[1]/p[1]/img")
     public WebElement swift;
-    @FindBy(xpath = "//*[@id='wrapper']/div/div/em/em/div[1]/div/ul/li[5]/a[2]/p/img")
+    @FindBy(xpath = "//*[@id='wrapper']//li[5]/a[2]/p/img")
     public WebElement swiftGlass;
     @FindBy(xpath = "//*[@id='wrapper']/div/div[1]/div[2]/div/a")
     public WebElement buyNowBtn;

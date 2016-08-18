@@ -75,6 +75,7 @@ public class TestFaceShape extends AbstractBaseSbgDesktopTestCase {
         }
         catch (Exception e) {
         }
+        shapePage.JsMouse(shapePage.glassOvalBrand);
         shapePage.glassOvalBrand.click();
         ProductDetailPage detailPage = new ProductDetailPage();
         String productUrl = detailPage.getCurrentUrl();
@@ -101,6 +102,7 @@ public class TestFaceShape extends AbstractBaseSbgDesktopTestCase {
         Assert.assertEquals(faceHomeUrl, "http://www.smartbuyglasses.com/face-shape");
         Assert.assertEquals(topSellUrl, "http://www.smartbuyglasses.co.uk/designer-sunglasses/general/--------------1---------");
         String randName = shapePage.glassOvalBrand.getText().trim().replace(" ", "-");
+        shapePage.JsMouse(shapePage.glassOvalBrand);
         shapePage.glassOvalBrand.click();
         ProductDetailPage detailPage = new ProductDetailPage();
         String productUrl = detailPage.getCurrentUrl();

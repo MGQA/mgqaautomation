@@ -27,10 +27,10 @@ public class TestExploreMenu extends AbstractBaseSbgDesktopTestCase {
         String imgSrc1 = menu.subMenu6LeftIMG.getAttribute("src").toString();
         judgeIMG(handle, imgSrc1);
         //
-        menu.mouseOver(menu.subMenu6Right.get(1));
-        menu.AsssetEquals(menu.subMenu6LeftLink.getAttribute("href"), "http://www.smartbuyglasses.co.uk/face-shape");
-        String imgSrc2 = menu.subMenu6LeftIMG.getAttribute("src").toString();
-        judgeIMG(handle, imgSrc2);
+        menu.mouseOver(menu.subMenu6Right.get(2));
+        menu.AsssetEquals(menu.subMenu6LeftLink.getAttribute("href"), "http://www.smartbuyglasses.co.uk/happy-customers");
+        String imgSrc3 = menu.subMenu6LeftIMG.getAttribute("src").toString();
+        judgeIMG(handle, imgSrc3);
         //
         menu.mouseOver(menu.subMenu6Right.get(3));
         menu.AsssetEquals(menu.subMenu6LeftLink.getAttribute("href"), "http://blog.smartbuyglasses.co.uk/");
@@ -42,11 +42,12 @@ public class TestExploreMenu extends AbstractBaseSbgDesktopTestCase {
         String imgSrc5 = menu.subMenu6LeftIMG.getAttribute("src").toString();
         judgeIMG(handle, imgSrc5);
         //
-        menu.mouseOver(menu.subMenu6Right.get(2));
-        menu.AsssetEquals(menu.subMenu6LeftLink.getAttribute("href"), "http://www.smartbuyglasses.co.uk/happy-customers");
-        String imgSrc3 = menu.subMenu6LeftIMG.getAttribute("src").toString();
-        judgeIMG(handle, imgSrc3);
-        menu.subMenu6Right.get(2).click();
+        menu.mouseOver(menu.subMenu6Right.get(1));
+        menu.AsssetEquals(menu.subMenu6LeftLink.getAttribute("href"), "http://www.smartbuyglasses.co.uk/face-shape");
+        String imgSrc2 = menu.subMenu6LeftIMG.getAttribute("src").toString();
+        judgeIMG(handle, imgSrc2);
+        //
+        menu.subMenu6LeftLink.click();
         FaceShapePage faceShapePage = new FaceShapePage();
     }
 

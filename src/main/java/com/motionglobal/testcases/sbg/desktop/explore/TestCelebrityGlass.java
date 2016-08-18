@@ -14,8 +14,8 @@ public class TestCelebrityGlass extends AbstractBaseSbgDesktopTestCase {
         return new Object[][] { { "http://www.smartbuyglasses.co.uk/i/celebrity-sunglasses-glasses" } };
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
-    public void topSellImg(String url) {
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
+    public void celebrity(String url) {
         getURL(url);
         CelebrityPage celebrityPage = new CelebrityPage();
         try {
@@ -27,7 +27,7 @@ public class TestCelebrityGlass extends AbstractBaseSbgDesktopTestCase {
         celebrityPage.waitForVisibility(celebrityPage.swift, 5);
         celebrityPage.JsMouse(celebrityPage.swift);
         celebrityPage.mouseOver(celebrityPage.swift);
-        celebrityPage.swift.click();
+        celebrityPage.swiftGlass.click();
         celebrityPage.waitForVisibility(celebrityPage.buyNowBtn, 5);
         try {
             celebrityPage.deleteHead();
