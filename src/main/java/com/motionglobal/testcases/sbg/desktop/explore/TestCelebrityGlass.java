@@ -16,7 +16,7 @@ public class TestCelebrityGlass extends AbstractBaseSbgDesktopTestCase {
         return new Object[][] { { "http://www.smartbuyglasses.co.uk/i/celebrity-sunglasses-glasses" } };
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void celebrity(String url) {
         getURL(url);
         CelebrityPage celebrityPage = new CelebrityPage();
@@ -41,6 +41,7 @@ public class TestCelebrityGlass extends AbstractBaseSbgDesktopTestCase {
         catch (Exception e) {
         }
         String newHandle = driver.getWindowHandle();
+        celebrityPage.JsMouse(celebrityPage.buyNowBtn);
         celebrityPage.buyNowBtn.click();
         Iterator<String> allHandle = driver.getWindowHandles().iterator();
         while (allHandle.hasNext()) {
