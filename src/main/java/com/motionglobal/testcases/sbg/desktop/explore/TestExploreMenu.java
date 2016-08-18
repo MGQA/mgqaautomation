@@ -1,26 +1,22 @@
-package com.motionglobal.testcases.sbg.desktop.smoke.headerlink;
+package com.motionglobal.testcases.sbg.desktop.explore;
 
 import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Menu;
 import com.motionglobal.pages.sbg.desktop.explore.FaceShapePage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
-public class TestExplore extends AbstractBaseSbgDesktopTestCase {
+public class TestExploreMenu extends AbstractBaseSbgDesktopTestCase {
 
-    @DataProvider
-    public Object[][] db() {
-        return new Object[][] { { "http://www.smartbuyglasses.co.uk/" } };
-    }
-
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
-    public void moveAndImgDisplay(String url) {
+    // FIXME sub menu
+    @Test(skipFailedInvocations = true, groups = { "debug", "smoke" })
+    public void moveAndImgDisplay() {
+        String url = "http://www.smartbuyglasses.co.uk/";
         getURL(url);
         Menu menu = new Menu();
         menu.mouseOverMainMenu(6);
