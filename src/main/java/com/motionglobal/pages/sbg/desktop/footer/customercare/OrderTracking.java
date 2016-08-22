@@ -6,20 +6,18 @@ import org.openqa.selenium.support.FindBy;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
-public class FaqPage extends AbstractBaseSbgDesktopPage {
+public class OrderTracking extends AbstractBaseSbgDesktopPage {
 
-    @FindBy(name = "orderId")
+    @FindBy(name = "orderId_orderpage")
     public WebElement inputOrder;
-    @FindBy(css = "[onclick='checkOrder();']")
-    public WebElement btnTracking;
-
-    public FaqPage() {
-        super();
-    }
+    @FindBy(name = "email")
+    public WebElement inputEmail;
+    @FindBy(css = "[onclick='orderTrackingSubmit()']")
+    public WebElement btnOrderTracking;
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.name("txt_faq_search"), 20);
+        waitForVisibility(By.cssSelector(".track_order_status"), 30);
     }
 
 }

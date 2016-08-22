@@ -29,19 +29,19 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         }
         catch (Exception e) {
         }
+        String brand4 = resultPage.brand4.getText();
         resultPage.filterMen.click();
         resultPage.waitForVisibility(resultPage.filterMenChecked, 10);
         int procuctMenCount = Integer.parseInt(resultPage.productCount.getText());
         Assert.assertNotEquals(procuctCount, procuctMenCount);
-        resultPage.waitForVisibility(resultPage.filterWayfarer, 5);
-        resultPage.waitForVisibility(resultPage.filterWayfarer, 3);
-        new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(resultPage.filterWayfarer));
+        resultPage.waitForVisibility(resultPage.filterWayfarer, 10);
         try {
             resultPage.deleteHead();
             resultPage.deleteLetTalk();
         }
         catch (Exception e) {
         }
+        new WebDriverWait(driver, 10).until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(resultPage.brand4, brand4)));
         resultPage.filterWayfarer.click();
         resultPage.waitForVisibility(resultPage.filterWayfarerChecked, 10);
         int procuctWayfarerCount = Integer.parseInt(resultPage.productCount.getText());
@@ -173,11 +173,11 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
     public void algoliaEye() {
         String url = "http://www.smartbuyglasses.com/search?keywords=rayban&searchHashcode=1470715095524430#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
         getURL(url);
-        SearchResultPage resultPage = new SearchResultPage();
-        resultPage.waitForVisibility(resultPage.filterGlasses, 5);
-        resultPage.filterGlasses.get(0).click();
         driver.navigate().refresh();
-        resultPage.waitForVisibility(resultPage.filterEyeChecked, 10);
+        SearchResultPage resultPage = new SearchResultPage();
+        resultPage.waitForVisibility(resultPage.filterEye, 5);
+        resultPage.filterEye.click();
+        resultPage.waitForVisibility(resultPage.filterGlassChecked, 10);
         resultPage.waitForVisibility(resultPage.proInfo, 5);
         for (int i = 0; i < resultPage.proInfo.size(); i++) {
             String cid = resultPage.proInfo.get(i).getAttribute("data-cid");
@@ -189,10 +189,11 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
     public void algoliaSun() {
         String url = "http://www.smartbuyglasses.com/search?keywords=rayban&searchHashcode=1470715095524430#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
         getURL(url);
+        driver.navigate().refresh();
         SearchResultPage resultPage = new SearchResultPage();
-        resultPage.waitForVisibility(resultPage.filterGlasses, 5);
-        resultPage.filterGlasses.get(1).click();
-        resultPage.waitForVisibility(resultPage.filterSunCkecked, 5);
+        resultPage.waitForVisibility(resultPage.filterSun, 5);
+        resultPage.filterSun.click();
+        resultPage.waitForVisibility(resultPage.filterGlassChecked, 5);
         resultPage.waitForVisibility(resultPage.proInfo, 5);
         for (int i = 0; i < resultPage.proInfo.size(); i++) {
             String cid = resultPage.proInfo.get(i).getAttribute("data-cid");

@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -55,9 +56,9 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         js.executeScript("arguments[0].style.display='block';", element);
     }
 
-    public void JSMenuDisplay(WebElement element) {
+    public void JSMenuDisplay(int menuNum) {
         JavascriptExecutor js = ((JavascriptExecutor) driver);
-        js.executeScript("arguments[0].setAttribute('class','nav_submenu menuN_display');", element);
+        js.executeScript("arguments[0].setAttribute('class','nav_submenu menuN_display');", driver.findElement(By.id("menuN_level_" + menuNum)));
     }
 
     public void deleteHead() {

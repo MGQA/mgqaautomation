@@ -53,8 +53,12 @@ public class TestAddCartAndDelCart extends AbstractBaseSbgDesktopTestCase {
             CartPage page = new CartPage();
             Assert.assertEquals(page.productName.size(), 3);
             page.productRemove.get(0).click();
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
+            try {
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+            }
+            catch (Exception e) {
+            }
             new WebDriverWait(driver, 10).until(ExpectedConditions.numberOfElementsToBeLessThan(By.className("td_title"), 3));
             Assert.assertEquals(page.productName.size(), 2);
         }
