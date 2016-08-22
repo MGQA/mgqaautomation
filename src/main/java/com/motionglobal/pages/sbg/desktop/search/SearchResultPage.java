@@ -43,17 +43,17 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     public WebElement BebeBrankChecked;
     @FindBy(className = "srg_number")
     public WebElement brankNum;
-    @FindBy(xpath = "//*[@id='wrapper']/div[5]/div[2]/div[1]/ul/li[1]/i")
-    public WebElement filterEyeChecked;
-    @FindBy(xpath = "//*[@id='wrapper']/div[5]/div[2]/div[1]/ul/li[2]/i")
-    public WebElement filterSunCkecked;
+    @FindBy(xpath = "//div[@id='wrapper']//li/i")
+    public WebElement filterGlassChecked;
 
     // filter product
-    @FindBy(css = ".search_category_container>li>a")
-    public List<WebElement> filterGlasses;
+    @FindBy(xpath = "//span[text()='Sunglasses']")
+    public WebElement filterSun;
+    @FindBy(xpath = "//span[text()='Eyeglasses']")
+    public WebElement filterEye;
     @FindBy(xpath = "//a[contains(@onclick,'Men')][label]")
     public WebElement filterMen;
-    @FindBy(css = "span.count +i")
+    @FindBy(css = "#choose_title i")
     public WebElement filterMenChecked;
     @FindBy(partialLinkText = "Wayfarer")
     public WebElement filterWayfarer;
@@ -63,6 +63,9 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> filterFeature;
     @FindBy(css = ".refined.list-group-item")
     public List<WebElement> filterFeatureChecked;
+
+    @FindBy(xpath = ".//*[@id='wrapper']//div[5]/div[1]/ul/a/li[2]/span")
+    public WebElement brand4;
 
     public SearchResultPage() {
         super();

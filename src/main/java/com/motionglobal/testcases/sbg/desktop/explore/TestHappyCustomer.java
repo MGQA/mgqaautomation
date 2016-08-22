@@ -15,7 +15,7 @@ public class TestHappyCustomer extends AbstractBaseSbgDesktopTestCase {
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
-    public void topSellImg(String url) {
+    public void happyCustomer(String url) {
         getURL(url);
         HappyCustomer customer = new HappyCustomer();
         customer.waitForVisibility(customer.customer2, 5);

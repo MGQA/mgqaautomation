@@ -77,29 +77,25 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         Menu Menu = new Menu();
         Random random = new Random();
         int dice = random.nextInt(2);
+        Menu.clickLeftSubMenu(5, 2, 1);
         Menu.mouseOverMainMenu(5);
         Menu.waitForVisibility(Menu.getLeftSubMenuElement(5, 2, 1), 2);
         String extendedWear = Menu.getLeftSubMenuElement(5, 2, 1).getText();
-        Menu.waitForVisibility(Menu.getLeftSubMenuElement(5, 2, 2), 2);
-        String siliconeHydrogel = Menu.getLeftSubMenuElement(5, 2, 2).getText();
-        Menu.waitForVisibility(Menu.getLeftSubMenuElement(5, 2, 3), 2);
-        String coloured = Menu.getLeftSubMenuElement(5, 2, 3).getText();
-        Menu.clickLeftSubMenu(5, 2, 1);
         CLProductGridPage clProductGridPage = new CLProductGridPage();
-        if (!(url.equals("http://www.smartbuyglasses.dk")))
-            Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), extendedWear);
-        else
-            Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), "Langtidsbrug");
+        Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), extendedWear);
         switch (dice) {
         case 0:
             Menu.clickLeftSubMenu(5, 2, 2);
-            if (!(url.equals("http://www.smartbuyglasses.dk")))
-                Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), siliconeHydrogel);
-            else
-                Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), "Silikone Hydrogel");
+            Menu.mouseOverMainMenu(5);
+            Menu.waitForVisibility(Menu.getLeftSubMenuElement(5, 2, 2), 2);
+            String siliconeHydrogel = Menu.getLeftSubMenuElement(5, 2, 2).getText();
+            Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), siliconeHydrogel);
             break;
         default:
             Menu.clickLeftSubMenu(5, 2, 3);
+            Menu.mouseOverMainMenu(5);
+            Menu.waitForVisibility(Menu.getLeftSubMenuElement(5, 2, 3), 2);
+            String coloured = Menu.getLeftSubMenuElement(5, 2, 3).getText();
             Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), coloured);
             break;
         }
