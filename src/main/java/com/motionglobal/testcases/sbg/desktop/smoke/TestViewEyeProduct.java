@@ -10,8 +10,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
-import com.motionglobal.pages.sbg.desktop.product.BuyNowPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
+import com.motionglobal.pages.sbg.desktop.product.RX2Page;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
@@ -50,7 +50,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         }
         catch (Exception e) {
             // old RX
-            BuyNowPage buyNowPage = new BuyNowPage();
+            RX2Page buyNowPage = new RX2Page();
         }
     }
 
@@ -84,7 +84,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
             searchResultPage.carBtn.click();
         }
         catch (Exception e) {
-            BuyNowPage buyNowPage = new BuyNowPage();
+            RX2Page buyNowPage = new RX2Page();
         }
     }
 

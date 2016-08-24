@@ -8,7 +8,14 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
-public class BuyNowPage extends AbstractBaseSbgDesktopPage {
+public class RX2Page extends AbstractBaseSbgDesktopPage {
+    // myself pre info
+    @FindBy(id = "get_prescription_detail")
+    public WebElement addPreInfo;
+    @FindBy(xpath = "//div[*[*[h4[contains(text(),'prescription')]]]]//p[1]/a")
+    public WebElement btnSelectPre;
+    @FindBy(id = "lensEnterHtml")
+    public WebElement preDetail;
     // IMG 5 ;
     @FindBy(className = "lensTypeImg01")
     public WebElement lensTypeImg01;
@@ -101,11 +108,11 @@ public class BuyNowPage extends AbstractBaseSbgDesktopPage {
         catch (InterruptedException e) {
         }
         Boolean pri = null;
-        Integer priF = Integer.parseInt(framePrice.getText().replace("$", "").replace(".", ""));
-        Integer priL = Integer.parseInt(lensePrice.getText().replace("$", "").replace(".", ""));
-        Integer num = priF + priL;
-        Integer totalPri = Integer.parseInt(total.getText().replace("$", "").replace(".", ""));
-        if (num.equals(totalPri))
+        double priF = header().regexGetMath(framePrice.getText());
+        double priL = header().regexGetMath(lensePrice.getText());
+        double num = header().mathAdd(priF, priL);
+        double totalPri = header().regexGetMath(total.getText());
+        if (num == totalPri)
             pri = true;
         else
             pri = false;

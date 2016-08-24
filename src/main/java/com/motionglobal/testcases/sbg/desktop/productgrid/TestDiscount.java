@@ -24,8 +24,6 @@ public class TestDiscount extends AbstractBaseSbgDesktopTestCase {
         header.discountBigIMG.click();
         header.switch2NewWindow();
         ProductGridPage gridPage = new ProductGridPage();
-        gridPage.waitForVisibility(gridPage.discountIcon, 10);
-
     }
 
     @Override
