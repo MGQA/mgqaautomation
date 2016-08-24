@@ -56,16 +56,20 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         js.executeScript("arguments[0].style.display='block';", element);
     }
 
-    public void JSMenuDisplay(int menuNum) {
+    public void JsChangeClass(String classContent, WebElement element) {
         JavascriptExecutor js = ((JavascriptExecutor) driver);
-        js.executeScript("arguments[0].setAttribute('class','nav_submenu menuN_display');", driver.findElement(By.id("menuN_level_" + menuNum)));
+        js.executeScript("arguments[0].setAttribute('class','" + classContent + "');", element);
+    }
+
+    public void displayLogin() {
+        JsChangeClass("new_proPop new_proPop2 addblock", driver.findElement(By.cssSelector("#signin_li>div")));
     }
 
     public void deleteHead() {
         Header header = new Header();
         JsDisplayNone(header.delBlackHead);
-        JsDisplayNone(header.delDiscount);
         JsDisplayNone(header.delSearchHead);
+        JsDisplayNone(header.delDiscount);
     }
 
     public void deleteLetTalk() {

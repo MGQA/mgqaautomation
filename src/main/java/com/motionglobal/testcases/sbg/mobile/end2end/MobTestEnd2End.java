@@ -1,6 +1,8 @@
 package com.motionglobal.testcases.sbg.mobile.end2end;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -49,7 +51,31 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         checkOutPage.continueBtn.click();
         checkOutPage.waitForVisibility(checkOutPage.VISA, 10);
         checkOutPage.VISA.click();
-        checkOutPage.waitForVisibility(checkOutPage.payFrame, 10);
+        //
+        for (int i = 0; i < 50; i++) {
+            String attribute = checkOutPage.VISA.getAttribute("style");
+            System.out.println(" ... " + attribute);
+            if (attribute != null) {
+                break;
+            }
+            else {
+                try {
+                    Thread.sleep(200);
+                    checkOutPage.waitForVisibility(checkOutPage.VISA, 5);
+                    new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(checkOutPage.VISA));
+                    try {
+                        checkOutPage.VISA.click();
+                        Thread.sleep(100);
+                    }
+                    catch (Exception e) {
+                    }
+                }
+                catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        checkOutPage.waitForVisibility(checkOutPage.payFrame, 20);
     }
 
     @Override

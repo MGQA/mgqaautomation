@@ -1,5 +1,7 @@
 package com.motionglobal.pages.sbg.desktop.product;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,6 +20,10 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
     public WebElement radioFrameOnly;
     @FindBy(xpath = "//a[@class='pro_big_title']/h1")
     public WebElement glassName;
+
+    // Ë¥ÍË BUG
+    @FindBy(xpath = "//a[contains(@class,'buy')][not(contains(@style,'none'))]")
+    public List<WebElement> BUG2BuyNow;
 
     public ProductDetailPage() {
         super();
