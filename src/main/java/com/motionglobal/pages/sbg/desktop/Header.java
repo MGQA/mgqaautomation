@@ -140,6 +140,8 @@ public class Header extends AbstractBasePage {
     // birthday
     @FindBy(css = ".fa.fa-2x.fa-close")
     public WebElement firstBuy;
+    @FindBy(css = ".close_btn>.fa.fa-times")
+    public WebElement happySummer;
     @FindBy(css = ".thankyou i")
     public WebElement birthdayClose;
     @FindBy(id = "email")
