@@ -31,19 +31,12 @@ public class TestAddCartAndDelCart extends AbstractBaseSbgDesktopTestCase {
         ProductDetailPage detailPage = new ProductDetailPage();
         detailPage.waitForVisibility(detailPage.btnBuyNow, 2);
         detailPage.btnBuyNow.click();
-        String cart = "";
-        CartPage cartpage = null;
-        NewCartPage newCartPage = null;
-        try {
-            cartpage = new CartPage();
-            cart = "old";
-        }
-        catch (Exception e) {
-            newCartPage = new NewCartPage();
-            cart = "new";
-        }
+        //
+        String cart = detailPage.getCartType();
+        //
         if (cart.equals("old")) {
             // old cart
+            CartPage cartpage = new CartPage();
             Assert.assertEquals(cartpage.header().cartProductNum.getText(), "1");
             cartpage.productNum.get(0).clear();
             cartpage.productNum.get(0).sendKeys("3");
@@ -64,6 +57,7 @@ public class TestAddCartAndDelCart extends AbstractBaseSbgDesktopTestCase {
         }
         else {
             // new cart
+            NewCartPage newCartPage = new NewCartPage();
             newCartPage.waitForVisibility(newCartPage.selectQuantity, 5);
             double priceNum1 = newCartPage.regexGetMath(newCartPage.priceS.get(0).getText());
             newCartPage.selectValue(newCartPage.selectQuantity.get(0), "3");

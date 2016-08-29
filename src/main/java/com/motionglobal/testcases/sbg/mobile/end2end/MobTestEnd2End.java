@@ -50,12 +50,9 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         checkOutPage.selectStateGA();
         checkOutPage.continueBtn.click();
         checkOutPage.waitForVisibility(checkOutPage.VISA, 10);
-        checkOutPage.VISA.click();
         //
         for (int i = 0; i < 50; i++) {
-            String attribute = checkOutPage.VISA.getAttribute("style");
-            System.out.println(" ... " + attribute);
-            if (attribute != null) {
+            if (checkOutPage.VISA.getAttribute("style") != null) {
                 break;
             }
             else {

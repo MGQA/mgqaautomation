@@ -6,11 +6,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class CheckoutPage extends AbstractBaseSbgDesktopPage {
 
+    @FindBy(css = ".logo_imgBox>ul>li")
+    private List<WebElement> payPicture;
     @FindBy(id = "gc-payment")
     public WebElement btnGcPayment;
     @FindBy(css = ".total_price.td_r")
@@ -78,6 +81,25 @@ public class CheckoutPage extends AbstractBaseSbgDesktopPage {
         waitForVisibility(radioVISA, 2);
         this.radioVISA.click();
         return this;
+    }
+
+    public void AssertPayPicture(Object... pay) {
+        String[] expectPay1 = new String[pay.length];
+        String[] expectPay2 = new String[pay.length];
+        String[] actualPay = new String[payPicture.size()];
+        Assert.assertEquals(payPicture.size(), pay.length);
+        for (int i = 0; i < pay.length; i++) {
+            expectPay1[i] = "payment_product_" + pay[i];
+            expectPay2[i] = "payment_product_select_" + pay[i];
+            actualPay[i] = payPicture.get(i).getAttribute("id");
+            if (actualPay[i].contains("payment_product_select_")) {
+                AsssetEquals(actualPay[i], expectPay2[i]);
+            }
+            else {
+                AsssetEquals(actualPay[i], expectPay1[i]);
+
+            }
+        }
     }
 
     public CheckoutPage() {

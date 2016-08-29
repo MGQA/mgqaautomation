@@ -145,8 +145,8 @@ public class TestOpticians extends AbstractBaseTestCase {
             new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(buyNow.Dgold));
             checkInputClicked(buyNow.Dgold);
             Assert.assertTrue(buyNow.isPriceEqual());
-            checkInputClicked(buyNow.Dplatinum);
-            Assert.assertTrue(buyNow.isPriceEqual());
+            // checkInputClicked(buyNow.Dplatinum);
+            // Assert.assertTrue(buyNow.isPriceEqual());
             checkInputClicked(buyNow.Dsilver);
             Assert.assertTrue(buyNow.isPriceEqual());
             header.waitForVisibility(buyNow.premium, 5);
@@ -154,8 +154,8 @@ public class TestOpticians extends AbstractBaseTestCase {
             // buyNow.premium.click();
             checkInputClicked(buyNow.Pgold);
             Assert.assertTrue(buyNow.isPriceEqual());
-            checkInputClicked(buyNow.Pplatinum);
-            Assert.assertTrue(buyNow.isPriceEqual());
+            // checkInputClicked(buyNow.Pplatinum);
+            // Assert.assertTrue(buyNow.isPriceEqual());
             checkInputClicked(buyNow.Psilver);
             Assert.assertTrue(buyNow.isPriceEqual());
             buyNow.waitForVisibility(buyNow.addToCarBtn, 5);
@@ -185,50 +185,50 @@ public class TestOpticians extends AbstractBaseTestCase {
         WebDriverWait wait = new WebDriverWait(driver, 5);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         //
-        buyNow.lensTypeImg01.click();
-        buyNow.waitForVisibility(buyNow.confirmEnter, 8);
-        Assert.assertTrue(buyNow.confirmEnter.isDisplayed());
-        header.waitForVisibility(buyNow.UpLoadPre, 10);
-        checkBtnClicked(buyNow.UpLoadPre);
-        // js.executeScript("arguments[0].click();", buyNow.UpLoadPre);
-        Assert.assertTrue(buyNow.UpLoadBtn.isDisplayed());
-        header.waitForVisibility(buyNow.sendLater, 5);
-        checkBtnClicked(buyNow.sendLater);
-        Assert.assertTrue(buyNow.confirmSendLater.isDisplayed());
-        header.waitForVisibility(buyNow.lensEnter, 5);
-        checkBtnClicked(buyNow.lensEnter);
-        Assert.assertTrue(buyNow.confirmEnter.isDisplayed());
-        buyNow.clickEditBtn();
-        //
-        buyNow.lensTypeImg02.click();
-        buyNow.waitForVisibility(buyNow.confirmEnter, 8);
-        Assert.assertTrue(buyNow.confirmEnter.isDisplayed());
-        header.waitForVisibility(buyNow.UpLoadPre, 10);
-        checkBtnClicked(buyNow.UpLoadPre);
-        // js.executeScript("arguments[0].click();", buyNow.UpLoadPre);
-        Assert.assertTrue(buyNow.UpLoadBtn.isDisplayed());
-        header.waitForVisibility(buyNow.sendLater, 5);
-        checkBtnClicked(buyNow.sendLater);
-        Assert.assertTrue(buyNow.confirmSendLater.isDisplayed());
-        header.waitForVisibility(buyNow.lensEnter, 5);
-        checkBtnClicked(buyNow.lensEnter);
-        Assert.assertTrue(buyNow.confirmEnter.isDisplayed());
-        buyNow.clickEditBtn();
-        //
-        buyNow.lensTypeImg03.click();
-        buyNow.waitForVisibility(buyNow.confirmEnter, 8);
-        Assert.assertTrue(buyNow.confirmEnter.isDisplayed());
-        header.waitForVisibility(buyNow.UpLoadPre, 10);
-        checkBtnClicked(buyNow.UpLoadPre);
-        // js.executeScript("arguments[0].click();", buyNow.UpLoadPre);
-        Assert.assertTrue(buyNow.UpLoadBtn.isDisplayed());
-        header.waitForVisibility(buyNow.sendLater, 5);
-        checkBtnClicked(buyNow.sendLater);
-        Assert.assertTrue(buyNow.confirmSendLater.isDisplayed());
-        header.waitForVisibility(buyNow.lensEnter, 5);
-        checkBtnClicked(buyNow.lensEnter);
-        Assert.assertTrue(buyNow.confirmEnter.isDisplayed());
-        buyNow.clickEditBtn();
+        // buyNow.lensTypeImg01.click();
+        // buyNow.waitForVisibility(buyNow.confirmEnter, 8);
+        // Assert.assertTrue(buyNow.confirmEnter.isDisplayed());
+        // header.waitForVisibility(buyNow.UpLoadPre, 10);
+        // checkBtnClicked(buyNow.UpLoadPre);
+        // // js.executeScript("arguments[0].click();", buyNow.UpLoadPre);
+        // Assert.assertTrue(buyNow.UpLoadBtn.isDisplayed());
+        // header.waitForVisibility(buyNow.sendLater, 5);
+        // checkBtnClicked(buyNow.sendLater);
+        // Assert.assertTrue(buyNow.confirmSendLater.isDisplayed());
+        // header.waitForVisibility(buyNow.lensEnter, 5);
+        // checkBtnClicked(buyNow.lensEnter);
+        // Assert.assertTrue(buyNow.confirmEnter.isDisplayed());
+        // buyNow.clickEditBtn();
+        // //
+        // buyNow.lensTypeImg02.click();
+        // buyNow.waitForVisibility(buyNow.confirmEnter, 8);
+        // Assert.assertTrue(buyNow.confirmEnter.isDisplayed());
+        // header.waitForVisibility(buyNow.UpLoadPre, 10);
+        // checkBtnClicked(buyNow.UpLoadPre);
+        // // js.executeScript("arguments[0].click();", buyNow.UpLoadPre);
+        // Assert.assertTrue(buyNow.UpLoadBtn.isDisplayed());
+        // header.waitForVisibility(buyNow.sendLater, 5);
+        // checkBtnClicked(buyNow.sendLater);
+        // Assert.assertTrue(buyNow.confirmSendLater.isDisplayed());
+        // header.waitForVisibility(buyNow.lensEnter, 5);
+        // checkBtnClicked(buyNow.lensEnter);
+        // Assert.assertTrue(buyNow.confirmEnter.isDisplayed());
+        // buyNow.clickEditBtn();
+        // //
+        // buyNow.lensTypeImg03.click();
+        // buyNow.waitForVisibility(buyNow.confirmEnter, 8);
+        // Assert.assertTrue(buyNow.confirmEnter.isDisplayed());
+        // header.waitForVisibility(buyNow.UpLoadPre, 10);
+        // checkBtnClicked(buyNow.UpLoadPre);
+        // // js.executeScript("arguments[0].click();", buyNow.UpLoadPre);
+        // Assert.assertTrue(buyNow.UpLoadBtn.isDisplayed());
+        // header.waitForVisibility(buyNow.sendLater, 5);
+        // checkBtnClicked(buyNow.sendLater);
+        // Assert.assertTrue(buyNow.confirmSendLater.isDisplayed());
+        // header.waitForVisibility(buyNow.lensEnter, 5);
+        // checkBtnClicked(buyNow.lensEnter);
+        // Assert.assertTrue(buyNow.confirmEnter.isDisplayed());
+        // buyNow.clickEditBtn();
         //
         buyNow.lensTypeImg04.click();
         buyNow.waitForVisibility(buyNow.confirmEnter, 8);
@@ -267,8 +267,8 @@ public class TestOpticians extends AbstractBaseTestCase {
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(buyNow.Dgold));
         checkInputClicked(buyNow.Dgold);
         Assert.assertTrue(buyNow.isPriceEqual());
-        checkInputClicked(buyNow.Dplatinum);
-        Assert.assertTrue(buyNow.isPriceEqual());
+        // checkInputClicked(buyNow.Dplatinum);
+        // Assert.assertTrue(buyNow.isPriceEqual());
         checkInputClicked(buyNow.Dsilver);
         Assert.assertTrue(buyNow.isPriceEqual());
         header.waitForVisibility(buyNow.premium, 5);
@@ -276,8 +276,8 @@ public class TestOpticians extends AbstractBaseTestCase {
         // buyNow.premium.click();
         checkInputClicked(buyNow.Pgold);
         Assert.assertTrue(buyNow.isPriceEqual());
-        checkInputClicked(buyNow.Pplatinum);
-        Assert.assertTrue(buyNow.isPriceEqual());
+        // checkInputClicked(buyNow.Pplatinum);
+        // Assert.assertTrue(buyNow.isPriceEqual());
         checkInputClicked(buyNow.Psilver);
         Assert.assertTrue(buyNow.isPriceEqual());
         buyNow.waitForVisibility(buyNow.addToCarBtn, 5);
@@ -366,9 +366,7 @@ public class TestOpticians extends AbstractBaseTestCase {
     private void checkInputClicked(WebElement element) {
         Header header = new Header();
         for (int i = 0; i < 50; i++) {
-            String attribute = element.getAttribute("checked");
-            System.out.println(" ... " + attribute);
-            if (attribute != null) {
+            if (element.getAttribute("checked") != null) {
                 break;
             }
             else {

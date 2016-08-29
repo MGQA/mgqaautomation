@@ -12,6 +12,8 @@ public class NewCartPage extends AbstractBaseSbgDesktopPage {
 
     @FindBy(css = ".quantity-wrapper>select")
     public List<WebElement> selectQuantity;
+    @FindBy(css = ".pay_now.gc-checkout-class")
+    public WebElement btnCheckout;
 
     // assert
     @FindBy(className = "empty-cart-content")
@@ -21,7 +23,7 @@ public class NewCartPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.id("main-wrapper"), 30);
+        waitForVisibility(By.id("main-wrapper"), 15);
     }
 
 }

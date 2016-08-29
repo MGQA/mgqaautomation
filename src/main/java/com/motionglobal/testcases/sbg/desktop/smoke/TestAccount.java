@@ -122,6 +122,7 @@ public class TestAccount extends AbstractBaseSbgDesktopTestCase {
         int Num = random.nextInt(9999999);
         String preName = "my prescription" + Num;
         accountPage.preName.sendKeys(preName);
+        accountPage.JsMouse(accountPage.btnSave);
         accountPage.btnSave.click();
         accountPage.acceptAlert();
         accountPage.waitForVisibility(accountPage.newPre, 10);

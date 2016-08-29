@@ -117,12 +117,52 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     }
 
     /**
+     * judge cart type
+     * 
+     * @return "new" or "old"
+     */
+    public String getCartType() {
+        String cart = "";
+        for (int i = 0; i < 100; i++) {
+            try {
+                driver.findElement(By.id("main-wrapper"));
+                cart = "new";
+                break;
+            }
+            catch (Exception e) {
+            }
+            try {
+                driver.findElement(By.cssSelector(".cart_detail"));
+                cart = "old";
+                break;
+            }
+            catch (Exception e) {
+            }
+            try {
+                Thread.sleep(200);
+            }
+            catch (Exception e) {
+            }
+        }
+        return cart;
+    }
+
+    /**
      * @param domain
      *            domain example: http://www.smartbuyglasses.co.uk/
      */
     final public static String getLoginRequest(String domain) {
         String loginRequest = domain
                 + "order/login?jsoncallback=jQuery16408493127196615433_1470738431732&username=felix.ma%40motionglobal.com&password=f8b708301cea089f3490279a90fcdb6b&remember_me=1&fromMember=Membership&_=1470738448814";
+        return loginRequest;
+    }
+
+    /**
+     * @param domain
+     *            domain example: http://m.smartbuyglasses.co.uk/
+     */
+    final public static String getMobLoginRequest(String domain) {
+        String loginRequest = domain + "membership/login-do?username=felix.ma%40motionglobal.com&password=motion888&form=menu&getInfo=0";
         return loginRequest;
     }
 
