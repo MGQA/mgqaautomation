@@ -35,7 +35,7 @@ public class MobCheckOutPage extends AbstractBaseSbgDesktopPage {
     private WebElement inputState;
     @FindBy(css = ".shipping_country")
     private WebElement selectCountry;
-    @FindBy(className = "cartGreenBtn")
+    @FindBy(css = ".ck_continue_btn.i-btn--orange")
     public WebElement continueBtn;
     @FindBy(id = "product_122")
     public WebElement VISA;

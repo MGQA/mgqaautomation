@@ -49,7 +49,7 @@ public class MobTestSearchPradaBebeTrue extends AbstractBaseTestCase {
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(searchResultPage.productName.get(0)));
         searchResultPage.productName.get(0).click();
         MobProductDetailPage productDetailPage = new MobProductDetailPage();
-        Assert.assertEquals(detailName.replace("b", "B"), productDetailPage.productName.getText());
+        Assert.assertEquals(detailName.replace("b", "B"), productDetailPage.productName.getText().replace("b", "B"));
     }
 
     @Override

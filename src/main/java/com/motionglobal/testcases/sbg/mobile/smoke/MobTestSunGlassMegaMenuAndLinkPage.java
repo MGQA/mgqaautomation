@@ -7,6 +7,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.mobile.MobHeader;
+import com.motionglobal.pages.sbg.mobile.MobHeader.MegaMenu;
 import com.motionglobal.pages.sbg.mobile.product.MobProductPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
@@ -40,7 +41,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         Random random = new Random();
         int num = random.nextInt(header.getSubMenuElementSize(1, 1));
         header.menuBtn.click();
-        header.getMainMenuElement(1).click();
+        header.getMainMenuElement(MegaMenu.SUN).click();
         header.getSubMenuElement(1, 1).click();
         // String brankName = header.getDetailLinkElement(2, 1, (i + 1)).getText();
         js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(1, 1, (num + 1)));
@@ -64,7 +65,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         int num = random.nextInt(header.getSubMenuElementSize(1, 2));
         if (!(num == (header.getSubMenuElementSize(1, 2) - 1))) {
             header.menuBtn.click();
-            header.getMainMenuElement(1).click();
+            header.getMainMenuElement(MegaMenu.SUN).click();
             header.getSubMenuElement(1, 2).click();
             // String brankName = header.getDetailLinkElement(2, 2, (i + 1)).getText();
             js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(1, 2, (num + 1)));
@@ -80,7 +81,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         }
         else {
             header.menuBtn.click();
-            header.getMainMenuElement(1).click();
+            header.getMainMenuElement(MegaMenu.SUN).click();
             header.getSubMenuElement(1, 2).click();
             js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(1, 2, (header.getSubMenuElementSize(1, 2))));
             header.getDetailLinkElement(1, 2, header.getSubMenuElementSize(1, 2)).click();
@@ -96,7 +97,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         Random random = new Random();
         int num = random.nextInt(header.getSubMenuElementSize(1, 3));
         header.menuBtn.click();
-        header.getMainMenuElement(1).click();
+        header.getMainMenuElement(MegaMenu.SUN).click();
         header.getSubMenuElement(1, 3).click();
         // String brankName = header.getDetailLinkElement(2, 3, (i + 1)).getText();
         js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(1, 3, (num + 1)));
@@ -120,7 +121,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         switch (num) {
         case 0:
             header.menuBtn.click();
-            header.getMainMenuElement(1).click();
+            header.getMainMenuElement(MegaMenu.SUN).click();
             // String brankName = header.getDetailLinkElement(2, 4, (i + 1)).getText();
             js.executeScript("arguments[0].scrollIntoView();", header.subMenuPolarized);
             header.subMenuPolarized.click();
@@ -128,7 +129,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
             break;
         case 1:
             header.menuBtn.click();
-            header.getMainMenuElement(1).click();
+            header.getMainMenuElement(MegaMenu.SUN).click();
             // String brankName = header.getDetailLinkElement(2, 4, (i + 1)).getText();
             js.executeScript("arguments[0].scrollIntoView();", header.subMenuPre);
             header.subMenuPre.click();
@@ -136,7 +137,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
             break;
         default:
             header.menuBtn.click();
-            header.getMainMenuElement(1).click();
+            header.getMainMenuElement(MegaMenu.SUN).click();
             // String brankName = header.getDetailLinkElement(2, 4, (i + 1)).getText();
             js.executeScript("arguments[0].scrollIntoView();", header.subMenuSki);
             header.subMenuSki.click();

@@ -55,7 +55,11 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         PimcorePage pimcorePage = new PimcorePage();
         pimcorePage.waitForVisibility(pimcorePage.linkMenuEye, 5);
         String expectTitle1 = pimcorePage.linkMenuEye.getText().toLowerCase();
-        pimcorePage.deleteHead();
+        try {
+            pimcorePage.deleteHead();
+        }
+        catch (Exception e) {
+        }
         pimcorePage.linkMenuEye.click();
         pimcorePage.waitForVisibility(pimcorePage.textTitle, 5);
         String actualTitle1 = pimcorePage.textTitle.getText().toLowerCase();

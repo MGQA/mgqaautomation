@@ -9,10 +9,17 @@ import org.openqa.selenium.support.FindBy;
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class MobProductPage extends AbstractBaseSbgDesktopPage {
+
+    @FindBy(css = ".main__title")
+    public WebElement productTitle;
     @FindBy(className = "main__glass-list__item")
     public List<WebElement> productList;
+    @FindBy(className = "main__glass-list__item__detail__name")
+    public List<WebElement> brankName;
     @FindBy(className = "main__glass-list__item__detail__other")
     private List<WebElement> productName;
+    @FindBy(className = "main__glass-list__item__tag--cheep")
+    public List<WebElement> dealsIcon;
 
     public MobProductPage productList(int index) {
         this.productList.get(index);
@@ -21,6 +28,7 @@ public class MobProductPage extends AbstractBaseSbgDesktopPage {
 
     public String getProductName(int index) {
         String name = productName.get(index).getText();
+        driver.findElement(By.xpath("" + index));
         return name;
     }
 

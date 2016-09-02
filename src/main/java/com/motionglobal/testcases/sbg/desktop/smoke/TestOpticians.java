@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 
 import com.motionglobal.pages.AbstractBasePage;
 import com.motionglobal.pages.sbg.desktop.Header;
-import com.motionglobal.pages.sbg.desktop.cart.CN_CartPage;
 import com.motionglobal.pages.sbg.desktop.cart.CartPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
@@ -167,7 +166,7 @@ public class TestOpticians extends AbstractBaseTestCase {
     // FIXME CASE 2
     @Test(groups = { "debug", "smoke", "fastsmoke" })
     public void RX2() {
-        String url = "http://www.smartbuyglasses.cn/designer-eyeglasses/Tom-Ford/Tom-Ford-FT5323-002-254012.html";
+        String url = "http://www.smartbuyglasses.dk/designer-eyeglasses/Tom-Ford/Tom-Ford-FT5323-002-254012.html";
         getURL(url);
         Header header = new Header();
         ProductDetailPage detailPage = new ProductDetailPage();
@@ -282,15 +281,15 @@ public class TestOpticians extends AbstractBaseTestCase {
         Assert.assertTrue(buyNow.isPriceEqual());
         buyNow.waitForVisibility(buyNow.addToCarBtn, 5);
         buyNow.addToCarBtn.click();
-        CN_CartPage cn_CartPage = new CN_CartPage();
+        CartPage cartPage = new CartPage();
 
     }
 
     // FIXME CASE 3
     @Test(skipFailedInvocations = true, groups = { "debug", "smoke" }, priority = 2)
     public void addMyselfPrescription() {
-        getURL(AbstractBasePage.getLoginRequest("https://www.smartbuyglasses.cn/"));
-        String url = "http://www.smartbuyglasses.cn/designer-eyeglasses/Tom-Ford/Tom-Ford-FT5323-002-254012.html";
+        getURL(AbstractBasePage.getLoginRequest("https://www.smartbuyglasses.dk/"));
+        String url = "http://www.smartbuyglasses.dk/designer-eyeglasses/Tom-Ford/Tom-Ford-FT5323-002-254012.html";
         getURL(url);
         Header header = new Header();
         ProductDetailPage detailPage = new ProductDetailPage();
@@ -334,7 +333,7 @@ public class TestOpticians extends AbstractBaseTestCase {
         checkInputClicked(rx.Pgold);
         rx.waitForVisibility(rx.addToCarBtn, 5);
         rx.addToCarBtn.click();
-        CN_CartPage cn_CartPage = new CN_CartPage();
+        CartPage cartPage = new CartPage();
     }
 
     // private Method
