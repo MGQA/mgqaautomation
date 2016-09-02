@@ -1,5 +1,6 @@
 package com.motionglobal.testcases.sbg.desktop.payment;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -32,9 +33,11 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
 
     /**
      * all url sum total is 51 . check it payment picture
+     * 
+     * @throws InterruptedException
      */
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug4", "paymentPicture" })
-    public void payPicture(String url) {
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "paymentPicture" })
+    public void payPicture(String url) throws InterruptedException {
         switch (url) {
         case "http://m.es.smartbuyglasses.com":
         case "http://m.smartbuyglasses.com.ar":
@@ -56,6 +59,25 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
         MobProductDetailPage detailPage = new MobProductDetailPage();
         detailPage.waitForVisibility(detailPage.buyNow, 5);
         detailPage.buyNow.click();
+
+        // judge page in cart page ;
+        for (int i = 0; i < 40; i++) {
+            try {
+                // elemet is detailPage.fastCheckout;
+                driver.findElement(By.className("shopping__cart__checkout"));
+                break;
+            }
+            catch (Exception e) {
+            }
+            try {
+                // elemet is detailPage.buyNow;
+                driver.findElement(By.className("buy_now_btn"));
+                detailPage.buyNow.click();
+            }
+            catch (Exception e) {
+                Thread.sleep(200);
+            }
+        }
         new MobCartPage().fastCheckOut.click();
         MobCheckOutPage checkOutPage = new MobCheckOutPage();
         //
@@ -100,6 +122,7 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
             checkOutPage.clearInput(checkOutPage.inputPostAddress, "200000");
             checkOutPage.clearInput(checkOutPage.inputCity, "shanghai");
         }
+        checkOutPage.waitForVisibility(checkOutPage.continueBtn, 5);
         checkOutPage.continueBtn.click();
         //
         checkOutPage.waitForVisibility(checkOutPage.payPicture, 10);

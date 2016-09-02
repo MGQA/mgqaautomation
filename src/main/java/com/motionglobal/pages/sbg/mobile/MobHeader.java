@@ -12,6 +12,8 @@ public class MobHeader extends AbstractBasePage {
     public WebElement menuBtn;
     @FindBy(className = "header__search-btn")
     public WebElement searchBtn;
+    @FindBy(className = "logo_image")
+    public WebElement logo;
     @FindBy(id = "search_input")
     public WebElement searchInput;
     @FindBy(className = "header__cart-nav")
@@ -29,22 +31,47 @@ public class MobHeader extends AbstractBasePage {
     @FindBy(className = "member_hello")
     public WebElement account;
     // SUN Glasses
-    @FindBy(xpath = "//ul[@class='index__menu']/li[1]/div/div[1]/span")
-    public WebElement SunGlass;
     @FindBy(xpath = "//*[@id='menu']/div[2]/ul/li[1]/div/div[2]/ul/li[4]/a")
     public WebElement subMenuPolarized;
     @FindBy(xpath = "//*[@id='menu']/div[2]/ul/li[1]/div/div[2]/ul/li[5]/a")
     public WebElement subMenuPre;
     @FindBy(xpath = "//*[@id='menu']/div[2]/ul/li[1]/div/div[2]/ul/li[6]/a")
     public WebElement subMenuSki;
-    //
-    @FindBy(xpath = "//ul[@class='index__menu']/li[2]/div/div[1]/span")
-    public WebElement EyeGlass;
-    @FindBy(xpath = "//ul[@class='index__menu']/li[3]/div/div[1]/span")
-    public WebElement CL;
+    // deals
+    @FindBy(css = ".main__type__li [onclick*='Sunglasses'][onclick*='Deals']")
+    public WebElement dealsSun;
+    @FindBy(css = ".main__type__li [onclick*='Glasses'][onclick*='Deals']")
+    public WebElement dealsEye;
 
-    public WebElement getMainMenuElement(int mainNum) {
-        WebElement element = driver.findElement(By.xpath("//ul[@class='index__menu']/li[" + mainNum + "]/div/div[1]/span"));
+    //
+    // public WebElement getMainMenuElement(int mainNum) {
+    // WebElement element = driver.findElement(By.xpath("//ul[@class='index__menu']/li[" + mainNum + "]/div/div[1]/span"));
+    // return element;
+    // }
+
+    public enum MegaMenu {
+        SUN, EYE, CL, DEALS;
+    }
+
+    public WebElement getMainMenuElement(MegaMenu megaMenuName) {
+        WebElement element = null;
+        switch (megaMenuName) {
+        case SUN:
+            element = driver.findElement(By.xpath("//ul[@class='index__menu']/li[1]/div/div[1]/span"));
+            break;
+        case EYE:
+            element = driver.findElement(By.xpath("//ul[@class='index__menu']/li[2]/div/div[1]/span"));
+            break;
+        case CL:
+            element = driver.findElement(By.xpath("//ul[@class='index__menu']/li[4]/div/div[1]/span"));
+            break;
+        case DEALS:
+            element = driver.findElement(By.xpath("//ul[@class='index__menu']/li[5]/div/div[1]/span"));
+            break;
+        default:
+            System.out.println("");
+            break;
+        }
         return element;
     }
 

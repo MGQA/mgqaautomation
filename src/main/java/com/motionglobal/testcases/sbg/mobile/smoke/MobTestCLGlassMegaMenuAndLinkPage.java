@@ -8,6 +8,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.mobile.MobHeader;
+import com.motionglobal.pages.sbg.mobile.MobHeader.MegaMenu;
 import com.motionglobal.pages.sbg.mobile.product.MobProductPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
@@ -36,8 +37,8 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         Random random = new Random();
         int num = random.nextInt(header.getSubMenuElementSize(4, 1));
         header.menuBtn.click();
-        header.waitForVisibility(header.getMainMenuElement(4), 2);
-        header.getMainMenuElement(4).click();
+        header.waitForVisibility(header.getMainMenuElement(MegaMenu.CL), 2);
+        header.getMainMenuElement(MegaMenu.CL).click();
         header.getSubMenuElement(4, 1).click();
         String menuBrankName = header.getDetailLinkElement(4, 1, (num + 1)).getText();
         js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(4, 1, (num + 1)));
@@ -67,7 +68,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         Random random = new Random();
         int num = random.nextInt(header.getSubMenuElementSize(4, 2));
         header.menuBtn.click();
-        header.getMainMenuElement(4).click();
+        header.getMainMenuElement(MegaMenu.CL).click();
         header.getSubMenuElement(4, 2).click();
         // String brankName = header.getDetailLinkElement(3, 2, (i + 1)).getText();
         js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(4, 2, (num + 1)));
@@ -91,7 +92,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         Random random = new Random();
         int num = random.nextInt(header.getSubMenuElementSize(4, 3));
         header.menuBtn.click();
-        header.getMainMenuElement(4).click();
+        header.getMainMenuElement(MegaMenu.CL).click();
         header.waitForVisibility(header.getSubMenuElement(4, 3), 2);
         header.getSubMenuElement(4, 3).click();
         // String brankName = header.getDetailLinkElement(3, 2, (i + 1)).getText();

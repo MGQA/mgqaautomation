@@ -3,7 +3,9 @@ package com.motionglobal.pages;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -72,11 +74,27 @@ public abstract class AbstractBaseContainer implements IWaiter {
     }
 
     public void acceptAlert() {
+        // try {
+        // driver.switchTo().alert().accept();
+        // }
+        // catch (Exception e) {
+        // // Do nothing if there is no alert.
+        // }
+        boolean flag = false;
+        Alert alert = null;
         try {
-            driver.switchTo().alert().accept();
+            new WebDriverWait(driver, 5).until(ExpectedConditions.alertIsPresent());
+            alert = driver.switchTo().alert();
+            flag = true;
+            // alert.accept();
         }
-        catch (Exception e) {
-            // Do nothing if there is no alert.
+        catch (NoAlertPresentException NofindAlert) {
+            // TODO: handle exception
+            NofindAlert.printStackTrace();
+            // throw NofindAlert;
+        }
+        if (flag) {
+            alert.accept();
         }
     }
 }

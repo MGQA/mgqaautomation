@@ -67,15 +67,31 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
 
     public void deleteHead() {
         Header header = new Header();
-        JsDisplayNone(header.delBlackHead);
-        JsDisplayNone(header.delSearchHead);
-        JsDisplayNone(header.delDiscount);
+        try {
+            JsDisplayNone(header.delBlackHead);
+        }
+        catch (Exception e) {
+        }
+        try {
+            JsDisplayNone(header.delSearchHead);
+        }
+        catch (Exception e) {
+        }
+        try {
+            JsDisplayNone(header.delDiscount);
+        }
+        catch (Exception e) {
+        }
     }
 
     public void deleteLetTalk() {
-        Header header = new Header();
-        waitForVisibility(header.letTalk, 5);
-        JsDisplayNone(header.letTalk);
+        try {
+            Header header = new Header();
+            waitForVisibility(header.letTalk, 5);
+            JsDisplayNone(header.letTalk);
+        }
+        catch (Exception e) {
+        }
     }
 
     public void selectValue(WebElement element, String value) {
@@ -97,6 +113,13 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         String getStr = match.replaceAll("");
         Double getNum = Double.parseDouble(getStr);
         return getNum;
+    }
+
+    public String regexGetLetterLow(String matcher) {
+        Pattern pattern = Pattern.compile("[^a-zA-Z]");
+        Matcher match = pattern.matcher(matcher);
+        String getStr = match.replaceAll("").toLowerCase();
+        return getStr;
     }
 
     /**

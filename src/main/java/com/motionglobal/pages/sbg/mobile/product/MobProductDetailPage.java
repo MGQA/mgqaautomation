@@ -8,7 +8,7 @@ import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 public class MobProductDetailPage extends AbstractBaseSbgDesktopPage {
     // private Element
     @FindBy(className = "pro_selling_price")
-    private WebElement price;
+    public WebElement price;
     @FindBy(className = "buy_lens_btn")
     public WebElement addLens;
     @FindBy(className = "buy_now_btn")

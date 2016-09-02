@@ -7,6 +7,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.mobile.MobHeader;
+import com.motionglobal.pages.sbg.mobile.MobHeader.MegaMenu;
 import com.motionglobal.pages.sbg.mobile.product.MobProductPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
@@ -36,7 +37,7 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         int num = random.nextInt(header.getSubMenuElementSize(2, 1));
         System.out.println(num);
         header.menuBtn.click();
-        header.getMainMenuElement(2).click();
+        header.getMainMenuElement(MegaMenu.EYE).click();
         header.getSubMenuElement(2, 1).click();
         // String brankName = header.getDetailLinkElement(2, 1, (i + 1)).getText();
         js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 1, (num + 1)));
@@ -60,7 +61,7 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         int num = random.nextInt(header.getSubMenuElementSize(2, 2));
         if (!(num == (header.getSubMenuElementSize(2, 2) - 1))) {
             header.menuBtn.click();
-            header.getMainMenuElement(2).click();
+            header.getMainMenuElement(MegaMenu.EYE).click();
             header.getSubMenuElement(2, 2).click();
             // String brankName = header.getDetailLinkElement(2, 2, (i + 1)).getText();
             js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 2, (num + 1)));
@@ -76,7 +77,7 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         //
         else {
             header.menuBtn.click();
-            header.getMainMenuElement(2).click();
+            header.getMainMenuElement(MegaMenu.EYE).click();
             header.getSubMenuElement(2, 2).click();
             js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 2, (header.getSubMenuElementSize(2, 2))));
             header.getDetailLinkElement(2, 2, header.getSubMenuElementSize(2, 2)).click();
@@ -92,7 +93,7 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         Random random = new Random();
         int num = random.nextInt(header.getSubMenuElementSize(2, 3));
         header.menuBtn.click();
-        header.getMainMenuElement(2).click();
+        header.getMainMenuElement(MegaMenu.EYE).click();
         header.getSubMenuElement(2, 3).click();
         // String brankName = header.getDetailLinkElement(2, 3, (i + 1)).getText();
         js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 3, (num + 1)));
@@ -115,7 +116,7 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         Random random = new Random();
         int num = random.nextInt(header.getSubMenuElementSize(2, 4));
         header.menuBtn.click();
-        header.getMainMenuElement(2).click();
+        header.getMainMenuElement(MegaMenu.EYE).click();
         header.getSubMenuElement(2, 4).click();
         // String brankName = header.getDetailLinkElement(2, 4, (i + 1)).getText();
         js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 4, (num + 1)));
