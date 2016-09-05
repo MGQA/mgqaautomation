@@ -41,11 +41,15 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
         header.mouseOver(header.yourAccount);
         header.waitForVisibility(header.signout, 5);
         Assert.assertTrue(header.isTextPresent("Hi test!"));
-
+        Double couponTotal = 0.0;
         // get Double of coupon price TODO
-        header.waitForVisibility(header.priceCoupon, 5);
-        Double couponTotal = header.regexGetMath(header.priceCoupon.getText());
-        System.out.println(couponTotal + " BO");
+        try {
+            header.waitForVisibility(header.priceCoupon, 5);
+            couponTotal = header.regexGetMath(header.priceCoupon.getText());
+            System.out.println(couponTotal + " BO");
+        }
+        catch (Exception e) {
+        }
 
         // into product details page
         getURL("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/Ray-Ban-RB4171-Erika-865/13-117665.html");
