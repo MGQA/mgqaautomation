@@ -17,7 +17,7 @@ public class TestImgBelowLink extends AbstractBaseSbgDesktopTestCase {
         return new Object[][] { { "http://www.smartbuyglasses.co.uk/" }, { "http://www.smartbuyglasses.com/" }, { "http://www.smartbuyglasses.dk/" } };
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug,smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void imgBelowLinkSun(String url) {
         getURL(url);
         HomePage homePage = new HomePage();
@@ -43,7 +43,7 @@ public class TestImgBelowLink extends AbstractBaseSbgDesktopTestCase {
         Assert.assertEquals(actualUrl, expectedUrl);
     }
 
-    @Test(dataProvider = "db", groups = { "debug,smoke" })
+    @Test(dataProvider = "db", groups = { "debug", "smoke" })
     public void imgBelowLinkEye(String url) {
         getURL(url);
         HomePage homePage = new HomePage();
@@ -64,6 +64,7 @@ public class TestImgBelowLink extends AbstractBaseSbgDesktopTestCase {
         catch (Exception e) {
         }
         homePage.waitForVisibility(linkSun, 5);
+        homePage.JsMouse(linkSun);
         linkSun.click();
         String actualUrl = driver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedUrl);

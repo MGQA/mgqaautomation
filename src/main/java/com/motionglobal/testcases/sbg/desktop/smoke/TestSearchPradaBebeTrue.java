@@ -47,7 +47,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         }
         ProductDetailPage detailPage = new ProductDetailPage();
         System.out.println(detailPage.glassName.getText());
-        Assert.assertTrue(detailPage.glassName.getText().replace("b", "B").contains("BeBe BB5051 Flattering 045"), "Page mismatching !!!");
+        Assert.assertTrue(detailPage.glassName.getText().replace("b", "B").contains("Bebe BB7019 001"), "Page mismatching !!!");
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
@@ -79,7 +79,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         resultPage.detailBtn.click();
         ProductDetailPage detailPage = new ProductDetailPage();
         System.out.println(detailPage.glassName.getText());
-        Assert.assertTrue(detailPage.glassName.getText().replace("b", "B").contains("BeBe BB5051 Flattering 045"), "Page Mismatcher");
+        Assert.assertTrue(detailPage.glassName.getText().replace("b", "B").contains("Bebe BB7019 001"), "Page Mismatcher");
     }
 
     @Override

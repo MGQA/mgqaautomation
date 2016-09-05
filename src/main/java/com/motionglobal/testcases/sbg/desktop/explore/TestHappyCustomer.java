@@ -27,6 +27,7 @@ public class TestHappyCustomer extends AbstractBaseSbgDesktopTestCase {
         }
         catch (Exception e) {
         }
+        customer.JsMouse(customer.customer2);
         customer.customer2.click();
         customer.switch2NewWindow();
         ProductDetailPage detailPage = new ProductDetailPage();

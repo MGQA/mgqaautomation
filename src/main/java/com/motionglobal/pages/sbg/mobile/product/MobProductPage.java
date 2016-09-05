@@ -40,7 +40,6 @@ public class MobProductPage extends AbstractBaseSbgDesktopPage {
 
     public String getProductName(int index) {
         String name = productName.get(index).getText();
-        driver.findElement(By.xpath("" + index));
         return name;
     }
 

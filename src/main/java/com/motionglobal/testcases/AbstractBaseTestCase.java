@@ -63,6 +63,7 @@ public abstract class AbstractBaseTestCase {
         }
         catch (Exception e) {
         }
+        header.deleteLetTalk();
         i = 0;
     }
 

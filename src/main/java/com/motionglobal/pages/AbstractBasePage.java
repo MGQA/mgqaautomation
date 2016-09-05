@@ -87,7 +87,6 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     public void deleteLetTalk() {
         try {
             Header header = new Header();
-            waitForVisibility(header.letTalk, 5);
             JsDisplayNone(header.letTalk);
         }
         catch (Exception e) {

@@ -45,6 +45,7 @@ public class TestFaceShape extends AbstractBaseSbgDesktopTestCase {
         shapePage.waitForVisibility(shapePage.getListImgEle(FaceShape.oval), 5);
         shapePage.waitForVisibility(shapePage.getListFaceLinkEle(FaceShape.oval), 5);
         //
+        shapePage.JsMouse(shapePage.getListFaceLinkEle(FaceShape.oval));
         shapePage.getListFaceLinkEle(FaceShape.oval).click();
         if (url.equals("http://www.smartbuyglasses.co.uk/face-shape")) {
             String current = shapePage.getCurrentUrl();

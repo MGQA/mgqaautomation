@@ -21,10 +21,11 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
     @Test(skipFailedInvocations = true, groups = { "debug", "smoke" })
     public void paypalAR() {
         //
-        // String url = "http://www.smartbuyglasses.com.ar/lentes-de-sol-de-dise%C3%B1o/D&G/D&G-DD3065/S-1870/8G-116377.html";
-        String url219 = "http://www.smartbuyglasses.com.ar/gafas-de-sol-de-diseno/D&G/D&G-DD3065/S-1870/8G-116377.html";
+        String url = "http://www.smartbuyglasses.com.ar/lentes-de-sol-de-dise%C3%B1o/D&G/D&G-DD3065/S-1870/8G-116377.html";
+        // url 219
+        // String url = "http://www.smartbuyglasses.com.ar/gafas-de-sol-de-diseno/D&G/D&G-DD3065/S-1870/8G-116377.html";
         getURL(AbstractBasePage.getLoginRequest("http://www.smartbuyglasses.com.ar/"));
-        getURL(url219);
+        getURL(url);
         ProductDetailPage detailPage = new ProductDetailPage();
         detailPage.waitForVisibility(detailPage.btnBuyNow, 5);
         detailPage.btnBuyNow.click();
