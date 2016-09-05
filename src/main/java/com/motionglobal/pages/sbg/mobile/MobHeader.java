@@ -1,5 +1,7 @@
 package com.motionglobal.pages.sbg.mobile;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -42,6 +44,10 @@ public class MobHeader extends AbstractBasePage {
     public WebElement dealsSun;
     @FindBy(css = ".main__type__li [onclick*='Glasses'][onclick*='Deals']")
     public WebElement dealsEye;
+
+    // footer
+    @FindBy(className = "footer__navs__item")
+    public List<WebElement> footer;
 
     //
     // public WebElement getMainMenuElement(int mainNum) {

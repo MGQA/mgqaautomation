@@ -18,8 +18,20 @@ public class MobProductPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> brankName;
     @FindBy(className = "main__glass-list__item__detail__other")
     private List<WebElement> productName;
+    @FindBy(className = "main__glass-list__item__detail__price")
+    public List<WebElement> productPrice;
     @FindBy(className = "main__glass-list__item__tag--cheep")
     public List<WebElement> dealsIcon;
+
+    //
+    @FindBy(css = ".main__btn-group__btnl")
+    public WebElement filter;
+    @FindBy(css = ".main__btn-group__btnr")
+    public WebElement Sort;
+    @FindBy(css = ".main__btn-group__con.open .menu_level_first")
+    public List<WebElement> subFilter;
+    @FindBy(css = ".main__type__li__open li")
+    public List<WebElement> finalFilter;
 
     public MobProductPage productList(int index) {
         this.productList.get(index);

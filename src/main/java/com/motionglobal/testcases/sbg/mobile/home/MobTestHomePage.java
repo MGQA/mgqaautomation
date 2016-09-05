@@ -17,7 +17,7 @@ import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
-public class TestHomePage extends AbstractBaseTestCase {
+public class MobTestHomePage extends AbstractBaseTestCase {
 
     @DataProvider
     public Object[][] dp() {
