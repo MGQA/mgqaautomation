@@ -30,8 +30,11 @@ public class TestAccount extends AbstractBaseSbgDesktopTestCase {
             MysqlConnect219Util
                     .updateSQL("UPDATE om_pay_rewards_log SET member_id='775310',currency_code='GBP' WHERE currency_code='EUR' and is_active=1 and `status`=1 LIMIT 1;");
             sumAllReward = MysqlConnect219Util
-                    .getTestData("select SUM(ava_rewards) from om_pay_rewards_log  where member_id=775310 and is_active=1 and `status`=1;");
-            sumUseReward = MysqlConnect219Util.getTestData("select SUM(ava_rewards) from sbg_pay_rewards_log  where member_id=775310 and is_active=1;");
+            // .getTestData("select SUM(ava_rewards) from om_pay_rewards_log  where member_id=775310 and is_active=1 and `status`=1;");
+                    .getTestData("select SUM(ava_rewards) from om_pay_rewards_log  where member_id=775310 and currency_code='GBP' and is_active=1 and `status`=1;");
+            sumUseReward = MysqlConnect219Util
+            // .getTestData("select SUM(ava_rewards) from sbg_pay_rewards_log  where member_id=775310 and is_active=1;");
+                    .getTestData("select SUM(ava_rewards) from sbg_pay_rewards_log  where member_id=775310 and currency_code='GBP' and is_active=1;");
         }
         catch (Exception e) {
         }
@@ -57,15 +60,15 @@ public class TestAccount extends AbstractBaseSbgDesktopTestCase {
         AccountPage accountPage = new AccountPage();
         accountPage.AsssetTrue(accountPage.accountName.getText().contains("test"), " ACCOUNT NAME DON'T MATCH !!!");
         double dispalyRemainPrice = 0.0;
-        for (int i = 1; i < accountPage.remainReward.size(); i++) {
-            double remainPrice = accountPage.regexGetMath(accountPage.remainReward.get(i).getText().replace(",", "."));
-            dispalyRemainPrice = accountPage.mathAdd(dispalyRemainPrice, remainPrice);
-        }
+        // for (int i = 1; i < accountPage.remainReward.size(); i++) {
+        double remainPrice = accountPage.regexGetMath(accountPage.remainReward.get(1).getText().replace(",", "."));
+        dispalyRemainPrice = accountPage.mathAdd(dispalyRemainPrice, remainPrice);
+        // }
         double dispalyUsePrice = 0.0;
-        for (int i = 1; i < accountPage.remainReward.size(); i++) {
-            double usePrice = accountPage.regexGetMath(accountPage.useReward.get(i).getText().replace(",", "."));
-            dispalyUsePrice = accountPage.mathAdd(dispalyUsePrice, usePrice);
-        }
+        // for (int i = 1; i < accountPage.remainReward.size(); i++) {
+        double usePrice = accountPage.regexGetMath(accountPage.useReward.get(1).getText().replace(",", "."));
+        dispalyUsePrice = accountPage.mathAdd(dispalyUsePrice, usePrice);
+        // }
         double remainReward = accountPage.mathSub(allReward, useReward);
         Assert.assertEquals(dispalyRemainPrice, remainReward);
         Assert.assertEquals(dispalyUsePrice, useReward);

@@ -25,29 +25,30 @@ public class TestExploreMenu extends AbstractBaseSbgDesktopTestCase {
         menu.mouseOver(menu.subMenu6Right.get(0));
         menu.AsssetEquals(menu.subMenu6LeftLink.getAttribute("href"), "http://www.smartbuyglasses.co.uk/i/celebrity-sunglasses-glasses");
         String imgSrc1 = menu.subMenu6LeftIMG.getAttribute("src").toString();
-        judgeIMG(handle, imgSrc1);
+        // judgeIMG(handle, imgSrc1);
         //
         menu.mouseOver(menu.subMenu6Right.get(2));
         menu.AsssetEquals(menu.subMenu6LeftLink.getAttribute("href"), "http://www.smartbuyglasses.co.uk/happy-customers");
         String imgSrc3 = menu.subMenu6LeftIMG.getAttribute("src").toString();
-        judgeIMG(handle, imgSrc3);
+        // judgeIMG(handle, imgSrc3);
         //
         menu.mouseOver(menu.subMenu6Right.get(3));
         menu.AsssetEquals(menu.subMenu6LeftLink.getAttribute("href"), "http://blog.smartbuyglasses.co.uk/");
         String imgSrc4 = menu.subMenu6LeftIMG.getAttribute("src").toString();
-        judgeIMG(handle, imgSrc4);
+        // judgeIMG(handle, imgSrc4);
         //
         menu.mouseOver(menu.subMenu6Right.get(4));
         menu.AsssetEquals(menu.subMenu6LeftLink.getAttribute("href"), "http://www.smartbuyglasses.co.uk/optical-centre");
         String imgSrc5 = menu.subMenu6LeftIMG.getAttribute("src").toString();
-        judgeIMG(handle, imgSrc5);
+        // judgeIMG(handle, imgSrc5);
         //
         menu.mouseOver(menu.subMenu6Right.get(1));
         menu.AsssetEquals(menu.subMenu6LeftLink.getAttribute("href"), "http://www.smartbuyglasses.co.uk/face-shape");
         String imgSrc2 = menu.subMenu6LeftIMG.getAttribute("src").toString();
-        judgeIMG(handle, imgSrc2);
+        // judgeIMG(handle, imgSrc2);
         //
         menu.subMenu6LeftLink.click();
+        menu.switch2NewWindow();
         FaceShapePage faceShapePage = new FaceShapePage();
     }
 

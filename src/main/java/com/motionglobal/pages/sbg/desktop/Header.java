@@ -171,8 +171,10 @@ public class Header extends AbstractBasePage {
 
     // discount
     @FindBy(css = "img[height='33'][usemap='#Map2']")
+    // .hp_topsmallad_box[style='display: block;']
     public WebElement discountSmallIMG;
-    @FindBy(css = "img[height='160'][usemap='#Map1']")
+    // @FindBy(css = "img[height='160'][usemap='#Map1']")
+    @FindBy(css = ".hp_topbigad_box[style='display: block;']")
     public WebElement discountBigIMG;
 
     //

@@ -1,5 +1,6 @@
 package com.motionglobal.testcases.sbg.mobile.end2end;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,7 +20,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
  */
 public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
     @Test(groups = { "smoke", "debug2", "fastsmoke" })
-    public void mobSearchItemAndPayByGC() {
+    public void mobSearchItemAndPayByGC() throws InterruptedException {
         getURL("http://m.smartbuyglasses.com/");
         MobHeader mobHeader = new MobHeader();
         mobHeader.searchInput.click();
@@ -52,23 +53,19 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         checkOutPage.waitForVisibility(checkOutPage.VISA, 10);
         //
         for (int i = 0; i < 50; i++) {
-            if (checkOutPage.VISA.getAttribute("style") != null) {
-                break;
+            try {
+                // element checkoutPage.VISAclicked
+                driver.findElement(By.cssSelector("img[src*='visadebit'][style='opacity: 1;']"));
             }
-            else {
+            catch (Exception e) {
+                Thread.sleep(200);
+                checkOutPage.waitForVisibility(checkOutPage.VISA, 5);
+                new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(checkOutPage.VISA));
                 try {
-                    Thread.sleep(200);
-                    checkOutPage.waitForVisibility(checkOutPage.VISA, 5);
-                    new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(checkOutPage.VISA));
-                    try {
-                        checkOutPage.VISA.click();
-                        Thread.sleep(100);
-                    }
-                    catch (Exception e) {
-                    }
+                    checkOutPage.VISA.click();
+                    Thread.sleep(100);
                 }
-                catch (InterruptedException e) {
-                    e.printStackTrace();
+                catch (InterruptedException b) {
                 }
             }
         }
