@@ -82,16 +82,21 @@ public abstract class AbstractBaseContainer implements IWaiter {
         // }
         boolean flag = false;
         Alert alert = null;
-        try {
-            new WebDriverWait(driver, 5).until(ExpectedConditions.alertIsPresent());
-            alert = driver.switchTo().alert();
-            flag = true;
-            // alert.accept();
-        }
-        catch (NoAlertPresentException NofindAlert) {
-            // TODO: handle exception
-            NofindAlert.printStackTrace();
-            // throw NofindAlert;
+        for (int i = 0; i < 10; i++) {
+            try {
+                alert = driver.switchTo().alert();
+                flag = true;
+                break;
+                // alert.accept();
+            }
+            catch (NoAlertPresentException NofindAlert) {
+                try {
+                    Thread.sleep(100);
+                }
+                catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         if (flag) {
             alert.accept();

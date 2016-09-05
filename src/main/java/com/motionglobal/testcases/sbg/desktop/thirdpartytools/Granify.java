@@ -114,7 +114,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertFalse(aboutUsPage.isTextPresent("{ page_type: \"cart\" }"));
     }
 
-    @Test(groups = { "acceptance", "au" })
+    @Test(groups = { "acceptance", "au", "debug111" })
     public void testEmptyCartPage() {
         getURL("http://www.visiondirect.com.au/cart");
         Header header = new Header();
