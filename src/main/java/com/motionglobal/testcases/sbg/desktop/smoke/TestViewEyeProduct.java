@@ -80,7 +80,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(searchResultPage.buyNowButton));
         searchResultPage.buyNowButton.click();
         try {
-            searchResultPage.waitForVisibility(searchResultPage.carBtn, 2);
+            searchResultPage.waitForVisibility(searchResultPage.carBtn, 5);
             searchResultPage.carBtn.click();
         }
         catch (Exception e) {
@@ -89,10 +89,10 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
     }
 
     private void waitSize(List<WebElement> element) {
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 100; i++) {
             if (element.size() <= 1) {
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(200);
                 }
                 catch (InterruptedException e) {
                 }

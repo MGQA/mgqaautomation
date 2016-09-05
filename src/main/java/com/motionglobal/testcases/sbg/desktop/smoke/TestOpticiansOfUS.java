@@ -22,7 +22,7 @@ public class TestOpticiansOfUS extends AbstractBaseTestCase {
         header.mouseOver(productGridPage.proInfo.get(0));
         header.waitForVisibility(productGridPage.quickView, 2);
         productGridPage.quickView.click();
-        productGridPage.waitForVisibility(productGridPage.buyNowButton, 10);
+        productGridPage.waitForVisibility(productGridPage.buyNowButton, 20);
         productGridPage.buyNowButton.click();
         Double framePrice = productGridPage.regexGetMath(productGridPage.framePrice.getText());
         header.waitForVisibility(productGridPage.cartBtn, 10);

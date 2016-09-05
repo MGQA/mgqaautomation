@@ -82,7 +82,7 @@ public class MobHeader extends AbstractBasePage {
     }
 
     public WebElement getSubMenuElement(int mainNum, int sectionNum) {
-        WebElement element = driver.findElement(By.xpath("//div[@id='menu']//li[" + mainNum + "]//li[" + sectionNum + "]//span"));
+        WebElement element = driver.findElement(By.xpath("//div[@id='menu']//li[" + mainNum + "]//li[" + sectionNum + "]//div[span]"));
         return element;
     }
 

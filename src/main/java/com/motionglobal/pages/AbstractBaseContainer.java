@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -82,21 +81,13 @@ public abstract class AbstractBaseContainer implements IWaiter {
         // }
         boolean flag = false;
         Alert alert = null;
-        for (int i = 0; i < 10; i++) {
-            try {
-                alert = driver.switchTo().alert();
-                flag = true;
-                break;
-                // alert.accept();
-            }
-            catch (NoAlertPresentException NofindAlert) {
-                try {
-                    Thread.sleep(100);
-                }
-                catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
+        try {
+            new WebDriverWait(driver, 2).until(ExpectedConditions.alertIsPresent());
+            alert = driver.switchTo().alert();
+            flag = true;
+            // alert.accept();
+        }
+        catch (Exception ex) {
         }
         if (flag) {
             alert.accept();

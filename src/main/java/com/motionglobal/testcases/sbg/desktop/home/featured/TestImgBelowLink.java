@@ -38,6 +38,7 @@ public class TestImgBelowLink extends AbstractBaseSbgDesktopTestCase {
         catch (Exception e) {
         }
         homePage.waitForVisibility(linkSun, 5);
+        homePage.JsMouse(homePage.linkSun_ImgBelow.get(indexNum));
         linkSun.click();
         String actualUrl = driver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedUrl);

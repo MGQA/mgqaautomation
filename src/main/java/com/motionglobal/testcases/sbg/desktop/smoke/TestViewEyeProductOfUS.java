@@ -88,7 +88,7 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
         for (int i = 0; i < 50; i++) {
             if (element.size() <= 1) {
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(200);
                 }
                 catch (InterruptedException e) {
                 }

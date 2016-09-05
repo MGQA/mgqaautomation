@@ -14,7 +14,7 @@ public class MobCartPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.className("shopping__cart__continue"), 30);
+        waitForVisibility(By.className("shopping__cart__continue"), 10);
     }
 
 }

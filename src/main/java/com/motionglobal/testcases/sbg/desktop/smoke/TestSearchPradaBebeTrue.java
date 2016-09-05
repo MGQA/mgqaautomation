@@ -38,8 +38,13 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
             resultPage.resultGrid().getItem(0).click();
         }
         catch (Exception e) {
-            header.waitForVisibility(resultPage.brandName, 2);
-            resultPage.mouseOver(resultPage.brandName);
+            try {
+                Thread.sleep(200);
+            }
+            catch (Exception e2) {
+            }
+            header.waitForVisibility(resultPage.BebeBrank, 2);
+            resultPage.mouseOver(resultPage.BebeBrank);
             header.waitForVisibility(resultPage.proInfo.get(0), 2);
             resultPage.mouseOver(resultPage.proInfo.get(0));
             header.waitForVisibility(resultPage.quickView, 2);
@@ -47,7 +52,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         }
         ProductDetailPage detailPage = new ProductDetailPage();
         System.out.println(detailPage.glassName.getText());
-        Assert.assertTrue(detailPage.glassName.getText().replace("b", "B").contains("Bebe BB7019 001"), "Page mismatching !!!");
+        Assert.assertTrue(detailPage.glassName.getText().replace("b", "B").contains("BeBe BB7019 001"), "Page mismatching !!!");
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
@@ -79,7 +84,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         resultPage.detailBtn.click();
         ProductDetailPage detailPage = new ProductDetailPage();
         System.out.println(detailPage.glassName.getText());
-        Assert.assertTrue(detailPage.glassName.getText().replace("b", "B").contains("Bebe BB7019 001"), "Page Mismatcher");
+        Assert.assertTrue(detailPage.glassName.getText().replace("b", "B").contains("BeBe BB7019 001"), "Page Mismatcher");
     }
 
     @Override

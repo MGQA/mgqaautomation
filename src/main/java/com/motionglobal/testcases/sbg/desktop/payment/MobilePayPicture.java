@@ -117,12 +117,12 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
         checkOutPage.clearInput(checkOutPage.inputLastName, "automationLast");
         checkOutPage.clearInput(checkOutPage.inputEmail, "testautomation@automation.com");
         checkOutPage.clearInput(checkOutPage.inputAddress1, "automationAddress1");
-        checkOutPage.clearInput(checkOutPage.inputPhone, "automationTel");
+        checkOutPage.clearInput(checkOutPage.inputPhone, "15212345678");
         if (!(url.split("\\.")[url.split("\\.").length - 1].equals("hk"))) {
             checkOutPage.clearInput(checkOutPage.inputPostAddress, "200000");
             checkOutPage.clearInput(checkOutPage.inputCity, "shanghai");
         }
-        checkOutPage.waitForVisibility(checkOutPage.continueBtn, 5);
+        checkOutPage.waitForVisibility(checkOutPage.continueBtn, 10);
         checkOutPage.continueBtn.click();
         //
         checkOutPage.waitForVisibility(checkOutPage.payPicture, 10);
