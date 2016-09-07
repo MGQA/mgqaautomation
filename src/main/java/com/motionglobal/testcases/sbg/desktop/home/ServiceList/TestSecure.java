@@ -19,6 +19,7 @@ public class TestSecure extends AbstractBaseSbgDesktopTestCase {
     public void listSecure(String url) {
         getURL(url);
         HomePage homePage = new HomePage();
+        homePage.header().inputSearch.click();
         WebElement secure = homePage.listServiceItem.get(3);
         homePage.waitForVisibility(secure, 5);
         secure.click();

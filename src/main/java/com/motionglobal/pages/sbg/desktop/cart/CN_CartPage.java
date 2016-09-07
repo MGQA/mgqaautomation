@@ -18,7 +18,7 @@ public class CN_CartPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".title.clearfix li"), 20);
+        waitForVisibility(By.cssSelector(".title.clearfix li"), 5);
     }
 
 }

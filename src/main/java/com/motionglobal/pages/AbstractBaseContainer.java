@@ -82,7 +82,7 @@ public abstract class AbstractBaseContainer implements IWaiter {
         boolean flag = false;
         Alert alert = null;
         try {
-            new WebDriverWait(driver, 2).until(ExpectedConditions.alertIsPresent());
+            new WebDriverWait(driver, 1).until(ExpectedConditions.alertIsPresent());
             alert = driver.switchTo().alert();
             flag = true;
             // alert.accept();

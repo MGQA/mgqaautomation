@@ -40,7 +40,7 @@ public class MobOpticianPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.className("main__lens__type__title"), 30);
+        waitForVisibility(By.className("main__lens__type__title"), 5);
     }
 
 }

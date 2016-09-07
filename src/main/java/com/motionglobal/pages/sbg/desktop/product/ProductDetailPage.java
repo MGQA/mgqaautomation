@@ -12,9 +12,9 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
 
     @FindBy(xpath = "//a[contains(@class,'buy')][not(contains(@style,'none'))]")
     public WebElement btnBuyNow; // There are two buy now buttons, one is hidden by lens selection condition.
-    @FindBy(xpath = "//map[@name='RX_pop_map']/area[1]")
+    @FindBy(id = "withLenses")
     public WebElement btnAddLenses;
-    @FindBy(xpath = "//map[@name='RX_pop_map']/area[last()]")
+    @FindBy(id = "frameOnly")
     public WebElement btnFrameOnly;
     @FindBy(id = "frameOnly")
     public WebElement radioFrameOnly;
@@ -31,6 +31,6 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.className("navigation"), 20);
+        waitForVisibility(By.className("navigation"), 5);
     }
 }

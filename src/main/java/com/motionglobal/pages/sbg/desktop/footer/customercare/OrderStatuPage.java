@@ -15,7 +15,7 @@ public class OrderStatuPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(orderTitle, 20);
+        waitForVisibility(orderTitle, 5);
     }
 
 }

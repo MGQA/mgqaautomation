@@ -48,6 +48,6 @@ public class HomePage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.id("slideshow"), 40);
+        waitForVisibility(By.id("slideshow"), 5);
     }
 }

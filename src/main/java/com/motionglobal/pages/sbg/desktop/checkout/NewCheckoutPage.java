@@ -6,9 +6,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 
+import com.motionglobal.common.utils.VerifyUtil;
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
+import com.motionglobal.pages.sbg.desktop.Header;
+import com.motionglobal.pages.sbg.mobile.MobHeader;
 
 public class NewCheckoutPage extends AbstractBaseSbgDesktopPage {
 
@@ -23,14 +25,19 @@ public class NewCheckoutPage extends AbstractBaseSbgDesktopPage {
     public WebElement state;
 
     public void AssertPayPicture(int... pay) {
-        String[] expectPay = new String[pay.length];
-        String[] actualPay = new String[payPicture.size()];
-        Assert.assertEquals(payPicture.size(), pay.length);
+        Header header = new Header();
+        VerifyUtil verify = new MobHeader().VerifyUtil();
+        String expectPay = "";
+        String actualPay = "";
+        // Assert.assertEquals(payPicture.size(), pay.length);
+        // verify.verifyEquals(payPicture.size(), pay.length);
         for (int i = 0; i < pay.length; i++) {
-            expectPay[i] = "" + pay[i];
-            actualPay[i] = payPicture.get(i).getAttribute("value");
-            AsssetEquals(actualPay[i], expectPay[i]);
+            expectPay += pay[i];
         }
+        for (int i = 0; i < payPicture.size(); i++) {
+            actualPay += header.regexGeInt(payPicture.get(i).getAttribute("value"));
+        }
+        verify.verifyEquals(actualPay, expectPay);
     }
 
     public void selectCountry(String value) {

@@ -88,7 +88,7 @@ public class CLProductDetailPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.className("cl_productType"), 20);
+        waitForVisibility(By.className("cl_productType"), 5);
     }
 
 }

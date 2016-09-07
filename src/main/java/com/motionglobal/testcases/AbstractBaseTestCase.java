@@ -8,11 +8,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.motionglobal.common.utils.VerifyUtil;
 import com.motionglobal.common.webdriver.InitializeUtility;
 import com.motionglobal.common.webdriver.ScreenshotListener;
 import com.motionglobal.pages.sbg.desktop.Header;
@@ -42,6 +44,7 @@ public abstract class AbstractBaseTestCase {
         this.context = context;
         driver = newDriver();
         initialize();
+        new Header().VerifyUtil().verifyBegin();
     }
 
     protected void getURL(String url) {
@@ -119,12 +122,18 @@ public abstract class AbstractBaseTestCase {
         }
     }
 
+    @AfterTest(alwaysRun = true)
+    public void VerifyEnd() {
+        new VerifyUtil().verifyEnd();
+    }
+
     @AfterClass(alwaysRun = true)
     public void quitDriver() {
         tearDown();
         // close the browsers
         closeDriver(driver);
         closeDriver(driver2);
+
     }
 
     private boolean isDriverClosed(WebDriver driver) {

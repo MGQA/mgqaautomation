@@ -78,6 +78,6 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".s_r_product_number"), 40);
+        waitForVisibility(By.cssSelector(".s_r_product_number"), 5);
     }
 }

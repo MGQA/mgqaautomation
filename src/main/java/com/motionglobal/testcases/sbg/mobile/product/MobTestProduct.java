@@ -51,15 +51,15 @@ public class MobTestProduct extends AbstractBaseTestCase {
         double expectPrice = 0;
         try {
             String[] fitlerName = productPage.productPrice.get(Num).getText().split("~");
-            priceSmall = productPage.regexGetMath(fitlerName[0]);
-            priceGreat = productPage.regexGetMath(fitlerName[1]);
+            priceSmall = productPage.regexGetDouble(fitlerName[0]);
+            priceGreat = productPage.regexGetDouble(fitlerName[1]);
         }
         catch (Exception e) {
-            expectPrice = productPage.regexGetMath(productPage.productPrice.get(Num).getText());
+            expectPrice = productPage.regexGetDouble(productPage.productPrice.get(Num).getText());
         }
         //
         productPage.subFilter.get(Num).click();
-        double actualPrice = productPage.regexGetMath(productPage.finalFilter.get(Num).getText());
+        double actualPrice = productPage.regexGetDouble(productPage.finalFilter.get(Num).getText());
         if (priceSmall != 0 && priceGreat != 0) {
             Assert.assertTrue(priceSmall <= actualPrice, actualPrice + " NOT BETWEEN " + priceSmall + " AND " + priceGreat);
             Assert.assertTrue(priceGreat >= actualPrice, actualPrice + " NOT BETWEEN " + priceSmall + " AND " + priceGreat);

@@ -19,7 +19,7 @@ public class FaqPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.name("txt_faq_search"), 20);
+        waitForVisibility(By.name("txt_faq_search"), 5);
     }
 
 }

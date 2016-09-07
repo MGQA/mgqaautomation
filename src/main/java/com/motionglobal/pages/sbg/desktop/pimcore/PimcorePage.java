@@ -59,6 +59,6 @@ public class PimcorePage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.className("oc"), 30);
+        waitForVisibility(By.className("oc"), 5);
     }
 }

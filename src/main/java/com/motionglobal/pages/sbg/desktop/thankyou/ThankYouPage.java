@@ -18,6 +18,6 @@ public class ThankYouPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(thankYou, 50);
+        waitForVisibility(thankYou, 5);
     }
 }

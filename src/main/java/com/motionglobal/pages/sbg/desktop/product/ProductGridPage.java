@@ -360,6 +360,6 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.id("jp-pagination-ajax"), 10);
+        waitForVisibility(By.id("jp-pagination-ajax"), 5);
     }
 }

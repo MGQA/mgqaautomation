@@ -108,10 +108,10 @@ public class RX2Page extends AbstractBaseSbgDesktopPage {
         catch (InterruptedException e) {
         }
         Boolean pri = null;
-        double priF = header().regexGetMath(framePrice.getText());
-        double priL = header().regexGetMath(lensePrice.getText());
+        double priF = header().regexGetDouble(framePrice.getText());
+        double priL = header().regexGetDouble(lensePrice.getText());
         double num = header().mathAdd(priF, priL);
-        double totalPri = header().regexGetMath(total.getText());
+        double totalPri = header().regexGetDouble(total.getText());
         if (num == totalPri)
             pri = true;
         else

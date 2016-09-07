@@ -19,6 +19,7 @@ public class TestReturns extends AbstractBaseSbgDesktopTestCase {
     public void listReturns(String url) {
         getURL(url);
         HomePage homePage = new HomePage();
+        homePage.header().inputSearch.click();
         WebElement returns = homePage.listServiceItem.get(2);
         homePage.waitForVisibility(returns, 5);
         returns.click();

@@ -23,7 +23,7 @@ public class NewCartPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.id("main-wrapper"), 15);
+        waitForVisibility(By.id("main-wrapper"), 5);
     }
 
 }

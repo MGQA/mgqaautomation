@@ -45,7 +45,7 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
         // get Double of coupon price TODO
         try {
             header.waitForVisibility(header.priceCoupon, 5);
-            couponTotal = header.regexGetMath(header.priceCoupon.getText());
+            couponTotal = header.regexGetDouble(header.priceCoupon.getText());
             System.out.println(couponTotal + " BO");
         }
         catch (Exception e) {
@@ -60,10 +60,10 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
         // into cart page then get glass price and shipping price
         CartPage cartPage = new CartPage();
         cartPage.waitForVisibility(cartPage.priceGlassTotal, 5);
-        Double priceGlass = cartPage.regexGetMath(cartPage.priceGlassTotal.getText());
+        Double priceGlass = cartPage.regexGetDouble(cartPage.priceGlassTotal.getText());
         Double priceShipping;
         try {
-            priceShipping = cartPage.regexGetMath(cartPage.priceShipping.getText());
+            priceShipping = cartPage.regexGetDouble(cartPage.priceShipping.getText());
         }
         catch (Exception e) {
             priceShipping = 0.0;
@@ -72,7 +72,7 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
         // sum discount and assert and select
         Double priceExpectCoupon = cartPage.couponPrice(couponTotal);
         System.out.println(priceExpectCoupon);
-        Double PriceActualCoupon = cartPage.regexGetMath(cartPage.priceCoupon.getText());
+        Double PriceActualCoupon = cartPage.regexGetDouble(cartPage.priceCoupon.getText());
         Assert.assertEquals(PriceActualCoupon, priceExpectCoupon);
         cartPage.JsMouse(cartPage.kit);
         cartPage.InputUseReWard.click();
@@ -81,14 +81,14 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
         cartPage.selectInsurance1();
         Double priceInsuance;
         try {
-            priceInsuance = cartPage.regexGetMath(cartPage.priceInsurance.getText());
+            priceInsuance = cartPage.regexGetDouble(cartPage.priceInsurance.getText());
         }
         catch (Exception e) {
             priceInsuance = 0.0;
         }
 
         // total price
-        Double priceActualTotal = cartPage.regexGetMath(cartPage.priceTotal.getText());
+        Double priceActualTotal = cartPage.regexGetDouble(cartPage.priceTotal.getText());
         Double priceExpectTotal = cartPage.mathAdd(cartPage.mathAdd(priceGlass, priceShipping), cartPage.mathSub(priceInsuance, PriceActualCoupon));
 
         System.out.println(priceGlass + " _ " + priceShipping + " _ " + priceInsuance + " _ " + PriceActualCoupon);
@@ -101,7 +101,7 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
         // into checkout page then input message
         CheckoutPage checkoutPage = new CheckoutPage();
         checkoutPage.waitForVisibility(checkoutPage.priceTotal, 2);
-        Double PriceCheckOut = checkoutPage.regexGetMath(checkoutPage.priceTotal.getText());
+        Double PriceCheckOut = checkoutPage.regexGetDouble(checkoutPage.priceTotal.getText());
         Assert.assertEquals(PriceCheckOut, priceActualTotal);
 
         // select VISA click payBtn

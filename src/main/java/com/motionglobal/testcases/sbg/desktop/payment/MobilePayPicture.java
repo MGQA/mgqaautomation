@@ -14,21 +14,25 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
-        return new Object[][] { { "http://m.smartbuyglasses.com" }, { "http://m.visiondirect.com.au" }, { "http://m.smartbuyglasses.ca" },
-                { "http://m.smartbuyglasses.co.nz" }, { "http://m.smartbuyglasses.jp" }, { "http://m.smartbuyglasses.com.hk" },
-                { "http://m.smartbuyglasses.com.tw" }, { "http://m.smartbuyglasses.co.uk" }, { "http://m.smartbuyglasses.de" },
+        return new Object[][] {
+                // { "http://m.smartbuyglasses.com" }, { "http://m.visiondirect.com.au" }, { "http://m.smartbuyglasses.ca" },
+                // { "http://m.smartbuyglasses.co.nz" }, { "http://m.smartbuyglasses.jp" }, { "http://m.smartbuyglasses.com.hk" },
+                // { "http://m.smartbuyglasses.com.tw" }, { "http://m.smartbuyglasses.co.uk" }, { "http://m.smartbuyglasses.de" },
                 { "http://m.smartbuyglasses.nl" }, { "http://m.smartbuyglasses.co.in" }, { "http://m.smartbuyglasses.co.za" },
-                { "http://m.smartbuyglasses.ie" }, { "http://m.smartbuyglasses.se" }, { "http://m.smartbuyglasses.gr" }, { "http://m.smartbuyglasses.com.sg" },
-                { "http://m.es.smartbuyglasses.com" }, { "http://m.en.smartbuyglasses.com.hk" }, { "http://m.scn.smartbuyglasses.com.hk" },
-                { "http://m.en.smartbuyglasses.com.tw" }, { "http://m.scn.smartbuyglasses.com.tw" }, { "http://m.scn.smartbuyglasses.com.sg" },
-                { "http://m.tcn.smartbuyglasses.com.sg" }, { "http://m.fr.smartbuyglasses.ca" }, { "http://m.easylunettes.fr" },
-                { "http://m.smartbuyglasses.ch" }, { "http://m.smartbuyglasses.be" }, { "http://m.smartbuyglasses.at" }, { "http://m.fr.smartbuyglasses.be" },
-                { "http://m.en.smartbuyglasses.ch" }, { "http://m.fr.smartbuyglasses.ch" }, { "http://m.en.smartbuyglasses.be" },
-                { "http://m.oculosworld.com.br" }, { "http://m.gafasworld.es" }, { "http://m.smartbuyglasses.dk" }, { "http://m.smartbuyglasses.it" },
-                { "http://m.oculosworld.com.pt" }, { "http://m.smartbuyglasses.fi" }, { "http://m.sbg.co.kr" }, { "http://m.smartbuyglasses.cz" },
+                // { "http://m.smartbuyglasses.ie" }, { "http://m.smartbuyglasses.se" }, { "http://m.smartbuyglasses.gr" }, { "http://m.smartbuyglasses.com.sg"
+                // },
+                // { "http://m.es.smartbuyglasses.com" }, { "http://m.en.smartbuyglasses.com.hk" }, { "http://m.scn.smartbuyglasses.com.hk" },
+                // { "http://m.en.smartbuyglasses.com.tw" }, { "http://m.scn.smartbuyglasses.com.tw" }, { "http://m.scn.smartbuyglasses.com.sg" },
+                // { "http://m.tcn.smartbuyglasses.com.sg" }, { "http://m.fr.smartbuyglasses.ca" }, { "http://m.easylunettes.fr" },
+                // { "http://m.smartbuyglasses.ch" }, { "http://m.smartbuyglasses.be" }, { "http://m.smartbuyglasses.at" }, { "http://m.fr.smartbuyglasses.be"
+                // },
+                // { "http://m.en.smartbuyglasses.ch" }, { "http://m.fr.smartbuyglasses.ch" }, { "http://m.en.smartbuyglasses.be" },
+                // { "http://m.oculosworld.com.br" }, { "http://m.gafasworld.es" }, { "http://m.smartbuyglasses.dk" }, { "http://m.smartbuyglasses.it" },
+                // { "http://m.oculosworld.com.pt" }, { "http://m.smartbuyglasses.fi" }, { "http://m.sbg.co.kr" }, { "http://m.smartbuyglasses.cz" },
                 { "http://m.lentesworld.com.mx" }, { "http://m.gafasworld.com.co" }, { "http://m.smartbuyglasses.no" }, { "http://m.visiondirecta.cl" },
-                { "http://m.optikaworld.ru" }, { "http://m.optykaworld.pl" }, { "http://m.smartbuyglasses.com.tr" }, { "http://m.smartbuyglasses.com.my" },
-                { "http://m.smartbuyglasses.com.vn" }, { "http://m.smartbuyglasses.co.id" }, { "http://m.smartbuyglasses.com.ar" } };
+        // { "http://m.optikaworld.ru" }, { "http://m.optykaworld.pl" }, { "http://m.smartbuyglasses.com.tr" }, { "http://m.smartbuyglasses.com.my" },
+        // { "http://m.smartbuyglasses.com.vn" }, { "http://m.smartbuyglasses.co.id" }, { "http://m.smartbuyglasses.com.ar" }
+        };
     }
 
     /**
@@ -36,7 +40,8 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
      * 
      * @throws InterruptedException
      */
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "paymentPicture" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug2", "pay" }, priority = 2)
+    // @Test(dataProvider = "db", groups = { "debug", "pay" }, priority = 2)
     public void payPicture(String url) throws InterruptedException {
         switch (url) {
         case "http://m.es.smartbuyglasses.com":
@@ -122,8 +127,9 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
             checkOutPage.clearInput(checkOutPage.inputPostAddress, "200000");
             checkOutPage.clearInput(checkOutPage.inputCity, "shanghai");
         }
-        checkOutPage.waitForVisibility(checkOutPage.continueBtn, 10);
-        checkOutPage.continueBtn.click();
+        // checkOutPage.waitForVisibility(checkOutPage.continueBtn, 10);
+        // checkOutPage.continueBtn.click();
+        checkOutPage.mouseAndClick(checkOutPage.continueBtn);
         //
         checkOutPage.waitForVisibility(checkOutPage.payPicture, 10);
         switch (url.split("\\.")[url.split("\\.").length - 1]) {

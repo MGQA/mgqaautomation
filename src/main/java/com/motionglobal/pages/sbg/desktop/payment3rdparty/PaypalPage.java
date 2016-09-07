@@ -14,6 +14,6 @@ public class PaypalPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.className("xptSandbox"), 30);
+        waitForVisibility(By.className("xptSandbox"), 5);
     }
 }

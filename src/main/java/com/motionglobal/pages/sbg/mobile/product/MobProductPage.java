@@ -45,7 +45,7 @@ public class MobProductPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.className("main__glass-list__item"), 30);
+        waitForVisibility(By.className("main__glass-list__item"), 5);
     }
 
 }

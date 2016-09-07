@@ -148,7 +148,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         gridPage.filterPriceNo2.click();
         gridPage.waitForVisibility(gridPage.productPriceS, 5);
         for (int j = 0; j < gridPage.productPriceS.size(); j++) {
-            Double price = gridPage.regexGetMath(gridPage.productPriceS.get(j).getText());
+            Double price = gridPage.regexGetDouble(gridPage.productPriceS.get(j).getText());
             gridPage.AsssetTrue(100 <= price && 150 >= price, " PRICE IS " + price + " NOT BELONG 100-150 !!!");
         }
         //
@@ -163,7 +163,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         gridPage.filterPriceNo3.click();
         gridPage.waitForVisibility(gridPage.productPriceS, 5);
         for (int j = 0; j < gridPage.productPriceS.size(); j++) {
-            Double price = gridPage.regexGetMath(gridPage.productPriceS.get(j).getText());
+            Double price = gridPage.regexGetDouble(gridPage.productPriceS.get(j).getText());
             gridPage.AsssetTrue(150 <= price && 200 >= price, " PRICE IS " + price + " NOT BELONG 150-200 !!!");
         }
     }

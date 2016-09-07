@@ -17,7 +17,7 @@ public class OrderTracking extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".track_order_status"), 30);
+        waitForVisibility(By.cssSelector(".track_order_status"), 5);
     }
 
 }

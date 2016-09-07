@@ -13,6 +13,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import com.motionglobal.common.utils.VerifyUtil;
 import com.motionglobal.pages.sbg.desktop.Header;
 
 public abstract class AbstractBasePage extends AbstractBaseContainer {
@@ -106,11 +107,23 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         Assert.assertTrue(condition, description);
     }
 
-    public Double regexGetMath(String matcher) {
-        Pattern pattern = Pattern.compile("[^0-9/.]");
+    public double regexGetDouble(String matcher) {
+        Pattern pattern = Pattern.compile("0\\.\\d*|[1-9]\\d*");
         Matcher match = pattern.matcher(matcher);
-        String getStr = match.replaceAll("");
-        Double getNum = Double.parseDouble(getStr);
+        Double getNum = 0.0;
+        while (match.find()) {
+            getNum = Double.parseDouble(match.group());
+        }
+        return getNum;
+    }
+
+    public int regexGeInt(String matcher) {
+        Pattern pattern = Pattern.compile("[1-9]\\d*");
+        Matcher match = pattern.matcher(matcher);
+        int getNum = 0;
+        while (match.find()) {
+            getNum = Integer.parseInt(match.group());
+        }
         return getNum;
     }
 
@@ -164,6 +177,9 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
                 Thread.sleep(200);
             }
             catch (Exception e) {
+            }
+            if (i == 99) {
+                Assert.assertTrue(1 == 2, "Wait 20s, But Page No't Load Finish !!");
             }
         }
         return cart;
@@ -219,4 +235,28 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         return driver.getCurrentUrl();
     }
 
+    public void mouseAndClick(WebElement element) {
+        for (int i = 0; i < 21; i++) {
+            try {
+                JsMouse(element);
+                element.click();
+                break;
+            }
+            catch (Exception e) {
+                try {
+                    Thread.sleep(200);
+                }
+                catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
+            }
+            if (i == 20) {
+                Assert.assertTrue(1 == 2, " ! Wait 4s,but no't find Element : " + element);
+            }
+        }
+    }
+
+    public VerifyUtil VerifyUtil() {
+        return new VerifyUtil();
+    }
 }

@@ -24,16 +24,16 @@ public class TestOpticiansOfUS extends AbstractBaseTestCase {
         productGridPage.quickView.click();
         productGridPage.waitForVisibility(productGridPage.buyNowButton, 20);
         productGridPage.buyNowButton.click();
-        Double framePrice = productGridPage.regexGetMath(productGridPage.framePrice.getText());
+        Double framePrice = productGridPage.regexGetDouble(productGridPage.framePrice.getText());
         header.waitForVisibility(productGridPage.cartBtn, 10);
         productGridPage.deluxe.click();
         header.waitForVisibility(productGridPage.deluxeVery, 2);
         productGridPage.deluxeVery.click();
-        Double lensePrice = productGridPage.regexGetMath(productGridPage.lenses_price.getText());
-        Assert.assertEquals(productGridPage.regexGetMath(productGridPage.frame_price.getText()), framePrice);
-        Assert.assertEquals(productGridPage.regexGetMath(productGridPage.deluxeVeryPriece.getText()), lensePrice);
+        Double lensePrice = productGridPage.regexGetDouble(productGridPage.lenses_price.getText());
+        Assert.assertEquals(productGridPage.regexGetDouble(productGridPage.frame_price.getText()), framePrice);
+        Assert.assertEquals(productGridPage.regexGetDouble(productGridPage.deluxeVeryPriece.getText()), lensePrice);
         double price = productGridPage.mathAdd(lensePrice, framePrice);
-        Assert.assertEquals(productGridPage.regexGetMath(productGridPage.total_price.getText()), price);
+        Assert.assertEquals(productGridPage.regexGetDouble(productGridPage.total_price.getText()), price);
     }
 
     @Override

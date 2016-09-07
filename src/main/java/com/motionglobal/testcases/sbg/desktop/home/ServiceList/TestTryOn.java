@@ -19,6 +19,7 @@ public class TestTryOn extends AbstractBaseSbgDesktopTestCase {
     public void listTryOn(String url) {
         getURL(url);
         HomePage homePage = new HomePage();
+        homePage.header().inputSearch.click();
         WebElement tryOn = homePage.listServiceItem.get(0);
         homePage.waitForVisibility(tryOn, 5);
         tryOn.click();
