@@ -48,16 +48,16 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
         if (sortSectionNum == 1) {
             gridPage.SortSection.get(1).click();
             for (int i = 0; i < gridPage.productPriceS.size() - 1; i++) {
-                double beforePrice = gridPage.regexGetMath(gridPage.productPriceS.get(i).getText());
-                double lastPrice = gridPage.regexGetMath(gridPage.productPriceS.get(i + 1).getText());
+                double beforePrice = gridPage.regexGetDouble(gridPage.productPriceS.get(i).getText());
+                double lastPrice = gridPage.regexGetDouble(gridPage.productPriceS.get(i + 1).getText());
                 gridPage.AsssetTrue(beforePrice <= lastPrice, " price sort fail !!!");
             }
         }
         else {
             gridPage.SortSection.get(2).click();
             for (int i = 0; i < gridPage.productPriceS.size() - 1; i++) {
-                double beforePrice = gridPage.regexGetMath(gridPage.productPriceS.get(i).getText());
-                double lastPrice = gridPage.regexGetMath(gridPage.productPriceS.get(i + 1).getText());
+                double beforePrice = gridPage.regexGetDouble(gridPage.productPriceS.get(i).getText());
+                double lastPrice = gridPage.regexGetDouble(gridPage.productPriceS.get(i + 1).getText());
                 gridPage.AsssetTrue(beforePrice >= lastPrice, " price sort fail !!!");
             }
         }

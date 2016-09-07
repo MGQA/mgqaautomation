@@ -48,6 +48,8 @@ public class MobHeader extends AbstractBasePage {
     // footer
     @FindBy(className = "footer__navs__item")
     public List<WebElement> footer;
+    @FindBy(css = ".footer__shares__item")
+    public List<WebElement> share;
 
     //
     // public WebElement getMainMenuElement(int mainNum) {

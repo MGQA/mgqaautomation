@@ -22,7 +22,7 @@ public class MobProductDetailPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(productName, 30);
+        waitForVisibility(productName, 5);
     }
 
 }

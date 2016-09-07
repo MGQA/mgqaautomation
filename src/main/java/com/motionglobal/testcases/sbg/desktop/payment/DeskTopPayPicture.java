@@ -5,6 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.AbstractBasePage;
+import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.cart.CartPage;
 import com.motionglobal.pages.sbg.desktop.cart.NewCartPage;
 import com.motionglobal.pages.sbg.desktop.checkout.CheckoutPage;
@@ -16,30 +17,37 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
-        return new Object[][] { { "http://www.smartbuyglasses.com" }, { "http://www.visiondirect.com.au" }, { "http://www.smartbuyglasses.ca" },
-                { "http://www.smartbuyglasses.co.nz" }, { "http://www.smartbuyglasses.jp" }, { "http://www.smartbuyglasses.com.hk" },
-                { "http://www.smartbuyglasses.com.tw" }, { "http://www.smartbuyglasses.co.uk" }, { "http://www.smartbuyglasses.de" },
-                { "http://www.smartbuyglasses.nl" }, { "http://www.smartbuyglasses.co.in" }, { "http://www.smartbuyglasses.co.za" },
-                { "http://www.smartbuyglasses.ie" }, { "http://www.smartbuyglasses.se" }, { "http://www.smartbuyglasses.gr" },
-                { "http://www.smartbuyglasses.com.sg" }, { "http://es.smartbuyglasses.com" }, { "http://en.smartbuyglasses.com.hk" },
-                { "http://scn.smartbuyglasses.com.hk" }, { "http://en.smartbuyglasses.com.tw" }, { "http://scn.smartbuyglasses.com.tw" },
-                { "http://scn.smartbuyglasses.com.sg" }, { "http://tcn.smartbuyglasses.com.sg" }, { "http://fr.smartbuyglasses.ca" },
-                { "http://www.easylunettes.fr" }, { "http://www.smartbuyglasses.ch" }, { "http://www.smartbuyglasses.be" },
-                { "http://www.smartbuyglasses.at" }, { "http://fr.smartbuyglasses.be" }, { "http://en.smartbuyglasses.ch" },
-                { "http://fr.smartbuyglasses.ch" }, { "http://en.smartbuyglasses.be" }, { "http://www.oculosworld.com.br" }, { "http://www.gafasworld.es" },
-                { "http://www.smartbuyglasses.dk" }, { "http://www.smartbuyglasses.it" }, { "http://www.oculosworld.com.pt" },
-                { "http://www.smartbuyglasses.fi" }, { "http://www.sbg.co.kr" }, { "http://www.smartbuyglasses.cz" }, { "http://www.lentesworld.com.mx" },
+        return new Object[][] {
+                // { "http://www.smartbuyglasses.com" }, { "http://www.visiondirect.com.au" }, { "http://www.smartbuyglasses.ca" },
+                // { "http://www.smartbuyglasses.co.nz" }, { "http://www.smartbuyglasses.jp" }, { "http://www.smartbuyglasses.com.hk" },
+                // { "http://www.smartbuyglasses.com.tw" }, { "http://www.smartbuyglasses.co.uk" }, { "http://www.smartbuyglasses.de" },
+                { "http://www.smartbuyglasses.nl" },
+                // domain no't exist
+                // { "http://www.smartbuyglasses.co.in" },
+                { "http://www.smartbuyglasses.co.za" },
+                // { "http://www.smartbuyglasses.ie" }, { "http://www.smartbuyglasses.se" }, { "http://www.smartbuyglasses.gr" },
+                // { "http://www.smartbuyglasses.com.sg" }, { "http://es.smartbuyglasses.com" }, { "http://en.smartbuyglasses.com.hk" },
+                // { "http://scn.smartbuyglasses.com.hk" }, { "http://en.smartbuyglasses.com.tw" }, { "http://scn.smartbuyglasses.com.tw" },
+                // { "http://scn.smartbuyglasses.com.sg" }, { "http://tcn.smartbuyglasses.com.sg" }, { "http://fr.smartbuyglasses.ca" },
+                // { "http://www.easylunettes.fr" }, { "http://www.smartbuyglasses.ch" }, { "http://www.smartbuyglasses.be" },
+                // { "http://www.smartbuyglasses.at" }, { "http://fr.smartbuyglasses.be" }, { "http://en.smartbuyglasses.ch" },
+                // { "http://fr.smartbuyglasses.ch" }, { "http://en.smartbuyglasses.be" }, { "http://www.oculosworld.com.br" }, { "http://www.gafasworld.es" },
+                // { "http://www.smartbuyglasses.dk" }, { "http://www.smartbuyglasses.it" }, { "http://www.oculosworld.com.pt" },
+                // { "http://www.smartbuyglasses.fi" }, { "http://www.sbg.co.kr" }, { "http://www.smartbuyglasses.cz" }, { "http://www.lentesworld.com.mx" },
                 { "http://www.gafasworld.com.co" }, { "http://www.smartbuyglasses.no" }, { "http://www.visiondirecta.cl" }, { "http://www.optikaworld.ru" },
-                { "http://www.optykaworld.pl" }, { "http://www.smartbuyglasses.com.tr" }, { "http://www.smartbuyglasses.com.my" },
-                { "http://www.smartbuyglasses.com.vn" }, { "http://www.smartbuyglasses.co.id" }, { "http://www.smartbuyglasses.com.ar" } };
+        // { "http://www.optykaworld.pl" }, { "http://www.smartbuyglasses.com.tr" }, { "http://www.smartbuyglasses.com.my" },
+        // { "http://www.smartbuyglasses.com.vn" }, { "http://www.smartbuyglasses.co.id" }, { "http://www.smartbuyglasses.com.ar" }
+        };
     }
 
     /**
      * all url sum total is 51 . check it payment picture
      */
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "paymentPicture" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "pay" }, priority = 2)
     public void payPicture(String url) {
         getURL(AbstractBasePage.getLoginRequest(url + "/"));
+        Header header = new Header();
+        header.acceptAlert();
         switch (url) {
         case "http://es.smartbuyglasses.com":
         case "http://www.smartbuyglasses.com.ar":
@@ -58,6 +66,7 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
             break;
         }
         //
+        // co.in is fail in 219
         ProductDetailPage detailPage = new ProductDetailPage();
         detailPage.acceptAlert();
         detailPage.waitForVisibility(detailPage.btnBuyNow, 5);
@@ -66,7 +75,7 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
         String cart = detailPage.getCartType();
         //
         if (cart.equals("new")) {
-            // FIXME new cart
+            // XXX new cart
             NewCartPage newCartPage = new NewCartPage();
             newCartPage.waitForVisibility(newCartPage.btnCheckout, 5);
             newCartPage.btnCheckout.click();
@@ -191,7 +200,7 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
             }
         }
         else {
-            // FIXME old cart
+            // XXX old cart
             CartPage cartPage = new CartPage();
             cartPage.waitForVisibility(cartPage.btnCheckout, 5);
             cartPage.btnCheckout.click();

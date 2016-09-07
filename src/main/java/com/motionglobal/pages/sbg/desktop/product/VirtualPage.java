@@ -13,7 +13,7 @@ public class VirtualPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.className("take_photo_btn2"), 20);
+        waitForVisibility(By.className("take_photo_btn2"), 5);
     }
 
 }

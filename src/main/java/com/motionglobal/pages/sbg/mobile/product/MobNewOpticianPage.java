@@ -32,7 +32,7 @@ public class MobNewOpticianPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.className("RX-phase"), 30);
+        waitForVisibility(By.className("RX-phase"), 5);
     }
 
 }

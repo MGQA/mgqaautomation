@@ -84,6 +84,6 @@ public class FaceShapePage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".item>.hidden-xs.carousel-image"), 30);
+        waitForVisibility(By.cssSelector(".item>.hidden-xs.carousel-image"), 5);
     }
 }

@@ -23,7 +23,7 @@ public class AllProduct extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.id("L_A"), 30);
+        waitForVisibility(By.id("L_A"), 5);
     }
 
 }

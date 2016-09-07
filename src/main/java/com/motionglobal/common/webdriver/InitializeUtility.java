@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
@@ -62,8 +63,11 @@ public class InitializeUtility {
 
             break;
         case "chrome":
+            DesiredCapabilities dc = new DesiredCapabilities();
+            dc.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.ACCEPT);
             System.setProperty("webdriver.chrome.driver", CONFIG.getProperty(browser));
-            driver = new ChromeDriver();
+            // driver = new ChromeDriver();
+            driver = new ChromeDriver(dc);
 
             break;
         case "html":

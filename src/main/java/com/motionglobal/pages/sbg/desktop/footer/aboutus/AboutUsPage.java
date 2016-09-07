@@ -12,7 +12,7 @@ public class AboutUsPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".about_us"), 20);
+        waitForVisibility(By.cssSelector(".about_us"), 5);
     }
 
 }

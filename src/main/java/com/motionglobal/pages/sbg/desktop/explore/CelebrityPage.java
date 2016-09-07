@@ -17,7 +17,7 @@ public class CelebrityPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".celebrity-title"), 30);
+        waitForVisibility(By.cssSelector(".celebrity-title"), 5);
     }
 
 }

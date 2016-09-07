@@ -19,6 +19,7 @@ public class TestFastShipping extends AbstractBaseSbgDesktopTestCase {
     public void listFastShipping(String url) {
         getURL(url);
         HomePage homePage = new HomePage();
+        homePage.header().inputSearch.click();
         WebElement fastShipping = homePage.listServiceItem.get(4);
         homePage.waitForVisibility(fastShipping, 5);
         fastShipping.click();

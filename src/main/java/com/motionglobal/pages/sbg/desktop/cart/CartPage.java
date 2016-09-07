@@ -73,7 +73,7 @@ public class CartPage extends AbstractBaseSbgDesktopPage {
     // coupon
     public Double couponPrice(Double couponTotal) {
         Double coupon;
-        Double maxCoupon = (regexGetMath(priceGlassTotal.getText())) * 0.2;
+        Double maxCoupon = (regexGetDouble(priceGlassTotal.getText())) * 0.2;
         if (maxCoupon > couponTotal) {
             coupon = couponTotal;
         }
@@ -89,7 +89,7 @@ public class CartPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".cart_detail"), 15);
+        waitForVisibility(By.cssSelector(".cart_detail"), 5);
     }
 
 }

@@ -39,7 +39,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         header.menuBtn.click();
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.CL), 2);
         header.getMainMenuElement(MegaMenu.CL).click();
-        header.getSubMenuElement(4, 1).click();
+        header.mouseAndClick(header.getSubMenuElement(4, 1));
         String menuBrankName = header.getDetailLinkElement(4, 1, (num + 1)).getText();
         js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(4, 1, (num + 1)));
         header.getDetailLinkElement(4, 1, (num + 1)).click();
@@ -69,7 +69,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         int num = random.nextInt(header.getSubMenuElementSize(4, 2));
         header.menuBtn.click();
         header.getMainMenuElement(MegaMenu.CL).click();
-        header.getSubMenuElement(4, 2).click();
+        header.mouseAndClick(header.getSubMenuElement(4, 2));
         // String brankName = header.getDetailLinkElement(3, 2, (i + 1)).getText();
         js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(4, 2, (num + 1)));
         header.getDetailLinkElement(4, 2, (num + 1)).click();
@@ -93,8 +93,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         int num = random.nextInt(header.getSubMenuElementSize(4, 3));
         header.menuBtn.click();
         header.getMainMenuElement(MegaMenu.CL).click();
-        header.waitForVisibility(header.getSubMenuElement(4, 3), 2);
-        header.getSubMenuElement(4, 3).click();
+        header.mouseAndClick(header.getSubMenuElement(4, 3));
         // String brankName = header.getDetailLinkElement(3, 2, (i + 1)).getText();
         js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(4, 3, (num + 1)));
         header.getDetailLinkElement(4, 3, (num + 1)).click();

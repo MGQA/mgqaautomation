@@ -57,7 +57,7 @@ public class AccountPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".account_title>h2"), 30);
+        waitForVisibility(By.cssSelector(".account_title>h2"), 5);
     }
 
 }

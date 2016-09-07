@@ -15,7 +15,7 @@ public class MobProductAllCLPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.className("all__brands__title"), 20);
+        waitForVisibility(By.className("all__brands__title"), 5);
     }
 
 }

@@ -21,10 +21,10 @@ public class MobTestOpticians extends AbstractBaseTestCase {
         // try {
         MobNewOpticianPage opticianPage = new MobNewOpticianPage();
         opticianPage.waitForVisibility(opticianPage.priceTotal, 5);
-        double priceFrame = opticianPage.regexGetMath(opticianPage.priceFrame.getText());
-        double buyFrame = opticianPage.regexGetMath(opticianPage.buyFrame.getText());
-        double priceLens = opticianPage.regexGetMath(opticianPage.priceLens.getText());
-        double actualTotal = opticianPage.regexGetMath(opticianPage.priceTotal.getText());
+        double priceFrame = opticianPage.regexGetDouble(opticianPage.priceFrame.getText());
+        double buyFrame = opticianPage.regexGetDouble(opticianPage.buyFrame.getText());
+        double priceLens = opticianPage.regexGetDouble(opticianPage.priceLens.getText());
+        double actualTotal = opticianPage.regexGetDouble(opticianPage.priceTotal.getText());
         double expectTotal = opticianPage.mathAdd(priceFrame, priceLens);
         opticianPage.AsssetEquals(actualTotal, expectTotal);
         opticianPage.AsssetEquals(priceFrame, buyFrame);

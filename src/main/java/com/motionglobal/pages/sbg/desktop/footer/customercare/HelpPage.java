@@ -15,7 +15,7 @@ public class HelpPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".inside_contact.contact_span_1"), 20);
+        waitForVisibility(By.cssSelector(".inside_contact.contact_span_1"), 5);
     }
 
 }

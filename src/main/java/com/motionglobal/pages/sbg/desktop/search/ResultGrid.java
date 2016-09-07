@@ -11,7 +11,7 @@ public class ResultGrid extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".s_r_pn_pager"), 10);
+        waitForVisibility(By.cssSelector(".s_r_pn_pager"), 5);
     }
 
     public SearchResultItem getItem(int index) {

@@ -8,7 +8,7 @@ public class FavoritePage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.xpath("//span[text()=' / Favorite Products']"), 40);
+        waitForVisibility(By.xpath("//span[text()=' / Favorite Products']"), 5);
     }
 
 }

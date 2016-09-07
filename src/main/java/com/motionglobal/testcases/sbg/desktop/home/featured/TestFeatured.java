@@ -19,6 +19,7 @@ public class TestFeatured extends AbstractBaseSbgDesktopTestCase {
     public void viewSun(String url) {
         getURL(url);
         HomePage homePage = new HomePage();
+        homePage.header().inputSearch.click();
         String expectedUrl = url + "designer-sunglasses.htm";
         homePage.deleteHead();
         homePage.waitForVisibility(homePage.linkViewSun, 5);
@@ -36,6 +37,7 @@ public class TestFeatured extends AbstractBaseSbgDesktopTestCase {
     public void viewEye(String url) {
         getURL(url);
         HomePage homePage = new HomePage();
+        homePage.header().inputSearch.click();
         String expectedUrl = url + "designer-eyeglasses.htm";
         homePage.deleteHead();
         homePage.waitForVisibility(homePage.linkViewEye, 5);

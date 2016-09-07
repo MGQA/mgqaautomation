@@ -37,7 +37,7 @@ public class GcPaymentPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".ORB_INPUT"), 20);
+        waitForVisibility(By.cssSelector(".ORB_INPUT"), 5);
     }
 
 }

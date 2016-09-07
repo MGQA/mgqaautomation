@@ -75,7 +75,7 @@ public class TestMenuLink extends AbstractBaseSbgDesktopTestCase {
         }
         gridPage.daily.click();
         gridPage.waitForVisibility(gridPage.checkedDaily, 5);
-        double productNum = gridPage.regexGetMath(gridPage.productCountString.getText());
+        double productNum = gridPage.regexGetDouble(gridPage.productCountString.getText());
         gridPage.AsssetTrue(productNum > 0, " PRODUCT NUMBER = 0 !!!");
     }
 

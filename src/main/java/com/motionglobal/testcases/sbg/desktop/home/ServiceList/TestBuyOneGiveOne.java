@@ -19,6 +19,7 @@ public class TestBuyOneGiveOne extends AbstractBaseSbgDesktopTestCase {
     public void listBuyOneGiveOne(String url) {
         getURL(url);
         HomePage homePage = new HomePage();
+        homePage.header().inputSearch.click();
         WebElement buyOneGiveOne = homePage.listServiceItem.get(1);
         homePage.waitForVisibility(buyOneGiveOne, 5);
         buyOneGiveOne.click();

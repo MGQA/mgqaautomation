@@ -15,10 +15,11 @@ public class TestAboutUs extends AbstractBaseSbgDesktopTestCase {
         return new Object[][] { { "http://www.smartbuyglasses.co.uk/" } };
     }
 
-    @Test(dataProvider = "db", groups = { "debug", "smoke" })
+    @Test(dataProvider = "db", groups = { "debug2", "smoke" })
     public void listAboutUs(String url) {
         getURL(url);
         HomePage homePage = new HomePage();
+        homePage.header().inputSearch.click();
         WebElement aboutUs = homePage.listServiceItem.get(5);
         homePage.waitForVisibility(aboutUs, 5);
         aboutUs.click();
