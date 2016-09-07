@@ -10,6 +10,7 @@ import com.motionglobal.pages.sbg.desktop.cart.CartPage;
 import com.motionglobal.pages.sbg.desktop.cart.NewCartPage;
 import com.motionglobal.pages.sbg.desktop.checkout.CheckoutPage;
 import com.motionglobal.pages.sbg.desktop.checkout.NewCheckoutPage;
+import com.motionglobal.pages.sbg.desktop.home.HomePage;
 import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
@@ -43,29 +44,32 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
     /**
      * all url sum total is 51 . check it payment picture
      */
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "pay" }, priority = 2)
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "pay" }, priority = 2)
     public void payPicture(String url) {
         getURL(AbstractBasePage.getLoginRequest(url + "/"));
         Header header = new Header();
         header.acceptAlert();
-        switch (url) {
-        case "http://es.smartbuyglasses.com":
-        case "http://www.smartbuyglasses.com.ar":
-        case "http://www.visiondirecta.cl":
-        case "http://www.gafasworld.com.co":
-        case "http://www.lentesworld.com.mx":
-            getURL(url + "/lentes-de-sol-de-diseño/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
-            break;
-        case "http://fr.smartbuyglasses.ca":
-        case "http://fr.smartbuyglasses.be":
-        case "http://fr.smartbuyglasses.ch":
-            getURL(url + "/lunettes-de-soleil-design/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
-            break;
-        default:
-            getURL(url + "/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
-            break;
-        }
-        //
+        // switch (url) {
+        // case "http://es.smartbuyglasses.com":
+        // case "http://www.smartbuyglasses.com.ar":
+        // case "http://www.visiondirecta.cl":
+        // case "http://www.gafasworld.com.co":
+        // case "http://www.lentesworld.com.mx":
+        // getURL(url + "/lentes-de-sol-de-diseño/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
+        // break;
+        // case "http://fr.smartbuyglasses.ca":
+        // case "http://fr.smartbuyglasses.be":
+        // case "http://fr.smartbuyglasses.ch":
+        // getURL(url + "/lunettes-de-soleil-design/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
+        // break;
+        // default:
+        // getURL(url + "/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
+        // break;
+        // }
+        getURL(url);
+        header.deleteHead();
+        header.deleteLetTalk();
+        new HomePage().linkSunNo1.click();
         // co.in is fail in 219
         ProductDetailPage detailPage = new ProductDetailPage();
         detailPage.acceptAlert();
