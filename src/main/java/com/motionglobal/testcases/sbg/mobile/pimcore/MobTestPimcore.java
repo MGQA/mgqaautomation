@@ -34,7 +34,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
         header.menuBtn.click();
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.CL), 2);
         header.getMainMenuElement(MegaMenu.CL).click();
-        header.mouseAndClick(header.getSubMenuElement(4, 1));
+        header.getSubMenuElement(4, 1).click();
         String menuBrankName = header.getDetailLinkElement(4, 1, (num + 1)).getText();
         js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(4, 1, (num + 1)));
         header.getDetailLinkElement(4, 1, (num + 1)).click();
@@ -65,7 +65,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
         int num = random.nextInt(header.getSubMenuElementSize(4, 2));
         header.menuBtn.click();
         header.getMainMenuElement(MegaMenu.CL).click();
-        header.mouseAndClick(header.getSubMenuElement(4, 2));
+        header.getSubMenuElement(4, 2).click();
         // String brankName = header.getDetailLinkElement(3, 2, (i + 1)).getText();
         js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(4, 2, (num + 1)));
         header.getDetailLinkElement(4, 2, (num + 1)).click();
@@ -90,7 +90,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
         int num = random.nextInt(header.getSubMenuElementSize(4, 3));
         header.menuBtn.click();
         header.getMainMenuElement(MegaMenu.CL).click();
-        header.mouseAndClick(header.getSubMenuElement(4, 3));
+        header.getSubMenuElement(4, 3).click();
         // String brankName = header.getDetailLinkElement(3, 2, (i + 1)).getText();
         js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(4, 3, (num + 1)));
         header.getDetailLinkElement(4, 3, (num + 1)).click();

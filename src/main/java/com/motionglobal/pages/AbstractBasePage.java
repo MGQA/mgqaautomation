@@ -235,27 +235,6 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         return driver.getCurrentUrl();
     }
 
-    public void mouseAndClick(WebElement element) {
-        for (int i = 0; i < 21; i++) {
-            try {
-                JsMouse(element);
-                element.click();
-                break;
-            }
-            catch (Exception e) {
-                try {
-                    Thread.sleep(200);
-                }
-                catch (InterruptedException e1) {
-                    e1.printStackTrace();
-                }
-            }
-            if (i == 20) {
-                Assert.assertTrue(1 == 2, " ! Wait 4s,but no't find Element : " + element);
-            }
-        }
-    }
-
     public VerifyUtil VerifyUtil() {
         return new VerifyUtil();
     }

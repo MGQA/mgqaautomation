@@ -61,7 +61,7 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         new MobHeader().acceptAlert();
         MobHomePage homePage = new MobHomePage();
-        homePage.mouseAndClick(homePage.getTopSell(Sell.SUNIMG));
+        homePage.getTopSell(Sell.SUNIMG).click();
         //
         MobProductDetailPage detailPage = new MobProductDetailPage();
         detailPage.waitForVisibility(detailPage.buyNow, 5);
@@ -131,9 +131,23 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
         }
         // checkOutPage.waitForVisibility(checkOutPage.continueBtn, 10);
         // checkOutPage.continueBtn.click();
-        checkOutPage.mouseAndClick(checkOutPage.continueBtn);
+        checkOutPage.continueBtn.click();
+        if (url.split("\\.")[url.split("\\.").length - 1] == "hk") {
+            try {
+                checkOutPage.waitForVisibility(checkOutPage.payPicture, 5);
+            }
+            catch (Exception e) {
+                driver.navigate().refresh();
+                checkOutPage.clearInput(checkOutPage.inputFistName, "automationFirst");
+                checkOutPage.clearInput(checkOutPage.inputLastName, "automationLast");
+                checkOutPage.clearInput(checkOutPage.inputEmail, "testautomation@automation.com");
+                checkOutPage.clearInput(checkOutPage.inputAddress1, "automationAddress1");
+                checkOutPage.clearInput(checkOutPage.inputPhone, "15212345678");
+                checkOutPage.continueBtn.click();
+            }
+        }
         //
-        checkOutPage.waitForVisibility(checkOutPage.payPicture, 10);
+        checkOutPage.waitForVisibility(checkOutPage.payPicture, 5);
         switch (url.split("\\.")[url.split("\\.").length - 1]) {
         case "mx":
         case "co":

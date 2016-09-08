@@ -5,7 +5,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.motionglobal.common.utils.VerifyUtil;
-import com.motionglobal.pages.AbstractBasePage;
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.cart.CartPage;
 import com.motionglobal.pages.sbg.desktop.cart.NewCartPage;
@@ -46,9 +45,9 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
     /**
      * all url sum total is 51 . check it payment picture
      */
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "pay" }, priority = 2)
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "pay" }, priority = 2)
     public void payPicture(String url) {
-        getURL(AbstractBasePage.getLoginRequest(url + "/"));
+        // getURL(AbstractBasePage.getLoginRequest(url + "/"));
         Header header = new Header();
         // switch (url) {
         // case "http://es.smartbuyglasses.com":
@@ -70,7 +69,7 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         header.deleteHead();
         header.deleteLetTalk();
-        header.mouseAndClick(new HomePage().linkSunNo1);
+        new HomePage().linkSunNo1.click();
         // co.in is fail in 219
         ProductDetailPage detailPage = new ProductDetailPage();
         detailPage.acceptAlert();
@@ -85,6 +84,13 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
             newCartPage.waitForVisibility(newCartPage.btnCheckout, 5);
             newCartPage.btnCheckout.click();
             NewCheckoutPage checkoutPage = new NewCheckoutPage();
+            checkoutPage.inputBillingFirstName.sendKeys("jack");
+            checkoutPage.inputBillingLastName.sendKeys("zhong");
+            checkoutPage.inputBillingEmail.sendKeys("jack.zhong@motionglobal.com");
+            checkoutPage.inputBillingTelephone.sendKeys("15962626262");
+            checkoutPage.inputBillingAddress1.sendKeys("xuhuiqu");
+            checkoutPage.inputBillingCity.sendKeys("shanghai");
+            checkoutPage.inputBillingPostCode.sendKeys("200000");
             switch (url.split("\\.")[url.split("\\.").length - 1]) {
             case "sg":
             case "ch":

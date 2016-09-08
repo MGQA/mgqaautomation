@@ -46,7 +46,8 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
         CartPage cartPage = new CartPage();
         // cartPage.waitForVisibility(cartPage.paypalBtn, 5);
         // cartPage.paypalBtn.click();
-        cartPage.mouseAndClick(cartPage.paypalBtn);
+        cartPage.paypalBtn.click();
+        ;
         PaypalPage paypalPage = new PaypalPage();
         Assert.assertNotNull(paypalPage.paypalContentDisplay);
     }
