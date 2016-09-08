@@ -49,6 +49,11 @@ public abstract class AbstractBaseTestCase {
             this.reloadDriver(false);
         }
         driver.get(url);
+        try {
+            driver.switchTo().alert().accept();
+        }
+        catch (Exception e) {
+        }
         Header header = new Header();
         try {
             header.happySummer.click();

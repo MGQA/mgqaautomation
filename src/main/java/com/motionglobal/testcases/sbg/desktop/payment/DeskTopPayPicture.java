@@ -46,11 +46,10 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
     /**
      * all url sum total is 51 . check it payment picture
      */
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "pay" }, priority = 2)
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "pay" }, priority = 2)
     public void payPicture(String url) {
         getURL(AbstractBasePage.getLoginRequest(url + "/"));
         Header header = new Header();
-        header.acceptAlert();
         // switch (url) {
         // case "http://es.smartbuyglasses.com":
         // case "http://www.smartbuyglasses.com.ar":
@@ -293,7 +292,7 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
                 checkoutPage.AssertPayPicture(url, 1, 2, 3, 5, 7, 9, 18);
                 break;
             default:
-                Assert.assertEquals(1, 2);
+                Assert.assertEquals(1, 2, " Domain No't Exist !!!");
                 break;
             }
         }
