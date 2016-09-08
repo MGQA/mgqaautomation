@@ -48,6 +48,11 @@ public abstract class AbstractBaseTestCase {
         if (i == 0) {
             this.reloadDriver(false);
         }
+        try {
+            driver.switchTo().alert().accept();
+        }
+        catch (Exception a) {
+        }
         driver.get(url);
         try {
             driver.switchTo().alert().accept();
