@@ -37,8 +37,8 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
                 // { "http://www.smartbuyglasses.fi" }, { "http://www.sbg.co.kr" }, { "http://www.smartbuyglasses.cz" }, { "http://www.lentesworld.com.mx" },
                 { "http://www.gafasworld.com.co" }, { "http://www.smartbuyglasses.no" }, { "http://www.visiondirecta.cl" }, { "http://www.optikaworld.ru" },
                 // { "http://www.optykaworld.pl" }, { "http://www.smartbuyglasses.com.tr" }, { "http://www.smartbuyglasses.com.my" },
-                // { "http://www.smartbuyglasses.com.vn" }, { "http://www.smartbuyglasses.co.id" }, { "http://www.smartbuyglasses.com.ar" }
-                { "" } };
+                // { "http://www.smartbuyglasses.com.vn" }, { "http://www.smartbuyglasses.co.id" },
+                { "http://www.smartbuyglasses.com.ar" } };
     }
 
     /**
@@ -294,7 +294,7 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
                 Assert.assertEquals(1, 2);
                 break;
             }
-            if (url == "") {
+            if (url == "http://www.smartbuyglasses.com.ar") {
                 checkoutPage.VerifyUtil().verifyEnd();
             }
         }

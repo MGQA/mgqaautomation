@@ -34,8 +34,8 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
                 // { "http://m.oculosworld.com.pt" }, { "http://m.smartbuyglasses.fi" }, { "http://m.sbg.co.kr" }, { "http://m.smartbuyglasses.cz" },
                 { "http://m.lentesworld.com.mx" }, { "http://m.gafasworld.com.co" }, { "http://m.smartbuyglasses.no" }, { "http://m.visiondirecta.cl" },
                 // { "http://m.optikaworld.ru" }, { "http://m.optykaworld.pl" }, { "http://m.smartbuyglasses.com.tr" }, { "http://m.smartbuyglasses.com.my" },
-                // { "http://m.smartbuyglasses.com.vn" }, { "http://m.smartbuyglasses.co.id" }, { "http://m.smartbuyglasses.com.ar" }
-                { "" } };
+                // { "http://m.smartbuyglasses.com.vn" }, { "http://m.smartbuyglasses.co.id" },
+                { "http://m.smartbuyglasses.com.ar" } };
     }
 
     /**
@@ -222,7 +222,7 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
             Assert.assertEquals(1, 2);
             break;
         }
-        if (url == "") {
+        if (url == "http://www.smartbuyglasses.com.ar") {
             homePage.VerifyUtil().verifyEnd();
         }
     }
