@@ -39,8 +39,6 @@ public class MobCheckOutPage extends AbstractBaseSbgDesktopPage {
     private WebElement selectCountry;
     @FindBy(css = ".ck_continue_btn.i-btn--orange")
     public WebElement continueBtn;
-    @FindBy(xpath = "//*[@id='shippingForm']/div[10]")
-    public WebElement continueBtn2; // due to HK maybe continue button is gray
     // @FindBy(id = "product_122")
     @FindBy(css = "img[src*='visadebit']")
     public WebElement VISA;

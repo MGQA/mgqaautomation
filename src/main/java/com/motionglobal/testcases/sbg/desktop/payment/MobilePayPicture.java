@@ -18,10 +18,10 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
     @DataProvider
     public Object[][] db() {
         return new Object[][] { { "http://m.smartbuyglasses.com" }, { "http://m.visiondirect.com.au" }, { "http://m.smartbuyglasses.ca" },
-                { "http://m.smartbuyglasses.co.nz" }, { "http://m.smartbuyglasses.jp" }, { "http://m.smartbuyglasses.com.hk" },
-                { "http://m.smartbuyglasses.com.tw" }, { "http://m.smartbuyglasses.co.uk" }, { "http://m.smartbuyglasses.de" },
-                { "http://m.smartbuyglasses.nl" }, { "http://m.smartbuyglasses.co.in" }, { "http://m.smartbuyglasses.co.za" },
-                { "http://m.smartbuyglasses.ie" }, { "http://m.smartbuyglasses.se" }, { "http://m.smartbuyglasses.gr" }, { "http://m.smartbuyglasses.com.sg" },
+                { "http://m.smartbuyglasses.co.nz" }, { "http://m.smartbuyglasses.jp" }, { "http://m.smartbuyglasses.com.tw" },
+                { "http://m.smartbuyglasses.co.uk" }, { "http://m.smartbuyglasses.de" }, { "http://m.smartbuyglasses.nl" },
+                { "http://m.smartbuyglasses.co.in" }, { "http://m.smartbuyglasses.co.za" }, { "http://m.smartbuyglasses.ie" },
+                { "http://m.smartbuyglasses.se" }, { "http://m.smartbuyglasses.gr" }, { "http://m.smartbuyglasses.com.sg" },
                 { "http://m.es.smartbuyglasses.com" }, { "http://m.en.smartbuyglasses.com.hk" }, { "http://m.scn.smartbuyglasses.com.hk" },
                 { "http://m.en.smartbuyglasses.com.tw" }, { "http://m.scn.smartbuyglasses.com.tw" }, { "http://m.scn.smartbuyglasses.com.sg" },
                 { "http://m.tcn.smartbuyglasses.com.sg" }, { "http://m.fr.smartbuyglasses.ca" }, { "http://m.easylunettes.fr" },
@@ -39,7 +39,7 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
      * 
      * @throws InterruptedException
      */
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug2", "pay" }, priority = 2)
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "pay" }, priority = 2)
     public void payPicture(String url) throws InterruptedException {
         // switch (url) {
         // case "http://m.es.smartbuyglasses.com":
@@ -131,24 +131,7 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
         }
         // checkOutPage.waitForVisibility(checkOutPage.continueBtn, 10);
         // checkOutPage.continueBtn.click();
-        if (url.split("\\.")[url.split("\\.").length - 1].equals("hk")) {
-            try {
-                checkOutPage.continueBtn2.click();
-                checkOutPage.waitForVisibility(checkOutPage.payPicture, 5);
-            }
-            catch (Exception e) {
-                driver.navigate().refresh();
-                checkOutPage.clearInput(checkOutPage.inputFistName, "automationFirst");
-                checkOutPage.clearInput(checkOutPage.inputLastName, "automationLast");
-                checkOutPage.clearInput(checkOutPage.inputEmail, "testautomation@automation.com");
-                checkOutPage.clearInput(checkOutPage.inputAddress1, "automationAddress1");
-                checkOutPage.clearInput(checkOutPage.inputPhone, "15212345678");
-                checkOutPage.continueBtn.click();
-            }
-        }
-        else {
-            checkOutPage.continueBtn.click();
-        }
+        checkOutPage.continueBtn.click();
         //
         checkOutPage.waitForVisibility(checkOutPage.payPicture, 5);
         switch (url.split("\\.")[url.split("\\.").length - 1]) {
