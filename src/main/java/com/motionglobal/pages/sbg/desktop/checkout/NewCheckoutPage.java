@@ -24,7 +24,7 @@ public class NewCheckoutPage extends AbstractBaseSbgDesktopPage {
     @FindBy(id = "billing_state")
     public WebElement state;
 
-    public void AssertPayPicture(int... pay) {
+    public void AssertPayPicture(String url, int... pay) {
         Header header = new Header();
         VerifyUtil verify = new MobHeader().VerifyUtil();
         String expectPay = "";
@@ -37,7 +37,7 @@ public class NewCheckoutPage extends AbstractBaseSbgDesktopPage {
         for (int i = 0; i < payPicture.size(); i++) {
             actualPay += header.regexGeInt(payPicture.get(i).getAttribute("value"));
         }
-        verify.verifyEquals(actualPay, expectPay);
+        verify.verifyEquals(actualPay, expectPay, url);
     }
 
     public void selectCountry(String value) {

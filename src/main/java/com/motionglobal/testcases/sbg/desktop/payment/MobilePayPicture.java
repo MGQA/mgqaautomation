@@ -146,26 +146,26 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
         case "co":
         case "ar":
         case "cl":
-            checkOutPage.AssertPayPicture(1, 3);
+            checkOutPage.AssertPayPicture(url, 1, 3);
             break;
         case "nz":
         case "pt":
         case "pl":
         case "tr":
-            checkOutPage.AssertPayPicture(1, 2, 3);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3);
             break;
         case "za":
-            checkOutPage.AssertPayPicture(1, 2, 3, 11);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 11);
             break;
         case "ru":
-            checkOutPage.AssertPayPicture(1, 2, 3, 849, 841);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 849, 841);
             break;
         case "ca":
             if (url.split("\\.")[1].equals("fr")) {
-                checkOutPage.AssertPayPicture(1, 3, 122, 125);
+                checkOutPage.AssertPayPicture(url, 1, 3, 122, 125);
             }
             else {
-                checkOutPage.AssertPayPicture(1, 3, 122);
+                checkOutPage.AssertPayPicture(url, 1, 3, 122);
             }
             break;
         case "es":
@@ -174,10 +174,10 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
         case "my":
         case "vn":
         case "id":
-            checkOutPage.AssertPayPicture(1, 2, 3, 125);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 125);
             break;
         case "dk":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122, 123);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 123);
             break;
         case "hk":
         case "tw":
@@ -188,38 +188,38 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
         case "it":
         case "kr":
         case "cz":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122);
             break;
         case "sg":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122, 810);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 810);
             break;
         case "nl":
-            checkOutPage.AssertPayPicture(1, 2, 3, 809, 122);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 809, 122);
             break;
         case "de":
         case "ch":
         case "be":
         case "at":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122, 836);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 836);
             break;
         case "com":
         case "in":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122, 125);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 125);
             break;
         case "br":
-            checkOutPage.AssertPayPicture(1, 3, 125, 1503);
+            checkOutPage.AssertPayPicture(url, 1, 3, 125, 1503);
             break;
         case "fi":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122, 802);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 802);
             break;
         case "au":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122, 125, 11);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 125, 11);
             break;
         case "jp":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122, 125, 1504);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 125, 1504);
             break;
         case "uk":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122, 836, 125, 117);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 836, 125, 117);
             break;
         default:
             Assert.assertEquals(1, 2);
