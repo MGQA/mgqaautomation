@@ -1,7 +1,5 @@
 package com.motionglobal.testcases.sbg.desktop.payment;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -72,8 +70,7 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
         header.deleteHead();
         header.deleteLetTalk();
         HomePage homePage = new HomePage();
-        new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(homePage.linkSunNo1));
-        homePage.linkSunNo1.click();
+        homePage.iwtClick(homePage.linkSunNo1);
         // co.in is fail in 219
         ProductDetailPage detailPage = new ProductDetailPage();
         detailPage.acceptAlert();
