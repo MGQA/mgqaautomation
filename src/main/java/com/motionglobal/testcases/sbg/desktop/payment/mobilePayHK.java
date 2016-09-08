@@ -16,7 +16,7 @@ public class mobilePayHK extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
-        return new Object[][] { { "http://m.smartbuyglasses.com.hk" }, };
+        return new Object[][] { { "http://m.smartbuyglasses.com.hk" }, { "http://m.en.smartbuyglasses.com.hk" }, { "http://m.scn.smartbuyglasses.com.hk" }, };
     }
 
     /**
