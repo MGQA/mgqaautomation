@@ -63,13 +63,14 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     }
 
     public void iwtClick(WebElement element) {
-        try {
-            element.click();
-        }
-        catch (Exception e) {
-            new Actions(driver).sendKeys(Keys.PAGE_DOWN).perform();
-            element.click();
-        }
+        new Actions(driver).moveToElement(element).click();
+        // try {
+        // element.click();
+        // }
+        // catch (Exception e) {
+        // new Actions(driver).sendKeys(Keys.PAGE_DOWN).perform();
+        // element.click();
+        // }
     }
 
     public void displayLogin() {
