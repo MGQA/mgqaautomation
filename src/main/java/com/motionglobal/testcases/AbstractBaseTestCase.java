@@ -56,6 +56,12 @@ public abstract class AbstractBaseTestCase {
         }
         Header header = new Header();
         try {
+            header.geo.click();
+            Thread.sleep(100);
+        }
+        catch (Exception e) {
+        }
+        try {
             header.happySummer.click();
             Thread.sleep(100);
         }

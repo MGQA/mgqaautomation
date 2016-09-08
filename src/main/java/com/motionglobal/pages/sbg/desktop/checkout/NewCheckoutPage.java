@@ -23,6 +23,21 @@ public class NewCheckoutPage extends AbstractBaseSbgDesktopPage {
     public WebElement selectCountry;
     @FindBy(id = "billing_state")
     public WebElement state;
+    //
+    @FindBy(id = "billing_first_name")
+    public WebElement inputBillingFirstName;
+    @FindBy(id = "billing_last_name")
+    public WebElement inputBillingLastName;
+    @FindBy(id = "billing_email")
+    public WebElement inputBillingEmail;
+    @FindBy(name = "billing_address1")
+    public WebElement inputBillingAddress1;
+    @FindBy(id = "billing_post_code")
+    public WebElement inputBillingPostCode;
+    @FindBy(id = "billing_city")
+    public WebElement inputBillingCity;
+    @FindBy(name = "billing_telephone")
+    public WebElement inputBillingTelephone;
 
     public void AssertPayPicture(String url, int... pay) {
         Header header = new Header();

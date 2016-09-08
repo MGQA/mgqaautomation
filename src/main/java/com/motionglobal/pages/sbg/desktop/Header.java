@@ -18,6 +18,8 @@ public class Header extends AbstractBasePage {
     public WebElement delBlackHead;
     @FindBy(id = "lc_chat_layout")
     public WebElement letTalk;
+    @FindBy(className = "geo-close-btn")
+    public WebElement geo;
 
     // deals
     @FindBy(css = ".megamenu_left_all>a>span")

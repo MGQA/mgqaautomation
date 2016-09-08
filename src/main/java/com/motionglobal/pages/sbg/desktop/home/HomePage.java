@@ -33,9 +33,9 @@ public class HomePage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> textTopSellBrandName;
     @FindBy(css = ".pro_slider_ul>li>a")
     public List<WebElement> linkTopSellLabelA;
-    @FindBy(xpath = "//*[@id='content']/div[7]//li[5]")
+    @FindBy(xpath = "//*[@id='content']/div[7]//li[5]/a")
     public WebElement linkSunNo1;
-    @FindBy(xpath = "//*[@id='content']/div[8]//li[5]")
+    @FindBy(xpath = "//*[@id='content']/div[8]//li[5]/a")
     public WebElement linkEyeNo1;
 
     // feature
