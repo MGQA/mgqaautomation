@@ -36,15 +36,15 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
                 // { "http://www.smartbuyglasses.dk" }, { "http://www.smartbuyglasses.it" }, { "http://www.oculosworld.com.pt" },
                 // { "http://www.smartbuyglasses.fi" }, { "http://www.sbg.co.kr" }, { "http://www.smartbuyglasses.cz" }, { "http://www.lentesworld.com.mx" },
                 { "http://www.gafasworld.com.co" }, { "http://www.smartbuyglasses.no" }, { "http://www.visiondirecta.cl" }, { "http://www.optikaworld.ru" },
-        // { "http://www.optykaworld.pl" }, { "http://www.smartbuyglasses.com.tr" }, { "http://www.smartbuyglasses.com.my" },
-        // { "http://www.smartbuyglasses.com.vn" }, { "http://www.smartbuyglasses.co.id" }, { "http://www.smartbuyglasses.com.ar" }
-        };
+                // { "http://www.optykaworld.pl" }, { "http://www.smartbuyglasses.com.tr" }, { "http://www.smartbuyglasses.com.my" },
+                // { "http://www.smartbuyglasses.com.vn" }, { "http://www.smartbuyglasses.co.id" }, { "http://www.smartbuyglasses.com.ar" }
+                { "" } };
     }
 
     /**
      * all url sum total is 51 . check it payment picture
      */
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "pay" }, priority = 2)
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "pay" }, priority = 2)
     public void payPicture(String url) {
         getURL(AbstractBasePage.getLoginRequest(url + "/"));
         Header header = new Header();
@@ -69,7 +69,7 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         header.deleteHead();
         header.deleteLetTalk();
-        new HomePage().linkSunNo1.click();
+        header.mouseAndClick(new HomePage().linkSunNo1);
         // co.in is fail in 219
         ProductDetailPage detailPage = new ProductDetailPage();
         detailPage.acceptAlert();
@@ -293,6 +293,9 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
             default:
                 Assert.assertEquals(1, 2);
                 break;
+            }
+            if (url == "") {
+                checkoutPage.VerifyUtil().verifyEnd();
             }
         }
 

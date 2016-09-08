@@ -33,9 +33,9 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
                 // { "http://m.oculosworld.com.br" }, { "http://m.gafasworld.es" }, { "http://m.smartbuyglasses.dk" }, { "http://m.smartbuyglasses.it" },
                 // { "http://m.oculosworld.com.pt" }, { "http://m.smartbuyglasses.fi" }, { "http://m.sbg.co.kr" }, { "http://m.smartbuyglasses.cz" },
                 { "http://m.lentesworld.com.mx" }, { "http://m.gafasworld.com.co" }, { "http://m.smartbuyglasses.no" }, { "http://m.visiondirecta.cl" },
-        // { "http://m.optikaworld.ru" }, { "http://m.optykaworld.pl" }, { "http://m.smartbuyglasses.com.tr" }, { "http://m.smartbuyglasses.com.my" },
-        // { "http://m.smartbuyglasses.com.vn" }, { "http://m.smartbuyglasses.co.id" }, { "http://m.smartbuyglasses.com.ar" }
-        };
+                // { "http://m.optikaworld.ru" }, { "http://m.optykaworld.pl" }, { "http://m.smartbuyglasses.com.tr" }, { "http://m.smartbuyglasses.com.my" },
+                // { "http://m.smartbuyglasses.com.vn" }, { "http://m.smartbuyglasses.co.id" }, { "http://m.smartbuyglasses.com.ar" }
+                { "" } };
     }
 
     /**
@@ -44,7 +44,6 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
      * @throws InterruptedException
      */
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug2", "pay" }, priority = 2)
-    // @Test(dataProvider = "db", groups = { "debug", "pay" }, priority = 2)
     public void payPicture(String url) throws InterruptedException {
         // switch (url) {
         // case "http://m.es.smartbuyglasses.com":
@@ -66,7 +65,7 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         new MobHeader().acceptAlert();
         MobHomePage homePage = new MobHomePage();
-        homePage.getTopSell(Sell.SUNIMG).click();
+        homePage.mouseAndClick(homePage.getTopSell(Sell.SUNIMG));
         //
         MobProductDetailPage detailPage = new MobProductDetailPage();
         detailPage.waitForVisibility(detailPage.buyNow, 5);
@@ -222,6 +221,9 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
         default:
             Assert.assertEquals(1, 2);
             break;
+        }
+        if (url == "") {
+            homePage.VerifyUtil().verifyEnd();
         }
     }
 
