@@ -146,6 +146,9 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
                 checkOutPage.continueBtn.click();
             }
         }
+        else {
+            checkOutPage.continueBtn.click();
+        }
         //
         checkOutPage.waitForVisibility(checkOutPage.payPicture, 5);
         switch (url.split("\\.")[url.split("\\.").length - 1]) {

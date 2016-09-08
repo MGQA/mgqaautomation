@@ -62,6 +62,16 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         js.executeScript("arguments[0].setAttribute('class','" + classContent + "');", element);
     }
 
+    public void iwtClick(WebElement element) {
+        try {
+            element.click();
+        }
+        catch (Exception e) {
+            new Actions(driver).sendKeys(Keys.PAGE_DOWN).perform();
+            element.click();
+        }
+    }
+
     public void displayLogin() {
         JsChangeClass("new_proPop new_proPop2 addblock", driver.findElement(By.cssSelector("#signin_li>div")));
     }
