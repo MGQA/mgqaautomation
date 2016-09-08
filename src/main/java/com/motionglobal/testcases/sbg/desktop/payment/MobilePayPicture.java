@@ -17,28 +17,21 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
-        return new Object[][] {
-                // { "http://m.smartbuyglasses.com" }, { "http://m.visiondirect.com.au" }, { "http://m.smartbuyglasses.ca" },
-                // { "http://m.smartbuyglasses.co.nz" }, { "http://m.smartbuyglasses.jp" }, { "http://m.smartbuyglasses.com.hk" },
-                // { "http://m.smartbuyglasses.com.tw" }, { "http://m.smartbuyglasses.co.uk" }, { "http://m.smartbuyglasses.de" },
-                // { "http://m.smartbuyglasses.nl" },
-                { "http://m.smartbuyglasses.co.in" }, { "http://m.smartbuyglasses.co.za" },
-                // { "http://m.smartbuyglasses.ie" }, { "http://m.smartbuyglasses.se" }, { "http://m.smartbuyglasses.gr" }, { "http://m.smartbuyglasses.com.sg"
-                // },
-                // { "http://m.es.smartbuyglasses.com" }, { "http://m.en.smartbuyglasses.com.hk" }, { "http://m.scn.smartbuyglasses.com.hk" },
-                // { "http://m.en.smartbuyglasses.com.tw" }, { "http://m.scn.smartbuyglasses.com.tw" }, { "http://m.scn.smartbuyglasses.com.sg" },
-                // { "http://m.tcn.smartbuyglasses.com.sg" }, { "http://m.fr.smartbuyglasses.ca" }, { "http://m.easylunettes.fr" },
-                // { "http://m.smartbuyglasses.ch" }, { "http://m.smartbuyglasses.be" }, { "http://m.smartbuyglasses.at" }, { "http://m.fr.smartbuyglasses.be"
-                // },
-                // { "http://m.en.smartbuyglasses.ch" }, { "http://m.fr.smartbuyglasses.ch" }, { "http://m.en.smartbuyglasses.be" },
-                // { "http://m.oculosworld.com.br" }, { "http://m.gafasworld.es" }, { "http://m.smartbuyglasses.dk" }, { "http://m.smartbuyglasses.it" },
-                // { "http://m.oculosworld.com.pt" }, { "http://m.smartbuyglasses.fi" }, { "http://m.sbg.co.kr" }, { "http://m.smartbuyglasses.cz" },
-                // { "http://m.lentesworld.com.mx" },
-                { "http://m.gafasworld.com.co" }, { "http://m.smartbuyglasses.no" },
-                // { "http://m.visiondirecta.cl" },
-                // { "http://m.optikaworld.ru" }, { "http://m.optykaworld.pl" }, { "http://m.smartbuyglasses.com.tr" }, { "http://m.smartbuyglasses.com.my" },
-                // { "http://m.smartbuyglasses.com.vn" }, { "http://m.smartbuyglasses.co.id" },
-                { "http://m.smartbuyglasses.com.ar" } };
+        return new Object[][] { { "http://m.smartbuyglasses.com" }, { "http://m.visiondirect.com.au" }, { "http://m.smartbuyglasses.ca" },
+                { "http://m.smartbuyglasses.co.nz" }, { "http://m.smartbuyglasses.jp" }, { "http://m.smartbuyglasses.com.hk" },
+                { "http://m.smartbuyglasses.com.tw" }, { "http://m.smartbuyglasses.co.uk" }, { "http://m.smartbuyglasses.de" },
+                { "http://m.smartbuyglasses.nl" }, { "http://m.smartbuyglasses.co.in" }, { "http://m.smartbuyglasses.co.za" },
+                { "http://m.smartbuyglasses.ie" }, { "http://m.smartbuyglasses.se" }, { "http://m.smartbuyglasses.gr" }, { "http://m.smartbuyglasses.com.sg" },
+                { "http://m.es.smartbuyglasses.com" }, { "http://m.en.smartbuyglasses.com.hk" }, { "http://m.scn.smartbuyglasses.com.hk" },
+                { "http://m.en.smartbuyglasses.com.tw" }, { "http://m.scn.smartbuyglasses.com.tw" }, { "http://m.scn.smartbuyglasses.com.sg" },
+                { "http://m.tcn.smartbuyglasses.com.sg" }, { "http://m.fr.smartbuyglasses.ca" }, { "http://m.easylunettes.fr" },
+                { "http://m.smartbuyglasses.ch" }, { "http://m.smartbuyglasses.be" }, { "http://m.smartbuyglasses.at" }, { "http://m.fr.smartbuyglasses.be" },
+                { "http://m.en.smartbuyglasses.ch" }, { "http://m.fr.smartbuyglasses.ch" }, { "http://m.en.smartbuyglasses.be" },
+                { "http://m.oculosworld.com.br" }, { "http://m.gafasworld.es" }, { "http://m.smartbuyglasses.dk" }, { "http://m.smartbuyglasses.it" },
+                { "http://m.oculosworld.com.pt" }, { "http://m.smartbuyglasses.fi" }, { "http://m.sbg.co.kr" }, { "http://m.smartbuyglasses.cz" },
+                { "http://m.lentesworld.com.mx" }, { "http://m.gafasworld.com.co" }, { "http://m.smartbuyglasses.no" }, { "http://m.visiondirecta.cl" },
+                { "http://m.optikaworld.ru" }, { "http://m.optykaworld.pl" }, { "http://m.smartbuyglasses.com.tr" }, { "http://m.smartbuyglasses.com.my" },
+                { "http://m.smartbuyglasses.com.vn" }, { "http://m.smartbuyglasses.co.id" }, { "http://m.smartbuyglasses.com.ar" } };
     }
 
     /**
@@ -146,26 +139,26 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
         case "co":
         case "ar":
         case "cl":
-            checkOutPage.AssertPayPicture(1, 3);
+            checkOutPage.AssertPayPicture(url, 1, 3);
             break;
         case "nz":
         case "pt":
         case "pl":
         case "tr":
-            checkOutPage.AssertPayPicture(1, 2, 3);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3);
             break;
         case "za":
-            checkOutPage.AssertPayPicture(1, 2, 3, 11);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 11);
             break;
         case "ru":
-            checkOutPage.AssertPayPicture(1, 2, 3, 849, 841);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 849, 841);
             break;
         case "ca":
             if (url.split("\\.")[1].equals("fr")) {
-                checkOutPage.AssertPayPicture(1, 3, 122, 125);
+                checkOutPage.AssertPayPicture(url, 1, 3, 122, 125);
             }
             else {
-                checkOutPage.AssertPayPicture(1, 3, 122);
+                checkOutPage.AssertPayPicture(url, 1, 3, 122);
             }
             break;
         case "es":
@@ -174,10 +167,10 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
         case "my":
         case "vn":
         case "id":
-            checkOutPage.AssertPayPicture(1, 2, 3, 125);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 125);
             break;
         case "dk":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122, 123);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 123);
             break;
         case "hk":
         case "tw":
@@ -188,38 +181,38 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
         case "it":
         case "kr":
         case "cz":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122);
             break;
         case "sg":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122, 810);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 810);
             break;
         case "nl":
-            checkOutPage.AssertPayPicture(1, 2, 3, 809, 122);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 809, 122);
             break;
         case "de":
         case "ch":
         case "be":
         case "at":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122, 836);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 836);
             break;
         case "com":
         case "in":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122, 125);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 125);
             break;
         case "br":
-            checkOutPage.AssertPayPicture(1, 3, 125, 1503);
+            checkOutPage.AssertPayPicture(url, 1, 3, 125, 1503);
             break;
         case "fi":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122, 802);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 802);
             break;
         case "au":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122, 125, 11);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 125, 11);
             break;
         case "jp":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122, 125, 1504);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 125, 1504);
             break;
         case "uk":
-            checkOutPage.AssertPayPicture(1, 2, 3, 122, 836, 125, 117);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 836, 125, 117);
             break;
         default:
             Assert.assertEquals(1, 2);

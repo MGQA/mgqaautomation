@@ -106,7 +106,7 @@ public class MobTestHomePage extends AbstractBaseTestCase {
     }
 
     // XXX case 3
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void topBrank(String url) throws InterruptedException {
         getURL(url);
         MobHomePage homePage = new MobHomePage();
@@ -149,7 +149,7 @@ public class MobTestHomePage extends AbstractBaseTestCase {
     }
 
     // XXX case 4
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void indexMenuSun(String url) throws InterruptedException {
         getURL(url);
         MobHomePage homePage = new MobHomePage();
@@ -186,7 +186,7 @@ public class MobTestHomePage extends AbstractBaseTestCase {
     }
 
     // XXX case 5
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void indexMenuEye(String url) throws InterruptedException {
         getURL(url);
         MobHomePage homePage = new MobHomePage();
@@ -223,7 +223,7 @@ public class MobTestHomePage extends AbstractBaseTestCase {
     }
 
     // XXX case 5
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void indexMenuCL(String url) throws InterruptedException {
         getURL(url);
         MobHomePage homePage = new MobHomePage();

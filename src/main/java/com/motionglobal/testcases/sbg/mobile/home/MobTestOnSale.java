@@ -15,7 +15,7 @@ public class MobTestOnSale extends AbstractBaseTestCase {
         return new Object[][] { new Object[] { "http://m.smartbuyglasses.com/" }, { "http://m.smartbuyglasses.co.uk/" } };
     }
 
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void intoOnSalePage(String url) throws InterruptedException {
         getURL(url);
         MobHeader header = new MobHeader();

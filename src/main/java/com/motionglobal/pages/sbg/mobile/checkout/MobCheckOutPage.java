@@ -102,7 +102,7 @@ public class MobCheckOutPage extends AbstractBaseSbgDesktopPage {
         select.selectByValue(value);
     }
 
-    public void AssertPayPicture(int... pay) {
+    public void AssertPayPicture(String url, int... pay) {
         Header header = new Header();
         VerifyUtil verify = new MobHeader().VerifyUtil();
         String expectPay = "";
@@ -115,7 +115,7 @@ public class MobCheckOutPage extends AbstractBaseSbgDesktopPage {
         for (int i = 0; i < payPicture.size(); i++) {
             actualPay += header.regexGeInt(payPicture.get(i).getAttribute("for"));
         }
-        verify.verifyEquals(actualPay, expectPay);
+        verify.verifyEquals(actualPay, expectPay, url);
     }
 
     @Override
