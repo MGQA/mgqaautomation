@@ -40,22 +40,23 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.CL), 2);
         header.getMainMenuElement(MegaMenu.CL).click();
         header.getSubMenuElement(4, 1).click();
-        String menuBrankName = header.getDetailLinkElement(4, 1, (num + 1)).getText();
+        // String menuBrankName = header.getDetailLinkElement(4, 1, (num + 1)).getText();
         js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(4, 1, (num + 1)));
         header.getDetailLinkElement(4, 1, (num + 1)).click();
         MobProductPage productPage = new MobProductPage();
-        String productBrankName = "";
-        for (int j = 0; j < productPage.productList.size(); j++) {
-            productBrankName += productPage.getProductName(j);
-            if (productBrankName.contains("SofLens"))
-                productBrankName = "Soflens";
-            if (productBrankName.contains("Expression"))
-                productBrankName = "Expressions";
-            if (url.equals("http://m.smartbuyglasses.com.hk") && productBrankName.contains("Dailies AquaComfort"))
-                productBrankName = "Focus";
-        }
-        Assert.assertTrue(productBrankName.contains(menuBrankName), "FAIL i IS :" + (num + 1) + " !!! productBrankName IS :" + menuBrankName);
+        Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
+        // String productBrankName = "";
+        // for (int j = 0; j < productPage.productList.size(); j++) {
+        // productBrankName += productPage.getProductName(j);
+        // if (productBrankName.contains("SofLens"))
+        // productBrankName = "Soflens";
+        // if (productBrankName.contains("Expression"))
+        // productBrankName = "Expressions";
+        // if (url.equals("http://m.smartbuyglasses.com.hk") && productBrankName.contains("Dailies AquaComfort"))
+        // productBrankName = "Focus";
         // }
+        // Assert.assertTrue(productBrankName.contains(menuBrankName), "FAIL IS :" + (num + 1) + " !!! productBrankName IS :" + menuBrankName);
+        // // }
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
@@ -82,7 +83,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         // }
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     // Miss Assert
     public void menuCLFrequency(String url) {
         getURL(url);
@@ -93,6 +94,7 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         int num = random.nextInt(header.getSubMenuElementSize(4, 3));
         header.menuBtn.click();
         header.getMainMenuElement(MegaMenu.CL).click();
+        header.JsMouse(header.getSubMenuElement(4, 3));
         header.getSubMenuElement(4, 3).click();
         // String brankName = header.getDetailLinkElement(3, 2, (i + 1)).getText();
         js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(4, 3, (num + 1)));

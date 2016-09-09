@@ -70,7 +70,8 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
         header.deleteHead();
         header.deleteLetTalk();
         HomePage homePage = new HomePage();
-        homePage.iwtClick(homePage.linkSunNo1);
+        header.JsMouse(homePage.linkSunNo1);
+        homePage.linkSunNo1.click();
         // co.in is fail in 219
         ProductDetailPage detailPage = new ProductDetailPage();
         detailPage.acceptAlert();

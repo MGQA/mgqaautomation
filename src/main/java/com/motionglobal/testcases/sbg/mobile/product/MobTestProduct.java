@@ -35,7 +35,7 @@ public class MobTestProduct extends AbstractBaseTestCase {
     }
 
     // XXX case 2
-    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void filterPrice(String url) throws InterruptedException {
         getURL(url);
         MobProductPage productPage = new MobProductPage();
@@ -58,8 +58,8 @@ public class MobTestProduct extends AbstractBaseTestCase {
             expectPrice = productPage.regexGetDouble(productPage.productPrice.get(Num).getText());
         }
         //
-        productPage.subFilter.get(Num).click();
-        double actualPrice = productPage.regexGetDouble(productPage.finalFilter.get(Num).getText());
+        productPage.finalFilter.get(Num).click();
+        double actualPrice = productPage.regexGetDouble(productPage.productPrice.get(Num).getText());
         if (priceSmall != 0 && priceGreat != 0) {
             Assert.assertTrue(priceSmall <= actualPrice, actualPrice + " NOT BETWEEN " + priceSmall + " AND " + priceGreat);
             Assert.assertTrue(priceGreat >= actualPrice, actualPrice + " NOT BETWEEN " + priceSmall + " AND " + priceGreat);

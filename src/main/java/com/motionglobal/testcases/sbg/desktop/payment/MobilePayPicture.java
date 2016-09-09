@@ -39,7 +39,7 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
      * 
      * @throws InterruptedException
      */
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "pay" }, priority = 2)
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug2", "pay" }, priority = 2)
     public void payPicture(String url) throws InterruptedException {
         // switch (url) {
         // case "http://m.es.smartbuyglasses.com":
@@ -129,8 +129,7 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
             checkOutPage.clearInput(checkOutPage.inputPostAddress, "200000");
             checkOutPage.clearInput(checkOutPage.inputCity, "shanghai");
         }
-        // checkOutPage.waitForVisibility(checkOutPage.continueBtn, 10);
-        // checkOutPage.continueBtn.click();
+        checkOutPage.waitForVisibility(checkOutPage.continueBtn, 2);
         checkOutPage.continueBtn.click();
         //
         checkOutPage.waitForVisibility(checkOutPage.payPicture, 5);

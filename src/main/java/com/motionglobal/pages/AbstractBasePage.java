@@ -62,17 +62,6 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         js.executeScript("arguments[0].setAttribute('class','" + classContent + "');", element);
     }
 
-    public void iwtClick(WebElement element) {
-        try {
-            waitForVisibility(element, 1);
-            element.click();
-        }
-        catch (Exception e) {
-            new Actions(driver).sendKeys(Keys.PAGE_DOWN).perform();
-            element.click();
-        }
-    }
-
     public void displayLogin() {
         JsChangeClass("new_proPop new_proPop2 addblock", driver.findElement(By.cssSelector("#signin_li>div")));
     }
@@ -119,12 +108,10 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     }
 
     public double regexGetDouble(String matcher) {
-        Pattern pattern = Pattern.compile("0\\.\\d*|[1-9]\\d*");
+        Pattern pattern = Pattern.compile("[^0-9.]");
         Matcher match = pattern.matcher(matcher);
-        Double getNum = 0.0;
-        while (match.find()) {
-            getNum = Double.parseDouble(match.group());
-        }
+        String str = match.replaceAll("");
+        Double getNum = Double.parseDouble(str);
         return getNum;
     }
 

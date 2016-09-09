@@ -241,7 +241,7 @@ public class MobTestHomePage extends AbstractBaseTestCase {
         homePage.indexSubMenu.get(1).click();
         MobProductPage productPage = new MobProductPage();
         String productTitle2 = productPage.regexGetLetterLow(productPage.productTitle.getText());
-        Assert.assertEquals(productTitle2, "contactlenses");
+        Assert.assertTrue(productTitle2.contains("contactlenses"));
         Assert.assertTrue(productPage.productList.size() > 1);
 
         //
