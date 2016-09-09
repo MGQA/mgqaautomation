@@ -23,7 +23,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     }
 
     // XXX case 1
-    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug111", "smoke" }, successPercentage = 0)
+    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" }, successPercentage = 0)
     public void menuCLBrank(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
