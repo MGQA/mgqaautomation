@@ -37,12 +37,14 @@ public class MobTestFooter extends AbstractBaseTestCase {
     public void aboutUs(String url) throws InterruptedException {
         getURL(url);
         MobHeader header = new MobHeader();
+        header.JsMouse(header.footer.get(0));
         header.footer.get(0).click();
         MobFooterPage footerPage = new MobFooterPage();
         String title = footerPage.regexGetLetterLow(footerPage.title.getText());
         Assert.assertEquals(title, "aboutus");
         String pimcore = "http://m.smartbuyglasses.com/optical-center/";
         getURL(pimcore);
+        header.JsMouse(header.footer.get(0));
         header.footer.get(0).click();
         MobFooterPage footerPage1 = new MobFooterPage();
         String title2 = footerPage1.regexGetLetterLow(footerPage.title.getText());
@@ -54,12 +56,14 @@ public class MobTestFooter extends AbstractBaseTestCase {
     public void contactUs(String url) throws InterruptedException {
         getURL(url);
         MobHeader header = new MobHeader();
+        header.JsMouse(header.footer.get(1));
         header.footer.get(1).click();
         MobFooterPage footerPage = new MobFooterPage();
         String title = footerPage.regexGetLetterLow(footerPage.title.getText());
         Assert.assertEquals(title, "contactus");
         String pimcore = "http://m.smartbuyglasses.com/optical-center/";
         getURL(pimcore);
+        header.JsMouse(header.footer.get(1));
         header.footer.get(1).click();
         MobFooterPage footerPage1 = new MobFooterPage();
         String title2 = footerPage1.regexGetLetterLow(footerPage.title.getText());
@@ -72,12 +76,14 @@ public class MobTestFooter extends AbstractBaseTestCase {
     public void term(String url) throws InterruptedException {
         getURL(url);
         MobHeader header = new MobHeader();
+        header.JsMouse(header.footer.get(2));
         header.footer.get(2).click();
         MobFooterPage footerPage = new MobFooterPage();
         String title = footerPage.regexGetLetterLow(footerPage.title.getText());
         Assert.assertEquals(title, "termsconditions");
         String pimcore = "http://m.smartbuyglasses.com/optical-center/";
         getURL(pimcore);
+        header.JsMouse(header.footer.get(2));
         header.footer.get(2).click();
         MobFooterPage footerPage1 = new MobFooterPage();
         String title2 = footerPage1.regexGetLetterLow(footerPage.title.getText());
@@ -89,12 +95,14 @@ public class MobTestFooter extends AbstractBaseTestCase {
     public void faq(String url) throws InterruptedException {
         getURL(url);
         MobHeader header = new MobHeader();
+        header.JsMouse(header.footer.get(3));
         header.footer.get(3).click();
         MobFooterPage footerPage = new MobFooterPage();
         String title = footerPage.regexGetLetterLow(footerPage.title.getText());
         Assert.assertEquals(title, "faq");
         String pimcore = "http://m.smartbuyglasses.com/optical-center/";
         getURL(pimcore);
+        header.JsMouse(header.footer.get(3));
         header.footer.get(3).click();
         MobFooterPage footerPage1 = new MobFooterPage();
         String title2 = footerPage1.regexGetLetterLow(footerPage.title.getText());
@@ -106,12 +114,14 @@ public class MobTestFooter extends AbstractBaseTestCase {
     public void orderTracking(String url) throws InterruptedException {
         getURL(url);
         MobHeader header = new MobHeader();
+        header.JsMouse(header.footer.get(4));
         header.footer.get(4).click();
         MobFooterPage footerPage = new MobFooterPage();
         String title = footerPage.regexGetLetterLow(footerPage.title.getText());
         Assert.assertEquals(title, "ordertracking");
         String pimcore = "http://m.smartbuyglasses.com/optical-center/";
         getURL(pimcore);
+        header.JsMouse(header.footer.get(4));
         header.footer.get(4).click();
         MobFooterPage footerPage1 = new MobFooterPage();
         String title2 = footerPage1.regexGetLetterLow(footerPage.title.getText());
@@ -123,12 +133,14 @@ public class MobTestFooter extends AbstractBaseTestCase {
     public void privacyPolicy(String url) throws InterruptedException {
         getURL(url);
         MobHeader header = new MobHeader();
+        header.JsMouse(header.footer.get(5));
         header.footer.get(5).click();
         MobFooterPage footerPage = new MobFooterPage();
         String title = footerPage.regexGetLetterLow(footerPage.title.getText());
         Assert.assertEquals(title, "privacypolicy");
         String pimcore = "http://m.smartbuyglasses.com/optical-center/";
         getURL(pimcore);
+        header.JsMouse(header.footer.get(5));
         header.footer.get(5).click();
         MobFooterPage footerPage1 = new MobFooterPage();
         String title2 = footerPage1.regexGetLetterLow(footerPage.title.getText());

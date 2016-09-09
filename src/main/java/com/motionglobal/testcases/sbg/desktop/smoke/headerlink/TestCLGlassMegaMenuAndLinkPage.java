@@ -187,27 +187,29 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
     public void subMidMenuSectionNum2(String url) {
         getURL(url);
         Menu Menu = new Menu();
-        Menu.clickMiddleSubMenu(5, 2, 1);
-        CLProductDetailPage clProductDetailPage = new CLProductDetailPage();
-        String id = clProductDetailPage.information.getAttribute("id");
-        Assert.assertTrue(id.contains("information"));
-        Menu.clickMiddleSubMenu(5, 2, 2);
-        Assert.assertTrue(id.contains("information"));
-        // if (!(url.equals("http://www.smartbuyglasses.com.hk") | url.equals("http://www.smartbuyglasses.se"))) {
-        // Menu.clickMiddleSubMenu(5, 2, 3);
-        // Assert.assertTrue(id.contains("information"));
-        // if (!(url.equals("http://www.smartbuyglasses.dk"))) {
-        // Menu.clickMiddleSubMenu(5, 2, 4);
-        // Assert.assertTrue(id.contains("information"));
-        // if (!(url.equals("http://www.smartbuyglasses.co.uk") | url.equals("http://www.smartbuyglasses.de") | url
-        // .equals("http://www.smartbuyglasses.nl"))) {
-        // Menu.clickMiddleSubMenu(5, 2, 5);
-        // Assert.assertTrue(id.contains("information"));
-        // Menu.clickMiddleSubMenu(5, 2, 6);
-        // Assert.assertTrue(id.contains("information"));
-        // }
-        // }
-        // }
+        if (Menu.getMiddleSubmenuElement(5, 2, 1).isDisplayed()) {
+            Menu.clickMiddleSubMenu(5, 2, 1);
+            CLProductDetailPage clProductDetailPage = new CLProductDetailPage();
+            String id = clProductDetailPage.information.getAttribute("id");
+            Assert.assertTrue(id.contains("information"));
+            Menu.clickMiddleSubMenu(5, 2, 2);
+            Assert.assertTrue(id.contains("information"));
+            // if (!(url.equals("http://www.smartbuyglasses.com.hk") | url.equals("http://www.smartbuyglasses.se"))) {
+            // Menu.clickMiddleSubMenu(5, 2, 3);
+            // Assert.assertTrue(id.contains("information"));
+            // if (!(url.equals("http://www.smartbuyglasses.dk"))) {
+            // Menu.clickMiddleSubMenu(5, 2, 4);
+            // Assert.assertTrue(id.contains("information"));
+            // if (!(url.equals("http://www.smartbuyglasses.co.uk") | url.equals("http://www.smartbuyglasses.de") | url
+            // .equals("http://www.smartbuyglasses.nl"))) {
+            // Menu.clickMiddleSubMenu(5, 2, 5);
+            // Assert.assertTrue(id.contains("information"));
+            // Menu.clickMiddleSubMenu(5, 2, 6);
+            // Assert.assertTrue(id.contains("information"));
+            // }
+            // }
+            // }
+        }
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })

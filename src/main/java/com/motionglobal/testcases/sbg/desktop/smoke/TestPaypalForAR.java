@@ -25,20 +25,20 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
         // XXX case 1
         ProductDetailPage detailPage = null;
         try {
-            String url = "http://www.smartbuyglasses.com.ar/lentes-de-sol-de-dise%C3%B1o/D&G/D&G-DD3065/S-1870/8G-116377.html";
-            // url 219
-            // String url = "http://www.smartbuyglasses.com.ar/gafas-de-sol-de-diseno/D&G/D&G-DD3065/S-1870/8G-116377.html";
+            String url = "http://www.smartbuyglasses.com.ar/lentes-de-dise%C3%B1o/D&G/D&G-DD1238-501-167081.html";
             getURL(AbstractBasePage.getLoginRequest("http://www.smartbuyglasses.com.ar/"));
             getURL(url);
             detailPage = new ProductDetailPage();
             detailPage.waitForVisibility(detailPage.btnBuyNow, 5);
+            detailPage.btnFrameOnly.click();
         }
         catch (Exception e) {
-            String url = "http://www.smartbuyglasses.com.ar/lentes-de-dise%C3%B1o/D&G/D&G-DD1238-501-167081.html";
+            String url = "http://www.smartbuyglasses.com.ar/lentes-de-sol-de-dise%C3%B1o/D&G/D&G-DD3065/S-1870/8G-116377.html";
+            // url 219
+            // String url = "http://www.smartbuyglasses.com.ar/gafas-de-sol-de-diseno/D&G/D&G-DD3065/S-1870/8G-116377.html";
             getURL(url);
             detailPage = new ProductDetailPage();
             detailPage.waitForVisibility(detailPage.btnBuyNow, 5);
-            detailPage.btnFrameOnly.click();
         }
         detailPage.btnBuyNow.click();
 
@@ -46,8 +46,8 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
         CartPage cartPage = new CartPage();
         // cartPage.waitForVisibility(cartPage.paypalBtn, 5);
         // cartPage.paypalBtn.click();
+        cartPage.JsMouse(cartPage.paypalBtn);
         cartPage.paypalBtn.click();
-        ;
         PaypalPage paypalPage = new PaypalPage();
         Assert.assertNotNull(paypalPage.paypalContentDisplay);
     }

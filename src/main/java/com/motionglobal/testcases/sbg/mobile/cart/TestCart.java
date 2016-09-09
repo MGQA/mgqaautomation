@@ -23,7 +23,7 @@ public class TestCart extends AbstractBaseTestCase {
         MobHeader header = new MobHeader();
         header.waitForVisibility(header.cartBox, 5);
         String cartNum = header.cartNum.getText();
-        Assert.assertEquals(cartNum, "0");
+        Assert.assertEquals(cartNum, "");
         header.cartBox.click();
         MobCartPage cartPage = new MobCartPage();
         cartPage.waitForVisibility(cartPage.cartIsEmpty, 5);

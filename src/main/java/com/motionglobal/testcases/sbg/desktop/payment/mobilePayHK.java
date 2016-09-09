@@ -24,7 +24,7 @@ public class mobilePayHK extends AbstractBaseSbgDesktopTestCase {
      * 
      * @throws InterruptedException
      */
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "pay" }, priority = 3)
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug2", "pay" }, priority = 3)
     public void payPicture(String url) throws InterruptedException {
         getURL(url);
         new MobHeader().acceptAlert();
