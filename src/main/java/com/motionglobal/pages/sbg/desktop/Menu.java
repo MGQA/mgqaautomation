@@ -119,11 +119,11 @@ public class Menu extends Header {
         return driver.findElement(By.xpath("//ul[@id='menuN_level_5']/li/div/div[2]/div[1]/ul/li[" + rowNum + "]/a"));
     }
 
-    private WebElement getCLWeeklyElement(int rowNum) {
+    public WebElement getCLWeeklyElement(int rowNum) {
         return driver.findElement(By.xpath("//ul[@id='menuN_level_5']/li/div/div[2]/div[2]/ul[1]/li[" + rowNum + "]/a"));
     }
 
-    private WebElement getLenseMonthlyElement(int rowNum) {
+    private WebElement getCLMonthlyElement(int rowNum) {
         return driver.findElement(By.xpath("//ul[@id='menuN_level_5']/li/div/div[2]/div[2]/ul[2]/li[" + rowNum + "]/a"));
     }
 
@@ -193,8 +193,8 @@ public class Menu extends Header {
                 getCLWeeklyElement(rowNum).click();
                 break;
             case 3:
-                waitForVisibility(getLenseMonthlyElement(rowNum), 5);
-                getLenseMonthlyElement(rowNum).click();
+                waitForVisibility(getCLMonthlyElement(rowNum), 5);
+                getCLMonthlyElement(rowNum).click();
                 break;
             }
         }

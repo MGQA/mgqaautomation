@@ -30,35 +30,35 @@ public class MobTestHomePage extends AbstractBaseTestCase {
         getURL(url);
         Actions actions = new Actions(driver);
         MobHomePage homePage = new MobHomePage();
-        homePage.JsMouse(homePage.getTopSell(Sell.EYEIMG));
+        homePage.JsMouse(homePage.getTopSell(Sell.SUNIMG));
         String price1 = homePage.getTopSell(Sell.SUNPRICE).getText();
         String homeBrank = homePage.regexGetLetterLow(homePage.getTopSell(Sell.SUNBRANK).getText());
-        actions.dragAndDropBy(homePage.getTopSell(Sell.EYEIMG), 100, 0).perform();
+        actions.dragAndDropBy(homePage.getTopSell(Sell.SUNIMG), 100, 0).perform();
         new WebDriverWait(driver, 5).until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(homePage.getTopSell(Sell.SUNBRANK), homeBrank)));
         String price2 = homePage.getTopSell(Sell.SUNPRICE).getText();
         String homeBrank2 = homePage.regexGetLetterLow(homePage.getTopSell(Sell.SUNBRANK).getText());
-        homePage.getTopSell(Sell.EYEIMG).click();
+        homePage.getTopSell(Sell.SUNIMG).click();
         MobProductDetailPage detailPage = new MobProductDetailPage();
         Assert.assertEquals(detailPage.price.getText(), price2);
         Assert.assertTrue(detailPage.regexGetLetterLow(detailPage.productName.getText()).contains(homeBrank2), " PAGE NO'T MATCH !!!");
 
         //
         detailPage.mobHeader().logo.click();
-        homePage.JsMouse(homePage.getTopSell(Sell.EYEIMG));
-        actions.dragAndDropBy(homePage.getTopSell(Sell.EYEIMG), -100, 0).perform();
+        homePage.JsMouse(homePage.getTopSell(Sell.SUNIMG));
+        actions.dragAndDropBy(homePage.getTopSell(Sell.SUNIMG), -100, 0).perform();
         new WebDriverWait(driver, 5).until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(homePage.getTopSell(Sell.SUNBRANK), homeBrank)));
         String price3 = homePage.getTopSell(Sell.SUNPRICE).getText();
         String homeBrank3 = homePage.regexGetLetterLow(homePage.getTopSell(Sell.SUNBRANK).getText());
-        homePage.getTopSell(Sell.EYEIMG).click();
+        homePage.getTopSell(Sell.SUNIMG).click();
         MobProductDetailPage detailPage2 = new MobProductDetailPage();
         Assert.assertEquals(detailPage2.price.getText(), price3);
         Assert.assertTrue(detailPage.regexGetLetterLow(detailPage.productName.getText()).contains(homeBrank3), " PAGE NO'T MATCH !!!");
 
         //
         detailPage.mobHeader().logo.click();
-        homePage.JsMouse(homePage.getTopSell(Sell.EYEIMG));
-        homePage.waitForVisibility(homePage.getTopSell(Sell.EYEIMG), 5);
-        homePage.getTopSell(Sell.EYEIMG).click();
+        homePage.JsMouse(homePage.getTopSell(Sell.SUNIMG));
+        homePage.waitForVisibility(homePage.getTopSell(Sell.SUNIMG), 5);
+        homePage.getTopSell(Sell.SUNIMG).click();
         MobProductDetailPage detailPage3 = new MobProductDetailPage();
         Assert.assertEquals(detailPage.price.getText(), price1);
         Assert.assertTrue(detailPage.regexGetLetterLow(detailPage.productName.getText()).contains(homeBrank), " PAGE NO'T MATCH !!!");

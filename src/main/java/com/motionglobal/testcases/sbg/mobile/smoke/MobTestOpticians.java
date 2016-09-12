@@ -28,9 +28,9 @@ public class MobTestOpticians extends AbstractBaseTestCase {
         double expectTotal = opticianPage.mathAdd(priceFrame, priceLens);
         opticianPage.AsssetEquals(actualTotal, expectTotal);
         opticianPage.AsssetEquals(priceFrame, buyFrame);
-        opticianPage.waitForVisibility(opticianPage.continueBtn, 5);
-        opticianPage.JsMouse(opticianPage.continueBtn);
-        opticianPage.continueBtn.click();
+        opticianPage.waitForVisibility(opticianPage.btnContinue, 5);
+        opticianPage.JsMouse(opticianPage.btnContinue);
+        opticianPage.btnContinue.click();
         // }
         // catch (Exception e) {
         // // old RX

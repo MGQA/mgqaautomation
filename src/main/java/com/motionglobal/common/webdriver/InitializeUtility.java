@@ -65,7 +65,7 @@ public class InitializeUtility {
             System.setProperty("webdriver.chrome.driver", CONFIG.getProperty(browser));
             driver = new ChromeDriver();
             break;
-        case "testChrome":
+        case "testchrome":
             driver = new ChromeDriver();
             break;
         case "html":

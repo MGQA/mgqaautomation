@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 import com.motionglobal.common.webdriver.InitializeUtility;
 import com.motionglobal.common.webdriver.ScreenshotListener;
 import com.motionglobal.pages.sbg.desktop.Header;
+import com.motionglobal.pages.sbg.mobile.MobHeader;
 
 @Test
 public abstract class AbstractBaseTestCase {
@@ -70,6 +71,17 @@ public abstract class AbstractBaseTestCase {
         try {
             if (!(url == "http://www.smartbuyglasses.co.uk/?birthday"))
                 header.firstBuy.click();
+            Thread.sleep(100);
+        }
+        catch (Exception e) {
+        }
+        // mobile
+        MobHeader mobHeader = new MobHeader();
+        try {
+            if (!(url == "http://m.smartbuyglasses.co.uk/?discount")) {
+                mobHeader.JsDisplayNone(mobHeader.discount);
+                mobHeader.closeHappySummer.click();
+            }
             Thread.sleep(100);
         }
         catch (Exception e) {
