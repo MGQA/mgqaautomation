@@ -153,10 +153,11 @@ public class MobTestProduct extends AbstractBaseTestCase {
         //
         Random random = new Random();
         int Num = random.nextInt(3);
-        String fitlerName = productPage.regexGetLetterLow(productPage.finalFilter.get(Num).getText());
+        // String fitlerName = productPage.regexGetLetterLow(productPage.finalFilter.get(Num).getText());
         productPage.finalFilter.get(Num).click();
         String actualName = productPage.regexGetLetterLow(productPage.productTitle.getText());
-        Assert.assertTrue(actualName.contains(fitlerName), "PAGE IS " + actualName + "BUT EXPECT IS : " + fitlerName);
+        // Assert.assertTrue(actualName.contains(fitlerName), "PAGE IS " + actualName + "BUT EXPECT IS : " + fitlerName);
+        Assert.assertTrue(actualName.contains("rayban"), " Ray-Ban Filter Fail !!!");
     }
 
     @Override

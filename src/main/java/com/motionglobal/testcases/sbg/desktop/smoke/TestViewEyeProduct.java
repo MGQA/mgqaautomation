@@ -44,14 +44,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         header.waitForVisibility(productGridPage.buyNowButton, 2);
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(productGridPage.buyNowButton));
         productGridPage.buyNowButton.click();
-        try {
-            // new RX
-            header.waitForVisibility(productGridPage.cartBtn, 2);
-        }
-        catch (Exception e) {
-            // old RX
-            RX2Page buyNowPage = new RX2Page();
-        }
+        Assert.assertFalse(productGridPage.getRXType().contains("empty"), "Don't Into RX !!");
     }
 
     @Test(groups = { "debug", "smoke", "fastsmoke" })

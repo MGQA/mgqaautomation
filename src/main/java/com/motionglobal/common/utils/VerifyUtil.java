@@ -17,7 +17,7 @@ public class VerifyUtil {
     }
 
     public void verifyEnd() {
-        Assert.assertTrue(flag, errors.toString());
+        Assert.assertTrue(flag, errors.toString().replace("java.lang.AssertionError:", ""));
         // Assert.assertTrue(flag);
     }
 

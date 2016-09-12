@@ -25,20 +25,24 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
         // XXX case 1
         ProductDetailPage detailPage = null;
         try {
-            String url = "http://www.smartbuyglasses.com.ar/lentes-de-dise%C3%B1o/D&G/D&G-DD1238-501-167081.html";
-            getURL(AbstractBasePage.getLoginRequest("http://www.smartbuyglasses.com.ar/"));
-            getURL(url);
-            detailPage = new ProductDetailPage();
-            detailPage.waitForVisibility(detailPage.btnBuyNow, 5);
-            detailPage.btnFrameOnly.click();
-        }
-        catch (Exception e) {
-            String url = "http://www.smartbuyglasses.com.ar/lentes-de-sol-de-dise%C3%B1o/D&G/D&G-DD3065/S-1870/8G-116377.html";
+            // D & G no sale
+            // String url = "http://www.smartbuyglasses.com.ar/lentes-de-sol-de-dise%C3%B1o/D&G/D&G-DD3065/S-1870/8G-116377.html";
+            String url = "http://www.smartbuyglasses.com.ar/lentes-de-sol-de-dise%C3%B1o/Dolce-&-Gabbana/Dolce-&-Gabbana-DG2099/S-GYM-10818G-116525.html";
             // url 219
             // String url = "http://www.smartbuyglasses.com.ar/gafas-de-sol-de-diseno/D&G/D&G-DD3065/S-1870/8G-116377.html";
             getURL(url);
             detailPage = new ProductDetailPage();
             detailPage.waitForVisibility(detailPage.btnBuyNow, 5);
+        }
+        catch (Exception e) {
+            // D & G no sale
+            // String url = "http://www.smartbuyglasses.com.ar/lentes-de-dise%C3%B1o/D&G/D&G-DD1238-501-167081.html";
+            String url = "http://www.smartbuyglasses.com.ar/lentes-de-dise%C3%B1o/Dolce-&-Gabbana/Dolce-&-Gabbana-DG5005-Young-&-Coloured-2727-195776.html";
+            getURL(AbstractBasePage.getLoginRequest("http://www.smartbuyglasses.com.ar/"));
+            getURL(url);
+            detailPage = new ProductDetailPage();
+            detailPage.waitForVisibility(detailPage.btnBuyNow, 5);
+            detailPage.btnFrameOnly.click();
         }
         detailPage.btnBuyNow.click();
 
@@ -81,7 +85,7 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
      * assert use 1-20 is card name(payment_product_id) , table from gc_payment_product
      */
     // XXX case 3
-    @Test(skipFailedInvocations = true, groups = { "debug2", "smoke", "pay" }, priority = 1)
+    @Test(skipFailedInvocations = true, groups = { "debug", "smoke", "pay" }, priority = 1)
     public void testSQL() {
         VerifyUtil verify = new Header().VerifyUtil();
         // US
@@ -284,6 +288,7 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
         String ID = "73";
         String IDpay = getID(ID);
         verify.verifyEquals(IDpay, "1239", "Fail Country_ID IS :" + ID);
+        verify.verifyEnd();
         //
     }
 
