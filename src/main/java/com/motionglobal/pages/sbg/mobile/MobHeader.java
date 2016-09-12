@@ -10,6 +10,11 @@ import com.motionglobal.pages.AbstractBasePage;
 
 public class MobHeader extends AbstractBasePage {
     //
+    @FindBy(className = "header__notice__text")
+    public WebElement discount;
+    @FindBy(className = "close_btn")
+    public WebElement closeHappySummer;
+    //
     @FindBy(className = "header__menu-btn")
     public WebElement menuBtn;
     @FindBy(className = "header__search-btn")

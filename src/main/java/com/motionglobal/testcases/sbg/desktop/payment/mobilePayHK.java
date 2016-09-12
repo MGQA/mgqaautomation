@@ -20,7 +20,6 @@ public class mobilePayHK extends AbstractBaseSbgDesktopTestCase {
     }
 
     /**
-     * all url sum total is 51 . check it payment picture
      * 
      * @throws InterruptedException
      */

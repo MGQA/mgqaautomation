@@ -62,6 +62,10 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         js.executeScript("arguments[0].setAttribute('class','" + classContent + "');", element);
     }
 
+    public void displayMenu(int num) {
+        JsChangeClass("nav_submenu menuN_dispaly", driver.findElement(By.id("menuN_level_" + num)));
+    }
+
     public void displayLogin() {
         JsChangeClass("new_proPop new_proPop2 addblock", driver.findElement(By.cssSelector("#signin_li>div")));
     }

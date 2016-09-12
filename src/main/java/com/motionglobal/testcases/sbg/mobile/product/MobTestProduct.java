@@ -50,12 +50,12 @@ public class MobTestProduct extends AbstractBaseTestCase {
         double priceGreat = 0;
         double expectPrice = 0;
         try {
-            String[] fitlerName = productPage.productPrice.get(Num).getText().split("~");
+            String[] fitlerName = productPage.finalFilter.get(Num).getText().split("~");
             priceSmall = productPage.regexGetDouble(fitlerName[0]);
             priceGreat = productPage.regexGetDouble(fitlerName[1]);
         }
         catch (Exception e) {
-            expectPrice = productPage.regexGetDouble(productPage.productPrice.get(Num).getText());
+            expectPrice = productPage.regexGetDouble(productPage.finalFilter.get(Num).getText());
         }
         //
         productPage.finalFilter.get(Num).click();

@@ -3,7 +3,6 @@ package com.motionglobal.pages;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -73,24 +72,13 @@ public abstract class AbstractBaseContainer implements IWaiter {
     }
 
     public void acceptAlert() {
-        // try {
-        // driver.switchTo().alert().accept();
-        // }
-        // catch (Exception e) {
-        // // Do nothing if there is no alert.
-        // }
-        boolean flag = false;
-        Alert alert = null;
         try {
-            new WebDriverWait(driver, 1).until(ExpectedConditions.alertIsPresent());
-            alert = driver.switchTo().alert();
-            flag = true;
-            // alert.accept();
+            driver.switchTo().alert().accept();
         }
-        catch (Exception ex) {
+        catch (Exception e) {
+            // Do nothing if there is no alert.
         }
-        if (flag) {
-            alert.accept();
-        }
+        // new WebDriverWait(driver, 1).until(ExpectedConditions.alertIsPresent());
+        // alert = driver.switchTo().alert();
     }
 }

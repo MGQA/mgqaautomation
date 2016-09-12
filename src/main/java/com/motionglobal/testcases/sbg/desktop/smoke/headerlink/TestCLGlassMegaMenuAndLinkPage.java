@@ -187,7 +187,16 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
     public void subMidMenuSectionNum2(String url) {
         getURL(url);
         Menu Menu = new Menu();
-        if (Menu.getMiddleSubmenuElement(5, 2, 1).isDisplayed()) {
+        boolean subMenuDispaly = false;
+        try {
+            Menu.displayMenu(5);
+            Menu.getCLWeeklyElement(1);
+            subMenuDispaly = true;
+        }
+        catch (Exception e) {
+        }
+        System.out.println(subMenuDispaly);
+        if (subMenuDispaly) {
             Menu.clickMiddleSubMenu(5, 2, 1);
             CLProductDetailPage clProductDetailPage = new CLProductDetailPage();
             String id = clProductDetailPage.information.getAttribute("id");
