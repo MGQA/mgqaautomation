@@ -11,7 +11,7 @@ import com.motionglobal.pages.sbg.mobile.product.MobNewOpticianPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
-public class MobTestRX extends AbstractBaseTestCase {
+public class MobTestRXAndFrame extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] dp() {
         return new Object[][] { new Object[] { "http://m.smartbuyglasses.com/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html" } };
@@ -19,18 +19,26 @@ public class MobTestRX extends AbstractBaseTestCase {
 
     // XXX case RX in cart
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
-    public void cartRX(String url) throws InterruptedException {
+    public void firstRX(String url) throws InterruptedException {
+        // RX
         getURL(url);
         MobProductDetailPage detailPage = new MobProductDetailPage();
-        detailPage.buyNow.click();
-        MobCartPage cartPage = new MobCartPage();
-        cartPage.addPre.click();
+        detailPage.addLens.click();
         MobNewOpticianPage opticianPage = new MobNewOpticianPage();
-        Double totalPrice = getPrice(opticianPage.priceTotal);
-        opticianPage.JsMouse(opticianPage.btnContinue);
+        opticianPage.waitForVisibility(opticianPage.btnContinue, 5);
+        Double priceTotal = getPrice(opticianPage.priceTotal);
         opticianPage.btnContinue.click();
+        MobCartPage cartPage = new MobCartPage();
         Double priceCart = getPrice(cartPage.priceTotal);
-        Assert.assertEquals(priceCart, totalPrice);
+        Assert.assertEquals(priceCart, priceTotal);
+        // frame
+        getURL(url);
+        MobProductDetailPage detailPage2 = new MobProductDetailPage();
+        Double priceFrame = detailPage2.regexGetDouble(detailPage2.price.getText());
+        detailPage2.buyNow.click();
+        MobCartPage cartPage2 = new MobCartPage();
+        Double priceCart2 = getPrice(cartPage2.priceTotal);
+        Assert.assertEquals(priceCart2, priceFrame + priceCart);
     }
 
     private Double getPrice(WebElement element) {
@@ -42,13 +50,10 @@ public class MobTestRX extends AbstractBaseTestCase {
 
     @Override
     protected void initialize() {
-        // TODO Auto-generated method stub
-
     }
 
     @Override
     protected void tearDown() {
-        // TODO Auto-generated method stub
-
     }
+
 }

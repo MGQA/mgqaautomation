@@ -79,7 +79,7 @@ public class MobHeader extends AbstractBasePage {
             element = driver.findElement(By.xpath("//ul[@class='index__menu']/li[4]/div/div[1]/span"));
             break;
         case DEALS:
-            element = driver.findElement(By.xpath("//ul[@class='index__menu']/li[5]/div/div[1]/span"));
+            element = driver.findElement(By.xpath("//ul[@class='index__menu']/li[6]/div/div[1]/span"));
             break;
         default:
             System.out.println("");

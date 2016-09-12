@@ -11,26 +11,25 @@ import com.motionglobal.pages.sbg.mobile.product.MobNewOpticianPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
-public class MobTestRX extends AbstractBaseTestCase {
+public class MobTestBuyFarmeOnly extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] dp() {
         return new Object[][] { new Object[] { "http://m.smartbuyglasses.com/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html" } };
     }
 
-    // XXX case RX in cart
+    // XXX case buyFrameOnly
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
-    public void cartRX(String url) throws InterruptedException {
+    public void buyFrameOnly(String url) throws InterruptedException {
         getURL(url);
         MobProductDetailPage detailPage = new MobProductDetailPage();
-        detailPage.buyNow.click();
-        MobCartPage cartPage = new MobCartPage();
-        cartPage.addPre.click();
+        detailPage.addLens.click();
         MobNewOpticianPage opticianPage = new MobNewOpticianPage();
-        Double totalPrice = getPrice(opticianPage.priceTotal);
-        opticianPage.JsMouse(opticianPage.btnContinue);
-        opticianPage.btnContinue.click();
+        opticianPage.waitForVisibility(opticianPage.buyFrame, 5);
+        Double priceFrame = getPrice(opticianPage.buyFrame);
+        opticianPage.buyFrame.click();
+        MobCartPage cartPage = new MobCartPage();
         Double priceCart = getPrice(cartPage.priceTotal);
-        Assert.assertEquals(priceCart, totalPrice);
+        Assert.assertEquals(priceCart, priceFrame);
     }
 
     private Double getPrice(WebElement element) {
@@ -51,4 +50,5 @@ public class MobTestRX extends AbstractBaseTestCase {
         // TODO Auto-generated method stub
 
     }
+
 }

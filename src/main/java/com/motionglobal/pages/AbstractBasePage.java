@@ -188,6 +188,40 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     }
 
     /**
+     * judge RX type
+     * 
+     * @return "new" or "old"
+     */
+    public String getRXType() {
+        String rx = "empty";
+        for (int i = 0; i < 100; i++) {
+            try {
+                driver.findElement(By.className("cart_btn"));
+                rx = "new";
+                break;
+            }
+            catch (Exception e) {
+            }
+            try {
+                driver.findElement(By.xpath("//div[@id='lensStep01']/div[1]/div[1]/h4"));
+                rx = "old";
+                break;
+            }
+            catch (Exception e) {
+            }
+            try {
+                Thread.sleep(200);
+            }
+            catch (Exception e) {
+            }
+            if (i == 99) {
+                Assert.assertTrue(1 == 2, "Wait 20s, But Page No't Load Finish !!");
+            }
+        }
+        return rx;
+    }
+
+    /**
      * @param domain
      *            domain example: http://www.smartbuyglasses.co.uk/
      */

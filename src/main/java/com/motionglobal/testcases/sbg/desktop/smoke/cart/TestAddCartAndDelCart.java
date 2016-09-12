@@ -19,7 +19,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 public class TestAddCartAndDelCart extends AbstractBaseSbgDesktopTestCase {
     static String url = "http://www.smartbuyglasses.com/designer-sunglasses/Gucci/Gucci-GG-3500/S-WNQ/02-108457.html/";
 
-    @Test(groups = { "smoke", "debug111" })
+    @Test(groups = { "smoke", "debug" })
     public void addAndDel() {
         getURL(url);
         try {
