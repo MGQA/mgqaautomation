@@ -39,7 +39,7 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
      * 
      * @throws InterruptedException
      */
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug2", "pay" }, priority = 2)
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "pay" }, priority = 2)
     public void payPicture(String url) throws InterruptedException {
         // switch (url) {
         // case "http://m.es.smartbuyglasses.com":

@@ -12,7 +12,7 @@ public class NewCartPage extends AbstractBaseSbgDesktopPage {
 
     @FindBy(css = ".quantity-wrapper>select")
     public List<WebElement> selectQuantity;
-    @FindBy(css = ".pay_now.gc-checkout-class")
+    @FindBy(css = ".top-checkout-btn.pay_now.gc-checkout-class.gointerpay_submit")
     public WebElement btnCheckout;
 
     // assert

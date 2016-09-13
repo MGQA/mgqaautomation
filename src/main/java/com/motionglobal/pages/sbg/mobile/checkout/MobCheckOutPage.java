@@ -100,6 +100,11 @@ public class MobCheckOutPage extends AbstractBaseSbgDesktopPage {
     public void selectCountry(String value) {
         Select select = new Select(selectCountry);
         select.selectByValue(value);
+        try {
+            Thread.sleep(200);
+        }
+        catch (InterruptedException e) {
+        }
     }
 
     public void AssertPayPicture(String url, int... pay) {

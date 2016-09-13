@@ -48,7 +48,7 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
     /**
      * all url sum total is 51 . check it payment picture
      */
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "pay" }, priority = 2)
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "pay" }, priority = 2)
     public void payPicture(String url) {
         // getURL(AbstractBasePage.getLoginRequest(url + "/"));
         Header header = new Header();
@@ -87,6 +87,7 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
             // XXX new cart
             NewCartPage newCartPage = new NewCartPage();
             newCartPage.waitForVisibility(newCartPage.btnCheckout, 5);
+            newCartPage.deleteLetTalk();
             newCartPage.btnCheckout.click();
             NewCheckoutPage checkoutPage = new NewCheckoutPage();
             checkoutPage.inputBillingFirstName.sendKeys("jack");
