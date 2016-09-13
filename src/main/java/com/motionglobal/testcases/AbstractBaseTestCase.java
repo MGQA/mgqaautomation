@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.testng.ITestContext;
@@ -45,48 +46,13 @@ public abstract class AbstractBaseTestCase {
         initialize();
     }
 
+    // XXX getURL
     protected void getURL(String url) {
         if (i == 0) {
             this.reloadDriver(false);
         }
         driver.get(url);
-        try {
-            driver.switchTo().alert().accept();
-        }
-        catch (Exception e) {
-        }
-        Header header = new Header();
-        try {
-            header.geo.click();
-            Thread.sleep(100);
-        }
-        catch (Exception e) {
-        }
-        try {
-            header.happySummer.click();
-            Thread.sleep(100);
-        }
-        catch (Exception e) {
-        }
-        try {
-            if (!(url == "http://www.smartbuyglasses.co.uk/?birthday"))
-                header.firstBuy.click();
-            Thread.sleep(100);
-        }
-        catch (Exception e) {
-        }
-        // mobile
-        MobHeader mobHeader = new MobHeader();
-        try {
-            if (!(url == "http://m.smartbuyglasses.co.uk/?discount")) {
-                mobHeader.JsDisplayNone(mobHeader.discount);
-                mobHeader.closeHappySummer.click();
-            }
-            Thread.sleep(100);
-        }
-        catch (Exception e) {
-        }
-        header.deleteLetTalk();
+        delDeal(url);
         i = 0;
     }
 
@@ -167,6 +133,52 @@ public abstract class AbstractBaseTestCase {
     protected void print(Object... obj) {
         for (Object s : obj) {
             System.out.println(s);
+        }
+    }
+
+    // XXX delete deal
+    private void delDeal(String url) {
+        try {
+            driver.switchTo().alert().accept();
+        }
+        catch (Exception e) {
+        }
+        Header header = new Header();
+        try {
+            header.geo.click();
+            Thread.sleep(100);
+        }
+        catch (Exception e) {
+        }
+        try {
+            header.happySummer.click();
+            Thread.sleep(100);
+        }
+        catch (Exception e) {
+        }
+        try {
+            if (!(url == "http://www.smartbuyglasses.co.uk/?birthday"))
+                header.firstBuy.click();
+            Thread.sleep(100);
+        }
+        catch (Exception e) {
+        }
+        // mobile
+        MobHeader mobHeader = new MobHeader();
+        try {
+            if (!(url == "http://m.smartbuyglasses.co.uk/?discount")) {
+                mobHeader.JsDisplayNone(mobHeader.discount);
+                mobHeader.closeHappySummer.click();
+            }
+            Thread.sleep(100);
+        }
+        catch (Exception e) {
+        }
+        header.deleteLetTalk();
+        try {
+            header.waitForVisibility(driver.findElement(By.cssSelector(".overlay[style='display: none;']")), 2);
+        }
+        catch (Exception e) {
         }
     }
 }

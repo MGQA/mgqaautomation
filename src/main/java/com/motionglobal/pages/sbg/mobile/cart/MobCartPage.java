@@ -24,6 +24,8 @@ public class MobCartPage extends AbstractBaseSbgDesktopPage {
     public WebElement btnEye;
     @FindBy(className = "em_contacts_btn")
     public WebElement btnCL;
+    @FindBy(className = "shopping__cart__continue")
+    public WebElement btnShop;
 
     // XXX product element
     @FindBy(className = "shopping__cart__product")
