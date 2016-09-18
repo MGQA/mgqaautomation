@@ -44,7 +44,6 @@ public class TestEmptyCartBtn extends AbstractBaseTestCase {
         MobCartPage cartPage4 = new MobCartPage();
         cartPage.waitForVisibility(cartPage4.cartIsEmpty, 5);
         cartPage.btnShop.click();
-        MobProductAllCLPage productPage4 = new MobProductAllCLPage();
         Assert.assertEquals(driver.getCurrentUrl(), "http://m.smartbuyglasses.com/");
     }
 

@@ -22,7 +22,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     }
 
     // XXX case 1
-    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" }, successPercentage = 0)
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" }, successPercentage = 0)
     public void menuCLBrank(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
@@ -40,7 +40,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     }
 
     // XXX case 2
-    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     // Miss Assert
     public void menuCLType(String url) {
         getURL(url);
@@ -59,7 +59,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     }
 
     // XXX case 3
-    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     // Miss Assert
     public void menuCLFrequency(String url) {
         getURL(url);
@@ -78,7 +78,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     }
 
     // XXX case 4
-    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuEyeGlassGender(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
@@ -96,7 +96,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     }
 
     // XXX case 5
-    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuEyeGlassBrank(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
@@ -114,7 +114,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     }
 
     // XXX case 6
-    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuEyeGlassShape(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
@@ -132,7 +132,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     }
 
     // XXX case 7
-    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuEyeGlassStyle(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
@@ -150,7 +150,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     }
 
     // XXX case 8
-    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuSunGlassGender(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
@@ -168,7 +168,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     }
 
     // XXX case 9
-    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuSunGlassBrank(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
@@ -186,7 +186,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     }
 
     // XXX case 10
-    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuSunGlassShape(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
@@ -204,7 +204,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     }
 
     // XXX case 11
-    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuSunGlassPolarised(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
@@ -218,7 +218,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     }
 
     // XXX case 5
-    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuSunPrescription(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
@@ -232,7 +232,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     }
 
     // XXX case 6
-    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuSunSki(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
@@ -246,7 +246,7 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     }
 
     // XXX case
-    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void intoOnSalePage(String url) throws InterruptedException {
         getURL(url);
         MobHeader header = new MobHeader();
