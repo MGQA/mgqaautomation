@@ -145,7 +145,8 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
                 checkoutPage.AssertPayPicture(url, 1, 2, 3);
                 break;
             case "za":
-                checkoutPage.AssertPayPicture(url, 1, 2, 3, 11);
+                // checkoutPage.AssertPayPicture(url, 1, 2, 3, 11);
+                checkoutPage.AssertPayPicture(url, 1, 3, 11);
                 break;
             case "ru":
                 checkoutPage.AssertPayPicture(url, 1, 2, 3, 849, 841);
@@ -159,12 +160,15 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
                 }
                 break;
             case "es":
-            case "no":
             case "info":
             case "my":
             case "vn":
             case "id":
                 checkoutPage.AssertPayPicture(url, 1, 2, 3, 125);
+                break;
+            case "no":
+                // checkoutPage.AssertPayPicture(url, 1, 2, 3, 125);
+                checkoutPage.AssertPayPicture(url, 1, 2, 3);
                 break;
             case "dk":
                 checkoutPage.AssertPayPicture(url, 1, 2, 3, 122, 123);
@@ -193,8 +197,11 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
                 checkoutPage.AssertPayPicture(url, 1, 2, 3, 122, 836);
                 break;
             case "com":
-            case "in":
                 checkoutPage.AssertPayPicture(url, 1, 2, 3, 122, 125);
+                break;
+            case "in":
+                // checkoutPage.AssertPayPicture(url, 1, 2, 3, 122, 125);
+                checkoutPage.AssertPayPicture(url, 1, 3, 122, 125);
                 break;
             case "br":
                 checkoutPage.AssertPayPicture(url, 1, 3, 125, 1503);
@@ -237,7 +244,8 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
                 checkoutPage.AssertPayPicture(url, 1, 2, 3);
                 break;
             case "za":
-                checkoutPage.AssertPayPicture(url, 1, 2, 3, 15);
+                // checkoutPage.AssertPayPicture(url, 1, 2, 3, 15);
+                checkoutPage.AssertPayPicture(url, 1, 3, 15);
                 break;
             case "ru":
                 checkoutPage.AssertPayPicture(url, 1, 2, 3, 16, 17);
@@ -251,12 +259,14 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
                 }
                 break;
             case "es":
-            case "no":
             case "info":
             case "my":
             case "vn":
             case "id":
                 checkoutPage.AssertPayPicture(url, 1, 2, 3, 9);
+                break;
+            case "no":
+                checkoutPage.AssertPayPicture(url, 1, 2, 3);
                 break;
             case "dk":
                 checkoutPage.AssertPayPicture(url, 1, 2, 3, 5, 13);
@@ -285,8 +295,11 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
                 checkoutPage.AssertPayPicture(url, 1, 2, 3, 5, 7);
                 break;
             case "com":
-            case "in":
                 checkoutPage.AssertPayPicture(url, 1, 2, 3, 5, 9);
+                break;
+            case "in":
+                // checkoutPage.AssertPayPicture(url, 1, 2, 3, 5, 9);
+                checkoutPage.AssertPayPicture(url, 1, 3, 5, 9);
                 break;
             case "br":
                 checkoutPage.AssertPayPicture(url, 1, 3, 9, 12);

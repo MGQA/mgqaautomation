@@ -19,18 +19,18 @@ public class MobTestOnSale extends AbstractBaseTestCase {
     public void intoOnSalePage(String url) throws InterruptedException {
         getURL(url);
         MobHeader header = new MobHeader();
-        header.menuBtn.click();
+        header.btnMenu.click();
         header.deleteLetTalk();
         header.getMainMenuElement(MegaMenu.DEALS).click();
-        header.waitForVisibility(header.dealsSun, 2);
-        header.dealsSun.click();
+        header.waitForVisibility(header.subMenuS.get(0), 2);
+        header.subMenuS.get(0).click();
         MobProductPage productPage = new MobProductPage();
         Assert.assertTrue(productPage.dealsIcon.size() > 18, "NO ! NO'T ON-SALE PAGE !!!");
-        header.menuBtn.click();
+        header.btnMenu.click();
         header.deleteLetTalk();
         header.getMainMenuElement(MegaMenu.DEALS).click();
-        header.waitForVisibility(header.dealsSun, 2);
-        header.dealsEye.click();
+        header.waitForVisibility(header.subMenuS.get(1), 2);
+        header.subMenuS.get(1).click();
         MobProductPage productPage2 = new MobProductPage();
         Assert.assertTrue(productPage2.dealsIcon.size() > 18, "NO ! NO'T ON-SALE PAGE !!!");
     }

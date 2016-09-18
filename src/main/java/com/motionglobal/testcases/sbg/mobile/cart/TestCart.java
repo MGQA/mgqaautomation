@@ -7,13 +7,14 @@ import org.testng.annotations.Test;
 import com.motionglobal.pages.sbg.mobile.MobHeader;
 import com.motionglobal.pages.sbg.mobile.cart.MobCartPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
+import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage.Prescription;
 import com.motionglobal.pages.sbg.mobile.product.MobProductPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
 public class TestCart extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://m.smartbuyglasses.com/" }, { "http://m.smartbuyglasses.co.uk/" } };
+        return new Object[][] { new Object[] { "http://m.smartbuyglasses.co.uk/" } };
     }
 
     // XXX case1
@@ -31,7 +32,7 @@ public class TestCart extends AbstractBaseTestCase {
 
     // XXX case2
     @Test(skipFailedInvocations = true, groups = { "debug2", "smoke" })
-    public void emptyCartAddDel() throws InterruptedException {
+    public void addDeleteProduct() throws InterruptedException {
         String url = "http://m.smartbuyglasses.com/cart/";
         getURL(url);
         MobCartPage cartPage = new MobCartPage();
@@ -70,7 +71,7 @@ public class TestCart extends AbstractBaseTestCase {
 
     // XXX case4 Add 2 different product,then delete 1
     @Test(skipFailedInvocations = true, groups = { "debug2", "smoke" })
-    public void twoProduct() throws InterruptedException {
+    public void twoProductAddDelete() throws InterruptedException {
         String url1 = "http://m.smartbuyglasses.com/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html";
         String url2 = "http://m.smartbuyglasses.com/designer-sunglasses/Gucci/Gucci-GG-3500/S-WNQ/02-108457.html";
         getURL(url1);
@@ -112,23 +113,19 @@ public class TestCart extends AbstractBaseTestCase {
     }
 
     // XXX case6 Add product then into cart and delete product
-    @Test(skipFailedInvocations = true, groups = { "debug2", "smoke" })
-    public void pimcoreCart() throws InterruptedException {
-        String url = "http://m.smartbuyglasses.com/designer-sunglasses/Maui-Jim/Maui-Jim-Baby-Beach-Polarized-HS245-16-164380.html";
-        String pimcore = "http://m.smartbuyglasses.com/optical-center";
+    @Test(skipFailedInvocations = true, groups = { "debug111", "smoke" })
+    public void addCL() throws InterruptedException {
+        String url = "http://m.smartbuyglasses.co.uk/contact-lenses/daily-disposable-lenses/1-Day-Acuvue-Moist-30-Pack/442.html";
         getURL(url);
         MobProductDetailPage detailPage = new MobProductDetailPage();
-        detailPage.buyNow.click();
-        MobCartPage cartPage = new MobCartPage();
-        cartPage.waitForVisibility(cartPage.product, 5);
-        MobHeader header = new MobHeader();
-        getURL(pimcore);
-        header.waitForVisibility(header.cartBox, 5);
-        header.cartBox.click();
-        MobCartPage cartPage2 = new MobCartPage();
-        cartPage2.productRemove.get(0).click();
-        cartPage2.acceptAlert();
-        cartPage2.waitForVisibility(cartPage2.cartIsEmpty, 5);
+        detailPage.selectPreValue(Prescription.RIGHTQTY, "2");
+        detailPage.selectPreValue(Prescription.LEFTQTY, "2");
+        detailPage.selectPreValue(Prescription.RIGHTPOWER, "-5.00");
+        detailPage.selectPreValue(Prescription.LEFTPOWER, "-5.25");
+        detailPage.selectPreValue(Prescription.RIGHTBC, "8.5");
+        detailPage.selectPreValue(Prescription.LEFTBC, "9");
+        detailPage.waitForVisibility(detailPage.buyCL, 5);
+        detailPage.buyCL.click();
     }
 
     @Override
