@@ -2,7 +2,6 @@ package com.motionglobal.testcases.sbg.mobile.pimcore;
 
 import java.util.Random;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -27,32 +26,17 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     public void menuCLBrank(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        // for (int i = 0; i < header.getSubMenuElementSize(3, 1); i++) {
         Random random = new Random();
-        int num = random.nextInt(header.getSubMenuElementSize(4, 1));
-        header.menuBtn.click();
+        header.btnMenu.click();
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.CL), 2);
         header.getMainMenuElement(MegaMenu.CL).click();
-        header.JsMouse(header.getSubMenuElement(4, 1));
-        header.getSubMenuElement(4, 1).click();
-        String menuBrankName = header.getDetailLinkElement(4, 1, (num + 1)).getText();
-        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(4, 1, (num + 1)));
-        header.getDetailLinkElement(4, 1, (num + 1)).click();
+        int num = random.nextInt(header.subMenuS.size());
+        header.waitForVisibility(header.subMenuS.get(0), 2);
+        header.subMenuS.get(0).click();
+        header.waitForVisibility(header.subSubMenuS.get(num), 2);
+        header.subSubMenuS.get(num).click();
         MobProductPage productPage = new MobProductPage();
         Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
-        // String productBrankName = "";
-        // for (int j = 0; j < productPage.productList.size(); j++) {
-        // productBrankName += productPage.getProductName(j);
-        // if (productBrankName.contains("SofLens"))
-        // productBrankName = "Soflens";
-        // if (productBrankName.contains("Expression"))
-        // productBrankName = "Expressions";
-        // if (url.equals("http://m.smartbuyglasses.com.hk") && productBrankName.contains("Dailies AquaComfort"))
-        // productBrankName = "Focus";
-        // }
-        // Assert.assertTrue(productBrankName.contains(menuBrankName), "FAIL i IS :" + (num + 1) + " !!! productBrankName IS :" + menuBrankName);
-        // // }
     }
 
     // XXX case 2
@@ -61,24 +45,17 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     public void menuCLType(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        // for (int i = 0; i < header.getSubMenuElementSize(3, 2); i++) {
         Random random = new Random();
-        int num = random.nextInt(header.getSubMenuElementSize(4, 2));
-        header.menuBtn.click();
+        header.btnMenu.click();
+        header.waitForVisibility(header.getMainMenuElement(MegaMenu.CL), 2);
         header.getMainMenuElement(MegaMenu.CL).click();
-        header.JsMouse(header.getSubMenuElement(4, 2));
-        header.getSubMenuElement(4, 2).click();
-        // String brankName = header.getDetailLinkElement(3, 2, (i + 1)).getText();
-        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(4, 2, (num + 1)));
-        header.getDetailLinkElement(4, 2, (num + 1)).click();
+        int num = random.nextInt(header.subMenuS.size());
+        header.waitForVisibility(header.subMenuS.get(1), 2);
+        header.subMenuS.get(1).click();
+        header.waitForVisibility(header.subSubMenuS.get(num), 2);
+        header.subSubMenuS.get(num).click();
         MobProductPage productPage = new MobProductPage();
-        // String brankNameList = "";
-        // for (int j = 0; j < productPage.productList.size(); j++) {
-        // brankNameList += productPage.getProductName(j);
-        // }
-        // Assert.assertTrue(brankNameList.contains(brankName));
-        // }
+        Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
 
     // XXX case 3
@@ -87,24 +64,17 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     public void menuCLFrequency(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        // for (int i = 0; i < header.getSubMenuElementSize(3, 3); i++) {
         Random random = new Random();
-        int num = random.nextInt(header.getSubMenuElementSize(4, 3));
-        header.menuBtn.click();
+        header.btnMenu.click();
+        header.waitForVisibility(header.getMainMenuElement(MegaMenu.CL), 2);
         header.getMainMenuElement(MegaMenu.CL).click();
-        header.JsMouse(header.getSubMenuElement(4, 3));
-        header.getSubMenuElement(4, 3).click();
-        // String brankName = header.getDetailLinkElement(3, 2, (i + 1)).getText();
-        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(4, 3, (num + 1)));
-        header.getDetailLinkElement(4, 3, (num + 1)).click();
+        int num = random.nextInt(header.subMenuS.size());
+        header.waitForVisibility(header.subMenuS.get(2), 2);
+        header.subMenuS.get(2).click();
+        header.waitForVisibility(header.subSubMenuS.get(num), 2);
+        header.subSubMenuS.get(num).click();
         MobProductPage productPage = new MobProductPage();
-        // String brankNameList = "";
-        // for (int j = 0; j < productPage.productList.size(); j++) {
-        // brankNameList += productPage.getProductName(j);
-        // }
-        // Assert.assertTrue(brankNameList.contains(brankName));
-        // }
+        Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
 
     // XXX case 4
@@ -112,24 +82,17 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     public void menuEyeGlassGender(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        // for (int i = 0; i < header.getSubMenuElementSize(2, 1); i++) {
         Random random = new Random();
-        int num = random.nextInt(header.getSubMenuElementSize(2, 1));
-        System.out.println(num);
-        header.menuBtn.click();
+        header.btnMenu.click();
+        header.waitForVisibility(header.getMainMenuElement(MegaMenu.EYE), 2);
         header.getMainMenuElement(MegaMenu.EYE).click();
-        header.getSubMenuElement(2, 1).click();
-        // String brankName = header.getDetailLinkElement(2, 1, (i + 1)).getText();
-        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 1, (num + 1)));
-        header.getDetailLinkElement(2, 1, (num + 1)).click();
+        int num = random.nextInt(header.subMenuS.size());
+        header.waitForVisibility(header.subMenuS.get(0), 2);
+        header.subMenuS.get(0).click();
+        header.waitForVisibility(header.subSubMenuS.get(num), 2);
+        header.subSubMenuS.get(num).click();
         MobProductPage productPage = new MobProductPage();
-        // String brankNameList = "";
-        // for (int j = 0; j < productPage.productList.size(); j++) {
-        // brankNameList += productPage.getProductName(j);
-        // }
-        // Assert.assertTrue(brankNameList.contains(brankName));
-        // }
+        Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
 
     // XXX case 5
@@ -137,33 +100,17 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     public void menuEyeGlassBrank(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        // for (int i = 0; i < header.getSubMenuElementSize(2, 2) - 1; i++) {
         Random random = new Random();
-        int num = random.nextInt(header.getSubMenuElementSize(2, 2));
-        if (!(num == (header.getSubMenuElementSize(2, 2) - 1))) {
-            header.menuBtn.click();
-            header.getMainMenuElement(MegaMenu.EYE).click();
-            header.getSubMenuElement(2, 2).click();
-            // String brankName = header.getDetailLinkElement(2, 2, (i + 1)).getText();
-            js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 2, (num + 1)));
-            header.getDetailLinkElement(2, 2, (num + 1)).click();
-            MobProductPage productPage = new MobProductPage();
-        }
-        // String brankNameList = "";
-        // for (int j = 0; j < productPage.productList.size(); j++) {
-        // brankNameList += productPage.getProductName(j);
-        // }
-        // Assert.assertTrue(brankNameList.contains(brankName));
-        // }
-        //
-        else {
-            header.menuBtn.click();
-            header.getMainMenuElement(MegaMenu.EYE).click();
-            header.getSubMenuElement(2, 2).click();
-            js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 2, (header.getSubMenuElementSize(2, 2))));
-            header.getDetailLinkElement(2, 2, header.getSubMenuElementSize(2, 2)).click();
-        }
+        header.btnMenu.click();
+        header.waitForVisibility(header.getMainMenuElement(MegaMenu.EYE), 2);
+        header.getMainMenuElement(MegaMenu.EYE).click();
+        int num = random.nextInt(header.subMenuS.size());
+        header.waitForVisibility(header.subMenuS.get(1), 2);
+        header.subMenuS.get(1).click();
+        header.waitForVisibility(header.subSubMenuS.get(num), 2);
+        header.subSubMenuS.get(num).click();
+        MobProductPage productPage = new MobProductPage();
+        Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
 
     // XXX case 6
@@ -171,23 +118,17 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     public void menuEyeGlassShape(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        // for (int i = 0; i < header.getSubMenuElementSize(2, 3); i++) {
         Random random = new Random();
-        int num = random.nextInt(header.getSubMenuElementSize(2, 3));
-        header.menuBtn.click();
+        header.btnMenu.click();
+        header.waitForVisibility(header.getMainMenuElement(MegaMenu.EYE), 2);
         header.getMainMenuElement(MegaMenu.EYE).click();
-        header.getSubMenuElement(2, 3).click();
-        // String brankName = header.getDetailLinkElement(2, 3, (i + 1)).getText();
-        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 3, (num + 1)));
-        header.getDetailLinkElement(2, 3, (num + 1)).click();
+        int num = random.nextInt(header.subMenuS.size());
+        header.waitForVisibility(header.subMenuS.get(2), 2);
+        header.subMenuS.get(2).click();
+        header.waitForVisibility(header.subSubMenuS.get(num), 2);
+        header.subSubMenuS.get(num).click();
         MobProductPage productPage = new MobProductPage();
-        // String brankNameList = "";
-        // for (int j = 0; j < productPage.productList.size(); j++) {
-        // brankNameList += productPage.getProductName(j);
-        // }
-        // Assert.assertTrue(brankNameList.contains(brankName));
-        // }
+        Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
 
     // XXX case 7
@@ -195,23 +136,17 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     public void menuEyeGlassStyle(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        // for (int i = 0; i < header.getSubMenuElementSize(2, 4); i++) {
         Random random = new Random();
-        int num = random.nextInt(header.getSubMenuElementSize(2, 4));
-        header.menuBtn.click();
+        header.btnMenu.click();
+        header.waitForVisibility(header.getMainMenuElement(MegaMenu.EYE), 2);
         header.getMainMenuElement(MegaMenu.EYE).click();
-        header.getSubMenuElement(2, 4).click();
-        // String brankName = header.getDetailLinkElement(2, 4, (i + 1)).getText();
-        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(2, 4, (num + 1)));
-        header.getDetailLinkElement(2, 4, (num + 1)).click();
+        int num = random.nextInt(header.subMenuS.size());
+        header.waitForVisibility(header.subMenuS.get(3), 2);
+        header.subMenuS.get(3).click();
+        header.waitForVisibility(header.subSubMenuS.get(num), 2);
+        header.subSubMenuS.get(num).click();
         MobProductPage productPage = new MobProductPage();
-        // String brankNameList = "";
-        // for (int j = 0; j < productPage.productList.size(); j++) {
-        // brankNameList += productPage.getProductName(j);
-        // }
-        // Assert.assertTrue(brankNameList.contains(brankName));
-        // }
+        Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
 
     // XXX case 8
@@ -219,117 +154,116 @@ public class MobTestPimcore extends AbstractBaseTestCase {
     public void menuSunGlassGender(String url) {
         getURL(url);
         MobHeader header = new MobHeader();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        // for (int i = 0; i < header.getSubMenuElementSize(1, 1); i++) {
         Random random = new Random();
-        int num = random.nextInt(header.getSubMenuElementSize(1, 1));
-        header.menuBtn.click();
+        header.btnMenu.click();
+        header.waitForVisibility(header.getMainMenuElement(MegaMenu.SUN), 2);
         header.getMainMenuElement(MegaMenu.SUN).click();
-        header.getSubMenuElement(1, 1).click();
-        // String brankName = header.getDetailLinkElement(2, 1, (i + 1)).getText();
-        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(1, 1, (num + 1)));
-        header.getDetailLinkElement(1, 1, (num + 1)).click();
+        int num = random.nextInt(header.subMenuS.size());
+        header.waitForVisibility(header.subMenuS.get(0), 2);
+        header.subMenuS.get(0).click();
+        header.waitForVisibility(header.subSubMenuS.get(num), 2);
+        header.subSubMenuS.get(num).click();
         MobProductPage productPage = new MobProductPage();
-        // String brankNameList = "";
-        // for (int j = 0; j < productPage.productList.size(); j++) {
-        // brankNameList += productPage.getProductName(j);
-        // }
-        // Assert.assertTrue(brankNameList.contains(brankName));
-        // }
+        Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
 
     // XXX case 9
     @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuSunGlassBrank(String url) {
-        driver.get(url);
+        getURL(url);
         MobHeader header = new MobHeader();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        // for (int i = 0; i < header.getSubMenuElementSize(1, 2) - 1; i++) {
         Random random = new Random();
-        int num = random.nextInt(header.getSubMenuElementSize(1, 2));
-        if (!(num == (header.getSubMenuElementSize(1, 2) - 1))) {
-            header.menuBtn.click();
-            header.getMainMenuElement(MegaMenu.SUN).click();
-            header.getSubMenuElement(1, 2).click();
-            // String brankName = header.getDetailLinkElement(2, 2, (i + 1)).getText();
-            js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(1, 2, (num + 1)));
-            header.getDetailLinkElement(1, 2, (num + 1)).click();
-            MobProductPage productPage = new MobProductPage();
-            // String brankNameList = "";
-            // for (int j = 0; j < productPage.productList.size(); j++) {
-            // brankNameList += productPage.getProductName(j);
-            // }
-            // Assert.assertTrue(brankNameList.contains(brankName));
-            // }
-            //
-        }
-        else {
-            header.menuBtn.click();
-            header.getMainMenuElement(MegaMenu.SUN).click();
-            header.getSubMenuElement(1, 2).click();
-            js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(1, 2, (header.getSubMenuElementSize(1, 2))));
-            header.getDetailLinkElement(1, 2, header.getSubMenuElementSize(1, 2)).click();
-        }
+        header.btnMenu.click();
+        header.waitForVisibility(header.getMainMenuElement(MegaMenu.SUN), 2);
+        header.getMainMenuElement(MegaMenu.SUN).click();
+        int num = random.nextInt(header.subMenuS.size());
+        header.waitForVisibility(header.subMenuS.get(1), 2);
+        header.subMenuS.get(1).click();
+        header.waitForVisibility(header.subSubMenuS.get(num), 2);
+        header.subSubMenuS.get(num).click();
+        MobProductPage productPage = new MobProductPage();
+        Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
 
     // XXX case 10
     @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void menuSunGlassShape(String url) {
-        driver.get(url);
+        getURL(url);
         MobHeader header = new MobHeader();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        // for (int i = 0; i < header.getSubMenuElementSize(1, 3); i++) {
         Random random = new Random();
-        int num = random.nextInt(header.getSubMenuElementSize(1, 3));
-        header.menuBtn.click();
+        header.btnMenu.click();
+        header.waitForVisibility(header.getMainMenuElement(MegaMenu.SUN), 2);
         header.getMainMenuElement(MegaMenu.SUN).click();
-        header.getSubMenuElement(1, 3).click();
-        // String brankName = header.getDetailLinkElement(2, 3, (i + 1)).getText();
-        js.executeScript("arguments[0].scrollIntoView();", header.getDetailLinkElement(1, 3, (num + 1)));
-        header.getDetailLinkElement(1, 3, (num + 1)).click();
+        int num = random.nextInt(header.subMenuS.size());
+        header.waitForVisibility(header.subMenuS.get(2), 2);
+        header.subMenuS.get(2).click();
+        header.waitForVisibility(header.subSubMenuS.get(num), 2);
+        header.subSubMenuS.get(num).click();
         MobProductPage productPage = new MobProductPage();
-        // String brankNameList = "";
-        // for (int j = 0; j < productPage.productList.size(); j++) {
-        // brankNameList += productPage.getProductName(j);
-        // }
-        // Assert.assertTrue(brankNameList.contains(brankName));
-        // }
+        Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
 
     // XXX case 11
     @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
-    public void menuSunGlassOther(String url) {
-        driver.get(url);
+    public void menuSunGlassPolarised(String url) {
+        getURL(url);
         MobHeader header = new MobHeader();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        Random random = new Random();
-        int num = random.nextInt(3);
-        switch (num) {
-        case 0:
-            header.menuBtn.click();
-            header.getMainMenuElement(MegaMenu.SUN).click();
-            // String brankName = header.getDetailLinkElement(2, 4, (i + 1)).getText();
-            js.executeScript("arguments[0].scrollIntoView();", header.subMenuPolarized);
-            header.subMenuPolarized.click();
-            MobProductPage productPage1 = new MobProductPage();
-            break;
-        case 1:
-            header.menuBtn.click();
-            header.getMainMenuElement(MegaMenu.SUN).click();
-            // String brankName = header.getDetailLinkElement(2, 4, (i + 1)).getText();
-            js.executeScript("arguments[0].scrollIntoView();", header.subMenuPre);
-            header.subMenuPre.click();
-            MobProductPage productPage2 = new MobProductPage();
-            break;
-        default:
-            header.menuBtn.click();
-            header.getMainMenuElement(MegaMenu.SUN).click();
-            // String brankName = header.getDetailLinkElement(2, 4, (i + 1)).getText();
-            js.executeScript("arguments[0].scrollIntoView();", header.subMenuSki);
-            header.subMenuSki.click();
-            MobProductPage productPage3 = new MobProductPage();
-            break;
-        }
+        header.btnMenu.click();
+        header.waitForVisibility(header.getMainMenuElement(MegaMenu.SUN), 2);
+        header.getMainMenuElement(MegaMenu.SUN).click();
+        header.waitForVisibility(header.subMenuS.get(3), 2);
+        header.subMenuS.get(3).click();
+        MobProductPage productPage = new MobProductPage();
+        Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
+    }
+
+    // XXX case 5
+    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    public void menuSunPrescription(String url) {
+        getURL(url);
+        MobHeader header = new MobHeader();
+        header.btnMenu.click();
+        header.waitForVisibility(header.getMainMenuElement(MegaMenu.SUN), 2);
+        header.getMainMenuElement(MegaMenu.SUN).click();
+        header.waitForVisibility(header.subMenuS.get(4), 2);
+        header.subMenuS.get(4).click();
+        MobProductPage productPage = new MobProductPage();
+        Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
+    }
+
+    // XXX case 6
+    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    public void menuSunSki(String url) {
+        getURL(url);
+        MobHeader header = new MobHeader();
+        header.btnMenu.click();
+        header.waitForVisibility(header.getMainMenuElement(MegaMenu.SUN), 2);
+        header.getMainMenuElement(MegaMenu.SUN).click();
+        header.waitForVisibility(header.subMenuS.get(5), 2);
+        header.subMenuS.get(5).click();
+        MobProductPage productPage = new MobProductPage();
+        Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
+    }
+
+    // XXX case
+    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    public void intoOnSalePage(String url) throws InterruptedException {
+        getURL(url);
+        MobHeader header = new MobHeader();
+        header.btnMenu.click();
+        header.deleteLetTalk();
+        header.getMainMenuElement(MegaMenu.DEALS).click();
+        header.waitForVisibility(header.subMenuS.get(0), 2);
+        header.subMenuS.get(0).click();
+        MobProductPage productPage = new MobProductPage();
+        Assert.assertTrue(productPage.dealsIcon.size() > 18, "NO ! NO'T ON-SALE PAGE !!!");
+        header.btnMenu.click();
+        header.deleteLetTalk();
+        header.getMainMenuElement(MegaMenu.DEALS).click();
+        header.waitForVisibility(header.subMenuS.get(1), 2);
+        header.subMenuS.get(1).click();
+        MobProductPage productPage2 = new MobProductPage();
+        Assert.assertTrue(productPage2.dealsIcon.size() > 18, "NO ! NO'T ON-SALE PAGE !!!");
     }
 
     @Override

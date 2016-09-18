@@ -39,7 +39,7 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
      * 
      * @throws InterruptedException
      */
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "pay" }, priority = 2)
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug2", "pay" }, priority = 2)
     public void payPicture(String url) throws InterruptedException {
         // switch (url) {
         // case "http://m.es.smartbuyglasses.com":
@@ -147,7 +147,8 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
             checkOutPage.AssertPayPicture(url, 1, 2, 3);
             break;
         case "za":
-            checkOutPage.AssertPayPicture(url, 1, 2, 3, 11);
+            // checkOutPage.AssertPayPicture(url, 1, 2, 3, 11);
+            checkOutPage.AssertPayPicture(url, 1, 3, 11);
             break;
         case "ru":
             checkOutPage.AssertPayPicture(url, 1, 2, 3, 849, 841);
@@ -161,12 +162,15 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
             }
             break;
         case "es":
-        case "no":
         case "info":
         case "my":
         case "vn":
         case "id":
             checkOutPage.AssertPayPicture(url, 1, 2, 3, 125);
+            break;
+        case "no":
+            // checkOutPage.AssertPayPicture(url, 1, 2, 3, 125);
+            checkOutPage.AssertPayPicture(url, 1, 2, 3);
             break;
         case "dk":
             checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 123);
@@ -195,8 +199,11 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
             checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 836);
             break;
         case "com":
-        case "in":
             checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 125);
+            break;
+        case "in":
+            // checkOutPage.AssertPayPicture(url, 1, 2, 3, 122, 125);
+            checkOutPage.AssertPayPicture(url, 1, 3, 122, 125);
             break;
         case "br":
             checkOutPage.AssertPayPicture(url, 1, 3, 125, 1503);
