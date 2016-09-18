@@ -113,7 +113,7 @@ public class TestCart extends AbstractBaseTestCase {
     }
 
     // XXX case6 Add product then into cart and delete product
-    @Test(skipFailedInvocations = true, groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, groups = { "debug2", "smoke" })
     public void addCL() throws InterruptedException {
         String url = "http://m.smartbuyglasses.co.uk/contact-lenses/daily-disposable-lenses/1-Day-Acuvue-Moist-30-Pack/442.html";
         getURL(url);

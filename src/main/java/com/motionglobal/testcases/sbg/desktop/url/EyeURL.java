@@ -1,4 +1,4 @@
-package com.motionglobal.testcases.sbg.desktop.smoke;
+package com.motionglobal.testcases.sbg.desktop.url;
 
 import java.io.IOException;
 
@@ -19,7 +19,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
  * use it to check change url true and not empty.
  * 
  */
-public class SunURL extends AbstractBaseSbgDesktopTestCase {
+public class EyeURL extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
@@ -37,9 +37,9 @@ public class SunURL extends AbstractBaseSbgDesktopTestCase {
     // @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "url", "smoke" })
     public void gender(Object... obj) {
         System.out.print(obj[0]);
-        System.out.println(obj[1]);
-        getURL(obj[0] + "/" + obj[1] + "/general/-----------------------");
-        Assert.assertFalse(driver.getCurrentUrl().contains("error"), " !!! :" + obj[0] + "/" + obj[1]
+        System.out.println(obj[2]);
+        getURL(obj[0] + "/" + obj[2] + "/general/-----------------------");
+        Assert.assertFalse(driver.getCurrentUrl().contains("error"), " !!! :" + obj[0] + "/" + obj[2]
                 + "/general/----------------------- !!! page error .! expect page is " + driver.getCurrentUrl());
         ProductGridPage gridPage = new ProductGridPage();
         // XXX GENDER
@@ -81,8 +81,8 @@ public class SunURL extends AbstractBaseSbgDesktopTestCase {
     // @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "url", "smoke" })
     public void feature(Object... obj) {
         System.out.println(obj[0].toString());
-        getURL(obj[0].toString() + "/" + obj[1].toString() + "/general/-----------------------");
-        Assert.assertFalse(driver.getCurrentUrl().contains("error"), " !!! :" + obj[0] + "/" + obj[1]
+        getURL(obj[0].toString() + "/" + obj[2].toString() + "/general/-----------------------");
+        Assert.assertFalse(driver.getCurrentUrl().contains("error"), " !!! :" + obj[0] + "/" + obj[2]
                 + "/general/----------------------- !!! page error .! expect page is " + driver.getCurrentUrl());
         ProductGridPage gridPage = new ProductGridPage();
         // XXX
@@ -115,8 +115,8 @@ public class SunURL extends AbstractBaseSbgDesktopTestCase {
     // @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "url", "smoke" })
     public void shape(Object... obj) {
         System.out.println(obj[0].toString());
-        getURL(obj[0].toString() + "/" + obj[1].toString() + "/general/-----------------------");
-        Assert.assertFalse(driver.getCurrentUrl().contains("error"), " !!! :" + obj[0] + "/" + obj[1]
+        getURL(obj[0].toString() + "/" + obj[2].toString() + "/general/-----------------------");
+        Assert.assertFalse(driver.getCurrentUrl().contains("error"), " !!! :" + obj[0] + "/" + obj[2]
                 + "/general/----------------------- !!! page error .! expect page is " + driver.getCurrentUrl());
         ProductGridPage gridPage = new ProductGridPage();
         // XXX
@@ -264,8 +264,8 @@ public class SunURL extends AbstractBaseSbgDesktopTestCase {
     // @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "url", "smoke" })
     public void onSale(Object... obj) {
         System.out.println(obj[0].toString());
-        getURL(obj[0].toString() + "/" + obj[1].toString() + "/" + obj[45]);
-        Assert.assertFalse(driver.getCurrentUrl().contains("error"), " !!! :" + obj[0].toString() + "/" + obj[1].toString() + "/" + obj[45]
+        getURL(obj[0].toString() + "/" + obj[2].toString() + "/" + obj[45]);
+        Assert.assertFalse(driver.getCurrentUrl().contains("error"), " !!! :" + obj[0].toString() + "/" + obj[2].toString() + "/" + obj[45]
                 + " page error .! expect page is " + driver.getCurrentUrl());
         ProductGridPage gridPage = new ProductGridPage();
         // XXX
@@ -277,8 +277,8 @@ public class SunURL extends AbstractBaseSbgDesktopTestCase {
     // @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "url", "smoke" })
     public void frameType(Object... obj) {
         System.out.println(obj[0].toString());
-        getURL(obj[0].toString() + "/" + obj[1].toString() + "/general/-----------------------");
-        Assert.assertFalse(driver.getCurrentUrl().contains("error"), " !!! :" + obj[0].toString() + "/" + obj[1].toString()
+        getURL(obj[0].toString() + "/" + obj[2].toString() + "/general/-----------------------");
+        Assert.assertFalse(driver.getCurrentUrl().contains("error"), " !!! :" + obj[0].toString() + "/" + obj[2].toString()
                 + "/general/-----------------------!!! page error .! expect page is " + driver.getCurrentUrl());
         ProductGridPage gridPage = new ProductGridPage();
         // XXX
@@ -308,8 +308,8 @@ public class SunURL extends AbstractBaseSbgDesktopTestCase {
     // @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "url", "smoke" })
     public void frameMaterial(Object... obj) {
         System.out.println(obj[0].toString());
-        getURL(obj[0].toString() + "/" + obj[1].toString() + "/general/-----------------------");
-        Assert.assertFalse(driver.getCurrentUrl().contains("error"), " !!! :" + obj[0].toString() + "/" + obj[1].toString()
+        getURL(obj[0].toString() + "/" + obj[2].toString() + "/general/-----------------------");
+        Assert.assertFalse(driver.getCurrentUrl().contains("error"), " !!! :" + obj[0].toString() + "/" + obj[2].toString()
                 + "/general/-----------------------!!! page error .! expect page is " + driver.getCurrentUrl());
         ProductGridPage gridPage = new ProductGridPage();
         // XXX
@@ -340,8 +340,8 @@ public class SunURL extends AbstractBaseSbgDesktopTestCase {
     // @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "url", "smoke" })
     public void Color(Object... obj) {
         System.out.println(obj[0].toString());
-        getURL(obj[0].toString() + "/" + obj[1].toString() + "/general/-----------------------");
-        Assert.assertFalse(driver.getCurrentUrl().contains("error"), " !!! :" + obj[0].toString() + "/" + obj[1].toString()
+        getURL(obj[0].toString() + "/" + obj[2].toString() + "/general/-----------------------");
+        Assert.assertFalse(driver.getCurrentUrl().contains("error"), " !!! :" + obj[0].toString() + "/" + obj[2].toString()
                 + "/general/-----------------------!!! page error .! expect page is " + driver.getCurrentUrl());
         ProductGridPage gridPage = new ProductGridPage();
         // XXX color
