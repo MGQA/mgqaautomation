@@ -150,7 +150,6 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         BigDecimal b1 = new BigDecimal(Double.toString(d1));
         BigDecimal b2 = new BigDecimal(Double.toString(d2));
         return b1.subtract(b2).doubleValue();
-
     }
 
     /**
@@ -215,7 +214,7 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
             catch (Exception e) {
             }
             if (i == 99) {
-                Assert.assertTrue(1 == 2, "Wait 20s, But Page No't Load Finish !!");
+                Assert.assertTrue(false, "Wait 20s, But Page No't Load Finish !!");
             }
         }
         return rx;

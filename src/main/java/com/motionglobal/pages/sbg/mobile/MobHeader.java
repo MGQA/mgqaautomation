@@ -17,6 +17,8 @@ public class MobHeader extends AbstractBasePage {
     //
     @FindBy(className = "header__menu-btn")
     public WebElement btnMenu;
+    @FindBy(className = "menu__close")
+    public WebElement closeMenu;
     @FindBy(className = "header__search-btn")
     public WebElement searchBtn;
     @FindBy(className = "logo_image")
@@ -46,7 +48,11 @@ public class MobHeader extends AbstractBasePage {
     @FindBy(css = ".footer__shares__item")
     public List<WebElement> share;
 
-    // XXX MENU
+    // XXX SUB MENU
+    @FindBy(id = "menu")
+    public WebElement mageMenu;
+    @FindBy(css = ".left__menu .header__search__input")
+    public WebElement menuSearch;
     @FindBy(css = ".main__type__li__open>ul>li")
     public List<WebElement> subMenuS;
     @FindBy(css = ".main__type__li__open>ul>li .main__type__li__open>ul>li")
