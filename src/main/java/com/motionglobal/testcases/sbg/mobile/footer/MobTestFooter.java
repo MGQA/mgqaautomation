@@ -5,6 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.mobile.MobHeader;
+import com.motionglobal.pages.sbg.mobile.footer.MobAboutUsPage;
 import com.motionglobal.pages.sbg.mobile.footer.MobFooterPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
@@ -39,16 +40,14 @@ public class MobTestFooter extends AbstractBaseTestCase {
         MobHeader header = new MobHeader();
         header.JsMouse(header.footer.get(0));
         header.footer.get(0).click();
-        MobFooterPage footerPage = new MobFooterPage();
-        String title = footerPage.regexGetLetterLow(footerPage.title.getText());
-        Assert.assertEquals(title, "aboutus");
+        MobAboutUsPage footerPage = new MobAboutUsPage();
+        Assert.assertEquals(driver.getCurrentUrl(), "http://m.smartbuyglasses.com/about-us");
         String pimcore = "http://m.smartbuyglasses.com/optical-center/";
         getURL(pimcore);
         header.JsMouse(header.footer.get(0));
         header.footer.get(0).click();
-        MobFooterPage footerPage1 = new MobFooterPage();
-        String title2 = footerPage1.regexGetLetterLow(footerPage.title.getText());
-        Assert.assertEquals(title2, "aboutus");
+        MobAboutUsPage footerPage2 = new MobAboutUsPage();
+        Assert.assertEquals(driver.getCurrentUrl(), "http://m.smartbuyglasses.com/about-us");
     }
 
     // XXX case 3

@@ -74,7 +74,7 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
         System.out.println(priceExpectCoupon);
         Double PriceActualCoupon = cartPage.regexGetDouble(cartPage.priceCoupon.getText());
         Assert.assertEquals(PriceActualCoupon, priceExpectCoupon);
-        cartPage.JsMouse(cartPage.kit);
+        cartPage.JsMouse(cartPage.InputUseReWard);
         cartPage.InputUseReWard.click();
 
         // get Insuance price

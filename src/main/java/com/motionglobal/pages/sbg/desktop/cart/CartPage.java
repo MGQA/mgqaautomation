@@ -41,8 +41,6 @@ public class CartPage extends AbstractBaseSbgDesktopPage {
     public WebElement priceTotal;
     @FindBy(id = "used_rewards")
     public WebElement InputUseReWard;
-    @FindBy(className = "left_2")
-    public WebElement kit;
     @FindBy(css = ".pay_now.fr")
     public WebElement checkOut;
     @FindBy(id = "insurance_option")
