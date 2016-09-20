@@ -20,7 +20,10 @@ public class MobProductDetailPage extends AbstractBaseSbgDesktopPage {
     public WebElement productSizeOne;
     @FindBy(xpath = "//div[@class='main__product__view__size']/i[2]")
     public WebElement productSizeTwo;
-    //
+    @FindBy(css = ".swiper-slide.swiper-slide-active>a>img")
+    public WebElement similarProduct;
+
+    // XXX CL
     @FindBy(css = "#prescription_tag[style='display: none;']+a>div")
     public WebElement buyCL;
     @FindBy(id = "your_price_val")
