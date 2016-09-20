@@ -10,7 +10,7 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
 public class MobTestDetailPage extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://m.smartbuyglasses.com/" } };
+        return new Object[][] { new Object[] { "http://m.smartbuyglasses.com/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
