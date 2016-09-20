@@ -25,14 +25,14 @@ public class MobTestOnSale extends AbstractBaseTestCase {
         header.waitForVisibility(header.subMenuS.get(0), 2);
         header.subMenuS.get(0).click();
         MobProductPage productPage = new MobProductPage();
-        Assert.assertTrue(productPage.dealsIcon.size() > 18, "NO ! NO'T ON-SALE PAGE !!!");
+        Assert.assertTrue(productPage.dealsIcon.size() > 15, "NO ! NO'T ON-SALE PAGE !!!");
         header.btnMenu.click();
         header.deleteLetTalk();
         header.getMainMenuElement(MegaMenu.DEALS).click();
         header.waitForVisibility(header.subMenuS.get(1), 2);
         header.subMenuS.get(1).click();
         MobProductPage productPage2 = new MobProductPage();
-        Assert.assertTrue(productPage2.dealsIcon.size() > 18, "NO ! NO'T ON-SALE PAGE !!!");
+        Assert.assertTrue(productPage2.dealsIcon.size() > 15, "NO ! NO'T ON-SALE PAGE !!!");
     }
 
     @Override

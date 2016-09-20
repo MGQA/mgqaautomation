@@ -25,7 +25,6 @@ public class TestProductMultiAngleIcon extends AbstractBaseSbgDesktopTestCase {
         detailPage.clickIcon(0);
         String src3 = detailPage.displayIcon.getAttribute("src");
         Assert.assertEquals(src3, src1);
-
     }
 
     @Override
