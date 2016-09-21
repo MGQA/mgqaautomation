@@ -69,7 +69,7 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     @FindBy(xpath = "//*[@id='content']/div[1]/div/div[4]/ul/li[2]/a")
     public WebElement shapesMostPopular;
     @FindBy(xpath = "//div[@class='choose_model']/p[3]/a")
-    public WebElement filterRayban2132;
+    public WebElement filterRayban;
     // @FindBy(css = "a.FrameType")
     // public List<WebElement> filterFrameType;
     @FindBy(xpath = "//*[@id='content']/div[1]/div/div[6]/ul/li[1]/a")

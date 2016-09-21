@@ -74,6 +74,8 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
         System.out.println(priceExpectCoupon);
         Double PriceActualCoupon = cartPage.regexGetDouble(cartPage.priceCoupon.getText());
         Assert.assertEquals(PriceActualCoupon, priceExpectCoupon);
+        cartPage.deleteHead();
+        cartPage.deleteLetTalk();
         cartPage.JsMouse(cartPage.InputUseReWard);
         cartPage.InputUseReWard.click();
 
@@ -96,6 +98,8 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
 
         // FIXME wait pay
         cartPage.waitForVisibility(cartPage.checkOut, 2);
+        cartPage.deleteHead();
+        cartPage.deleteLetTalk();
         cartPage.checkOut.click();
 
         // into checkout page then input message

@@ -19,8 +19,8 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
 
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://www.visiondirect.com.au" }, { "http://www.smartbuyglasses.co.uk" }, { "http://www.smartbuyglasses.de" },
-                { "http://www.smartbuyglasses.nl" } };
+        return new Object[][] { new Object[] { "http://m.visiondirect.com.au" }, { "http://m.smartbuyglasses.co.uk" }, { "http://m.smartbuyglasses.de" },
+                { "http://m.smartbuyglasses.nl" } };
     }
 
     // return new Object[][] { new Object[] { "http://m.visiondirect.com.au" }, { "http://m.smartbuyglasses.co.uk" }, { "http://m.smartbuyglasses.com" },
@@ -40,11 +40,9 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         header.btnMenu.click();
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.CL), 2);
         header.getMainMenuElement(MegaMenu.CL).click();
-        header.waitForVisibility(header.subMenuS.get(0), 2);
-        header.subMenuS.get(0).click();
+        header.elementClick(header.subMenuS.get(0));
         int num = random.nextInt(header.subSubMenuS.size());
-        header.waitForVisibility(header.subSubMenuS.get(num), 2);
-        header.subSubMenuS.get(num).click();
+        header.elementClick(header.subSubMenuS.get(num));
         MobProductPage productPage = new MobProductPage();
         Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
@@ -59,11 +57,9 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         header.btnMenu.click();
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.CL), 2);
         header.getMainMenuElement(MegaMenu.CL).click();
-        header.waitForVisibility(header.subMenuS.get(1), 2);
-        header.subMenuS.get(1).click();
+        header.elementClick(header.subMenuS.get(1));
         int num = random.nextInt(header.subSubMenuS.size());
-        header.waitForVisibility(header.subSubMenuS.get(num), 2);
-        header.subSubMenuS.get(num).click();
+        header.elementClick(header.subSubMenuS.get(num));
         MobProductPage productPage = new MobProductPage();
         Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
@@ -78,11 +74,9 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         header.btnMenu.click();
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.CL), 2);
         header.getMainMenuElement(MegaMenu.CL).click();
-        header.waitForVisibility(header.subMenuS.get(2), 2);
-        header.subMenuS.get(2).click();
+        header.elementClick(header.subMenuS.get(2));
         int num = random.nextInt(header.subSubMenuS.size());
-        header.waitForVisibility(header.subSubMenuS.get(num), 2);
-        header.subSubMenuS.get(num).click();
+        header.elementClick(header.subSubMenuS.get(num));
         MobProductPage productPage = new MobProductPage();
         Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
