@@ -107,11 +107,22 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
         }
         catch (Exception e) {
         }
-        gridPage.waitForVisibility(gridPage.filterRayban2132, 2);
-        gridPage.filterRayban2132.click();
+        gridPage.waitForVisibility(gridPage.filterRayban, 2);
+
+        // get sub brand name
+        String productName = gridPage.filterRayban.getText();
+        Pattern pattern = Pattern.compile("RB[0-9]*");
+        Matcher math = pattern.matcher(productName);
+        String brank = "";
+        if (math.find()) {
+            brank = math.group();
+        }
+
+        // check brank name contains sub brand
+        gridPage.filterRayban.click();
         ProductDetailPage detailPage = new ProductDetailPage();
         String glassName = detailPage.glassName.getText();
-        detailPage.AsssetEquals(glassName, "Ray-Ban RB2132 New Wayfarer 710");
+        detailPage.AsssetTrue(glassName.contains(brank), "Page No't Ray Ban !!!");
     }
 
     @Override

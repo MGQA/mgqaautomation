@@ -37,6 +37,7 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         action.sendKeys(key).build().perform();
     }
 
+    // XXX JS
     public void JsMouse(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();", element);
@@ -111,6 +112,7 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         Assert.assertTrue(condition, description);
     }
 
+    // XXX regex
     public double regexGetDouble(String matcher) {
         Pattern pattern = Pattern.compile("[^0-9.]");
         Matcher match = pattern.matcher(matcher);
@@ -137,7 +139,7 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     }
 
     /**
-     * mathAdd and mathSub can use to doub fuzzy 在double精确度不好的时候用
+     * XXX mathAdd and mathSub can use to double fuzzy 在double精确度不好的时候用
      */
     public double mathAdd(double d1, double d2) {
         BigDecimal b1 = new BigDecimal(Double.toString(d1));
@@ -153,7 +155,7 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     }
 
     /**
-     * judge cart type
+     * XXX judge cart type
      * 
      * @return "new" or "old"
      */
@@ -187,7 +189,7 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     }
 
     /**
-     * judge RX type
+     * XXX judge RX type
      * 
      * @return "new" or "old"
      */
@@ -218,6 +220,23 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
             }
         }
         return rx;
+    }
+
+    /**
+     * chrome no't move to element , so create it to move and click
+     */
+    public void elementClick(WebElement element) {
+        for (int i = 0; i < 20; i++) {
+            try {
+                JsMouse(element);
+                if (element.getText() != "" && element.getText() != null) {
+                    element.click();
+                    break;
+                }
+            }
+            catch (Exception e) {
+            }
+        }
     }
 
     /**

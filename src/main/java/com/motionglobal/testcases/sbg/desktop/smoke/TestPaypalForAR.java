@@ -93,9 +93,9 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
         String USpay = getID(US);
         verify.verifyEquals(USpay, "12359", "Fail Country_ID IS :" + US);
         // AU
-        String AU = "2";
+        String AU = "4";
         String AUpay = getID(AU);
-        verify.verifyEquals(AUpay, "12359", "Fail Country_ID IS :" + AU);
+        verify.verifyEquals(AUpay, "1235915", "Fail Country_ID IS :" + AU);
         // CN
         String CN = "5";
         String CNpay = getID(CN);

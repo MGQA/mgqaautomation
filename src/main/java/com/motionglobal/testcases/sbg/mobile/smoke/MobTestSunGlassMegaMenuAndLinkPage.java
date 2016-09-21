@@ -40,11 +40,9 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         header.btnMenu.click();
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.SUN), 2);
         header.getMainMenuElement(MegaMenu.SUN).click();
-        header.waitForVisibility(header.subMenuS.get(0), 2);
-        header.subMenuS.get(0).click();
+        header.elementClick(header.subMenuS.get(0));
         int num = random.nextInt(header.subSubMenuS.size());
-        header.waitForVisibility(header.subSubMenuS.get(num), 2);
-        header.subSubMenuS.get(num).click();
+        header.elementClick(header.subSubMenuS.get(num));
         MobProductPage productPage = new MobProductPage();
         Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
@@ -58,11 +56,9 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         header.btnMenu.click();
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.SUN), 2);
         header.getMainMenuElement(MegaMenu.SUN).click();
-        header.waitForVisibility(header.subMenuS.get(1), 2);
-        header.subMenuS.get(1).click();
+        header.elementClick(header.subMenuS.get(1));
         int num = random.nextInt(header.subSubMenuS.size());
-        header.waitForVisibility(header.subSubMenuS.get(num), 2);
-        header.subSubMenuS.get(num).click();
+        header.elementClick(header.subSubMenuS.get(num));
         MobProductPage productPage = new MobProductPage();
         Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
@@ -76,11 +72,9 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         header.btnMenu.click();
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.SUN), 2);
         header.getMainMenuElement(MegaMenu.SUN).click();
-        header.waitForVisibility(header.subMenuS.get(2), 2);
-        header.subMenuS.get(2).click();
+        header.elementClick(header.subMenuS.get(2));
         int num = random.nextInt(header.subSubMenuS.size());
-        header.waitForVisibility(header.subSubMenuS.get(num), 2);
-        header.subSubMenuS.get(num).click();
+        header.elementClick(header.subSubMenuS.get(num));
         MobProductPage productPage = new MobProductPage();
         Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
@@ -93,8 +87,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         header.btnMenu.click();
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.SUN), 2);
         header.getMainMenuElement(MegaMenu.SUN).click();
-        header.waitForVisibility(header.subMenuS.get(3), 2);
-        header.subMenuS.get(3).click();
+        header.elementClick(header.subMenuS.get(3));
         MobProductPage productPage = new MobProductPage();
         Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
@@ -107,8 +100,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         header.btnMenu.click();
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.SUN), 2);
         header.getMainMenuElement(MegaMenu.SUN).click();
-        header.waitForVisibility(header.subMenuS.get(4), 2);
-        header.subMenuS.get(4).click();
+        header.elementClick(header.subMenuS.get(4));
         MobProductPage productPage = new MobProductPage();
         Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
@@ -121,8 +113,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         header.btnMenu.click();
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.SUN), 2);
         header.getMainMenuElement(MegaMenu.SUN).click();
-        header.waitForVisibility(header.subMenuS.get(5), 2);
-        header.subMenuS.get(5).click();
+        header.elementClick(header.subMenuS.get(5));
         MobProductPage productPage = new MobProductPage();
         Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
     }
