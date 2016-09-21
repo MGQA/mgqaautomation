@@ -40,9 +40,9 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         header.btnMenu.click();
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.CL), 2);
         header.getMainMenuElement(MegaMenu.CL).click();
-        int num = random.nextInt(header.subMenuS.size());
         header.waitForVisibility(header.subMenuS.get(0), 2);
         header.subMenuS.get(0).click();
+        int num = random.nextInt(header.subSubMenuS.size());
         header.waitForVisibility(header.subSubMenuS.get(num), 2);
         header.subSubMenuS.get(num).click();
         MobProductPage productPage = new MobProductPage();
@@ -59,9 +59,9 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         header.btnMenu.click();
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.CL), 2);
         header.getMainMenuElement(MegaMenu.CL).click();
-        int num = random.nextInt(header.subMenuS.size());
         header.waitForVisibility(header.subMenuS.get(1), 2);
         header.subMenuS.get(1).click();
+        int num = random.nextInt(header.subSubMenuS.size());
         header.waitForVisibility(header.subSubMenuS.get(num), 2);
         header.subSubMenuS.get(num).click();
         MobProductPage productPage = new MobProductPage();
@@ -78,9 +78,9 @@ public class MobTestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTes
         header.btnMenu.click();
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.CL), 2);
         header.getMainMenuElement(MegaMenu.CL).click();
-        int num = random.nextInt(header.subMenuS.size());
         header.waitForVisibility(header.subMenuS.get(2), 2);
         header.subMenuS.get(2).click();
+        int num = random.nextInt(header.subSubMenuS.size());
         header.waitForVisibility(header.subSubMenuS.get(num), 2);
         header.subSubMenuS.get(num).click();
         MobProductPage productPage = new MobProductPage();
