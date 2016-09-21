@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import com.motionglobal.pages.AbstractBasePage;
 
@@ -81,7 +82,7 @@ public class MobHeader extends AbstractBasePage {
             element = driver.findElement(By.xpath("//*[@id='menu']/div[2]/ul/li[8]/div/div[1]"));
             break;
         default:
-            System.out.println("");
+            Assert.assertTrue(false, " No't Contains MegaMenu" + megaMenuName);
             break;
         }
         return element;

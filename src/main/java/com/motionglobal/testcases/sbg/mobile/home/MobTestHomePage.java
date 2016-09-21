@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.mobile.home.MobHomePage;
 import com.motionglobal.pages.sbg.mobile.home.MobHomePage.Sell;
 import com.motionglobal.pages.sbg.mobile.product.MobProductAllCLPage;
@@ -155,8 +156,7 @@ public class MobTestHomePage extends AbstractBaseTestCase {
         MobHomePage homePage = new MobHomePage();
         homePage.JsMouse(homePage.indexMenuSun);
         homePage.indexMenuSun.click();
-        homePage.waitForVisibility(homePage.indexSubMenu.get(0), 5);
-        homePage.indexSubMenu.get(0).click();
+        homePage.elementClick(homePage.indexSubMenu.get(0));
         MobProductPage productPage = new MobProductPage();
         String productTitle = productPage.regexGetLetterLow(productPage.productTitle.getText());
         Assert.assertEquals(productTitle, "sunglasses");
@@ -166,8 +166,7 @@ public class MobTestHomePage extends AbstractBaseTestCase {
         homePage.mobHeader().logo.click();
         homePage.JsMouse(homePage.indexMenuSun);
         homePage.indexMenuSun.click();
-        homePage.waitForVisibility(homePage.indexSubMenu.get(1), 5);
-        homePage.indexSubMenu.get(1).click();
+        homePage.elementClick(homePage.indexSubMenu.get(1));
         MobProductPage productPage2 = new MobProductPage();
         String productTitle2 = productPage2.regexGetLetterLow(productPage.productTitle.getText());
         Assert.assertEquals(productTitle2, "menssunglasses");
@@ -177,8 +176,7 @@ public class MobTestHomePage extends AbstractBaseTestCase {
         homePage.mobHeader().logo.click();
         homePage.JsMouse(homePage.indexMenuSun);
         homePage.indexMenuSun.click();
-        homePage.waitForVisibility(homePage.indexSubMenu.get(2), 5);
-        homePage.indexSubMenu.get(2).click();
+        homePage.elementClick(homePage.indexSubMenu.get(2));
         MobProductPage productPage3 = new MobProductPage();
         String productTitle3 = productPage3.regexGetLetterLow(productPage.productTitle.getText());
         Assert.assertEquals(productTitle3, "womenssunglasses");
@@ -192,8 +190,7 @@ public class MobTestHomePage extends AbstractBaseTestCase {
         MobHomePage homePage = new MobHomePage();
         homePage.JsMouse(homePage.indexMenuEye);
         homePage.indexMenuEye.click();
-        homePage.waitForVisibility(homePage.indexSubMenu.get(0), 5);
-        homePage.indexSubMenu.get(0).click();
+        homePage.elementClick(homePage.indexSubMenu.get(0));
         MobProductPage productPage = new MobProductPage();
         String productTitle = productPage.regexGetLetterLow(productPage.productTitle.getText());
         Assert.assertEquals(productTitle, "glasses");
@@ -203,8 +200,7 @@ public class MobTestHomePage extends AbstractBaseTestCase {
         homePage.mobHeader().logo.click();
         homePage.JsMouse(homePage.indexMenuEye);
         homePage.indexMenuEye.click();
-        homePage.waitForVisibility(homePage.indexSubMenu.get(1), 5);
-        homePage.indexSubMenu.get(1).click();
+        homePage.elementClick(homePage.indexSubMenu.get(1));
         MobProductPage productPage2 = new MobProductPage();
         String productTitle2 = productPage2.regexGetLetterLow(productPage.productTitle.getText());
         Assert.assertEquals(productTitle2, "mensglasses");
@@ -214,8 +210,7 @@ public class MobTestHomePage extends AbstractBaseTestCase {
         homePage.mobHeader().logo.click();
         homePage.JsMouse(homePage.indexMenuEye);
         homePage.indexMenuEye.click();
-        homePage.waitForVisibility(homePage.indexSubMenu.get(2), 5);
-        homePage.indexSubMenu.get(2).click();
+        homePage.elementClick(homePage.indexSubMenu.get(2));
         MobProductPage productPage3 = new MobProductPage();
         String productTitle3 = productPage3.regexGetLetterLow(productPage.productTitle.getText());
         Assert.assertEquals(productTitle3, "womensglasses");
@@ -229,16 +224,14 @@ public class MobTestHomePage extends AbstractBaseTestCase {
         MobHomePage homePage = new MobHomePage();
         homePage.JsMouse(homePage.indexMenuCL);
         homePage.indexMenuCL.click();
-        homePage.waitForVisibility(homePage.indexSubMenu.get(0), 5);
-        homePage.indexSubMenu.get(0).click();
+        homePage.elementClick(homePage.indexSubMenu.get(0));
         MobProductAllCLPage allCLPage = new MobProductAllCLPage();
         Assert.assertTrue(allCLPage.productImg.size() > 5, " PRODUCT NUMBER LOWER !!!");
         //
         homePage.mobHeader().logo.click();
         homePage.JsMouse(homePage.indexMenuCL);
         homePage.indexMenuCL.click();
-        homePage.waitForVisibility(homePage.indexSubMenu.get(1), 5);
-        homePage.indexSubMenu.get(1).click();
+        homePage.elementClick(homePage.indexSubMenu.get(1));
         MobProductPage productPage = new MobProductPage();
         String productTitle2 = productPage.regexGetLetterLow(productPage.productTitle.getText());
         Assert.assertTrue(productTitle2.contains("contactlenses"));
@@ -248,8 +241,7 @@ public class MobTestHomePage extends AbstractBaseTestCase {
         homePage.mobHeader().logo.click();
         homePage.JsMouse(homePage.indexMenuCL);
         homePage.indexMenuCL.click();
-        homePage.waitForVisibility(homePage.indexSubMenu.get(2), 5);
-        homePage.indexSubMenu.get(2).click();
+        homePage.elementClick(homePage.indexSubMenu.get(2));
         MobProductPage productPage3 = new MobProductPage();
         String productTitle3 = productPage3.regexGetLetterLow(productPage.productTitle.getText());
         // Assert.assertEquals(productTitle3, "contactlenses");
@@ -260,12 +252,19 @@ public class MobTestHomePage extends AbstractBaseTestCase {
         homePage.mobHeader().logo.click();
         homePage.JsMouse(homePage.indexMenuCL);
         homePage.indexMenuCL.click();
-        homePage.waitForVisibility(homePage.indexSubMenu.get(3), 5);
-        homePage.indexSubMenu.get(3).click();
+        homePage.elementClick(homePage.indexSubMenu.get(3));
         MobProductPage productPage4 = new MobProductPage();
         String productTitle4 = productPage4.regexGetLetterLow(productPage.productTitle.getText());
         Assert.assertTrue(productTitle4.contains("contactlenses"), " Page No't Contact Lense Page !!!");
         Assert.assertTrue(productPage.productList.size() > 1);
+    }
+
+    // XXX case 5
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug111", "smoke" })
+    public void asdas(String url) throws InterruptedException {
+        getURL(url);
+        Header header = new Header();
+        header.elementClick(header.DayReturns);
     }
 
     @Override

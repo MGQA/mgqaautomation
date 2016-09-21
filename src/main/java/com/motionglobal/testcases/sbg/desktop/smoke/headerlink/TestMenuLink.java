@@ -60,8 +60,9 @@ public class TestMenuLink extends AbstractBaseSbgDesktopTestCase {
         gridPage.deleteHead();
         gridPage.daily.click();
         gridPage.waitForVisibility(gridPage.checkedDaily, 5);
-        double productNum = gridPage.regexGetDouble(gridPage.productCountString.getText());
-        gridPage.AsssetTrue(productNum > 0, " PRODUCT NUMBER = 0 !!!");
+        gridPage.waitForVisibility(gridPage.productCountString, 5);
+        int productNum = gridPage.regexGeInt(gridPage.productCountString.getText());
+        gridPage.AsssetTrue(productNum > 0, " PRODUCT NUMBER IS :" + productNum);
     }
 
     @Override
