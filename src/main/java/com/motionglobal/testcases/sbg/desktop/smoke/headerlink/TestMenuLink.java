@@ -23,12 +23,7 @@ public class TestMenuLink extends AbstractBaseSbgDesktopTestCase {
         Menu.waitForVisibility(Menu.getMegaMenuMainElement(1), 5);
         Menu.getMegaMenuMainElement(1).click();
         AllProduct allProduct = new AllProduct();
-        try {
-            allProduct.deleteHead();
-            allProduct.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        allProduct.deleteHead();
         allProduct.waitForVisibility(allProduct.imgRanban, 5);
         String ranbanUrl = allProduct.brandSunRanban.getAttribute("href");
         allProduct.AsssetEquals(ranbanUrl, "http://www.smartbuyglasses.co.uk/designer-sunglasses/Ray-Ban/");
@@ -45,12 +40,7 @@ public class TestMenuLink extends AbstractBaseSbgDesktopTestCase {
         Menu.waitForVisibility(Menu.getMegaMenuMainElement(2), 5);
         Menu.getMegaMenuMainElement(2).click();
         AllProduct allProduct = new AllProduct();
-        try {
-            allProduct.deleteHead();
-            allProduct.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        allProduct.deleteHead();
         allProduct.waitForVisibility(allProduct.imgRanban, 5);
         String ranbanUrl = allProduct.brandEyeRanban.getAttribute("href");
         allProduct.AsssetEquals(ranbanUrl, "http://www.smartbuyglasses.co.uk/designer-eyeglasses/Ray-Ban/");
@@ -67,12 +57,7 @@ public class TestMenuLink extends AbstractBaseSbgDesktopTestCase {
         Menu.waitForVisibility(Menu.getMegaMenuMainElement(5), 5);
         Menu.getMegaMenuMainElement(5).click();
         CLProductGridPage gridPage = new CLProductGridPage();
-        try {
-            gridPage.deleteHead();
-            gridPage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        gridPage.deleteHead();
         gridPage.daily.click();
         gridPage.waitForVisibility(gridPage.checkedDaily, 5);
         double productNum = gridPage.regexGetDouble(gridPage.productCountString.getText());

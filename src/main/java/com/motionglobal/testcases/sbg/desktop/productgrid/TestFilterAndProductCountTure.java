@@ -23,24 +23,14 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         SearchResultPage resultPage = new SearchResultPage();
         resultPage.waitForVisibility(resultPage.filterMen, 2);
         int procuctCount = Integer.parseInt(resultPage.productCount.getText());
-        try {
-            resultPage.deleteHead();
-            resultPage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        resultPage.deleteHead();
         String brand4 = resultPage.brand4.getText();
         resultPage.filterMen.click();
         resultPage.waitForVisibility(resultPage.filterMenChecked, 10);
         int procuctMenCount = Integer.parseInt(resultPage.productCount.getText());
         Assert.assertNotEquals(procuctCount, procuctMenCount);
         resultPage.waitForVisibility(resultPage.filterWayfarer, 10);
-        try {
-            resultPage.deleteHead();
-            resultPage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        resultPage.deleteHead();
         new WebDriverWait(driver, 10).until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(resultPage.brand4, brand4)));
         resultPage.filterWayfarer.click();
         resultPage.waitForVisibility(resultPage.filterWayfarerChecked, 10);
@@ -57,22 +47,12 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         Assert.assertTrue(gridPage.filterSide.getText().contains("Men"), " fiter fail ");
         Assert.assertTrue(gridPage.proInfo.size() > 0);
         gridPage.waitForVisibility(gridPage.filterArnette, 2);
-        try {
-            gridPage.deleteHead();
-            gridPage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        gridPage.deleteHead();
         gridPage.filterArnette.click();
         Assert.assertTrue(gridPage.proInfo.get(0).getText().contains("Arnette"));
         gridPage.waitForVisibility(gridPage.shapesMostPopular, 5);
         // gridPage.JsMouse(gridPage.shapesMostPopular);
-        try {
-            gridPage.deleteHead();
-            gridPage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        gridPage.deleteHead();
         String type = gridPage.shapesMostPopular.getText();
         gridPage.shapesMostPopular.click();
         Assert.assertTrue(gridPage.filterSide.getText().contains(type), " fiter fail ");
@@ -88,24 +68,14 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         gridPage.waitForVisibility(gridPage.productCountString, 2);
         String productCount = gridPage.productCountString.getText();
         Assert.assertEquals(gridPage.ProInfo.size(), gridPage.getProductCount());
-        try {
-            gridPage.deleteHead();
-            gridPage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        gridPage.deleteHead();
         gridPage.filterDaily.click();
         gridPage.waitProductChange(productCount);
         gridPage.waitForVisibility(gridPage.filterDaily, 2);
         gridPage.waitForVisibility(gridPage.productCountString, 2);
         String productCountDaily = gridPage.productCountString.getText();
         Assert.assertEquals(gridPage.ProInfo.size(), gridPage.getProductCount());
-        try {
-            gridPage.deleteHead();
-            gridPage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        gridPage.deleteHead();
         gridPage.filterSpherical.click();
         gridPage.waitProductChange(productCountDaily);
         Assert.assertEquals(gridPage.ProInfo.size(), gridPage.getProductCount());
@@ -117,12 +87,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         String url = "http://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/";
         getURL(url);
         ProductGridPage gridPage = new ProductGridPage();
-        try {
-            gridPage.deleteHead();
-            gridPage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        gridPage.deleteHead();
         gridPage.waitForVisibility(gridPage.filterFrameType, 5);
         gridPage.JsMouse(gridPage.filterFrameType);
         gridPage.filterFrameType.click();
@@ -137,12 +102,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         String url = "http://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/";
         getURL(url);
         ProductGridPage gridPage = new ProductGridPage();
-        try {
-            gridPage.deleteHead();
-            gridPage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        gridPage.deleteHead();
         gridPage.waitForVisibility(gridPage.filterFrameType, 5);
         gridPage.JsMouse(gridPage.filterPriceNo2);
         gridPage.filterPriceNo2.click();
@@ -152,12 +112,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
             gridPage.AsssetTrue(100 <= price && 150 >= price, " PRICE IS " + price + " NOT BELONG 100-150 !!!");
         }
         //
-        try {
-            gridPage.deleteHead();
-            gridPage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        gridPage.deleteHead();
         gridPage.waitForVisibility(gridPage.filterFrameType, 5);
         gridPage.JsMouse(gridPage.filterPriceNo3);
         gridPage.filterPriceNo3.click();
@@ -206,12 +161,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         String url = "http://www.smartbuyglasses.com/search?keywords=rayban&searchHashcode=1470715095524430#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
         getURL(url);
         SearchResultPage resultPage = new SearchResultPage();
-        try {
-            resultPage.deleteHead();
-            resultPage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        resultPage.deleteHead();
         resultPage.waitForVisibility(resultPage.filterFeature, 5);
         resultPage.filterFeature.get(1).click();
         resultPage.waitForVisibility(resultPage.filterFeatureChecked, 10);

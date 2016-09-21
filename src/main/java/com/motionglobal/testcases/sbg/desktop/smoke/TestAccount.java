@@ -100,12 +100,7 @@ public class TestAccount extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         AccountPage accountPage = new AccountPage();
         accountPage.waitForVisibility(accountPage.radioPrePC, 5);
-        try {
-            accountPage.deleteHead();
-            accountPage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        accountPage.deleteHead();
         accountPage.radioPrePC.click();
         new WebDriverWait(driver, 10).until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(accountPage.tbody, "Near PD")));
         //

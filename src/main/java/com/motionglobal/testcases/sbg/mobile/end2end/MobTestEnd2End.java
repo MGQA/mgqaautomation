@@ -65,7 +65,7 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
                     checkOutPage.VISA.click();
                     Thread.sleep(100);
                 }
-                catch (InterruptedException b) {
+                catch (Exception b) {
                 }
             }
         }

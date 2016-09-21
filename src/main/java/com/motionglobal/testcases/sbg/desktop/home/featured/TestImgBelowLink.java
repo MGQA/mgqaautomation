@@ -31,12 +31,7 @@ public class TestImgBelowLink extends AbstractBaseSbgDesktopTestCase {
         String expectedUrl = url + "designer-sunglasses/" + brand + "/";
 
         // random click one url
-        try {
-            homePage.deleteHead();
-            homePage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        homePage.deleteHead();
         homePage.waitForVisibility(linkSun, 5);
         homePage.JsMouse(homePage.linkSun_ImgBelow.get(indexNum));
         linkSun.click();
@@ -58,12 +53,7 @@ public class TestImgBelowLink extends AbstractBaseSbgDesktopTestCase {
         String expectedUrl = url + "designer-eyeglasses/" + brand + "/";
 
         // random click one url
-        try {
-            homePage.deleteHead();
-            homePage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        homePage.deleteHead();
         homePage.waitForVisibility(linkSun, 5);
         homePage.JsMouse(linkSun);
         linkSun.click();

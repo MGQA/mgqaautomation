@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 
 import com.motionglobal.common.webdriver.InitializeUtility;
 import com.motionglobal.common.webdriver.ScreenshotListener;
+import com.motionglobal.methodbase.DeleteHeader;
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.mobile.MobHeader;
 
@@ -174,7 +175,7 @@ public abstract class AbstractBaseTestCase {
         }
         catch (Exception e) {
         }
-        header.deleteLetTalk();
+        new DeleteHeader().deleteLetTalk();
         try {
             header.waitForVisibility(driver.findElement(By.cssSelector(".overlay[style='display: none;']")), 2);
         }

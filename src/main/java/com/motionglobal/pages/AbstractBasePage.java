@@ -14,7 +14,9 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import com.motionglobal.common.utils.VerifyUtil;
-import com.motionglobal.pages.sbg.desktop.Header;
+import com.motionglobal.methodbase.DecideCartType;
+import com.motionglobal.methodbase.DecideRxType;
+import com.motionglobal.methodbase.DeleteHeader;
 
 public abstract class AbstractBasePage extends AbstractBaseContainer {
 
@@ -72,31 +74,7 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     }
 
     public void deleteHead() {
-        Header header = new Header();
-        try {
-            JsDisplayNone(header.delBlackHead);
-        }
-        catch (Exception e) {
-        }
-        try {
-            JsDisplayNone(header.delSearchHead);
-        }
-        catch (Exception e) {
-        }
-        try {
-            JsDisplayNone(header.delDiscount);
-        }
-        catch (Exception e) {
-        }
-    }
-
-    public void deleteLetTalk() {
-        try {
-            Header header = new Header();
-            JsDisplayNone(header.letTalk);
-        }
-        catch (Exception e) {
-        }
+        new DeleteHeader().deleteHead(); // display="none" of header
     }
 
     public void selectValue(WebElement element, String value) {
@@ -154,72 +132,12 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         return b1.subtract(b2).doubleValue();
     }
 
-    /**
-     * XXX judge cart type
-     * 
-     * @return "new" or "old"
-     */
     public String getCartType() {
-        String cart = "";
-        for (int i = 0; i < 100; i++) {
-            try {
-                driver.findElement(By.id("main-wrapper"));
-                cart = "new";
-                break;
-            }
-            catch (Exception e) {
-            }
-            try {
-                driver.findElement(By.cssSelector(".cart_detail"));
-                cart = "old";
-                break;
-            }
-            catch (Exception e) {
-            }
-            try {
-                Thread.sleep(200);
-            }
-            catch (Exception e) {
-            }
-            if (i == 99) {
-                Assert.assertTrue(1 == 2, "Wait 20s, But Page No't Load Finish !!");
-            }
-        }
-        return cart;
+        return new DecideCartType().getCartType(); // return "new" or "old"
     }
 
-    /**
-     * XXX judge RX type
-     * 
-     * @return "new" or "old"
-     */
     public String getRXType() {
-        String rx = "empty";
-        for (int i = 0; i < 100; i++) {
-            try {
-                driver.findElement(By.className("cart_btn"));
-                rx = "new";
-                break;
-            }
-            catch (Exception e) {
-            }
-            try {
-                driver.findElement(By.xpath("//div[@id='lensStep01']/div[1]/div[1]/h4"));
-                rx = "old";
-                break;
-            }
-            catch (Exception e) {
-            }
-            try {
-                Thread.sleep(200);
-            }
-            catch (Exception e) {
-            }
-            if (i == 99) {
-                Assert.assertTrue(false, "Wait 20s, But Page No't Load Finish !!");
-            }
-        }
-        return rx;
+        return new DecideRxType().getRXType(); // return "new" or "old"
     }
 
     /**
