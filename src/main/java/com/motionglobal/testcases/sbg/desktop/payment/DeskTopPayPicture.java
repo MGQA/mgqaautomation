@@ -65,7 +65,6 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
         // }
         getURL(url);
         header.deleteHead();
-        header.deleteLetTalk();
         HomePage homePage = new HomePage();
         header.JsMouse(homePage.linkSunNo1);
         homePage.linkSunNo1.click();
@@ -81,7 +80,6 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
             // XXX new cart
             NewCartPage newCartPage = new NewCartPage();
             newCartPage.waitForVisibility(newCartPage.btnCheckout, 5);
-            newCartPage.deleteLetTalk();
             newCartPage.btnCheckout.click();
             NewCheckoutPage checkoutPage = new NewCheckoutPage();
             checkoutPage.inputBillingFirstName.sendKeys("jack");

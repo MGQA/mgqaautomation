@@ -21,12 +21,7 @@ public class TestFaceShape extends AbstractBaseSbgDesktopTestCase {
     public void faceList(String url) {
         getURL(url);
         FaceShapePage shapePage = new FaceShapePage();
-        try {
-            shapePage.deleteHead();
-            shapePage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        shapePage.deleteHead();
         shapePage.waitForVisibility(shapePage.getListFaceEle(FaceShape.heart), 5);
         //
         shapePage.getListFaceEle(FaceShape.square).click();
@@ -70,12 +65,7 @@ public class TestFaceShape extends AbstractBaseSbgDesktopTestCase {
         Assert.assertEquals(topSellUrl, "http://" + country + "/designer-sunglasses/general/--------------1---------");
         Assert.assertEquals(shapePage.glassesAll.size(), 24);
         String randName = shapePage.glassOvalBrand.getText().trim().replace(" ", "-");
-        try {
-            shapePage.deleteHead();
-            shapePage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        shapePage.deleteHead();
         shapePage.JsMouse(shapePage.glassOvalBrand);
         shapePage.glassOvalBrand.click();
         ProductDetailPage detailPage = new ProductDetailPage();
@@ -92,12 +82,7 @@ public class TestFaceShape extends AbstractBaseSbgDesktopTestCase {
         shapePage.waitForVisibility(shapePage.faceHomeBtn, 5);
         int productNum = shapePage.glassesAll.size();
         shapePage.AsssetTrue(productNum > 1, " PRODUCT NUMBER EMPTY !!!");
-        try {
-            shapePage.deleteHead();
-            shapePage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        shapePage.deleteHead();
         String faceHomeUrl = shapePage.faceHomeBtn.getAttribute("href");
         String topSellUrl = shapePage.glassTopSell.getAttribute("href");
         Assert.assertEquals(faceHomeUrl, "http://www.smartbuyglasses.com/face-shape");

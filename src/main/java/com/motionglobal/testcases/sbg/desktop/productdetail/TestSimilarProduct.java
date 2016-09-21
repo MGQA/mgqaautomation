@@ -19,7 +19,6 @@ public class TestSimilarProduct extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         ProductDetailPage detailPage = new ProductDetailPage();
         detailPage.deleteHead();
-        detailPage.deleteLetTalk();
         String productName = detailPage.glassName.getText();
         detailPage.JsMouse(detailPage.similarProduct);
         detailPage.similarProduct.click();
@@ -32,7 +31,6 @@ public class TestSimilarProduct extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         ProductDetailPage detailPage = new ProductDetailPage();
         detailPage.deleteHead();
-        detailPage.deleteLetTalk();
         String productName = detailPage.glassName.getText();
         detailPage.JsMouse(detailPage.recommendProduct);
         detailPage.recommendProduct.click();

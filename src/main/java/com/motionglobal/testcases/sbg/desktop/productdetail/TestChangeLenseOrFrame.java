@@ -13,7 +13,6 @@ public class TestChangeLenseOrFrame extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         ProductDetailPage detailPage = new ProductDetailPage();
         detailPage.deleteHead();
-        detailPage.deleteLetTalk();
         detailPage.clickFrameRadio(1);
         detailPage.clickFrameRadio(0);
         detailPage.btnBuyNow.click();

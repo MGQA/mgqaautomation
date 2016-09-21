@@ -1,4 +1,4 @@
-package com.motionglobal.testcases.sbg.mobile.pimcore;
+package com.motionglobal.testcases.sbg.mobile.pimcoremenu;
 
 import java.util.Random;
 
@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.motionglobal.methodbase.DeleteHeader;
 import com.motionglobal.pages.sbg.mobile.MobHeader;
 import com.motionglobal.pages.sbg.mobile.MobHeader.MegaMenu;
 import com.motionglobal.pages.sbg.mobile.product.MobProductPage;
@@ -251,14 +252,14 @@ public class MobTestPimcore extends AbstractBaseTestCase {
         getURL(url);
         MobHeader header = new MobHeader();
         header.btnMenu.click();
-        header.deleteLetTalk();
+        new DeleteHeader().deleteLetTalk();
         header.getMainMenuElement(MegaMenu.DEALS).click();
         header.waitForVisibility(header.subMenuS.get(0), 2);
         header.subMenuS.get(0).click();
         MobProductPage productPage = new MobProductPage();
         Assert.assertTrue(productPage.dealsIcon.size() > 18, "NO ! NO'T ON-SALE PAGE !!!");
         header.btnMenu.click();
-        header.deleteLetTalk();
+        new DeleteHeader().deleteLetTalk();
         header.getMainMenuElement(MegaMenu.DEALS).click();
         header.waitForVisibility(header.subMenuS.get(1), 2);
         header.subMenuS.get(1).click();

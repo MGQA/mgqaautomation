@@ -21,12 +21,7 @@ public class TestHappyCustomer extends AbstractBaseSbgDesktopTestCase {
         customer.waitForVisibility(customer.customer2, 5);
         int coustomerNum = customer.customerAll.size();
         customer.AsssetTrue(coustomerNum > 1, " COUSTOMER NUMBER EMPTY !!!");
-        try {
-            customer.deleteHead();
-            customer.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        customer.deleteHead();
         customer.JsMouse(customer.customer2);
         customer.customer2.click();
         customer.switch2NewWindow();

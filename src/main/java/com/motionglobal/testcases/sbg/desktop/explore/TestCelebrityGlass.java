@@ -20,12 +20,7 @@ public class TestCelebrityGlass extends AbstractBaseSbgDesktopTestCase {
     public void celebrity(String url) {
         getURL(url);
         CelebrityPage celebrityPage = new CelebrityPage();
-        try {
-            celebrityPage.deleteHead();
-            celebrityPage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        celebrityPage.deleteHead();
         celebrityPage.waitForVisibility(celebrityPage.swift, 5);
         celebrityPage.JsMouse(celebrityPage.swift);
         celebrityPage.mouseOver(celebrityPage.swift);
@@ -34,12 +29,7 @@ public class TestCelebrityGlass extends AbstractBaseSbgDesktopTestCase {
         celebrityPage.swiftGlass.click();
         celebrityPage.switch2NewWindow();
         celebrityPage.waitForVisibility(celebrityPage.buyNowBtn, 5);
-        try {
-            celebrityPage.deleteHead();
-            celebrityPage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        celebrityPage.deleteHead();
         String newHandle = driver.getWindowHandle();
         celebrityPage.JsMouse(celebrityPage.buyNowBtn);
         celebrityPage.buyNowBtn.click();

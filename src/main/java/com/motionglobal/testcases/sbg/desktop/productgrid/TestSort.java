@@ -70,12 +70,7 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
         // leftBtn
         gridPage.waitForVisibility(gridPage.popularRightBtn, 5);
         String popularBrandName1 = gridPage.popularBrands1.getText();
-        try {
-            gridPage.deleteHead();
-            gridPage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        gridPage.deleteHead();
         gridPage.popularLeftBtn.click();
         gridPage.waitForVisibility(gridPage.popularBrands3, 5);
         String popularBrandName3 = gridPage.popularBrands3.getText();
@@ -102,11 +97,7 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
     public void selectFilterBrand(String url) {
         getURL(url);
         ProductGridPage gridPage = new ProductGridPage();
-        try {
-            gridPage.deleteLetTalk();
-        }
-        catch (Exception e) {
-        }
+        gridPage.deleteHead();
         gridPage.waitForVisibility(gridPage.filterRayban, 2);
 
         // get sub brand name

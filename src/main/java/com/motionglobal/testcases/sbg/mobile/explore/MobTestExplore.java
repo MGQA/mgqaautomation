@@ -18,7 +18,6 @@ public class MobTestExplore extends AbstractBaseTestCase {
     public void faceShape(String url) throws InterruptedException {
         getURL(url);
         MobHeader header = new MobHeader();
-        header.deleteLetTalk();
         header.btnMenu.click();
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.EXPLORE), 3);
         header.JsMouse(header.getMainMenuElement(MegaMenu.EXPLORE));
