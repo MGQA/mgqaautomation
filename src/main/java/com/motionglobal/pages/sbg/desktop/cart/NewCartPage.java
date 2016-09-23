@@ -19,7 +19,9 @@ public class NewCartPage extends AbstractBaseSbgDesktopPage {
     @FindBy(className = "empty-cart-content")
     public WebElement newCartEmptyIcon;
     @FindBy(className = "price-wrapper")
-    public List<WebElement> priceS;
+    public List<WebElement> priceOnlyFrame; // price no't RX
+    @FindBy(className = "price-cost")
+    public List<WebElement> priceRx;
 
     @Override
     protected void waitPageLoad() {

@@ -37,7 +37,13 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
         getURL(AbstractBasePage.getLoginRequest(url));
         getURL(url);
         Header header = new Header();
-        header.waitForVisibility(header.yourAccount, 10);
+        try {
+            header.waitForVisibility(header.yourAccount, 5);
+        }
+        catch (Exception e) {
+            driver.navigate().refresh();
+        }
+        header.waitForVisibility(header.yourAccount, 5);
         header.mouseOver(header.yourAccount);
         header.waitForVisibility(header.signout, 5);
         Assert.assertTrue(header.isTextPresent("Hi test!"));

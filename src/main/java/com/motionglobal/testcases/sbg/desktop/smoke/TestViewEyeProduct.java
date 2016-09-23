@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
-import com.motionglobal.pages.sbg.desktop.product.RX2Page;
+import com.motionglobal.pages.sbg.desktop.rx.RX2Page;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
@@ -30,8 +30,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         getURL(url);
         Header header = new Header();
         ProductGridPage productGridPage = new ProductGridPage();
-        header.mouseOver(productGridPage.proInfo.get(0));
-        productGridPage.quickView.click();
+        productGridPage.matcherQuickViewSize2();
         waitSize(productGridPage.eyeproSize);
         productGridPage.eyeproSize.get(1).click();
         Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");

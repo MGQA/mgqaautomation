@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
+import com.motionglobal.pages.sbg.desktop.rx.RX3Page;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
 /**
@@ -24,16 +25,17 @@ public class TestOpticiansOfUS extends AbstractBaseTestCase {
         productGridPage.quickView.click();
         productGridPage.waitForVisibility(productGridPage.buyNowButton, 20);
         productGridPage.buyNowButton.click();
-        Double framePrice = productGridPage.regexGetDouble(productGridPage.framePrice.getText());
+        RX3Page rx3Page = new RX3Page();
+        Double framePrice = productGridPage.regexGetDouble(rx3Page.framePrice.getText());
         header.waitForVisibility(productGridPage.cartBtn, 10);
-        productGridPage.deluxe.click();
-        header.waitForVisibility(productGridPage.deluxeVery, 2);
-        productGridPage.deluxeVery.click();
-        Double lensePrice = productGridPage.regexGetDouble(productGridPage.lenses_price.getText());
-        Assert.assertEquals(productGridPage.regexGetDouble(productGridPage.frame_price.getText()), framePrice);
-        Assert.assertEquals(productGridPage.regexGetDouble(productGridPage.deluxeVeryPriece.getText()), lensePrice);
+        rx3Page.deluxe.click();
+        header.waitForVisibility(rx3Page.deluxeVery, 2);
+        rx3Page.deluxeVery.click();
+        Double lensePrice = productGridPage.regexGetDouble(rx3Page.lenses_price.getText());
+        Assert.assertEquals(productGridPage.regexGetDouble(rx3Page.frame_price.getText()), framePrice);
+        Assert.assertEquals(productGridPage.regexGetDouble(rx3Page.deluxeVeryPriece.getText()), lensePrice);
         double price = productGridPage.mathAdd(lensePrice, framePrice);
-        Assert.assertEquals(productGridPage.regexGetDouble(productGridPage.total_price.getText()), price);
+        Assert.assertEquals(productGridPage.regexGetDouble(rx3Page.total_price.getText()), price);
     }
 
     @Override

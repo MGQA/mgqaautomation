@@ -7,12 +7,12 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.motionglobal.common.utils.ExcelDataUtil;
+import com.motionglobal.pages.sbg.desktop.product.GridFilter.ColorGlass;
+import com.motionglobal.pages.sbg.desktop.product.GridFilter.FrameType;
+import com.motionglobal.pages.sbg.desktop.product.GridFilter.Material;
+import com.motionglobal.pages.sbg.desktop.product.GridFilter.Shape;
+import com.motionglobal.pages.sbg.desktop.product.GridFilter.Sport;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
-import com.motionglobal.pages.sbg.desktop.product.ProductGridPage.Color;
-import com.motionglobal.pages.sbg.desktop.product.ProductGridPage.FrameType;
-import com.motionglobal.pages.sbg.desktop.product.ProductGridPage.Material;
-import com.motionglobal.pages.sbg.desktop.product.ProductGridPage.Shape;
-import com.motionglobal.pages.sbg.desktop.product.ProductGridPage.Sport;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 /**
@@ -347,113 +347,113 @@ public class EyeURL extends AbstractBaseSbgDesktopTestCase {
         // XXX color
         gridPage.deleteHead();
 
-        gridPage.JsMouse(gridPage.getColor(Color.Blue));
-        gridPage.getColor(Color.Blue).click();
+        gridPage.JsMouse(gridPage.getColor(ColorGlass.Blue));
+        gridPage.getColor(ColorGlass.Blue).click();
         Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains(obj[29].toString().toLowerCase().trim()), driver.getCurrentUrl().toLowerCase()
                 + " !!! " + ((String) obj[29]).toLowerCase() + " !!! ");
         //
         gridPage.deleteHead();
 
-        gridPage.JsMouse(gridPage.getColor(Color.Brown));
-        gridPage.getColor(Color.Brown).click();
+        gridPage.JsMouse(gridPage.getColor(ColorGlass.Brown));
+        gridPage.getColor(ColorGlass.Brown).click();
         Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains(obj[30].toString().toLowerCase().trim()), driver.getCurrentUrl().toLowerCase()
                 + " !!! " + ((String) obj[30]).toLowerCase() + " !!! ");
         //
         gridPage.deleteHead();
 
-        gridPage.JsMouse(gridPage.getColor(Color.Green));
-        gridPage.getColor(Color.Green).click();
+        gridPage.JsMouse(gridPage.getColor(ColorGlass.Green));
+        gridPage.getColor(ColorGlass.Green).click();
         Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains(obj[31].toString().toLowerCase().trim()), driver.getCurrentUrl().toLowerCase()
                 + " !!! " + ((String) obj[31]).toLowerCase() + " !!! ");
         //
         gridPage.deleteHead();
 
-        gridPage.JsMouse(gridPage.getColor(Color.Gold));
-        gridPage.getColor(Color.Gold).click();
+        gridPage.JsMouse(gridPage.getColor(ColorGlass.Gold));
+        gridPage.getColor(ColorGlass.Gold).click();
         Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains(obj[32].toString().toLowerCase().trim()), driver.getCurrentUrl().toLowerCase()
                 + " !!! " + ((String) obj[32]).toLowerCase() + " !!! ");
         //
         gridPage.deleteHead();
 
-        gridPage.JsMouse(gridPage.getColor(Color.Pink));
-        gridPage.getColor(Color.Pink).click();
+        gridPage.JsMouse(gridPage.getColor(ColorGlass.Pink));
+        gridPage.getColor(ColorGlass.Pink).click();
         Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains(obj[33].toString().toLowerCase().trim()), driver.getCurrentUrl().toLowerCase()
                 + " !!! " + ((String) obj[33]).toLowerCase() + " !!! ");
         //
         gridPage.deleteHead();
 
-        gridPage.JsMouse(gridPage.getColor(Color.Red));
-        gridPage.getColor(Color.Red).click();
+        gridPage.JsMouse(gridPage.getColor(ColorGlass.Red));
+        gridPage.getColor(ColorGlass.Red).click();
         Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains(obj[34].toString().toLowerCase().trim()), driver.getCurrentUrl().toLowerCase()
                 + " !!! " + ((String) obj[34]).toLowerCase() + " !!! ");
         //
         gridPage.deleteHead();
 
-        gridPage.JsMouse(gridPage.getColor(Color.Yellow));
-        gridPage.getColor(Color.Yellow).click();
+        gridPage.JsMouse(gridPage.getColor(ColorGlass.Yellow));
+        gridPage.getColor(ColorGlass.Yellow).click();
         Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains(obj[35].toString().toLowerCase().trim()), driver.getCurrentUrl().toLowerCase()
                 + " !!! " + ((String) obj[35]).toLowerCase() + " !!! ");
         //
         gridPage.deleteHead();
 
-        gridPage.JsMouse(gridPage.getColor(Color.White));
-        gridPage.getColor(Color.White).click();
+        gridPage.JsMouse(gridPage.getColor(ColorGlass.White));
+        gridPage.getColor(ColorGlass.White).click();
         Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains(obj[36].toString().toLowerCase().trim()), driver.getCurrentUrl().toLowerCase()
                 + " !!! " + ((String) obj[36]).toLowerCase() + " !!! ");
         //
         gridPage.deleteHead();
 
-        gridPage.JsMouse(gridPage.getColor(Color.Violet));
-        gridPage.getColor(Color.Violet).click();
+        gridPage.JsMouse(gridPage.getColor(ColorGlass.Violet));
+        gridPage.getColor(ColorGlass.Violet).click();
         Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains(obj[37].toString().toLowerCase().trim()), driver.getCurrentUrl().toLowerCase()
                 + " !!! " + ((String) obj[37]).toLowerCase() + " !!! ");
         //
         gridPage.deleteHead();
 
-        gridPage.JsMouse(gridPage.getColor(Color.Crystal));
-        gridPage.getColor(Color.Crystal).click();
+        gridPage.JsMouse(gridPage.getColor(ColorGlass.Crystal));
+        gridPage.getColor(ColorGlass.Crystal).click();
         Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains(obj[38].toString().toLowerCase().trim()), driver.getCurrentUrl().toLowerCase()
                 + " !!! " + ((String) obj[38]).toLowerCase() + " !!! ");
         //
         gridPage.deleteHead();
 
-        gridPage.JsMouse(gridPage.getColor(Color.Burgundy));
-        gridPage.getColor(Color.Burgundy).click();
+        gridPage.JsMouse(gridPage.getColor(ColorGlass.Burgundy));
+        gridPage.getColor(ColorGlass.Burgundy).click();
         Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains(obj[39].toString().toLowerCase().trim()), driver.getCurrentUrl().toLowerCase()
                 + " !!! " + ((String) obj[39]).toLowerCase() + " !!! ");
         //
         gridPage.deleteHead();
 
-        gridPage.JsMouse(gridPage.getColor(Color.Black));
-        gridPage.getColor(Color.Black).click();
+        gridPage.JsMouse(gridPage.getColor(ColorGlass.Black));
+        gridPage.getColor(ColorGlass.Black).click();
         Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains(obj[40].toString().toLowerCase().trim()), driver.getCurrentUrl().toLowerCase()
                 + " !!! " + ((String) obj[40]).toLowerCase() + " !!! ");
         //
         gridPage.deleteHead();
 
-        gridPage.JsMouse(gridPage.getColor(Color.Tortoise));
-        gridPage.getColor(Color.Tortoise).click();
+        gridPage.JsMouse(gridPage.getColor(ColorGlass.Tortoise));
+        gridPage.getColor(ColorGlass.Tortoise).click();
         Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains(obj[41].toString().toLowerCase().trim()), driver.getCurrentUrl().toLowerCase()
                 + " !!! " + ((String) obj[41]).toLowerCase() + " !!! ");
         //
         gridPage.deleteHead();
 
-        gridPage.JsMouse(gridPage.getColor(Color.Silver));
-        gridPage.getColor(Color.Silver).click();
+        gridPage.JsMouse(gridPage.getColor(ColorGlass.Silver));
+        gridPage.getColor(ColorGlass.Silver).click();
         Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains(obj[42].toString().toLowerCase().trim()), driver.getCurrentUrl().toLowerCase()
                 + " !!! " + ((String) obj[42]).toLowerCase() + " !!! ");
         //
         gridPage.deleteHead();
 
-        gridPage.JsMouse(gridPage.getColor(Color.Grey));
-        gridPage.getColor(Color.Grey).click();
+        gridPage.JsMouse(gridPage.getColor(ColorGlass.Grey));
+        gridPage.getColor(ColorGlass.Grey).click();
         Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains(obj[43].toString().toLowerCase().trim()), driver.getCurrentUrl().toLowerCase()
                 + " !!! " + ((String) obj[43]).toLowerCase() + " !!! ");
         //
         gridPage.deleteHead();
 
-        gridPage.JsMouse(gridPage.getColor(Color.Orange));
-        gridPage.getColor(Color.Orange).click();
+        gridPage.JsMouse(gridPage.getColor(ColorGlass.Orange));
+        gridPage.getColor(ColorGlass.Orange).click();
         Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains(obj[44].toString().toLowerCase().trim()), driver.getCurrentUrl().toLowerCase()
                 + " !!! " + ((String) obj[44]).toLowerCase() + " !!! ");
     }

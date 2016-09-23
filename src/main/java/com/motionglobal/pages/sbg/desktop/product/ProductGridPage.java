@@ -6,17 +6,26 @@ import java.util.regex.Pattern;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
+import com.motionglobal.pages.sbg.desktop.product.GridFilter.ColorGlass;
+import com.motionglobal.pages.sbg.desktop.product.GridFilter.FrameType;
+import com.motionglobal.pages.sbg.desktop.product.GridFilter.Material;
+import com.motionglobal.pages.sbg.desktop.product.GridFilter.Shape;
+import com.motionglobal.pages.sbg.desktop.product.GridFilter.Sport;
 
 public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     @FindBy(xpath = "//div[contains(@class,'pro_r_buynow')]/a[2]/span")
     public WebElement buyNowButton;
+    @FindBy(css = ".pro_lawith.formSubmitRx>span")
+    public WebElement buyPre;
     @FindBy(className = "cart_btn")
     public WebElement cartBtn;
     // List WebElement
-    @FindBy(className = "quick_view_text")
+    @FindBy(css = ".pro_view_quick[style='display: table;']>a>span")
     public WebElement quickView;
     @FindBy(className = "recProInfo")
     public List<WebElement> proInfo;
@@ -28,22 +37,6 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> productPriceS;
     @FindBy(className = "price_clearance_new_tag")
     public WebElement discountIcon;
-
-    // Opticians
-    @FindBy(id = "discount_price_promotion_display")
-    public WebElement framePrice;
-    @FindBy(className = "frame_price")
-    public WebElement frame_price;
-    @FindBy(xpath = "//li[@class='recommended cur']/a/p[2]")
-    public WebElement deluxeVeryPriece;
-    @FindBy(className = "lenses_price")
-    public WebElement lenses_price;
-    @FindBy(className = "total_price")
-    public WebElement total_price;
-    @FindBy(xpath = "//li[@data-index='deluxe']")
-    public WebElement deluxe;
-    @FindBy(xpath = "//li[@data-value='8']/a")
-    public WebElement deluxeVery;
 
     // sort and page
     @FindBy(css = "#sortByDrop>dt>a")
@@ -105,207 +98,27 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     @FindBy(css = ".side_Clearance>a")
     public WebElement clearance;
 
-    public enum Shape {
-        Aviator, Wayfarer, Butterfly, CatEye, Goggle, Oversized, Rectangle, Round, SingleLens, Wraparound, Oval;
-    }
-
     public WebElement getShape(Shape shape) {
-        WebElement element = null;
-        switch (shape) {
-        case Aviator:
-            element = driver.findElement(By.name("Aviator"));
-            break;
-        case Wayfarer:
-            element = driver.findElement(By.name("Wayfarer"));
-            break;
-        case Butterfly:
-            element = driver.findElement(By.name("Butterfly"));
-            break;
-        case CatEye:
-            element = driver.findElement(By.name("Cat Eye"));
-            break;
-        case Goggle:
-            element = driver.findElement(By.name("Goggle"));
-            break;
-        case Oversized:
-            element = driver.findElement(By.name("Oversized"));
-            break;
-        case Rectangle:
-            element = driver.findElement(By.name("Rectangle"));
-            break;
-        case Round:
-            element = driver.findElement(By.name("Round"));
-            break;
-        case SingleLens:
-            element = driver.findElement(By.name("Single Lens"));
-            break;
-        case Wraparound:
-            element = driver.findElement(By.name("Wraparound"));
-            break;
-        case Oval:
-            element = driver.findElement(By.name("Oval"));
-            break;
-        default:
-            System.out.println(" fail !!! elemnet empty !");
-            break;
-        }
-        return element;
+        return new GridFilter().getShape(shape);
     }
 
-    // XXX
-    public enum Color {
-        Blue, Brown, Green, Gold, Pink, Red, Yellow, White, Violet, Crystal, Burgundy, Black, Tortoise, Silver, Grey, Orange;
-    }
-
-    public WebElement getColor(Color color) {
-        WebElement element = null;
-        switch (color) {
-        case Blue:
-            element = driver.findElement(By.name("Blue"));
-            break;
-        case Brown:
-            element = driver.findElement(By.name("Brown"));
-            break;
-        case Green:
-            element = driver.findElement(By.name("Green"));
-            break;
-        case Gold:
-            element = driver.findElement(By.name("Gold"));
-            break;
-        case Pink:
-            element = driver.findElement(By.name("Pink"));
-            break;
-        case Red:
-            element = driver.findElement(By.name("Red"));
-            break;
-        case Yellow:
-            element = driver.findElement(By.name("Yellow"));
-            break;
-        case White:
-            element = driver.findElement(By.name("White"));
-            break;
-        case Violet:
-            element = driver.findElement(By.name("Violet"));
-            break;
-        case Crystal:
-            element = driver.findElement(By.name("Crystal"));
-            break;
-        case Burgundy:
-            element = driver.findElement(By.name("Burgundy"));
-            break;
-        case Black:
-            element = driver.findElement(By.name("Black"));
-            break;
-        case Tortoise:
-            element = driver.findElement(By.name("Tortoise"));
-            break;
-        case Silver:
-            element = driver.findElement(By.name("Silver"));
-            break;
-        case Grey:
-            element = driver.findElement(By.name("Grey"));
-            break;
-        case Orange:
-            element = driver.findElement(By.name("Orange"));
-            break;
-        default:
-            System.out.println(" FAIL EMEMENT EMPTY !!!");
-            break;
-        }
-        return element;
-    }
-
-    // XXX
-    public enum FrameType {
-        FullRim, SemiRimless, Rimless;
+    public WebElement getColor(ColorGlass color) {
+        return new GridFilter().getColor(color);
     }
 
     public WebElement getFrameType(FrameType type) {
-        WebElement element = null;
-        switch (type) {
-        case FullRim:
-            element = driver.findElement(By.name("Full Rim"));
-            break;
-        case SemiRimless:
-            element = driver.findElement(By.name("Semi Rimless"));
-            break;
-        case Rimless:
-            element = driver.findElement(By.name("Rimless"));
-            break;
-        default:
-            System.out.println(" FAIL EMEMENT EMPTY !!!");
-            break;
-        }
-        return element;
-    }
-
-    // XXX
-    public enum Material {
-        Plastic, Metal, Titanium;
+        return new GridFilter().getFrameType(type);
     }
 
     public WebElement getFrameMaterial(Material material) {
-        WebElement element = null;
-        switch (material) {
-        case Plastic:
-            element = driver.findElement(By.cssSelector("[title='Plastic']"));
-            break;
-        case Metal:
-            element = driver.findElement(By.cssSelector("[title='Metal']"));
-            break;
-        case Titanium:
-            element = driver.findElement(By.cssSelector("[title='Titanium']"));
-            break;
-        default:
-            System.out.println(" FAIL EMEMENT EMPTY !!!");
-            break;
-        }
-        return element;
-    }
-
-    // XXX
-    public enum Sport {
-        Baseball, Cycling, Driving, Fishing, Golf, Running, SkiGoggles, Tennis, WaterSports;
+        return new GridFilter().getFrameMaterial(material);
     }
 
     public WebElement getSport(Sport sport) {
-        WebElement element = null;
-        switch (sport) {
-        case Baseball:
-            element = driver.findElement(By.name("Baseball"));
-            break;
-        case Cycling:
-            element = driver.findElement(By.name("Cycling"));
-            break;
-        case Driving:
-            element = driver.findElement(By.name("Driving"));
-            break;
-        case Fishing:
-            element = driver.findElement(By.name("Fishing"));
-            break;
-        case Golf:
-            element = driver.findElement(By.name("Golf"));
-            break;
-        case Running:
-            element = driver.findElement(By.name("Running"));
-            break;
-        case SkiGoggles:
-            element = driver.findElement(By.name("Ski Goggles"));
-            break;
-        case Tennis:
-            element = driver.findElement(By.name("Tennis"));
-            break;
-        case WaterSports:
-            element = driver.findElement(By.name("Water Sports"));
-            break;
-        default:
-            System.out.println(" FAIL EMEMENT EMPTY !!!");
-            break;
-        }
-        return element;
+        return new GridFilter().getSport(sport);
     }
 
-    // XXX
+    // XXX Label use to Assert
     public enum Label {
         gender, material, mid, pre, polarized, sports, brands, ski, designer;
     }
@@ -356,6 +169,46 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
         }
         matcher.appendTail(sbr);
         return sbr.toString();
+    }
+
+    public void matcherQuickViewSize2() {
+        ProductGridPage gridPage = new ProductGridPage();
+        gridPage.deleteHead();
+        for (int i = 0; i < gridPage.proInfo.size(); i++) {
+            gridPage.waitForVisibility(gridPage.proInfo.get(i), 2);
+            gridPage.JsMouse(gridPage.proInfo.get(i));
+            new Actions(driver).moveByOffset(500, 500).build().perform();
+            new Actions(driver).moveToElement(gridPage.proInfo.get(i)).build().perform();
+            gridPage.waitForVisibility(gridPage.quickView, 5);
+            gridPage.quickView.click();
+            gridPage.waitForVisibility(gridPage.eyeproSize, 10);
+            if (gridPage.eyeproSize.size() >= 2) {
+                break;
+            }
+            else if (i == gridPage.proInfo.size() - 1) {
+                Assert.assertTrue(false, "No't Find : Size is 2");
+            }
+        }
+    }
+
+    public void matcherQuickSunCanRX() {
+        ProductGridPage gridPage = new ProductGridPage();
+        gridPage.deleteHead();
+        for (int i = 0; i < gridPage.proInfo.size(); i++) {
+            gridPage.waitForVisibility(gridPage.proInfo.get(i), 2);
+            gridPage.JsMouse(gridPage.proInfo.get(i));
+            new Actions(driver).moveByOffset(500, 500).build().perform();
+            new Actions(driver).moveToElement(gridPage.proInfo.get(i)).build().perform();
+            gridPage.waitForVisibility(gridPage.quickView, 5);
+            gridPage.quickView.click();
+            gridPage.waitForVisibility(gridPage.eyeproSize, 10);
+            if (gridPage.buyPre.isDisplayed()) {
+                break;
+            }
+            else if (i == gridPage.proInfo.size() - 1) {
+                Assert.assertTrue(false, "No't Find : Sun Glass Can RX");
+            }
+        }
     }
 
     @Override

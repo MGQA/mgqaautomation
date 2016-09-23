@@ -35,6 +35,8 @@ public class CartPage extends AbstractBaseSbgDesktopPage {
     public WebElement priceShipping;
     @FindBy(css = ".fr .orange:nth-of-type(3)")
     public WebElement priceInsurance;
+    @FindBy(xpath = "//tr[2]/td[@class='ttd2']")
+    public WebElement priceLens;
     @FindBy(id = "rewards")
     public WebElement priceCoupon;
     @FindBy(id = "grand_total")

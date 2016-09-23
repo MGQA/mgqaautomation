@@ -1,7 +1,6 @@
 package com.motionglobal.pages;
 
 import java.math.BigDecimal;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,6 +16,8 @@ import com.motionglobal.common.utils.VerifyUtil;
 import com.motionglobal.methodbase.DecideCartType;
 import com.motionglobal.methodbase.DecideRxType;
 import com.motionglobal.methodbase.DeleteHeader;
+import com.motionglobal.methodbase.MoveAndClick;
+import com.motionglobal.methodbase.SwitchToWindow;
 
 public abstract class AbstractBasePage extends AbstractBaseContainer {
 
@@ -43,6 +44,7 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     public void JsMouse(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();", element);
+        new Actions(driver).moveToElement(element).build().perform();
     }
 
     public void JsClick(WebElement element) {
@@ -71,10 +73,6 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
 
     public void displayLogin() {
         JsChangeClass("new_proPop new_proPop2 addblock", driver.findElement(By.cssSelector("#signin_li>div")));
-    }
-
-    public void deleteHead() {
-        new DeleteHeader().deleteHead(); // display="none" of header
     }
 
     public void selectValue(WebElement element, String value) {
@@ -123,7 +121,6 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         BigDecimal b1 = new BigDecimal(Double.toString(d1));
         BigDecimal b2 = new BigDecimal(Double.toString(d2));
         return b1.add(b2).doubleValue();
-
     }
 
     public double mathSub(double d1, double d2) {
@@ -140,21 +137,12 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         return new DecideRxType().getRXType(); // return "new" or "old"
     }
 
-    /**
-     * chrome no't move to element , so create it to move and click
-     */
+    public void deleteHead() {
+        new DeleteHeader().deleteHead(); // display="none" of header
+    }
+
     public void elementClick(WebElement element) {
-        for (int i = 0; i < 20; i++) {
-            try {
-                JsMouse(element);
-                if (element.getText() != "" && element.getText() != null) {
-                    element.click();
-                    break;
-                }
-            }
-            catch (Exception e) {
-            }
-        }
+        new MoveAndClick().elementClick(element); // move and click element
     }
 
     /**
@@ -179,24 +167,7 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     protected abstract void waitPageLoad();
 
     public void switch2NewWindow() {
-        Set<String> handles = driver.getWindowHandles();
-
-        int counter = 0;
-        while (counter < 5) {
-            if (handles.size() == 1) {
-                handles = driver.getWindowHandles();
-                dummyWait(1);
-                counter++;
-                continue;
-            }
-            for (String a : handles) {
-                if (!a.equals(this.parentWindowHandle)) {
-                    driver.switchTo().window(a); // switch to new window
-                    return;
-                }
-            }
-            counter++;
-        }
+        new SwitchToWindow().switch2NewWindow();
     }
 
     public void switch2PrimaryWindow() {
