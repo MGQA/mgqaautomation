@@ -1,4 +1,4 @@
-package com.motionglobal.testcases.sbg.desktop.smoke;
+package com.motionglobal.testcases.sbg.desktop.rx;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;

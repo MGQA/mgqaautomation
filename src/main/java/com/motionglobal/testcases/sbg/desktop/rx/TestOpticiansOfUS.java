@@ -1,4 +1,4 @@
-package com.motionglobal.testcases.sbg.desktop.smoke;
+package com.motionglobal.testcases.sbg.desktop.rx;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

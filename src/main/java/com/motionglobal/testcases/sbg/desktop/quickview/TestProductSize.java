@@ -1,4 +1,4 @@
-package com.motionglobal.testcases.sbg.desktop.productdetail;
+package com.motionglobal.testcases.sbg.desktop.quickview;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
