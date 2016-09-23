@@ -160,6 +160,30 @@ public class MobTestProduct extends AbstractBaseTestCase {
         Assert.assertTrue(actualName.contains("rayban"), " Ray-Ban Filter Fail !!!");
     }
 
+    // XXX case 8
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    public void loadMore(String url) throws InterruptedException {
+        getURL(url);
+        MobProductPage productPage = new MobProductPage();
+        int num1 = productPage.product.size();
+        productPage.elementClick(productPage.btnLoadMore);
+        int num2 = 0;
+        for (int i = 0; i < 51; i++) {
+            num2 = productPage.product.size();
+            if (num2 == num1) {
+                try {
+                    Thread.sleep(100);
+                }
+                catch (InterruptedException e) {
+                }
+            }
+            else {
+                break;
+            }
+        }
+        Assert.assertEquals(num2, 40);
+    }
+
     @Override
     protected void initialize() {
     }

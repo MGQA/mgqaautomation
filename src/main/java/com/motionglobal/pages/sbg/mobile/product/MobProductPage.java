@@ -23,7 +23,13 @@ public class MobProductPage extends AbstractBaseSbgDesktopPage {
     @FindBy(className = "main__glass-list__item__tag--cheep")
     public List<WebElement> dealsIcon;
 
-    //
+    // product number
+    @FindBy(id = "see_more")
+    public WebElement btnLoadMore;
+    @FindBy(css = ".product-item.main__glass-list__item")
+    public List<WebElement> product;
+
+    // filter
     @FindBy(css = ".main__btn-group__btnl")
     public WebElement filter;
     @FindBy(css = ".main__btn-group__btnr")

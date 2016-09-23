@@ -1,5 +1,7 @@
 package com.motionglobal.pages.sbg.mobile.product;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,6 +24,8 @@ public class MobProductDetailPage extends AbstractBaseSbgDesktopPage {
     public WebElement productSizeTwo;
     @FindBy(css = ".swiper-slide.swiper-slide-active>a>img")
     public WebElement similarProduct;
+    @FindBy(css = ".swiper-slide>img")
+    public List<WebElement> mainImg;
 
     // XXX CL
     @FindBy(css = "#prescription_tag[style='display: none;']+a>div")

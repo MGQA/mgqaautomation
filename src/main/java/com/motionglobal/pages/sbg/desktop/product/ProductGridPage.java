@@ -6,7 +6,9 @@ import java.util.regex.Pattern;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 import com.motionglobal.pages.sbg.desktop.product.GridFilter.ColorGlass;
@@ -18,10 +20,12 @@ import com.motionglobal.pages.sbg.desktop.product.GridFilter.Sport;
 public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     @FindBy(xpath = "//div[contains(@class,'pro_r_buynow')]/a[2]/span")
     public WebElement buyNowButton;
+    @FindBy(css = ".pro_lawith.formSubmitRx>span")
+    public WebElement buyPre;
     @FindBy(className = "cart_btn")
     public WebElement cartBtn;
     // List WebElement
-    @FindBy(className = "quick_view_text")
+    @FindBy(css = ".pro_view_quick[style='display: table;']>a>span")
     public WebElement quickView;
     @FindBy(className = "recProInfo")
     public List<WebElement> proInfo;
@@ -33,22 +37,6 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> productPriceS;
     @FindBy(className = "price_clearance_new_tag")
     public WebElement discountIcon;
-
-    // Opticians
-    @FindBy(id = "discount_price_promotion_display")
-    public WebElement framePrice;
-    @FindBy(className = "frame_price")
-    public WebElement frame_price;
-    @FindBy(xpath = "//li[@class='recommended cur']/a/p[2]")
-    public WebElement deluxeVeryPriece;
-    @FindBy(className = "lenses_price")
-    public WebElement lenses_price;
-    @FindBy(className = "total_price")
-    public WebElement total_price;
-    @FindBy(xpath = "//li[@data-index='deluxe']")
-    public WebElement deluxe;
-    @FindBy(xpath = "//li[@data-value='8']/a")
-    public WebElement deluxeVery;
 
     // sort and page
     @FindBy(css = "#sortByDrop>dt>a")
@@ -181,6 +169,46 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
         }
         matcher.appendTail(sbr);
         return sbr.toString();
+    }
+
+    public void matcherQuickViewSize2() {
+        ProductGridPage gridPage = new ProductGridPage();
+        gridPage.deleteHead();
+        for (int i = 0; i < gridPage.proInfo.size(); i++) {
+            gridPage.waitForVisibility(gridPage.proInfo.get(i), 2);
+            gridPage.JsMouse(gridPage.proInfo.get(i));
+            new Actions(driver).moveByOffset(500, 500).build().perform();
+            new Actions(driver).moveToElement(gridPage.proInfo.get(i)).build().perform();
+            gridPage.waitForVisibility(gridPage.quickView, 5);
+            gridPage.quickView.click();
+            gridPage.waitForVisibility(gridPage.eyeproSize, 10);
+            if (gridPage.eyeproSize.size() >= 2) {
+                break;
+            }
+            else if (i == gridPage.proInfo.size() - 1) {
+                Assert.assertTrue(false, "No't Find : Size is 2");
+            }
+        }
+    }
+
+    public void matcherQuickSunCanRX() {
+        ProductGridPage gridPage = new ProductGridPage();
+        gridPage.deleteHead();
+        for (int i = 0; i < gridPage.proInfo.size(); i++) {
+            gridPage.waitForVisibility(gridPage.proInfo.get(i), 2);
+            gridPage.JsMouse(gridPage.proInfo.get(i));
+            new Actions(driver).moveByOffset(500, 500).build().perform();
+            new Actions(driver).moveToElement(gridPage.proInfo.get(i)).build().perform();
+            gridPage.waitForVisibility(gridPage.quickView, 5);
+            gridPage.quickView.click();
+            gridPage.waitForVisibility(gridPage.eyeproSize, 10);
+            if (gridPage.buyPre.isDisplayed()) {
+                break;
+            }
+            else if (i == gridPage.proInfo.size() - 1) {
+                Assert.assertTrue(false, "No't Find : Sun Glass Can RX");
+            }
+        }
     }
 
     @Override

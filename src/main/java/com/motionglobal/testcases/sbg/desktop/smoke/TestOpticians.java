@@ -10,7 +10,8 @@ import org.testng.annotations.Test;
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.cart.CartPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
-import com.motionglobal.pages.sbg.desktop.product.RX2Page;
+import com.motionglobal.pages.sbg.desktop.rx.RX2Page;
+import com.motionglobal.pages.sbg.desktop.rx.RX3Page;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
 /**
@@ -35,16 +36,17 @@ public class TestOpticians extends AbstractBaseTestCase {
         //
         RX2Page buyNow = null;
         if (productGridPage.getRXType().equals("new")) {
-            // new RX
-            Double framePrice = productGridPage.regexGetDouble(productGridPage.framePrice.getText());
-            productGridPage.deluxe.click();
-            header.waitForVisibility(productGridPage.deluxeVery, 2);
-            productGridPage.deluxeVery.click();
-            Double lensePrice = productGridPage.regexGetDouble(productGridPage.lenses_price.getText());
-            Assert.assertEquals(productGridPage.regexGetDouble(productGridPage.frame_price.getText()), framePrice);
-            Assert.assertEquals(productGridPage.regexGetDouble(productGridPage.deluxeVeryPriece.getText()), lensePrice);
-            double price = productGridPage.mathAdd(lensePrice, framePrice);
-            Assert.assertEquals(productGridPage.regexGetDouble(productGridPage.total_price.getText()), price);
+            // new RXss
+            RX3Page rx3 = new RX3Page();
+            Double framePrice = rx3.regexGetDouble(rx3.framePrice.getText());
+            rx3.deluxe.click();
+            header.waitForVisibility(rx3.deluxeVery, 2);
+            rx3.deluxeVery.click();
+            Double lensePrice = rx3.regexGetDouble(rx3.lenses_price.getText());
+            Assert.assertEquals(rx3.regexGetDouble(rx3.frame_price.getText()), framePrice);
+            Assert.assertEquals(rx3.regexGetDouble(rx3.deluxeVeryPriece.getText()), lensePrice);
+            double price = rx3.mathAdd(lensePrice, framePrice);
+            Assert.assertEquals(rx3.regexGetDouble(rx3.total_price.getText()), price);
         }
         else {
             // old RX

@@ -10,7 +10,6 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.mobile.home.MobHomePage;
 import com.motionglobal.pages.sbg.mobile.home.MobHomePage.Sell;
 import com.motionglobal.pages.sbg.mobile.product.MobProductAllCLPage;
@@ -257,14 +256,6 @@ public class MobTestHomePage extends AbstractBaseTestCase {
         String productTitle4 = productPage4.regexGetLetterLow(productPage.productTitle.getText());
         Assert.assertTrue(productTitle4.contains("contactlenses"), " Page No't Contact Lense Page !!!");
         Assert.assertTrue(productPage.productList.size() > 1);
-    }
-
-    // XXX case 5
-    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug111", "smoke" })
-    public void asdas(String url) throws InterruptedException {
-        getURL(url);
-        Header header = new Header();
-        header.elementClick(header.DayReturns);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.motionglobal.pages.sbg.desktop.product;
+package com.motionglobal.pages.sbg.desktop.rx;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

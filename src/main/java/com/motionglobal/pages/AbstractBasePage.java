@@ -44,6 +44,7 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     public void JsMouse(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();", element);
+        new Actions(driver).moveToElement(element).build().perform();
     }
 
     public void JsClick(WebElement element) {

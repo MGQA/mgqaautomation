@@ -4,17 +4,21 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     private final ResultGrid resultGrid;
     //
-    @FindBy(className = "quick_view_text")
+    @FindBy(css = ".pro_view_quick[style='display: table;']>a>span")
     public WebElement quickView;
     @FindBy(xpath = "//div[contains(@class,'pro_r_buynow')]/a[2]/span")
     public WebElement buyNowButton;
+    @FindBy(css = ".pro_lawith.formSubmitRx>span")
+    public WebElement buyPre;
     @FindBy(className = "detail_link")
     public WebElement detailBtn;
     @FindBy(id = "totleRsCount")
@@ -74,6 +78,46 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
 
     public ResultGrid resultGrid() {
         return this.resultGrid;
+    }
+
+    public void matcherQuickViewSize2() {
+        SearchResultPage searchPage = new SearchResultPage();
+        searchPage.deleteHead();
+        for (int i = 0; i < searchPage.proInfo.size(); i++) {
+            searchPage.waitForVisibility(searchPage.proInfo.get(i), 2);
+            searchPage.JsMouse(searchPage.proInfo.get(i));
+            new Actions(driver).moveByOffset(500, 500).build().perform();
+            new Actions(driver).moveToElement(searchPage.proInfo.get(i)).build().perform();
+            searchPage.waitForVisibility(searchPage.quickView, 5);
+            searchPage.quickView.click();
+            searchPage.waitForVisibility(searchPage.eyeproSize, 10);
+            if (searchPage.eyeproSize.size() >= 2) {
+                break;
+            }
+            else if (i == searchPage.proInfo.size() - 1) {
+                Assert.assertTrue(false, "No't Find : Size is 2");
+            }
+        }
+    }
+
+    public void matcherQuickSunCanRX() {
+        SearchResultPage searchPage = new SearchResultPage();
+        searchPage.deleteHead();
+        for (int i = 0; i < searchPage.proInfo.size(); i++) {
+            searchPage.waitForVisibility(searchPage.proInfo.get(i), 2);
+            searchPage.JsMouse(searchPage.proInfo.get(i));
+            new Actions(driver).moveByOffset(500, 500).build().perform();
+            new Actions(driver).moveToElement(searchPage.proInfo.get(i)).build().perform();
+            searchPage.waitForVisibility(searchPage.quickView, 5);
+            searchPage.quickView.click();
+            searchPage.waitForVisibility(searchPage.eyeproSize, 10);
+            if (searchPage.buyPre.isDisplayed()) {
+                break;
+            }
+            else if (i == searchPage.proInfo.size() - 1) {
+                Assert.assertTrue(false, "No't Find : Sun Glass Can RX");
+            }
+        }
     }
 
     @Override

@@ -59,12 +59,12 @@ public class TestAddCartAndDelCart extends AbstractBaseSbgDesktopTestCase {
             // new cart
             NewCartPage newCartPage = new NewCartPage();
             newCartPage.waitForVisibility(newCartPage.selectQuantity, 5);
-            double priceNum1 = newCartPage.regexGetDouble(newCartPage.priceS.get(0).getText());
+            double priceNum1 = newCartPage.regexGetDouble(newCartPage.priceOnlyFrame.get(0).getText());
             newCartPage.selectValue(newCartPage.selectQuantity.get(0), "3");
-            new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(newCartPage.priceS.get(0)));
+            new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(newCartPage.priceOnlyFrame.get(0)));
             // driver.navigate().refresh();
-            newCartPage.waitForVisibility(newCartPage.priceS, 5);
-            double priceNum3 = newCartPage.regexGetDouble(newCartPage.priceS.get(0).getText());
+            newCartPage.waitForVisibility(newCartPage.priceOnlyFrame, 5);
+            double priceNum3 = newCartPage.regexGetDouble(newCartPage.priceOnlyFrame.get(0).getText());
             newCartPage.AsssetEquals(priceNum3, newCartPage.mathAdd(newCartPage.mathAdd(priceNum1, priceNum1), priceNum1));
         }
     }
