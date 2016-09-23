@@ -178,6 +178,11 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
             gridPage.waitForVisibility(gridPage.proInfo.get(i), 2);
             gridPage.JsMouse(gridPage.proInfo.get(i));
             new Actions(driver).moveByOffset(500, 500).build().perform();
+            try {
+                Thread.sleep(200);
+            }
+            catch (InterruptedException e) {
+            }
             new Actions(driver).moveToElement(gridPage.proInfo.get(i)).build().perform();
             gridPage.waitForVisibility(gridPage.quickView, 5);
             gridPage.quickView.click();
@@ -198,6 +203,11 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
             gridPage.waitForVisibility(gridPage.proInfo.get(i), 2);
             gridPage.JsMouse(gridPage.proInfo.get(i));
             new Actions(driver).moveByOffset(500, 500).build().perform();
+            try {
+                Thread.sleep(200);
+            }
+            catch (InterruptedException e) {
+            }
             new Actions(driver).moveToElement(gridPage.proInfo.get(i)).build().perform();
             gridPage.waitForVisibility(gridPage.quickView, 5);
             gridPage.quickView.click();
