@@ -87,6 +87,11 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
             searchPage.waitForVisibility(searchPage.proInfo.get(i), 2);
             searchPage.JsMouse(searchPage.proInfo.get(i));
             new Actions(driver).moveByOffset(500, 500).build().perform();
+            try {
+                Thread.sleep(200);
+            }
+            catch (InterruptedException e) {
+            }
             new Actions(driver).moveToElement(searchPage.proInfo.get(i)).build().perform();
             searchPage.waitForVisibility(searchPage.quickView, 5);
             searchPage.quickView.click();
@@ -107,6 +112,11 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
             searchPage.waitForVisibility(searchPage.proInfo.get(i), 2);
             searchPage.JsMouse(searchPage.proInfo.get(i));
             new Actions(driver).moveByOffset(500, 500).build().perform();
+            try {
+                Thread.sleep(200);
+            }
+            catch (InterruptedException e) {
+            }
             new Actions(driver).moveToElement(searchPage.proInfo.get(i)).build().perform();
             searchPage.waitForVisibility(searchPage.quickView, 5);
             searchPage.quickView.click();

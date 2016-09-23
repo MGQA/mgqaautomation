@@ -2,6 +2,7 @@ package com.motionglobal.testcases.sbg.desktop.rx;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -26,10 +27,16 @@ public class TestOpticians extends AbstractBaseTestCase {
         String url = "http://www.visiondirect.com.au/designer-eyeglasses/Tom-Ford/";
         getURL(url);
         Header header = new Header();
+        header.deleteHead();
         ProductGridPage productGridPage = new ProductGridPage();
-        header.mouseOver(productGridPage.proInfo.get(0));
-        header.waitForVisibility(productGridPage.quickView, 2);
+        //
+        productGridPage.waitForVisibility(productGridPage.proInfo.get(0), 2);
+        productGridPage.JsMouse(productGridPage.proInfo.get(0));
+        new Actions(driver).moveByOffset(500, 500).build().perform();
+        new Actions(driver).moveToElement(productGridPage.proInfo.get(0)).build().perform();
+        productGridPage.waitForVisibility(productGridPage.quickView, 5);
         productGridPage.quickView.click();
+        //
         productGridPage.waitForVisibility(productGridPage.buyNowButton, 5);
         header.waitForVisibility(productGridPage.buyNowButton, 2);
         productGridPage.buyNowButton.click();
