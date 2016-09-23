@@ -1,4 +1,4 @@
-package com.motionglobal.testcases.sbg.desktop.smoke.cart;
+package com.motionglobal.testcases.sbg.desktop.rx;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -11,7 +11,7 @@ import com.motionglobal.pages.sbg.desktop.rx.RX3Page;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
-public class TestGridPageAddCart extends AbstractBaseSbgDesktopTestCase {
+public class TestSunglassRX extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] dp() {
