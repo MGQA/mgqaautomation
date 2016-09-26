@@ -2,8 +2,8 @@ package com.motionglobal.testcases.sbg.mobile.smoke;
 
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.sbg.mobile.product.MobNewOpticianPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
+import com.motionglobal.pages.sbg.mobile.product.MobRX3Page;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
 /**
@@ -19,7 +19,7 @@ public class MobTestOpticians extends AbstractBaseTestCase {
         MobProductDetailPage productDetailPage = new MobProductDetailPage();
         productDetailPage.addLens.click();
         // try {
-        MobNewOpticianPage opticianPage = new MobNewOpticianPage();
+        MobRX3Page opticianPage = new MobRX3Page();
         opticianPage.waitForVisibility(opticianPage.priceTotal, 5);
         double priceFrame = opticianPage.regexGetDouble(opticianPage.priceFrame.getText());
         double buyFrame = opticianPage.regexGetDouble(opticianPage.buyFrame.getText());

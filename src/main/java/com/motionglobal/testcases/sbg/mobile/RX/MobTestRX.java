@@ -7,8 +7,8 @@ import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.mobile.cart.MobCartPage;
-import com.motionglobal.pages.sbg.mobile.product.MobNewOpticianPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
+import com.motionglobal.pages.sbg.mobile.product.MobRX3Page;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
 public class MobTestRX extends AbstractBaseTestCase {
@@ -25,7 +25,7 @@ public class MobTestRX extends AbstractBaseTestCase {
         detailPage.buyNow.click();
         MobCartPage cartPage = new MobCartPage();
         cartPage.addPre.click();
-        MobNewOpticianPage opticianPage = new MobNewOpticianPage();
+        MobRX3Page opticianPage = new MobRX3Page();
         Double totalPrice = getPrice(opticianPage.priceTotal);
         opticianPage.JsMouse(opticianPage.btnContinue);
         opticianPage.btnContinue.click();

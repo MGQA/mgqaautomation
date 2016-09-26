@@ -7,8 +7,8 @@ import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.mobile.cart.MobCartPage;
-import com.motionglobal.pages.sbg.mobile.product.MobNewOpticianPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
+import com.motionglobal.pages.sbg.mobile.product.MobRX3Page;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
 public class MobTestBuyFarmeOnly extends AbstractBaseTestCase {
@@ -23,7 +23,7 @@ public class MobTestBuyFarmeOnly extends AbstractBaseTestCase {
         getURL(url);
         MobProductDetailPage detailPage = new MobProductDetailPage();
         detailPage.addLens.click();
-        MobNewOpticianPage opticianPage = new MobNewOpticianPage();
+        MobRX3Page opticianPage = new MobRX3Page();
         opticianPage.waitForVisibility(opticianPage.buyFrame, 5);
         Double priceFrame = getPrice(opticianPage.buyFrame);
         opticianPage.buyFrame.click();

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
-public class MobOpticianPage extends AbstractBaseSbgDesktopPage {
+public class MobRX2Page extends AbstractBaseSbgDesktopPage {
     @FindBy(xpath = "//div[@id='step1']/div[1]/div[3]/ul/li[1]/a")
     public WebElement distance;
     @FindBy(className = "rx_step_enter")

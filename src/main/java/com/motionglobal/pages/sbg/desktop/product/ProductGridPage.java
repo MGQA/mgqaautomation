@@ -196,7 +196,7 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
         }
     }
 
-    public void matcherQuickSunCanRX() {
+    public void matcherQuickViewSunCanRX() {
         ProductGridPage gridPage = new ProductGridPage();
         gridPage.deleteHead();
         for (int i = 0; i < gridPage.proInfo.size(); i++) {
