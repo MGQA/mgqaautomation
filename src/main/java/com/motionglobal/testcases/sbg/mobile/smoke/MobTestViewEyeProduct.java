@@ -5,8 +5,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.mobile.cart.MobCartPage;
-import com.motionglobal.pages.sbg.mobile.product.MobNewOpticianPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
+import com.motionglobal.pages.sbg.mobile.product.MobRX3Page;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
 /**
@@ -31,7 +31,7 @@ public class MobTestViewEyeProduct extends AbstractBaseTestCase {
         MobCartPage cartPage = new MobCartPage();
         driver.navigate().back();
         detailPage.addLens.click();
-        MobNewOpticianPage newOpticianPage = new MobNewOpticianPage();
+        MobRX3Page newOpticianPage = new MobRX3Page();
     }
 
     @Override

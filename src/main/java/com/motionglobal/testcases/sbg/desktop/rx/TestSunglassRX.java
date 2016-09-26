@@ -1,5 +1,7 @@
 package com.motionglobal.testcases.sbg.desktop.rx;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -19,11 +21,12 @@ public class TestSunglassRX extends AbstractBaseSbgDesktopTestCase {
                 { "http://www.smartbuyglasses.co.nz/designer-sunglasses/Ray-Ban/" } };
     }
 
+    // XXX case 1
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void addPrescription(String url) throws InterruptedException {
         getURL(url);
         ProductGridPage gridPage = new ProductGridPage();
-        gridPage.matcherQuickSunCanRX();
+        gridPage.matcherQuickViewSunCanRX();
         gridPage.waitForVisibility(gridPage.buyPre, 5);
         gridPage.buyPre.click();
 
@@ -31,6 +34,12 @@ public class TestSunglassRX extends AbstractBaseSbgDesktopTestCase {
         RX3Page rx3Page = new RX3Page();
         rx3Page.waitForVisibility(rx3Page.addToCart, 5);
         rx3Page.addToCart.click();
+        try {
+            new WebDriverWait(driver, 5).until(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(rx3Page.addToCart)));
+        }
+        catch (Exception e) {
+
+        }
         String cart = gridPage.getCartType();
         try {
             Assert.assertEquals(cart, "new");
@@ -48,6 +57,7 @@ public class TestSunglassRX extends AbstractBaseSbgDesktopTestCase {
         }
     }
 
+    // XXX case 2
     @Test(groups = { "debug", "smoke" })
     public void searchAndPXThenCart() throws InterruptedException {
         String url = "http://www.smartbuyglasses.co.uk/search?keywords=rayban&searchHashcode=1474615793789590#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
@@ -80,14 +90,10 @@ public class TestSunglassRX extends AbstractBaseSbgDesktopTestCase {
 
     @Override
     protected void initialize() {
-        // TODO Auto-generated method stub
-
     }
 
     @Override
     protected void tearDown() {
-        // TODO Auto-generated method stub
-
     }
 
 }

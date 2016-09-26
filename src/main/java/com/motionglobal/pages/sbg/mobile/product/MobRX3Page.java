@@ -8,9 +8,11 @@ import org.openqa.selenium.support.FindBy;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
-public class MobNewOpticianPage extends AbstractBaseSbgDesktopPage {
+public class MobRX3Page extends AbstractBaseSbgDesktopPage {
 
     // RX3
+    @FindBy(css = "[data-index='deluxe']")
+    public WebElement deluxe;
     @FindBy(css = ".RX_mask-block.RX_mask-small")
     public WebElement optionDisplay;
     @FindBy(css = ".clearfix[data-index='color']")
@@ -21,6 +23,7 @@ public class MobNewOpticianPage extends AbstractBaseSbgDesktopPage {
     public WebElement btnContinue;
     @FindBy(id = "only_frame_price")
     public WebElement buyFrame;
+
     // distance
     @FindBy(css = ".clearfix[data-index='type']")
     public WebElement distance;
@@ -29,7 +32,7 @@ public class MobNewOpticianPage extends AbstractBaseSbgDesktopPage {
     public WebElement btnLens;
     @FindBy(css = "[data-name='deluxe']>.clearfix")
     public List<WebElement> lenOption;
-    @FindBy(css = ".available-price")
+    @FindBy(css = ".deluxe-list .available-price")
     public List<WebElement> lenPrice;
 
     public Boolean optionChecked(WebElement element) {

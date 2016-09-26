@@ -32,7 +32,7 @@ public abstract class AbstractBaseContainer implements IWaiter {
     }
 
     @Override
-    public void waitForVisibility(By by, int seconds) throws Error {
+    public void waitForVisibility(By by, int seconds) throws Error{
         new WebDriverWait(driver, seconds).until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 

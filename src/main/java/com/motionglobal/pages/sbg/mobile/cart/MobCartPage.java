@@ -36,6 +36,10 @@ public class MobCartPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> priceProduct;
 
     // XXX prescription
+    @FindBy(css = ".shopping__cart__product__right__add")
+    public WebElement RXadd;
+    @FindBy(css = ".shopping__cart__product__right__view")
+    public WebElement RXed;
     @FindBy(className = "shopping__cart__product__right__view")
     public WebElement btnViewPre;
     @FindBy(css = ".open>p>a.edit__prescription")
