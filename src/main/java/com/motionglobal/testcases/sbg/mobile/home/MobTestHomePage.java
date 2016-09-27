@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.mobile.home.MobHomePage;
 import com.motionglobal.pages.sbg.mobile.home.MobHomePage.Sell;
-import com.motionglobal.pages.sbg.mobile.product.MobProductAllCLPage;
+import com.motionglobal.pages.sbg.mobile.product.MobProductAllPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
@@ -224,7 +224,7 @@ public class MobTestHomePage extends AbstractBaseTestCase {
         homePage.JsMouse(homePage.indexMenuCL);
         homePage.indexMenuCL.click();
         homePage.elementClick(homePage.indexSubMenu.get(0));
-        MobProductAllCLPage allCLPage = new MobProductAllCLPage();
+        MobProductAllPage allCLPage = new MobProductAllPage();
         Assert.assertTrue(allCLPage.productImg.size() > 5, " PRODUCT NUMBER LOWER !!!");
         //
         homePage.mobHeader().logo.click();

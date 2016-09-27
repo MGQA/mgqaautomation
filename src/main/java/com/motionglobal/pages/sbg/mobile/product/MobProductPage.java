@@ -22,6 +22,8 @@ public class MobProductPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> productPrice;
     @FindBy(className = "main__glass-list__item__tag--cheep")
     public List<WebElement> dealsIcon;
+    @FindBy(xpath = "//div[3]/a[not(div[1]/div[contains(@class,'cheep')])]/div/div[contains(@class,'price')]")
+    public List<WebElement> priceRegular;
 
     // product number
     @FindBy(id = "see_more")

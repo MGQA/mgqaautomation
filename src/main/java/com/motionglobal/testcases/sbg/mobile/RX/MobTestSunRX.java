@@ -135,13 +135,9 @@ public class MobTestSunRX extends AbstractBaseTestCase {
 
     @Override
     protected void initialize() {
-        // TODO Auto-generated method stub
-
     }
 
     @Override
     protected void tearDown() {
-        // TODO Auto-generated method stub
-
     }
 }

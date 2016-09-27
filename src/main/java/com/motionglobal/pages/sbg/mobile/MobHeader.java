@@ -60,7 +60,7 @@ public class MobHeader extends AbstractBasePage {
     public List<WebElement> subSubMenuS;
 
     public enum MegaMenu {
-        SUN, EYE, CL, DEALS, EXPLORE;
+        SUN, EYE, CL, DEALS, EXPLORE, SPORT;
     }
 
     public WebElement getMainMenuElement(MegaMenu megaMenuName) {
@@ -80,6 +80,9 @@ public class MobHeader extends AbstractBasePage {
             break;
         case EXPLORE:
             element = driver.findElement(By.xpath("//*[@id='menu']/div[2]/ul/li[8]/div/div[1]"));
+            break;
+        case SPORT:
+            element = driver.findElement(By.xpath("//*[@id='menu']/div[2]/ul/li[3]/div/a"));
             break;
         default:
             Assert.assertTrue(false, " No't Contains MegaMenu" + megaMenuName);

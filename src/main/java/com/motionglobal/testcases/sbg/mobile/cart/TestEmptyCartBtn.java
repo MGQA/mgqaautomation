@@ -5,7 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.mobile.cart.MobCartPage;
-import com.motionglobal.pages.sbg.mobile.product.MobProductAllCLPage;
+import com.motionglobal.pages.sbg.mobile.product.MobProductAllPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
@@ -37,7 +37,7 @@ public class TestEmptyCartBtn extends AbstractBaseTestCase {
         MobCartPage cartPage3 = new MobCartPage();
         cartPage.waitForVisibility(cartPage3.cartIsEmpty, 5);
         cartPage.btnCL.click();
-        MobProductAllCLPage productPage3 = new MobProductAllCLPage();
+        MobProductAllPage productPage3 = new MobProductAllPage();
         Assert.assertEquals(productPage2.regexGetLetterLow(productPage3.productTitle.getText()), "contactlenses");
         // shop
         productPage.mobHeader().cartBox.click();
