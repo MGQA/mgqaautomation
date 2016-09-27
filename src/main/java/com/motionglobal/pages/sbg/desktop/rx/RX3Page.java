@@ -26,6 +26,10 @@ public class RX3Page extends AbstractBaseSbgDesktopPage {
     @FindBy(className = "cart_btn")
     public WebElement addToCart;
 
+    // JP
+    @FindBy(css = ".buy-frame.pro_labuy.without-Prescription")
+    public WebElement buyOnlyFrame;
+
     @Override
     protected void waitPageLoad() {
     }
