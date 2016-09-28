@@ -290,7 +290,6 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
                 checkoutPage.AssertPayPicture(url, 1, 2, 3, 5, 9);
                 break;
             case "in":
-                // checkoutPage.AssertPayPicture(url, 1, 2, 3, 5, 9);
                 checkoutPage.AssertPayPicture(url, 1, 3, 5, 9);
                 break;
             case "br":
