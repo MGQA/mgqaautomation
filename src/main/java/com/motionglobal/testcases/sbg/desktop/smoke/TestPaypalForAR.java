@@ -10,7 +10,9 @@ import com.motionglobal.common.utils.VerifyUtil;
 import com.motionglobal.pages.AbstractBasePage;
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.cart.CartPage;
+import com.motionglobal.pages.sbg.desktop.cart.NewCartPage;
 import com.motionglobal.pages.sbg.desktop.checkout.CheckoutPage;
+import com.motionglobal.pages.sbg.desktop.checkout.NewCheckoutPage;
 import com.motionglobal.pages.sbg.desktop.payment3rdparty.PaypalPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
@@ -67,17 +69,40 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
         detailPage.btnBuyNow.click();
 
         // cartpage click paypal
-        CartPage cartPage = new CartPage();
-        cartPage.btnCheckout.click();
-        CheckoutPage checkoutPage = new CheckoutPage();
-        String cardID = "";
-        for (int i = 0; i < checkoutPage.cardID.size(); i++) {
-            cardID += checkoutPage.cardID.get(i).getAttribute("id");
+        String cart = detailPage.getCartType();
+        if (cart.equals("old")) {
+            CartPage cartPage = new CartPage();
+            cartPage.btnCheckout.click();
+            CheckoutPage checkoutPage = new CheckoutPage();
+            String cardID = "";
+            for (int i = 0; i < checkoutPage.cardID.size(); i++) {
+                cardID += checkoutPage.cardID.get(i).getAttribute("id");
+            }
+            System.out.println(cardID);
+            checkoutPage.AsssetEquals(
+                    cardID,
+                    "payment_product_1payment_product_2payment_product_3payment_product_5payment_product_7payment_product_9payment_product_18");
         }
-        System.out.println(cardID);
-        checkoutPage.AsssetEquals(
-                cardID,
-                "payment_product_1payment_product_2payment_product_3payment_product_5payment_product_7payment_product_9payment_product_18");
+        else {
+            // XXX new cart
+            NewCartPage newCartPage = new NewCartPage();
+            newCartPage.waitForVisibility(newCartPage.btnCheckout, 5);
+            newCartPage.btnCheckout.click();
+            NewCheckoutPage checkoutPage = new NewCheckoutPage();
+            checkoutPage.inputBillingFirstName.sendKeys("jack");
+            checkoutPage.inputBillingLastName.sendKeys("zhong");
+            checkoutPage.inputBillingEmail.sendKeys("jack.zhong@motionglobal.com");
+            checkoutPage.inputBillingTelephone.sendKeys("15962626262");
+            checkoutPage.inputBillingAddress1.sendKeys("xuhuiqu");
+            checkoutPage.inputBillingCity.sendKeys("shanghai");
+            checkoutPage.inputBillingPostCode.sendKeys("200000");
+            checkoutPage.selectCountry("US");
+            checkoutPage.selectState("Alaska");
+            checkoutPage.btnPayment.click();
+            //
+            checkoutPage.AssertPayPicture(url, 1, 2, 3, 122, 836, 125, 117);
+            new VerifyUtil().verifyEnd();
+        }
     }
 
     //
@@ -91,11 +116,11 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
         // US
         String US = "1";
         String USpay = getID(US);
-        verify.verifyEquals(USpay, "12359", "Fail Country_ID IS :" + US);
+        verify.verifyEquals(USpay, "1239", "Fail Country_ID IS :" + US);
         // AU
         String AU = "4";
         String AUpay = getID(AU);
-        verify.verifyEquals(AUpay, "1235915", "Fail Country_ID IS :" + AU);
+        verify.verifyEquals(AUpay, "123915", "Fail Country_ID IS :" + AU);
         // CN
         String CN = "5";
         String CNpay = getID(CN);
@@ -103,11 +128,11 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
         // CA
         String CA = "6";
         String CApay = getID(CA);
-        verify.verifyEquals(CApay, "135", "Fail Country_ID IS :" + CA);
+        verify.verifyEquals(CApay, "13", "Fail Country_ID IS :" + CA);
         // NZ
         String NZ = "7";
         String NZpay = getID(NZ);
-        verify.verifyEquals(NZpay, "123", "Fail Country_ID IS :" + NZ);
+        verify.verifyEquals(NZpay, "1235", "Fail Country_ID IS :" + NZ);
         // JP
         String JP = "8";
         String JPpay = getID(JP);
@@ -143,13 +168,11 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
         // ZA
         String ZA = "18";
         String ZApay = getID(ZA);
-        // FIXME : fix in 9/1
-        // verify.verifyEquals(ZApay, "12315", "Fail Country_ID IS :" + ZA);
-        verify.verifyEquals(ZApay, "1315", "Fail Country_ID IS :" + ZA);
+        verify.verifyEquals(ZApay, "13515", "Fail Country_ID IS :" + ZA);
         // IE
         String IE = "21";
         String IEpay = getID(IE);
-        verify.verifyEquals(IEpay, "1235", "Fail Country_ID IS :" + IE);
+        verify.verifyEquals(IEpay, "123", "Fail Country_ID IS :" + IE);
         // SE
         String SE = "22";
         String SEpay = getID(SE);
@@ -249,7 +272,7 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
         // MX
         String MX = "61";
         String MXpay = getID(MX);
-        verify.verifyEquals(MXpay, "13", "Fail Country_ID IS :" + MX);
+        verify.verifyEquals(MXpay, "135", "Fail Country_ID IS :" + MX);
         // CO
         String CO = "62";
         String COpay = getID(CO);
@@ -261,9 +284,7 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
         // NO
         String NO = "64";
         String NOpay = getID(NO);
-        // FIXME¡¡: fix in 9/1
-        // verify.verifyEquals(NOpay, "1239", "Fail Country_ID IS :" + NO);
-        verify.verifyEquals(NOpay, "123", "Fail Country_ID IS :" + NO);
+        verify.verifyEquals(NOpay, "1235", "Fail Country_ID IS :" + NO);
         // CL
         String CL = "66";
         String CLpay = getID(CL);
@@ -275,7 +296,7 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
         // PL
         String PL = "68";
         String PLpay = getID(PL);
-        verify.verifyEquals(PLpay, "123", "Fail Country_ID IS :" + PL);
+        verify.verifyEquals(PLpay, "1235", "Fail Country_ID IS :" + PL);
         // TR
         String TR = "69";
         String TRpay = getID(TR);
