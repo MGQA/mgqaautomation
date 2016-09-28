@@ -80,6 +80,22 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
         return this.resultGrid;
     }
 
+    public void matcherQuickViewClickOpen(int num) {
+        SearchResultPage searchPage = new SearchResultPage();
+        searchPage.deleteHead();
+        searchPage.waitForVisibility(searchPage.proInfo.get(num - 1), 2);
+        searchPage.JsMouse(searchPage.proInfo.get(num - 1));
+        new Actions(driver).moveByOffset(500, 500).build().perform();
+        try {
+            Thread.sleep(200);
+        }
+        catch (InterruptedException e) {
+        }
+        new Actions(driver).moveToElement(searchPage.proInfo.get(num - 1)).build().perform();
+        searchPage.waitForVisibility(searchPage.quickView, 5);
+        searchPage.quickView.click();
+    }
+
     public void matcherQuickViewSize2() {
         SearchResultPage searchPage = new SearchResultPage();
         searchPage.deleteHead();

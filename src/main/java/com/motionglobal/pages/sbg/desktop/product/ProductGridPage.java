@@ -171,6 +171,22 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
         return sbr.toString();
     }
 
+    public void matcherQuickViewClickOpen(int num) {
+        ProductGridPage gridPage = new ProductGridPage();
+        gridPage.deleteHead();
+        gridPage.waitForVisibility(gridPage.proInfo.get(num - 1), 2);
+        gridPage.JsMouse(gridPage.proInfo.get(num - 1));
+        new Actions(driver).moveByOffset(500, 500).build().perform();
+        try {
+            Thread.sleep(200);
+        }
+        catch (InterruptedException e) {
+        }
+        new Actions(driver).moveToElement(gridPage.proInfo.get(num - 1)).build().perform();
+        gridPage.waitForVisibility(gridPage.quickView, 5);
+        gridPage.quickView.click();
+    }
+
     public void matcherQuickViewSize2() {
         ProductGridPage gridPage = new ProductGridPage();
         gridPage.deleteHead();
