@@ -20,7 +20,6 @@ public class TestMenuLink extends AbstractBaseSbgDesktopTestCase {
     public void sungless(String url) {
         getURL(url);
         Menu Menu = new Menu();
-        Menu.waitForVisibility(Menu.getMegaMenuMainElement(1), 5);
         Menu.getMegaMenuMainElement(1).click();
         AllProduct allProduct = new AllProduct();
         allProduct.deleteHead();
@@ -37,7 +36,6 @@ public class TestMenuLink extends AbstractBaseSbgDesktopTestCase {
     public void eyegless(String url) {
         getURL(url);
         Menu Menu = new Menu();
-        Menu.waitForVisibility(Menu.getMegaMenuMainElement(2), 5);
         Menu.getMegaMenuMainElement(2).click();
         AllProduct allProduct = new AllProduct();
         allProduct.deleteHead();
