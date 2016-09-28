@@ -86,18 +86,6 @@ public class Header extends AbstractBasePage {
     @FindBy(css = ".search_image i.fa-search")
     public WebElement iconSearch;
 
-    // Style of Glasses button
-    @FindBy(id = "buttonNext")
-    public WebElement styleNextButton;
-    @FindBy(id = "buttonPrevious")
-    public WebElement stylePrevious;
-    @FindBy(xpath = "//*[@id='show_result_page']/span")
-    public WebElement styleRecommend;
-    @FindBy(id = "guidewin")
-    public WebElement StyleFrame;
-    @FindBy(id = "close_style_finder_guide")
-    public WebElement StykeFrameCloseBtn;
-
     // header list
     @FindBy(xpath = "//*[@id='all_brand_for_contact_tab']/a/p")
     public WebElement clViewAllBrands;
@@ -116,6 +104,10 @@ public class Header extends AbstractBasePage {
     public WebElement sunTop100;
 
     // header and footer
+    @FindBy(css = ".helpList a[type='new']")
+    public WebElement helpStyleFinder;
+    @FindBy(className = "newhead_banner_ja")
+    public WebElement headerStyleFinder;
     @FindBy(xpath = "//div[@id='top']/ul[1]/li[1]/a")
     public WebElement FREESHIPPING;
     @FindBy(xpath = "//div[@id='top']/ul/li[1]/div/ul/li[4]/a")
