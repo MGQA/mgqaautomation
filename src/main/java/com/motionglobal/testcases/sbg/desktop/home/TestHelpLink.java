@@ -5,6 +5,7 @@ import junit.framework.Assert;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
+import com.motionglobal.pages.sbg.desktop.stylefinder.StyleFinderPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 /**
@@ -24,8 +25,8 @@ public class TestHelpLink extends AbstractBaseSbgDesktopTestCase {
         header.JsClick(header.getHelpLinkElement(3));
         Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/virtual-try-on");
         clickHelpLink(4);
-        Assert.assertTrue(header.StyleFrame.isDisplayed());
-        header.StykeFrameCloseBtn.click();
+        Assert.assertTrue(new StyleFinderPage().StyleFrame.isDisplayed());
+        new StyleFinderPage().StykeFrameCloseBtn.click();
         clickHelpLink(5);
         Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/shopping-guides");
         clickHelpLink(6);

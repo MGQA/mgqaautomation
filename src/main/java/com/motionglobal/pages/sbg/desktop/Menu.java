@@ -127,39 +127,6 @@ public class Menu extends Header {
         return driver.findElement(By.xpath("//ul[@id='menuN_level_5']/li/div/div[2]/div[2]/ul[2]/li[" + rowNum + "]/a"));
     }
 
-    // Glass Style ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-    public WebElement getStyleUserGenderElement(int genderNum) {
-        return driver.findElement(By.xpath("//*[@id='step-1']/div[1]/div[" + genderNum + "]/h4"));
-    }
-
-    public WebElement getStyleSunOrSportOrFrameElement(int typeNum) {
-        return driver.findElement(By.xpath("//*[@id='step-2']/div/div[" + typeNum + "]/div"));
-    }
-
-    public WebElement getStyleSportGlassStyleElement(int typeNum) {
-        return driver.findElement(By.xpath("//*[@id='step-3']/div/div[" + typeNum + "]/h4"));
-    }
-
-    public WebElement getStyleSunGlassStyleElement(int typeNum) {
-        return driver.findElement(By.xpath("//*[@id='step-4']/div/div[" + typeNum + "]/div"));
-    }
-
-    public WebElement getStyleFrameMaterialElement(int typeNum) {
-        return driver.findElement(By.xpath("//*[@id='step-5']/div/div[" + typeNum + "]/div"));
-    }
-
-    public WebElement getStyleFrameRimElement(int typeNum) {
-        return driver.findElement(By.xpath("//*[@id='step-6']/div/div[" + typeNum + "]/div"));
-    }
-
-    public WebElement getStyleFrameShapeElement(int typeNum) {
-        return driver.findElement(By.xpath("//*[@id='step-7']/div/div[" + typeNum + "]/h4"));
-    }
-
-    public WebElement getStyleFrameColorElement(int typeNum) {
-        return driver.findElement(By.xpath("//*[@id='step-8']/div[1]/div[" + typeNum + "]/img"));
-    }
-
     public void mouseOverMainMenu(int mainMenuNum) throws Error {
         waitForVisibility(getMegaMenuMainElement(mainMenuNum), 2);
         mouseOver(getMegaMenuMainElement(mainMenuNum));
