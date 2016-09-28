@@ -16,75 +16,40 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
 public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://www.smartbuyglasses.com" }, };
+        return new Object[][] { new Object[] { "http://www.smartbuyglasses.com/search?keywords=prada&searchHashcode=1475048189562530#q=prada&page=0&minReviewsCount=0&refinements=%5B%7B%22for_sale%22%3A%221%22%7D%5D" }, };
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
     public void bebeClickText(String url) {
         getURL(url);
         Header header = new Header();
-        header.waitForVisibility(header.inputSearch, 5);
-        header.inputSearch.sendKeys("Prada");
-        header.iconSearch.click();
         SearchResultPage resultPage = new SearchResultPage();
-        resultPage.JsDisplayNone(resultPage.header().letTalk);
+        header.deleteHead();
         header.waitForVisibility(resultPage.BebeBrank, 10);
         resultPage.BebeBrank.click();
-        header.waitForVisibility(resultPage.BebeBrankChecked, 10);
-        try {
-            header.waitForVisibility(resultPage.proInfo.get(0), 2);
-            resultPage.mouseOver(resultPage.proInfo.get(0));
-            header.waitForVisibility(resultPage.quickView, 2);
-            resultPage.resultGrid().getItem(0).click();
-        }
-        catch (Exception e) {
-            try {
-                Thread.sleep(200);
-            }
-            catch (Exception e2) {
-            }
-            header.waitForVisibility(resultPage.BebeBrank, 2);
-            resultPage.mouseOver(resultPage.BebeBrank);
-            header.waitForVisibility(resultPage.proInfo.get(0), 2);
-            resultPage.mouseOver(resultPage.proInfo.get(0));
-            header.waitForVisibility(resultPage.quickView, 2);
-            resultPage.resultGrid().getItem(0).click();
-        }
+        header.waitForVisibility(resultPage.BebeBrankChecked, 15);
+        resultPage.matcherQuickViewClickOpen(1);
+        header.waitForVisibility(resultPage.detailBtn, 5);
+        resultPage.detailBtn.click();
         ProductDetailPage detailPage = new ProductDetailPage();
-        System.out.println(detailPage.glassName.getText());
-        Assert.assertTrue(detailPage.glassName.getText().replace("b", "B").contains("BeBe BB7019 001"), "Page mismatching !!!");
+        Assert.assertTrue(detailPage.glassName.getText().replace("b", "B").contains("BeBe BB"), "Page mismatching !!!");
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void bebeClickDetail(String url) throws InterruptedException {
         getURL(url);
         Header header = new Header();
-        header.inputSearch.sendKeys("Prada");
-        header.iconSearch.click();
         SearchResultPage resultPage = new SearchResultPage();
-        resultPage.JsDisplayNone(resultPage.header().letTalk);
+        header.deleteHead();
         header.waitForVisibility(resultPage.BebeBrank, 10);
         resultPage.BebeBrank.click();
-        header.waitForVisibility(resultPage.BebeBrankChecked, 10);
-        try {
-            header.waitForVisibility(resultPage.proInfo.get(0), 2);
-            resultPage.mouseOver(resultPage.proInfo.get(0));
-            header.waitForVisibility(resultPage.quickView, 2);
-            resultPage.quickView.click();
-        }
-        catch (Exception e) {
-            header.waitForVisibility(resultPage.brandName, 2);
-            resultPage.mouseOver(resultPage.brandName);
-            header.waitForVisibility(resultPage.proInfo.get(0), 2);
-            resultPage.mouseOver(resultPage.proInfo.get(0));
-            header.waitForVisibility(resultPage.quickView, 2);
-            resultPage.quickView.click();
-        }
+        header.waitForVisibility(resultPage.BebeBrankChecked, 15);
+        resultPage.matcherQuickViewClickOpen(1);
         header.waitForVisibility(resultPage.detailBtn, 5);
         resultPage.detailBtn.click();
         ProductDetailPage detailPage = new ProductDetailPage();
         System.out.println(detailPage.glassName.getText());
-        Assert.assertTrue(detailPage.glassName.getText().replace("b", "B").contains("BeBe BB7019 001"), "Page Mismatcher");
+        Assert.assertTrue(detailPage.glassName.getText().replace("b", "B").contains("BeBe BB"), "Page Mismatcher");
     }
 
     @Override

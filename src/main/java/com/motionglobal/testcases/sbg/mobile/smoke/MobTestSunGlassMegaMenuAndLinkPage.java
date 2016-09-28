@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.mobile.MobHeader;
 import com.motionglobal.pages.sbg.mobile.MobHeader.MegaMenu;
+import com.motionglobal.pages.sbg.mobile.product.MobProductAllPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
@@ -57,10 +58,22 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.SUN), 2);
         header.getMainMenuElement(MegaMenu.SUN).click();
         header.elementClick(header.subMenuS.get(1));
-        int num = random.nextInt(header.subSubMenuS.size());
+        int num = random.nextInt(header.subSubMenuS.size() - 1);
         header.elementClick(header.subSubMenuS.get(num));
         MobProductPage productPage = new MobProductPage();
         Assert.assertTrue(productPage.productList.size() > 0, " Product Number Is Empty !!! ");
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    public void menuSunGlassMoreBrank(String url) {
+        getURL(url);
+        MobHeader header = new MobHeader();
+        header.btnMenu.click();
+        header.waitForVisibility(header.getMainMenuElement(MegaMenu.SUN), 2);
+        header.getMainMenuElement(MegaMenu.SUN).click();
+        header.elementClick(header.subMenuS.get(1));
+        header.elementClick(header.subSubMenuS.get(header.subSubMenuS.size() - 1));
+        MobProductAllPage allProduct = new MobProductAllPage();
     }
 
     // XXX case 3

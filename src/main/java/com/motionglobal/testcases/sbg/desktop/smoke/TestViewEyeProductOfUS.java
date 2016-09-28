@@ -10,8 +10,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
-import com.motionglobal.pages.sbg.desktop.cart.CartPage;
-import com.motionglobal.pages.sbg.desktop.cart.NewCartPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
@@ -27,9 +25,9 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
         getURL(url);
         Header header = new Header();
         ProductGridPage productGridPage = new ProductGridPage();
-        header.mouseOver(productGridPage.proInfo.get(0));
-        header.waitForVisibility(productGridPage.quickView, 2);
-        productGridPage.quickView.click();
+        //
+        productGridPage.matcherQuickViewSize2();
+        //
         waitSize(productGridPage.eyeproSize);
         productGridPage.eyeproSize.get(1).click();
         Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
@@ -42,30 +40,18 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
         header.waitForVisibility(productGridPage.buyNowButton, 2);
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(productGridPage.buyNowButton));
         productGridPage.buyNowButton.click();
-        header.waitForVisibility(productGridPage.cartBtn, 8);
-        productGridPage.cartBtn.click();
-        try {
-            CartPage cartPage = new CartPage();
-        }
-        catch (Exception e) {
-            NewCartPage newCartPage = new NewCartPage();
-        }
+        productGridPage.getRXType();
     }
 
-    @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" }, enabled = false)
-    public void searchPro(String url) {
+    @Test(groups = { "debug", "smoke", "fastsmoke" })
+    public void searchPro() {
+        // Search Tom Ford FT5146
+        String url = "http://www.smartbuyglasses.com/search?keywords=Tom+Ford+FT5146&searchHashcode=1475049673000968#q=Tom%20Ford%20FT5146&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
         getURL(url);
         Header header = new Header();
-        String searchContent = "Tom Ford FT5146 003";
-        header.inputSearch.sendKeys(searchContent);
-        header.iconSearch.click();
         SearchResultPage searchResultPage = new SearchResultPage();
-        String Band = searchResultPage.resultGrid().getItem(0).getBrand();
-        Assert.assertTrue(searchContent.contains(Band), "Expected product displayed");
         //
-        header.mouseOver(searchResultPage.proInfo.get(0));
-        header.waitForVisibility(searchResultPage.quickView, 2);
-        searchResultPage.quickView.click();
+        searchResultPage.matcherQuickViewSize2();
         //
         waitSize(searchResultPage.eyeproSize);
         searchResultPage.eyeproSize.get(1).click();
@@ -79,9 +65,7 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
         header.waitForVisibility(searchResultPage.buyNowButton, 2);
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(searchResultPage.buyNowButton));
         searchResultPage.buyNowButton.click();
-        header.waitForVisibility(searchResultPage.carBtn, 2);
-        searchResultPage.carBtn.click();
-        CartPage cartPage = new CartPage();
+        searchResultPage.getRXType();
     }
 
     private void waitSize(List<WebElement> element) {

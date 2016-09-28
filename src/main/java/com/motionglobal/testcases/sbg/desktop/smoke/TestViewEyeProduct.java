@@ -11,7 +11,6 @@ import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
-import com.motionglobal.pages.sbg.desktop.rx.RX2Page;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
@@ -55,9 +54,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         String Band = searchResultPage.resultGrid().getItem(0).getBrand();
         Assert.assertTrue(searchContent.contains(Band), "Expected product displayed");
         //
-        searchResultPage.mouseOver(searchResultPage.proInfo.get(0));
-        searchResultPage.waitForVisibility(searchResultPage.quickView, 5);
-        searchResultPage.quickView.click();
+        searchResultPage.matcherQuickViewClickOpen(1);
         //
         waitSize(searchResultPage.eyeproSize);
         searchResultPage.eyeproSize.get(1).click();
@@ -71,13 +68,7 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         searchResultPage.waitForVisibility(searchResultPage.buyNowButton, 2);
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(searchResultPage.buyNowButton));
         searchResultPage.buyNowButton.click();
-        try {
-            searchResultPage.waitForVisibility(searchResultPage.carBtn, 5);
-            searchResultPage.carBtn.click();
-        }
-        catch (Exception e) {
-            RX2Page buyNowPage = new RX2Page();
-        }
+        searchResultPage.getRXType();
     }
 
     private void waitSize(List<WebElement> element) {
