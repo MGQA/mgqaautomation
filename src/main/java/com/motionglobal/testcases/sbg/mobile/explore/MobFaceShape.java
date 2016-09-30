@@ -14,7 +14,7 @@ public class MobFaceShape extends AbstractBaseTestCase {
         return new Object[][] { new Object[] { "http://m.smartbuyglasses.com/face-shape" } };
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void bebeClickText(String url) throws InterruptedException {
         getDriver().get(url);
         driver.manage().window().setSize(new Dimension(360, 640));
