@@ -18,7 +18,7 @@ public class AllProduct extends AbstractBaseSbgDesktopPage {
     public WebElement brandSunRanban;
     @FindBy(xpath = "//span/a[contains(text(),'Ray-Ban Glasses')]")
     public WebElement brandEyeRanban;
-    @FindBy(xpath = ".brand_li>a>img[src*='brand_Ray%20Ban']")
+    @FindBy(css = ".brand_li>a>img[src*='brand_Ray%20Ban']")
     public WebElement imgRanban;
 
     @Override
