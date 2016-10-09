@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
@@ -23,6 +24,13 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     public WebElement detailBtn;
     @FindBy(id = "totleRsCount")
     public WebElement productCount;
+    // Multi-Angle picture
+    @FindBy(css = ".pro_leftIcon_click")
+    public List<WebElement> multiPucture;
+    @FindAll({ @FindBy(css = ".pro_bigimg>img[style*='inline']"), @FindBy(css = ".pro_bigimg>img[style='width: 320px;']") })
+    public WebElement quickViewMainPicture;
+    @FindBy(xpath = "//ul[contains(@class,'similar')]/li[2]/a")
+    public WebElement multiColor;
     // List WebElement
     @FindBy(className = "recProInfo")
     public List<WebElement> proInfo;
