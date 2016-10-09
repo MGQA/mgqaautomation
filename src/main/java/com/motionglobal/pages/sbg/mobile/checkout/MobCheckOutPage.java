@@ -46,6 +46,9 @@ public class MobCheckOutPage extends AbstractBaseSbgDesktopPage {
     public WebElement VISAclicked;
     @FindBy(id = "getPaymentPage")
     public WebElement payFrame;
+    //
+    @FindBy(css = ".img-box:nth-of-type(6)>label>img")
+    public WebElement payPictureInJP;
 
     public void selectStateGA() {
         Select select = new Select(inputState);

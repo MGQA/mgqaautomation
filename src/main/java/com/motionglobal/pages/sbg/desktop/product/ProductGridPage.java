@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
@@ -24,6 +25,11 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement buyPre;
     @FindBy(className = "cart_btn")
     public WebElement cartBtn;
+    // multi-angle picture
+    @FindBy(css = ".pro_leftIcon_click")
+    public List<WebElement> multiPucture;
+    @FindAll({ @FindBy(css = ".pro_bigimg>img[style*='inline']"), @FindBy(css = ".pro_bigimg>img[style='width: 320px;']") })
+    public WebElement quickViewMainPicture;
     // List WebElement
     @FindBy(css = ".pro_view_quick[style='display: table;']>a>span")
     public WebElement quickView;
