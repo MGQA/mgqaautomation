@@ -2,9 +2,11 @@ package com.motionglobal.testcases.sbg.desktop.productgrid;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
@@ -27,7 +29,11 @@ public class TestSimilarProduct extends AbstractBaseSbgDesktopTestCase {
         resultPage.JsMouse(resultPage.multiColor);
         resultPage.multiColor.click();
         new WebDriverWait(driver, 10).until(ExpectedConditions.not(ExpectedConditions.attributeToBe(resultPage.quickViewMainPicture, "src", img1)));
-        System.out.println(resultPage.quickViewMainPicture.getAttribute("src"));
+        String img2 = resultPage.quickViewMainPicture.getAttribute("src");
+        resultPage.buyNowButton.click();
+        ProductDetailPage detailPage = new ProductDetailPage();
+        String img3 = detailPage.displayIcon.getAttribute("src");
+        Assert.assertEquals(img2, img3);
     }
 
     @Override
