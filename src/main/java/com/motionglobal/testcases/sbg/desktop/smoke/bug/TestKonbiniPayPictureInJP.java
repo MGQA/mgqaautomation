@@ -15,8 +15,8 @@ public class TestKonbiniPayPictureInJP extends AbstractBaseSbgDesktopTestCase {
         return new Object[][] { {} };
     }
 
-    @Test(skipFailedInvocations = true, groups = { "debug111", "smoke" })
-    public void topSellImg() {
+    @Test(skipFailedInvocations = true, groups = { "debug2", "smoke" })
+    public void checkPictureEquals() {
         String url = "http://m.smartbuyglasses.jp/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html/";
         getURL(url);
         MobProductDetailPage detailPage = new MobProductDetailPage();

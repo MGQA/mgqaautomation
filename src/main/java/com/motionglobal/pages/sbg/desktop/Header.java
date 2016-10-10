@@ -58,7 +58,7 @@ public class Header extends AbstractBasePage {
     public WebElement username;
     @FindBy(id = "password")
     public WebElement password;
-    @FindBy(xpath = "//span[text()='Your Account']")
+    @FindBy(css = "#signin_li>a>span")
     public WebElement yourAccount;
     @FindBy(className = "menulogout")
     public WebElement signout;
@@ -122,6 +122,8 @@ public class Header extends AbstractBasePage {
     public WebElement shareByEmail;
     @FindBy(className = "newhead_banner_1")
     public WebElement optical_center;
+    @FindBy(css = "#footer_lang_select>a>span+span")
+    public WebElement flagCountry;
 
     // heart/favorite
     @FindBy(css = ".fa.fa-heart-o")
@@ -170,6 +172,14 @@ public class Header extends AbstractBasePage {
     // @FindBy(css = "img[height='160'][usemap='#Map1']")
     @FindBy(css = ".hp_topbigad_box[style='display: block;']")
     public WebElement discountBigIMG;
+
+    // FaceBook
+    @FindBy(id = "email")
+    public WebElement faceBookEmail;
+    @FindBy(id = "pass")
+    public WebElement faceBookPasswd;
+    @FindBy(id = "loginbutton")
+    public WebElement faceBookBtn;
 
     //
     @FindBy(xpath = "//div[@id='sub_Eyeglasses_Q_list']//a[text()='Tom Ford']")
