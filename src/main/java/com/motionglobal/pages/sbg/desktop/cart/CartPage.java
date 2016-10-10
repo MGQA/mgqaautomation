@@ -23,6 +23,10 @@ public class CartPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> productName;
     @FindBy(id = "rmv")
     public List<WebElement> productRemove;
+    @FindBy(css = ".faster_login>a")
+    public WebElement loginCart;
+    @FindBy(css = ".login_in_popup .facebookS")
+    public WebElement loginFaceBook;
 
     // pay
     @FindBy(css = "#paypal_submit>img")

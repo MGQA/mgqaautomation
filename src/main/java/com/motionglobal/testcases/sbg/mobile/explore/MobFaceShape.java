@@ -15,7 +15,7 @@ public class MobFaceShape extends AbstractBaseTestCase {
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
-    public void bebeClickText(String url) throws InterruptedException {
+    public void intoFaceSquareShape(String url) throws InterruptedException {
         getDriver().get(url);
         driver.manage().window().setSize(new Dimension(360, 640));
         MobFaceShpePage shpePage = new MobFaceShpePage();
