@@ -2,6 +2,7 @@ package com.motionglobal.testcases.sbg.desktop.home;
 
 import java.util.Random;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -101,8 +102,6 @@ public class LoginTest extends AbstractBaseSbgDesktopTestCase {
         header.password.sendKeys("motion888");
         header.signInButton.click();
         header.waitForVisibility(header.yourAccount, 10);
-        header.mouseOver(header.yourAccount);
-        header.waitForVisibility(header.signout, 5);
         Assert.assertTrue(header.isTextPresent("Hi test!"));
         driver.quit();
     }
@@ -121,8 +120,10 @@ public class LoginTest extends AbstractBaseSbgDesktopTestCase {
         header.password.clear();
         header.password.sendKeys("motion888");
         header.signInButton.click();
-        driver.navigate().refresh();
-        Assert.assertTrue(header.yourAccount.isDisplayed());
+        // #content>div[class*=cart_] is login in cart page
+        new WebDriverWait(driver, 5).until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("#content>div[class*=cart_]"), 3));
+        Assert.assertTrue(header.isTextPresent("Hi test!"));
+        driver.quit();
     }
 
     // XXX
@@ -142,7 +143,9 @@ public class LoginTest extends AbstractBaseSbgDesktopTestCase {
         header.faceBookBtn.click();
         CartPage cartPage2 = new CartPage();
         driver.navigate().refresh();
-        Assert.assertTrue(header.yourAccount.isDisplayed());
+        // #content>div[class*=cart_] is login in cart page
+        new WebDriverWait(driver, 5).until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("#content>div[class*=cart_]"), 3));
+        driver.quit();
     }
 
     @Override

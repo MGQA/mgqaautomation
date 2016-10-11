@@ -16,7 +16,7 @@ public class TestMenuMaxPrice extends AbstractBaseSbgDesktopTestCase {
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
-    public void topSellImg(String url) {
+    public void maxPrice(String url) {
         getURL(url);
         Menu menu = new Menu();
         menu.displayMenu(1);
