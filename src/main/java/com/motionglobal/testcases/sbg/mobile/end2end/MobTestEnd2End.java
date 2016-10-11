@@ -19,7 +19,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
  * 
  */
 public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
-    @Test(groups = { "smoke", "debug2", "fastsmoke" })
+    @Test(groups = { "smoke", "debug", "fastsmoke" })
     public void mobSearchItemAndPayByGC() throws InterruptedException {
         getURL("http://m.smartbuyglasses.com/");
         MobHeader mobHeader = new MobHeader();
@@ -27,6 +27,7 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         mobHeader.searchInput.sendKeys("ray ban");
         mobHeader.actionKey(Keys.ENTER);
         MobSearchResultPage searchResultPage = new MobSearchResultPage();
+        mobHeader.deleteHead();
         String name = searchResultPage.productName.get(0).getText();
         Assert.assertTrue(name.contains("Ray-Ban"), "Expected Ray-ban displayed, but no");
         searchResultPage.productName.get(0).click();
