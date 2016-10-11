@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
+import com.motionglobal.pages.sbg.desktop.cart.CartPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 /**
@@ -104,6 +105,44 @@ public class LoginTest extends AbstractBaseSbgDesktopTestCase {
         header.waitForVisibility(header.signout, 5);
         Assert.assertTrue(header.isTextPresent("Hi test!"));
         driver.quit();
+    }
+
+    // XXX
+    @Test(groups = { "debug", "smoke", "fastsmoke" })
+    public void cartLogin() {
+        String hkUrl = "http://www.smartbuyglasses.com.hk/cart";
+        getURL(hkUrl);
+        CartPage cartPage = new CartPage();
+        cartPage.waitForVisibility(cartPage.loginCart, 2);
+        cartPage.loginCart.click();
+        Header header = new Header();
+        header.username.clear();
+        header.username.sendKeys("felix.ma@motionglobal.com");
+        header.password.clear();
+        header.password.sendKeys("motion888");
+        header.signInButton.click();
+        driver.navigate().refresh();
+        Assert.assertTrue(header.yourAccount.isDisplayed());
+    }
+
+    // XXX
+    @Test(groups = { "debug", "smoke", "fastsmoke" })
+    public void faceBookLogin() {
+        String hkUrl = "http://www.smartbuyglasses.com.hk/cart";
+        getURL(hkUrl);
+        CartPage cartPage = new CartPage();
+        cartPage.waitForVisibility(cartPage.loginCart, 2);
+        cartPage.loginCart.click();
+        cartPage.waitForVisibility(cartPage.loginFaceBook, 2);
+        cartPage.loginFaceBook.click();
+        Header header = new Header();
+        header.waitForVisibility(header.faceBookEmail, 5);
+        header.faceBookEmail.sendKeys("+8615200792931");
+        header.faceBookPasswd.sendKeys("motion888");
+        header.faceBookBtn.click();
+        CartPage cartPage2 = new CartPage();
+        driver.navigate().refresh();
+        Assert.assertTrue(header.yourAccount.isDisplayed());
     }
 
     @Override
