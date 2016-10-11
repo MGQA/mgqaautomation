@@ -144,7 +144,7 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
             new Actions(driver).moveToElement(searchPage.proInfo.get(i)).build().perform();
             searchPage.waitForVisibility(searchPage.quickView, 5);
             searchPage.quickView.click();
-            searchPage.waitForVisibility(searchPage.eyeproSize, 10);
+            searchPage.waitForVisibility(searchPage.eyeproSize, 15);
             if (searchPage.buyPre.isDisplayed()) {
                 break;
             }

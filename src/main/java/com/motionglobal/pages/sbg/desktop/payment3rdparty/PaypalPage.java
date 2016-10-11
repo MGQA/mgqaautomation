@@ -9,11 +9,11 @@ import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 public class PaypalPage extends AbstractBaseSbgDesktopPage {
 
     // assert page don't blank
-    @FindBy(id = "stdpage")
+    @FindBy(id = "singlePagePayment")
     public WebElement paypalContentDisplay;
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.className("xptSandbox"), 5);
+        waitForVisibility(By.cssSelector(".paypalHeaderWrapper "), 5);
     }
 }

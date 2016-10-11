@@ -58,8 +58,13 @@ public class Header extends AbstractBasePage {
     public WebElement username;
     @FindBy(id = "password")
     public WebElement password;
-    @FindBy(css = "#signin_li>a>span")
+    @FindBy(css = "#signin_li_already>a>span")
     public WebElement yourAccount;
+    @FindBy(css = "#signin_li>a>span")
+    public WebElement HKCartYourAccount;
+    // HK login Success then element is 3
+    @FindBy(css = "#content>div[class*=cart_]")
+    public List<WebElement> HKloginSuccess;
     @FindBy(className = "menulogout")
     public WebElement signout;
     // register
