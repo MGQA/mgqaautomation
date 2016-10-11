@@ -24,7 +24,7 @@ public class MobSearchResultPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.id("s-keywords"), 5);
+        waitForVisibility(By.cssSelector(".main__btn-group__btn.main__btn-group__btnl"), 5);
     }
 
 }

@@ -43,7 +43,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         getURL(url);
         Menu menu = new Menu();
         Random random = new Random();
-        int dice = random.nextInt(2);
+        int dice = random.nextInt(3);
         menu.mouseOverMainMenu(1);
         menu.waitForVisibility(menu.getLeftSubMenuElement(1, 1, 1), 2);
         String men = menu.getLeftSubMenuElement(1, 1, 1).getText();
@@ -51,16 +51,21 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         String women = menu.getLeftSubMenuElement(1, 1, 2).getText();
         menu.waitForVisibility(menu.getLeftSubMenuElement(1, 1, 3), 2);
         String kid = menu.getLeftSubMenuElement(1, 1, 3).getText();
-        menu.clickLeftSubMenu(1, 1, 1);
-        ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.gender), men);
+        ProductGridPage productGridPage;
         switch (dice) {
         case 0:
+            menu.clickLeftSubMenu(1, 1, 1);
+            productGridPage = new ProductGridPage();
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.gender), men);
+            break;
+        case 1:
             menu.clickLeftSubMenu(1, 1, 2);
+            productGridPage = new ProductGridPage();
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.gender), women);
             break;
         default:
             menu.clickLeftSubMenu(1, 1, 3);
+            productGridPage = new ProductGridPage();
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.gender), kid);
             break;
         }
@@ -70,33 +75,13 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
     public void leftSubmenuSectionNum2(String url) {
         getURL(url);
         Menu menu = new Menu();
-        // menu.clickLeftSubMenu(1, 2, 1);
-        // menu.getStyleUserGenderElement(2).click();
-        // menu.styleNextButton.click();
-        // menu.getStyleSunOrSportOrFrameElement(1).click();
-        // menu.styleNextButton.click();
-        // menu.getStyleSunGlassStyleElement(3).click();
-        // menu.styleNextButton.click();
-        // menu.getStyleFrameShapeElement(4).click();
-        // menu.styleNextButton.click();
-        // menu.getStyleFrameColorElement(5).click();
-        // menu.styleRecommend.click();
-        // menu.waitForVisibility(menu.getLeftSubMenuElement(1, 2, 2), 10);
-        if (!(url.equals("http://www.smartbuyglasses.cn"))) {
-            menu.clickLeftSubMenu(1, 2, 2);
-            VirtualPage virtualPage = new VirtualPage();
-            Assert.assertTrue(virtualPage.VirtualClickPage.getAttribute("id").contains("virtual"), "don't virtual page");
-            menu.clickLeftSubMenu(1, 2, 3);
-            ProductGridPage productGridPage = new ProductGridPage();
-            Assert.assertEquals(productGridPage.sunTop100Eles.size(), 103, "sunglasses Top100 count : disagree");
-            menu.clickLeftSubMenu(1, 2, 4);
-        }
-        else {
-            menu.clickLeftSubMenu(1, 2, 2);
-            ProductGridPage productGridPage = new ProductGridPage();
-            Assert.assertEquals(productGridPage.sunTop100Eles.size(), 103, "sunglasses Top100 count : disagree");
-            menu.clickLeftSubMenu(1, 2, 3);
-        }
+        menu.clickLeftSubMenu(1, 2, 2);
+        VirtualPage virtualPage = new VirtualPage();
+        Assert.assertTrue(virtualPage.VirtualClickPage.getAttribute("id").contains("virtual"), "don't virtual page");
+        menu.clickLeftSubMenu(1, 2, 3);
+        ProductGridPage productGridPage = new ProductGridPage();
+        Assert.assertEquals(productGridPage.sunTop100Eles.size(), 103, "sunglasses Top100 count : disagree");
+        menu.clickLeftSubMenu(1, 2, 4);
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
