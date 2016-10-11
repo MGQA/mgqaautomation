@@ -14,6 +14,6 @@ public class PaypalPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".paypalHeaderWrapper"), 5);
+        waitForVisibility(By.cssSelector("#stdpage"), 5);
     }
 }
