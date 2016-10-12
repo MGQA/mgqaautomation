@@ -122,7 +122,7 @@ public class LoginTest extends AbstractBaseSbgDesktopTestCase {
         header.signInButton.click();
         // #content>div[class*=cart_] is login in cart page
         new WebDriverWait(driver, 5).until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("#content>div[class*=cart_]"), 3));
-        Assert.assertTrue(header.isTextPresent("Hi test!"));
+        Assert.assertTrue(header.HKCartYourAccount.isDisplayed());
         driver.quit();
     }
 

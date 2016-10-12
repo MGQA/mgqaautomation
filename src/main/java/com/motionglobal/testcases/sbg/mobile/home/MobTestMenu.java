@@ -37,6 +37,7 @@ public class MobTestMenu extends AbstractBaseTestCase {
         header.menuSearch.sendKeys("rayban");
         header.actionKey(Keys.ENTER);
         MobSearchResultPage searchResultPage = new MobSearchResultPage();
+        searchResultPage.waitForVisibility(searchResultPage.productDetailName, 2);
         String name = searchResultPage.productName.get(0).getText();
         Assert.assertTrue(name.contains("Ray-Ban"), "Expected Ray-ban displayed, but no");
     }
