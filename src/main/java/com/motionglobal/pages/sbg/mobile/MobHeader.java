@@ -59,6 +59,10 @@ public class MobHeader extends AbstractBasePage {
     @FindBy(css = ".main__type__li__open>ul>li .main__type__li__open>ul>li")
     public List<WebElement> subSubMenuS;
 
+    //
+    @FindBy(linkText = "FACE SHAPE")
+    public WebElement faceShape;
+
     public enum MegaMenu {
         SUN, EYE, CL, DEALS, EXPLORE, SPORT;
     }

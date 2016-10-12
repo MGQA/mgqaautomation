@@ -22,9 +22,11 @@ public class MobTestExplore extends AbstractBaseTestCase {
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.EXPLORE), 3);
         header.JsMouse(header.getMainMenuElement(MegaMenu.EXPLORE));
         header.getMainMenuElement(MegaMenu.EXPLORE).click();
-        header.waitForVisibility(header.subMenuS.get(1), 2);
-        header.JsMouse(header.subMenuS.get(1));
-        header.subMenuS.get(1).click();
+        //
+        // header.waitForVisibility(header.subMenuS.get(1), 2);
+        // header.JsMouse(header.subMenuS.get(1));
+        header.waitForVisibility(header.faceShape, 2);
+        header.faceShape.click();
         header.switch2NewWindow();
         Assert.assertEquals(driver.getCurrentUrl(), url + "/face-shape");
     }

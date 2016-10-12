@@ -117,7 +117,19 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
             catch (InterruptedException e) {
             }
             new Actions(driver).moveToElement(searchPage.proInfo.get(i)).build().perform();
-            searchPage.waitForVisibility(searchPage.quickView, 5);
+            // try {
+            // searchPage.waitForVisibility(searchPage.quickView, 1);
+            // }
+            // catch (Exception e) {
+            new Actions(driver).moveByOffset(500, 500).build().perform();
+            try {
+                Thread.sleep(200);
+            }
+            catch (InterruptedException ee) {
+            }
+            new Actions(driver).moveToElement(searchPage.proInfo.get(i)).build().perform();
+            searchPage.waitForVisibility(searchPage.quickView, 1);
+            // }
             searchPage.quickView.click();
             searchPage.waitForVisibility(searchPage.eyeproSize, 10);
             if (searchPage.eyeproSize.size() >= 2) {
