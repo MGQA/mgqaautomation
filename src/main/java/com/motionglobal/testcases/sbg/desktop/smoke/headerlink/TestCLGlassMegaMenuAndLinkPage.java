@@ -249,7 +249,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         // }
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug111", "smoke" })
     public void subRightMenu(String url) {
         getURL(url);
         Menu Menu = new Menu();
@@ -257,6 +257,10 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         Menu.mouseOverMainMenu(5);
         Menu.mouseOver(Menu.clViewAllBrands);
         Menu.getCLBrandsElement(2).click();
+        CLProductGridPage productGridPage = new CLProductGridPage();
+        productGridPage.waitForVisibility(productGridPage.lenseDailyEles, 10);
+        Assert.assertTrue(productGridPage.lenseDailyEles.size() > 1, "daily contact lens count : disagree");
+
     }
 
     @Override
