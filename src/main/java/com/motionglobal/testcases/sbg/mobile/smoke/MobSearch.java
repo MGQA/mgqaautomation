@@ -32,6 +32,7 @@ public class MobSearch extends AbstractBaseSbgDesktopTestCase {
         mobHeader.searchInput.sendKeys("ray ban");
         mobHeader.actionKey(Keys.ENTER);
         MobSearchResultPage searchResultPage = new MobSearchResultPage();
+        searchResultPage.waitForVisibility(searchResultPage.productDetailName, 5);
         String name = searchResultPage.productName.get(0).getText();
         Assert.assertTrue(name.contains("Ray-Ban"), "Expected Ray-ban displayed, but no");
     }
@@ -44,6 +45,7 @@ public class MobSearch extends AbstractBaseSbgDesktopTestCase {
         mobHeader.searchInput.sendKeys("acuvue");
         mobHeader.actionKey(Keys.ENTER);
         MobSearchResultPage searchResultPage = new MobSearchResultPage();
+        searchResultPage.waitForVisibility(searchResultPage.productDetailName, 5);
         String name = searchResultPage.productName.get(0).getText();
         Assert.assertTrue(name.contains("Acuvue"), "Expected Ray-ban displayed, but no");
     }
@@ -62,6 +64,7 @@ public class MobSearch extends AbstractBaseSbgDesktopTestCase {
         mobHeader.searchInput.sendKeys("ray ban");
         mobHeader.actionKey(Keys.ENTER);
         MobSearchResultPage searchResultPage = new MobSearchResultPage();
+        searchResultPage.waitForVisibility(searchResultPage.productDetailName, 5);
         String name = searchResultPage.productName.get(0).getText();
         Assert.assertTrue(name.contains("Ray-Ban"), "Expected Ray-ban displayed, but no");
     }
@@ -75,6 +78,7 @@ public class MobSearch extends AbstractBaseSbgDesktopTestCase {
         mobHeader.searchInput.sendKeys("acuvue");
         mobHeader.actionKey(Keys.ENTER);
         MobSearchResultPage searchResultPage = new MobSearchResultPage();
+        searchResultPage.waitForVisibility(searchResultPage.productDetailName, 5);
         String name = searchResultPage.productName.get(0).getText();
         Assert.assertTrue(name.contains("Acuvue"), "Expected Ray-ban displayed, but no");
     }

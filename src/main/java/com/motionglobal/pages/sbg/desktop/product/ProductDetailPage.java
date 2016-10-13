@@ -86,6 +86,8 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.className("navigation"), 5);
+        // waitForVisibility(By.className("navigation"), 5);
+        waitForVisibility(By.id("big_image"), 5);
+
     }
 }

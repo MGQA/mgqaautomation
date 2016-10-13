@@ -27,6 +27,7 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         mobHeader.searchInput.sendKeys("ray ban");
         mobHeader.actionKey(Keys.ENTER);
         MobSearchResultPage searchResultPage = new MobSearchResultPage();
+        searchResultPage.waitForVisibility(searchResultPage.productDetailName, 5);
         mobHeader.deleteHead();
         String name = searchResultPage.productName.get(0).getText();
         Assert.assertTrue(name.contains("Ray-Ban"), "Expected Ray-ban displayed, but no");

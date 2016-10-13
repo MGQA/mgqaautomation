@@ -49,7 +49,7 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
     }
 
     // XXX case 2
-    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void menuEyeGlassBrank(String url) {
         getURL(url);
         MobHeader header = new MobHeader();

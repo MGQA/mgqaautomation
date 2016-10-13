@@ -1,10 +1,12 @@
 package com.motionglobal.testcases.sbg.desktop.smoke;
 
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
+import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
@@ -51,6 +53,48 @@ public class Search extends AbstractBaseSbgDesktopTestCase {
         String acuvueBand = resultPage.resultGrid().getItem(0).getBrand();
         Assert.assertTrue(acuvueBand.contains("Acuvue"), "Expected acuvue displayed, but no");
         Assert.assertTrue(resultPage.proInfo.size() > 4, "daily contact lens Number <5");
+    }
+
+    // XXX
+    @DataProvider
+    public Object[][] db() {
+        return new Object[][] {
+                { "http://www.smartbuyglasses.co.uk/search?keywords=rayban&searchHashcode=1476343310695814#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" },
+                { "http://www.smartbuyglasses.com/search?keywords=rayban&searchHashcode=1476343324597876#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" },
+                { "http://www.smartbuyglasses.dk/search?keywords=rayban&searchHashcode=14763433297272#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" } };
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
+    public void clickBrankIntoDetail(String url) {
+        getURL(url);
+        SearchResultPage searchPage = new SearchResultPage();
+        searchPage.waitForVisibility(searchPage.brandName, 5);
+        searchPage.deleteHead();
+        searchPage.waitForVisibility(searchPage.proInfo.get(0), 2);
+        searchPage.JsMouse(searchPage.proInfo.get(0));
+        new Actions(driver).moveByOffset(500, 500).build().perform();
+        try {
+            Thread.sleep(200);
+        }
+        catch (InterruptedException e) {
+        }
+        new Actions(driver).moveToElement(searchPage.proInfo.get(0)).build().perform();
+        searchPage.waitForVisibility(searchPage.quickView, 5);
+        ProductDetailPage detailPage = new ProductDetailPage();
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
+    public void clickDetail(String url) {
+        getURL(url);
+        SearchResultPage searchPage = new SearchResultPage();
+        searchPage.deleteHead();
+        //
+        searchPage.matcherQuickViewClickOpen(1);
+        //
+        searchPage.waitForVisibility(searchPage.detailBtn, 15);
+        searchPage.detailBtn.click();
+        searchPage.acceptAlert();
+        ProductDetailPage detailPage = new ProductDetailPage();
     }
 
     // ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
