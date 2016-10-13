@@ -249,7 +249,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         // }
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subRightMenu(String url) {
         getURL(url);
         Menu Menu = new Menu();

@@ -25,14 +25,18 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement buyPre;
     @FindBy(className = "cart_btn")
     public WebElement cartBtn;
+    @FindBy(css = ".pro_view_quick[style='display: table;']>a>span")
+    public WebElement quickView;
+    @FindBy(css = ".recProInfo>a")
+    public WebElement brankOneIntoDetail;
+    @FindBy(css = ".detail_link")
+    public WebElement detail;
     // multi-angle picture
     @FindBy(css = ".pro_leftIcon_click")
     public List<WebElement> multiPucture;
     @FindAll({ @FindBy(css = ".pro_bigimg>img[style*='inline']"), @FindBy(css = ".pro_bigimg>img[style='width: 320px;']") })
     public WebElement quickViewMainPicture;
     // List WebElement
-    @FindBy(css = ".pro_view_quick[style='display: table;']>a>span")
-    public WebElement quickView;
     @FindBy(className = "recProInfo")
     public List<WebElement> proInfo;
     @FindBy(xpath = "//div[@class='pro_right_size']/a")
