@@ -79,7 +79,18 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         gridPage.filterSpherical.click();
         gridPage.waitProductChange(productCountDaily);
         Assert.assertEquals(gridPage.ProInfo.size(), gridPage.getProductCount());
+    }
 
+    @Test(groups = { "debug", "smoke" })
+    public void ukCLDisplay() {
+        String url = "http://www.smartbuyglasses.co.uk/contact-lenses/b/Acuvue#!&s=popularity&tb=0&b=Acuvue&p=1";
+        getURL(url);
+        CLProductGridPage gridPage = new CLProductGridPage();
+        Assert.assertEquals(gridPage.checkedLeftSubmenuElement.getText(), "Acuvue");
+        gridPage.waitForVisibility(gridPage.filterDaily, 2);
+        gridPage.waitForVisibility(gridPage.productCountString, 2);
+        String productCount = gridPage.productCountString.getText();
+        Assert.assertEquals(gridPage.ProInfo.size(), gridPage.getProductCount());
     }
 
     @Test(groups = { "debug", "smoke" })

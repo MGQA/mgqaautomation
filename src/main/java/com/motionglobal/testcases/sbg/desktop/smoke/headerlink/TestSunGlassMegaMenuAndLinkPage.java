@@ -69,6 +69,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.gender), kid);
             break;
         }
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -163,6 +164,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
             Assert.assertTrue(productGridPage.getSubmenuPageLabelText(Label.ski).contains(skiGoggles), "mismatch ski page");
             break;
         }
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -206,6 +208,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
                 Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), "Enkele Lens");
             break;
         }
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -238,6 +241,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
             Assert.assertTrue(productGridPage.getSubmenuPageLabelText(Label.mid).contains("999"));
             break;
         }
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -272,6 +276,7 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.material), Wood);
             break;
         }
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -291,7 +296,8 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         Assert.assertTrue(productGridPage.getSubmenuPageLabelText(Label.brands).contains(BrandsA.replace(" NEW !", "")), "Page disagree");
         menu.clickBrands(1, "Q", 2, 2);
         Assert.assertTrue(productGridPage.getSubmenuPageLabelText(Label.brands).contains(BrandsQ.replace(" NEW !", "")), "Page disagree");
-
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
     }
 
     @Override

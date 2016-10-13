@@ -9,7 +9,8 @@ import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 /**
- * 10 main domain Test £º search ray-ban and acuvue
+ * 10 main domain Test £º search ray-ban and acuvue , check search accuracy and product number > 4
+ * 
  * 
  */
 public class Search extends AbstractBaseSbgDesktopTestCase {
@@ -32,8 +33,10 @@ public class Search extends AbstractBaseSbgDesktopTestCase {
         header.waitForVisibility(header.iconSearch, 2);
         header.iconSearch.click();
         SearchResultPage resultPage = new SearchResultPage();
+        resultPage.waitForVisibility(resultPage.brandName, 5);
         String raybanBand = resultPage.resultGrid().getItem(0).getBrand();
         Assert.assertTrue(raybanBand.contains("Ray-Ban"), "Expected Ray-ban displayed, but no");
+        Assert.assertTrue(resultPage.proInfo.size() > 4, "product Number < 5");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -44,8 +47,10 @@ public class Search extends AbstractBaseSbgDesktopTestCase {
         header.waitForVisibility(header.iconSearch, 2);
         header.iconSearch.click();
         SearchResultPage resultPage = new SearchResultPage();
+        resultPage.waitForVisibility(resultPage.brandName, 5);
         String acuvueBand = resultPage.resultGrid().getItem(0).getBrand();
         Assert.assertTrue(acuvueBand.contains("Acuvue"), "Expected acuvue displayed, but no");
+        Assert.assertTrue(resultPage.proInfo.size() > 4, "daily contact lens Number <5");
     }
 
     // ¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
@@ -64,6 +69,7 @@ public class Search extends AbstractBaseSbgDesktopTestCase {
         SearchResultPage resultPage = new SearchResultPage();
         String raybanBand = resultPage.resultGrid().getItem(0).getBrand();
         Assert.assertTrue(raybanBand.contains("Ray-Ban"), "Expected Ray-ban displayed, but no");
+        Assert.assertTrue(resultPage.proInfo.size() > 4, "product Number < 5");
     }
 
     @Test(skipFailedInvocations = true, groups = { "fastsmoke" })
@@ -76,6 +82,7 @@ public class Search extends AbstractBaseSbgDesktopTestCase {
         SearchResultPage resultPage = new SearchResultPage();
         String acuvueBand = resultPage.resultGrid().getItem(0).getBrand();
         Assert.assertTrue(acuvueBand.contains("Acuvue"), "Expected acuvue displayed, but no");
+        Assert.assertTrue(resultPage.proInfo.size() > 4, "daily contact lens count : disagree");
     }
 
     @Override
