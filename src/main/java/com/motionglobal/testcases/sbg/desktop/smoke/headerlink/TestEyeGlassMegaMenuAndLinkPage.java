@@ -25,18 +25,19 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
 
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://www.visiondirect.com.au" }, { "http://www.smartbuyglasses.co.uk" }, { "http://www.smartbuyglasses.de" },
-                { "http://www.smartbuyglasses.nl" } };
+        // return new Object[][] { new Object[] { "http://www.visiondirect.com.au" }, { "http://www.smartbuyglasses.co.uk" }, { "http://www.smartbuyglasses.de"
+        // },
+        // { "http://www.smartbuyglasses.nl" } };
+        // }
+
+        // return new Object[][] { new Object[] { "http://www.visiondirect.com.au" }, { "http://www.smartbuyglasses.co.uk" },
+        // { "http://www.smartbuyglasses.com" }, { "http://www.smartbuyglasses.de" }, { "http://www.smartbuyglasses.ca" },
+        // { "http://www.smartbuyglasses.com.hk" }, { "http://www.smartbuyglasses.se" }, { "http://www.smartbuyglasses.dk" },
+        // { "http://www.smartbuyglasses.nl" }, { "http://www.smartbuyglasses.co.nz" } };
+        // }
+
+        return new Object[][] { new Object[] { "http://www.smartbuyglasses.se" } };
     }
-
-    // return new Object[][] { new Object[] { "http://www.visiondirect.com.au" }, { "http://www.smartbuyglasses.co.uk" },
-    // { "http://www.smartbuyglasses.com" }, { "http://www.smartbuyglasses.de" }, { "http://www.smartbuyglasses.ca" },
-    // { "http://www.smartbuyglasses.com.hk" }, { "http://www.smartbuyglasses.se" }, { "http://www.smartbuyglasses.dk" },
-    // { "http://www.smartbuyglasses.nl" }, { "http://www.smartbuyglasses.co.nz" } };
-    // }
-
-    // return new Object[][] { new Object[] { "http://www.smartbuyglasses.se" } };
-    // }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void subLeftMenuSectionNum1(String url) {
@@ -54,6 +55,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         Menu.clickLeftSubMenu(2, 1, 1);
         ProductGridPage productGridPage = new ProductGridPage();
         Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.gender), men);
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
         switch (dice) {
         case 0:
             Menu.clickLeftSubMenu(2, 1, 2);
@@ -64,6 +66,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.gender), kid);
             break;
         }
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -83,23 +86,15 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         // Menu.getStyleFrameColorElement(5).click();
         // Menu.styleRecommend.click();
         // Menu.waitForVisibility(Menu.getLeftSubMenuElement(1, 2, 2), 10);
-        if (!(url.equals("http://www.smartbuyglasses.cn"))) {
-            Menu.clickLeftSubMenu(2, 2, 2);
-            VirtualPage virtualPage = new VirtualPage();
-            Assert.assertTrue(virtualPage.VirtualClickPage.getAttribute("id").contains("virtual"), "don't virtual page");
-            Menu.clickLeftSubMenu(2, 2, 3);
-            ProductGridPage productGridPage = new ProductGridPage();
-            Assert.assertEquals(productGridPage.sunTop100Eles.size(), 103, "sunglasses Top100 count : disagree");
-            Menu.clickLeftSubMenu(2, 2, 4);
-            Menu.clickLeftSubMenu(2, 2, 5);
-        }
-        else {
-            Menu.clickLeftSubMenu(2, 2, 2);
-            ProductGridPage productGridPage = new ProductGridPage();
-            Assert.assertEquals(productGridPage.sunTop100Eles.size(), 103, "sunglasses Top100 count : disagree");
-            Menu.clickLeftSubMenu(2, 2, 3);
-            Menu.clickLeftSubMenu(2, 2, 4);
-        }
+        Menu.clickLeftSubMenu(2, 2, 2);
+        VirtualPage virtualPage = new VirtualPage();
+        Assert.assertTrue(virtualPage.VirtualClickPage.getAttribute("id").contains("virtual"), "don't virtual page");
+        Menu.clickLeftSubMenu(2, 2, 3);
+        ProductGridPage productGridPage = new ProductGridPage();
+        Assert.assertEquals(productGridPage.sunTop100Eles.size(), 103, "sunglasses Top100 count : disagree");
+        Menu.clickLeftSubMenu(2, 2, 4);
+        Menu.clickLeftSubMenu(2, 2, 5);
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -120,6 +115,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         Menu.clickLeftSubMenu(2, 3, 1);
         ProductGridPage productGridPage = new ProductGridPage();
         Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.material), plastic);
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
         switch (dice) {
         case 0:
             Menu.clickLeftSubMenu(2, 3, 2);
@@ -134,6 +130,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         // Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.material).getText(), wood);
         // break;
         }
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -154,6 +151,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         Menu.clickMiddleSubMenu(2, 1, 1);
         ProductGridPage productGridPage = new ProductGridPage();
         Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), pilot);
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
         switch (dice) {
         case 0:
             Menu.clickMiddleSubMenu(2, 1, 2);
@@ -168,6 +166,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), rectangle);
             break;
         }
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -191,6 +190,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), "Volledig Omrand");
         if (url.equals("http://www.smartbuyglasses.se"))
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), "Hel ram");
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
         switch (dice) {
         case 0:
             Menu.clickMiddleSubMenu(2, 2, 2);
@@ -198,12 +198,14 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
                 Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), semiRim);
             else
                 Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.se/glas%C3%B6gon/general/---Semi+Rimless--------------------");
+            Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
             break;
         default:
             Menu.clickMiddleSubMenu(2, 2, 3);
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), rimless);
             break;
         }
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -226,14 +228,17 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         case 0:
             Menu.clickMiddleSubMenu(2, 3, 2);
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), productGridPage.regexPage(price2));
+            Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
             break;
         case 1:
             Menu.clickMiddleSubMenu(2, 3, 3);
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), productGridPage.regexPage(price3));
+            Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
             break;
         default:
             Menu.clickMiddleSubMenu(2, 3, 4);
             Assert.assertTrue(productGridPage.getSubmenuPageLabelText(Label.mid).contains("999"), "mismatch: price 999 page ");
+            Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
             break;
         }
     }
@@ -253,8 +258,10 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         Menu.clickBrands(2, "A", 1, 1);
         ProductGridPage productGridPage = new ProductGridPage();
         Assert.assertTrue(productGridPage.getSubmenuPageLabelText(Label.brands).contains(BrandsA.replace(" NEW !", "")), "Page disagree");
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
         Menu.clickBrands(2, "Q", 2, 2);
         Assert.assertTrue(productGridPage.getSubmenuPageLabelText(Label.brands).contains(BrandsQ.replace(" NEW !", "")), "Page disagree");
+        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
     }
 
     @Override

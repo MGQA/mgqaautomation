@@ -54,6 +54,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         Menu.clickLeftSubMenu(5, 1, 1);
         CLProductGridPage clProductGridPage = new CLProductGridPage();
         Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), spherical);
+        Assert.assertTrue(clProductGridPage.ProInfo.size() > 4, "product Number < 5");
         switch (dice) {
         case 0:
             Menu.clickLeftSubMenu(5, 1, 2);
@@ -73,6 +74,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
                         "http://www.smartbuyglasses.dk/kontaktlinser/t/asfaeriske-linser#!&s=popularitet&tb=0&t=aspherical&p=1");
             break;
         }
+        Assert.assertTrue(clProductGridPage.ProInfo.size() > 4, "product Number < 5");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -87,6 +89,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         String extendedWear = Menu.getLeftSubMenuElement(5, 2, 1).getText();
         CLProductGridPage clProductGridPage = new CLProductGridPage();
         Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), extendedWear);
+        Assert.assertTrue(clProductGridPage.ProInfo.size() > 4, "product Number < 5");
         switch (dice) {
         case 0:
             Menu.clickLeftSubMenu(5, 2, 2);
@@ -103,6 +106,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
             Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), coloured);
             break;
         }
+        Assert.assertTrue(clProductGridPage.ProInfo.size() > 4, "product Number < 5");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -125,6 +129,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         Menu.clickLeftSubMenu(5, 4, 1);
         CLProductGridPage clProductGridPage = new CLProductGridPage();
         Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), bausch);
+        Assert.assertTrue(clProductGridPage.ProInfo.size() > 4, "product Number < 5");
         switch (dice) {
         case 0:
             Menu.clickLeftSubMenu(5, 4, 2);
@@ -139,6 +144,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
             Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), johnson);
             break;
         }
+        Assert.assertTrue(clProductGridPage.ProInfo.size() > 4, "product Number < 5");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })

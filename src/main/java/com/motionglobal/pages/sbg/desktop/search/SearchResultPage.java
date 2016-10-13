@@ -12,6 +12,7 @@ import org.testng.Assert;
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class SearchResultPage extends AbstractBaseSbgDesktopPage {
+
     private final ResultGrid resultGrid;
     //
     @FindBy(css = ".pro_view_quick[style='display: table;']>a>span")
