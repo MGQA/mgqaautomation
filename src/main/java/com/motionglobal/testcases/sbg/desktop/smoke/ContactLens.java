@@ -4,8 +4,11 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.Menu;
+import com.motionglobal.pages.sbg.desktop.product.CLProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.product.CLProductGridPage;
+import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 /**
@@ -29,7 +32,7 @@ public class ContactLens extends AbstractBaseSbgDesktopTestCase {
         menu.dailyglass.click();
         CLProductGridPage productGridPage = new CLProductGridPage();
         // List<WebElement> dailyglassEles = driver.findElements(By.className("pho"));
-        productGridPage.waitForVisibility(productGridPage.lenseDailyEles, 10);
+        productGridPage.waitForVisibility(productGridPage.product1, 10);
         Assert.assertEquals(productGridPage.lenseDailyEles.size(), productNum, "daily contact lens count : disagree");
         // System.out.println(header.dailyglassEles.size());
     }
@@ -47,7 +50,7 @@ public class ContactLens extends AbstractBaseSbgDesktopTestCase {
         int productNum = 18;
         getURL(url);
         CLProductGridPage productGridPage = new CLProductGridPage();
-        productGridPage.waitForVisibility(productGridPage.lenseDailyEles, 10);
+        productGridPage.waitForVisibility(productGridPage.product1, 10);
         Assert.assertEquals(productGridPage.lenseDailyEles.size(), productNum, "daily contact lens count : disagree");
     }
 
@@ -64,8 +67,39 @@ public class ContactLens extends AbstractBaseSbgDesktopTestCase {
         int productNum = 4;
         getURL(url);
         CLProductGridPage productGridPage = new CLProductGridPage();
-        productGridPage.waitForVisibility(productGridPage.lenseDailyEles, 10);
+        productGridPage.waitForVisibility(productGridPage.product1, 10);
         Assert.assertTrue(productGridPage.lenseDailyEles.size() > productNum, "daily contact lens count : disagree");
+    }
+
+    //
+    @Test(skipFailedInvocations = true, dataProvider = "acuvue", groups = { "debug", "smoke" })
+    public void AcuvueIntoDetail(String url) {
+        getURL(url);
+        CLProductGridPage productGridPage = new CLProductGridPage();
+        new Header().inputSearch.click();
+        productGridPage.waitForVisibility(productGridPage.product1, 10);
+        productGridPage.product1.click();
+        CLProductDetailPage detailPage = new CLProductDetailPage();
+    }
+
+    // XXX
+    @DataProvider
+    public Object[][] search() {
+        return new Object[][] {
+                { "http://www.smartbuyglasses.co.uk/search?keywords=acuvue&searchHashcode=1476345019340715#q=acuvue&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" },
+                { "http://www.smartbuyglasses.com/search?keywords=acuvue&searchHashcode=147634513217983#q=acuvue&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" },
+                { "http://www.smartbuyglasses.dk/search?keywords=acuvue&searchHashcode=1476345029221176#q=acuvue&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" } };
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "search", groups = { "debug111", "smoke" })
+    public void searchIntoDetail(String url) {
+        getURL(url);
+        SearchResultPage resultPage = new SearchResultPage();
+        new Header().inputSearch.click();
+        resultPage.waitForVisibility(resultPage.brandName, 5);
+        Assert.assertTrue(resultPage.proInfo.size() > 4, "daily contact lens Number <5");
+        resultPage.brandName.click();
+        CLProductDetailPage detailPage = new CLProductDetailPage();
     }
 
     @Override
