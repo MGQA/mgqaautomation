@@ -27,8 +27,8 @@ public class TestOpticiansOfUS extends AbstractBaseTestCase {
         productGridPage.JsMouse(productGridPage.proInfo.get(0));
         new Actions(driver).moveByOffset(500, 500).build().perform();
         new Actions(driver).moveToElement(productGridPage.proInfo.get(0)).build().perform();
-        productGridPage.waitForVisibility(productGridPage.quickView, 5);
-        productGridPage.quickView.click();
+        productGridPage.waitForVisibility(productGridPage.quickView.get(0), 5);
+        productGridPage.quickView.get(0).click();
         //
         productGridPage.waitForVisibility(productGridPage.buyNowButton, 20);
         productGridPage.buyNowButton.click();

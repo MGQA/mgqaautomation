@@ -23,16 +23,16 @@ public class TestQuickView extends AbstractBaseSbgDesktopTestCase {
         gridPage.JsMouse(gridPage.proInfo.get(0));
         new Actions(driver).moveByOffset(500, 500).build().perform();
         new Actions(driver).moveToElement(gridPage.proInfo.get(0)).build().perform();
-        gridPage.waitForVisibility(gridPage.quickView, 5);
-        gridPage.quickView.click();
+        gridPage.waitForVisibility(gridPage.quickView.get(0), 5);
+        gridPage.quickView.get(0).click();
         gridPage.waitForVisibility(gridPage.eyeproSize, 10);
         //
         gridPage.waitForVisibility(gridPage.proInfo.get(1), 2);
         gridPage.JsMouse(gridPage.proInfo.get(1));
         new Actions(driver).moveByOffset(500, 500).build().perform();
         new Actions(driver).moveToElement(gridPage.proInfo.get(1)).build().perform();
-        gridPage.waitForVisibility(gridPage.quickView, 5);
-        gridPage.quickView.click();
+        gridPage.waitForVisibility(gridPage.quickView.get(0), 5);
+        gridPage.quickView.get(0).click();
         gridPage.waitForVisibility(gridPage.eyeproSize, 10);
     }
 

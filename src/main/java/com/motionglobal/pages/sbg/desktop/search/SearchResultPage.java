@@ -15,8 +15,10 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
 
     private final ResultGrid resultGrid;
     //
-    @FindBy(css = ".pro_view_quick[style*='table']>a>span")
-    public WebElement quickView;
+    // @FindBy(css = ".pro_view_quick[style*='table']>a>span")
+    // public WebElement quickView;
+    @FindBy(css = ".qick_view_do>i")
+    public List<WebElement> quickView;
     @FindBy(xpath = "//div[contains(@class,'pro_r_buynow')]/a[2]/span")
     public WebElement buyNowButton;
     @FindBy(css = ".pro_labuy.formSubmit>span")
@@ -109,12 +111,8 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
         catch (InterruptedException e) {
         }
         new Actions(driver).moveToElement(searchPage.proInfo.get(num - 1)).build().perform();
-        try {
-            Thread.sleep(200);
-        }
-        catch (InterruptedException e) {
-        }
-        searchPage.quickView.click();
+        searchPage.waitForVisibility(searchPage.quickView.get(num - 1), 2);
+        searchPage.quickView.get(num - 1).click();
     }
 
     public void matcherQuickViewSize2() {
@@ -130,12 +128,8 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
             catch (InterruptedException e) {
             }
             new Actions(driver).moveToElement(searchPage.proInfo.get(i)).build().perform();
-            try {
-                Thread.sleep(200);
-            }
-            catch (InterruptedException e) {
-            }
-            searchPage.quickView.click();
+            searchPage.waitForVisibility(searchPage.quickView.get(i), 2);
+            searchPage.quickView.get(i).click();
             searchPage.waitForVisibility(searchPage.eyeproSize, 10);
             if (searchPage.eyeproSize.size() >= 2) {
                 break;
@@ -159,12 +153,8 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
             catch (InterruptedException e) {
             }
             new Actions(driver).moveToElement(searchPage.proInfo.get(i)).build().perform();
-            try {
-                Thread.sleep(200);
-            }
-            catch (InterruptedException e) {
-            }
-            searchPage.quickView.click();
+            searchPage.waitForVisibility(searchPage.quickView.get(i), 2);
+            searchPage.quickView.get(i).click();
             searchPage.waitForVisibility(searchPage.eyeproSize, 15);
             if (searchPage.buyPre.isDisplayed()) {
                 break;

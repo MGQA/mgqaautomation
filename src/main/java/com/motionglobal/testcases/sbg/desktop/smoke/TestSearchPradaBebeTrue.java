@@ -24,6 +24,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         getURL(url);
         Header header = new Header();
         SearchResultPage resultPage = new SearchResultPage();
+        header.inputSearch.click();
         header.deleteHead();
         header.waitForVisibility(resultPage.BebeBrank, 10);
         resultPage.BebeBrank.click();
