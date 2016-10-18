@@ -27,8 +27,10 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement buyPre;
     @FindBy(className = "cart_btn")
     public WebElement cartBtn;
-    @FindBy(css = ".pro_view_quick[style='display: table;']>a>span")
-    public WebElement quickView;
+    // @FindBy(css = ".pro_view_quick[style='display: table;']>a>span")
+    // public WebElement quickView;
+    @FindBy(css = ".qick_view_do>i")
+    public List<WebElement> quickView;
     @FindBy(css = ".recProInfo>a")
     public WebElement brankOneIntoDetail;
     @FindBy(css = ".proInfoN")
@@ -199,12 +201,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
         catch (InterruptedException e) {
         }
         new Actions(driver).moveToElement(gridPage.proInfo.get(num - 1)).build().perform();
-        try {
-            Thread.sleep(200);
-        }
-        catch (InterruptedException e) {
-        }
-        gridPage.quickView.click();
+        gridPage.waitForVisibility(gridPage.quickView.get(num - 1), 2);
+        gridPage.quickView.get(num - 1).click();
     }
 
     public void matcherQuickViewSize2() {
@@ -220,12 +218,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
             catch (InterruptedException e) {
             }
             new Actions(driver).moveToElement(gridPage.proInfo.get(i)).build().perform();
-            try {
-                Thread.sleep(200);
-            }
-            catch (InterruptedException e) {
-            }
-            gridPage.quickView.click();
+            gridPage.waitForVisibility(gridPage.quickView.get(i), 2);
+            gridPage.quickView.get(i).click();
             gridPage.waitForVisibility(gridPage.eyeproSize, 10);
             if (gridPage.eyeproSize.size() >= 2) {
                 break;
@@ -249,12 +243,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
             catch (InterruptedException e) {
             }
             new Actions(driver).moveToElement(gridPage.proInfo.get(i)).build().perform();
-            try {
-                Thread.sleep(200);
-            }
-            catch (InterruptedException e) {
-            }
-            gridPage.quickView.click();
+            gridPage.waitForVisibility(gridPage.quickView.get(i), 2);
+            gridPage.quickView.get(i).click();
             gridPage.waitForVisibility(gridPage.eyeproSize, 10);
             if (gridPage.buyPre.isDisplayed()) {
                 break;
