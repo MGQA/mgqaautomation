@@ -79,7 +79,7 @@ public class Search extends AbstractBaseSbgDesktopTestCase {
         catch (InterruptedException e) {
         }
         new Actions(driver).moveToElement(searchPage.proInfo.get(0)).build().perform();
-        searchPage.waitForVisibility(searchPage.quickView, 5);
+        searchPage.waitForVisibility(searchPage.quickView.get(0), 5);
         searchPage.brandName.click();
         ProductDetailPage detailPage = new ProductDetailPage();
     }

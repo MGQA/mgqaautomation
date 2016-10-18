@@ -19,7 +19,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         return new Object[][] { new Object[] { "http://www.smartbuyglasses.com/search?keywords=prada&searchHashcode=1475048189562530#q=prada&page=0&minReviewsCount=0&refinements=%5B%7B%22for_sale%22%3A%221%22%7D%5D" }, };
     }
 
-    @Test(dataProvider = "dp", groups = { "debug111", "smoke", "fastsmoke" })
+    @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
     public void bebeClickText(String url) {
         getURL(url);
         Header header = new Header();
