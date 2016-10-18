@@ -199,6 +199,11 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
         catch (InterruptedException e) {
         }
         new Actions(driver).moveToElement(gridPage.proInfo.get(num - 1)).build().perform();
+        try {
+            Thread.sleep(200);
+        }
+        catch (InterruptedException e) {
+        }
         gridPage.quickView.click();
     }
 
@@ -215,6 +220,11 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
             catch (InterruptedException e) {
             }
             new Actions(driver).moveToElement(gridPage.proInfo.get(i)).build().perform();
+            try {
+                Thread.sleep(200);
+            }
+            catch (InterruptedException e) {
+            }
             gridPage.quickView.click();
             gridPage.waitForVisibility(gridPage.eyeproSize, 10);
             if (gridPage.eyeproSize.size() >= 2) {
@@ -239,6 +249,11 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
             catch (InterruptedException e) {
             }
             new Actions(driver).moveToElement(gridPage.proInfo.get(i)).build().perform();
+            try {
+                Thread.sleep(200);
+            }
+            catch (InterruptedException e) {
+            }
             gridPage.quickView.click();
             gridPage.waitForVisibility(gridPage.eyeproSize, 10);
             if (gridPage.buyPre.isDisplayed()) {
