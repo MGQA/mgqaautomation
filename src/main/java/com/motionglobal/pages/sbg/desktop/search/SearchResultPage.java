@@ -15,16 +15,22 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
 
     private final ResultGrid resultGrid;
     //
-    @FindBy(css = ".pro_view_quick[style='display: table;']>a>span")
+    @FindBy(css = ".pro_view_quick[style*='table']>a>span")
     public WebElement quickView;
     @FindBy(xpath = "//div[contains(@class,'pro_r_buynow')]/a[2]/span")
     public WebElement buyNowButton;
+    @FindBy(css = ".pro_labuy.formSubmit>span")
+    public WebElement buyNowSun;
     @FindBy(css = ".pro_lawith.formSubmitRx>span")
     public WebElement buyPre;
     @FindBy(className = "detail_link")
     public WebElement detailBtn;
     @FindBy(id = "totleRsCount")
     public WebElement productCount;
+    @FindBy(css = ".rplp_name")
+    public WebElement productDetailName;
+    @FindBy(css = ".pro_big_title>h1")
+    public WebElement quickViewName;
     // Multi-Angle picture
     @FindBy(css = ".pro_leftIcon_click")
     public List<WebElement> multiPucture;
@@ -37,6 +43,10 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> proInfo;
     @FindBy(className = "rplp_brand")
     public WebElement brandName;
+    @FindBy(css = ".detail_link")
+    public WebElement detail;
+    @FindBy(css = ".rplp_name")
+    public WebElement bandNameDetail;
     @FindBy(xpath = "//div[@class='pro_right_size']/a")
     public List<WebElement> eyeproSize;
     @FindBy(css = "label.clearfix")

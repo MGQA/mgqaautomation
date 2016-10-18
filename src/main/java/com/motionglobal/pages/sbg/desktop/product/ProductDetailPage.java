@@ -15,6 +15,8 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
 
     @FindBy(xpath = "//a[contains(@class,'buy')][not(contains(@style,'none'))]")
     public WebElement btnBuyNow; // There are two buy now buttons, one is hidden by lens selection condition.
+    @FindBy(css = ".pro_lawith.formSubmitRx")
+    public WebElement btnRXSun;
     @FindBy(id = "withLenses")
     public WebElement btnAddLenses;
     @FindBy(id = "frameOnly")
@@ -25,6 +27,8 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
     public WebElement price;
     @FindBy(xpath = "//a[@class='pro_big_title']/h1")
     public WebElement glassName;
+    @FindBy(css = ".pro_big_title>h1")
+    public WebElement productName;
 
     //
     @FindBy(css = ".pro_rightSizeIcon_click")

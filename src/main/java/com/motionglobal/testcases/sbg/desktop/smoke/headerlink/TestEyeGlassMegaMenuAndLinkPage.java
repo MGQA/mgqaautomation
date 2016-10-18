@@ -43,7 +43,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         getURL(url);
         Menu Menu = new Menu();
         Random random = new Random();
-        int dice = random.nextInt(2);
+        int dice = random.nextInt(3);
         Menu.mouseOverMainMenu(2);
         Menu.waitForVisibility(Menu.getLeftSubMenuElement(2, 1, 1), 2);
         String men = Menu.getLeftSubMenuElement(2, 1, 1).getText();
@@ -51,17 +51,22 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         String women = Menu.getLeftSubMenuElement(2, 1, 2).getText();
         Menu.waitForVisibility(Menu.getLeftSubMenuElement(2, 1, 3), 2);
         String kid = Menu.getLeftSubMenuElement(2, 1, 3).getText();
-        Menu.clickLeftSubMenu(2, 1, 1);
-        ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.gender), men);
-        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
+        ProductGridPage productGridPage = null;
         switch (dice) {
+        case 1:
+            Menu.clickLeftSubMenu(2, 1, 1);
+            productGridPage = new ProductGridPage();
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.gender), men);
+            Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
+            break;
         case 0:
             Menu.clickLeftSubMenu(2, 1, 2);
+            productGridPage = new ProductGridPage();
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.gender), women);
             break;
         default:
             Menu.clickLeftSubMenu(2, 1, 3);
+            productGridPage = new ProductGridPage();
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.gender), kid);
             break;
         }
@@ -72,19 +77,6 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
     public void subLeftMenuSectionNum2(String url) {
         getURL(url);
         Menu Menu = new Menu();
-        // Menu.clickLeftSubMenu(2, 2, 1);
-        // Menu.waitForVisibility(Menu.getStyleUserGenderElement(2), 1);
-        // Menu.getStyleUserGenderElement(2).click();
-        // Menu.styleNextButton.click();
-        // Menu.getStyleSunOrSportOrFrameElement(1).click();
-        // Menu.styleNextButton.click();
-        // Menu.getStyleSunGlassStyleElement(3).click();
-        // Menu.styleNextButton.click();
-        // Menu.getStyleFrameShapeElement(4).click();
-        // Menu.styleNextButton.click();
-        // Menu.getStyleFrameColorElement(5).click();
-        // Menu.styleRecommend.click();
-        // Menu.waitForVisibility(Menu.getLeftSubMenuElement(1, 2, 2), 10);
         Menu.clickLeftSubMenu(2, 2, 2);
         VirtualPage virtualPage = new VirtualPage();
         Assert.assertTrue(virtualPage.VirtualClickPage.getAttribute("id").contains("virtual"), "don't virtual page");
@@ -101,7 +93,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         getURL(url);
         Menu Menu = new Menu();
         Random random = new Random();
-        int dice = random.nextInt(2);
+        int dice = random.nextInt(3);
         Menu.mouseOverMainMenu(2);
         Menu.waitForVisibility(Menu.getLeftSubMenuElement(2, 3, 1), 2);
         String plastic = Menu.getLeftSubMenuElement(2, 3, 1).getText();
@@ -111,17 +103,22 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         String titanium = Menu.getLeftSubMenuElement(2, 3, 3).getText();
         // Menu.waitForVisibility(Menu.getLeftSubMenuElement(2, 3, 4), 2);
         // String wood = Menu.getLeftSubMenuElement(2, 3, 4).getText();
-        Menu.clickLeftSubMenu(2, 3, 1);
-        ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.material), plastic);
-        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
+        ProductGridPage productGridPage = null;
         switch (dice) {
+        case 1:
+            Menu.clickLeftSubMenu(2, 3, 1);
+            productGridPage = new ProductGridPage();
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.material), plastic);
+            Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
+            break;
         case 0:
             Menu.clickLeftSubMenu(2, 3, 2);
+            productGridPage = new ProductGridPage();
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.material), metal);
             break;
         default:
             Menu.clickLeftSubMenu(2, 3, 3);
+            productGridPage = new ProductGridPage();
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.material), titanium);
             break;
         // case 1:
@@ -137,7 +134,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         getURL(url);
         Menu Menu = new Menu();
         Random random = new Random();
-        int dice = random.nextInt(3);
+        int dice = random.nextInt(4);
         Menu.mouseOverMainMenu(2);
         Menu.waitForVisibility(Menu.getMiddleSubmenuElement(2, 1, 1), 2);
         String pilot = Menu.getMiddleSubmenuElement(2, 1, 1).getText();
@@ -147,21 +144,27 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         String oval = Menu.getMiddleSubmenuElement(2, 1, 3).getText();
         Menu.waitForVisibility(Menu.getMiddleSubmenuElement(2, 1, 4), 2);
         String rectangle = Menu.getMiddleSubmenuElement(2, 1, 4).getText();
-        Menu.clickMiddleSubMenu(2, 1, 1);
-        ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), pilot);
-        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
+        ProductGridPage productGridPage = null;
         switch (dice) {
+        case 2:
+            Menu.clickMiddleSubMenu(2, 1, 1);
+            productGridPage = new ProductGridPage();
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), pilot);
+            Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
+            break;
         case 0:
             Menu.clickMiddleSubMenu(2, 1, 2);
+            productGridPage = new ProductGridPage();
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), square);
             break;
         case 1:
             Menu.clickMiddleSubMenu(2, 1, 3);
+            productGridPage = new ProductGridPage();
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), oval);
             break;
         default:
             Menu.clickMiddleSubMenu(2, 1, 4);
+            productGridPage = new ProductGridPage();
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), rectangle);
             break;
         }
@@ -173,7 +176,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         getURL(url);
         Menu Menu = new Menu();
         Random random = new Random();
-        int dice = random.nextInt(2);
+        int dice = random.nextInt(3);
         Menu.mouseOverMainMenu(2);
         Menu.waitForVisibility(Menu.getMiddleSubmenuElement(2, 2, 1), 2);
         String fullRim = Menu.getMiddleSubmenuElement(2, 2, 1).getText();
@@ -181,18 +184,22 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         String semiRim = Menu.getMiddleSubmenuElement(2, 2, 2).getText();
         Menu.waitForVisibility(Menu.getMiddleSubmenuElement(2, 2, 3), 2);
         String rimless = Menu.getMiddleSubmenuElement(2, 2, 3).getText();
-        Menu.clickMiddleSubMenu(2, 2, 1);
-        ProductGridPage productGridPage = new ProductGridPage();
-        if (!(url.equals("http://www.smartbuyglasses.nl") | url.equals("http://www.smartbuyglasses.se")))
-            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), fullRim);
-        if (url.equals("http://www.smartbuyglasses.nl"))
-            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), "Volledig Omrand");
-        if (url.equals("http://www.smartbuyglasses.se"))
-            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), "Hel ram");
-        Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
+        ProductGridPage productGridPage = null;
         switch (dice) {
+        case 1:
+            Menu.clickMiddleSubMenu(2, 2, 1);
+            productGridPage = new ProductGridPage();
+            if (!(url.equals("http://www.smartbuyglasses.nl") | url.equals("http://www.smartbuyglasses.se")))
+                Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), fullRim);
+            if (url.equals("http://www.smartbuyglasses.nl"))
+                Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), "Volledig Omrand");
+            if (url.equals("http://www.smartbuyglasses.se"))
+                Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), "Hel ram");
+            Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
+            break;
         case 0:
             Menu.clickMiddleSubMenu(2, 2, 2);
+            productGridPage = new ProductGridPage();
             if (!(url.equals("http://www.smartbuyglasses.se")))
                 Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), semiRim);
             else
@@ -201,6 +208,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
             break;
         default:
             Menu.clickMiddleSubMenu(2, 2, 3);
+            productGridPage = new ProductGridPage();
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), rimless);
             break;
         }
@@ -212,7 +220,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         getURL(url);
         Menu Menu = new Menu();
         Random random = new Random();
-        int dice = random.nextInt(3);
+        int dice = random.nextInt(4);
         Menu.mouseOverMainMenu(2);
         Menu.waitForVisibility(Menu.getMiddleSubmenuElement(2, 3, 1), 2);
         String price1 = Menu.getMiddleSubmenuElement(2, 3, 1).getText();
@@ -220,22 +228,28 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         String price2 = Menu.getMiddleSubmenuElement(2, 3, 2).getText();
         Menu.waitForVisibility(Menu.getMiddleSubmenuElement(2, 3, 3), 2);
         String price3 = Menu.getMiddleSubmenuElement(2, 3, 3).getText();
-        Menu.clickMiddleSubMenu(2, 3, 1);
-        ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), productGridPage.regexPage(price1));
+        ProductGridPage productGridPage = null;
         switch (dice) {
+        case 2:
+            Menu.clickMiddleSubMenu(2, 3, 1);
+            productGridPage = new ProductGridPage();
+            Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), productGridPage.regexPage(price1));
+            break;
         case 0:
             Menu.clickMiddleSubMenu(2, 3, 2);
+            productGridPage = new ProductGridPage();
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), productGridPage.regexPage(price2));
             Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
             break;
         case 1:
             Menu.clickMiddleSubMenu(2, 3, 3);
+            productGridPage = new ProductGridPage();
             Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.mid), productGridPage.regexPage(price3));
             Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
             break;
         default:
             Menu.clickMiddleSubMenu(2, 3, 4);
+            productGridPage = new ProductGridPage();
             Assert.assertTrue(productGridPage.getSubmenuPageLabelText(Label.mid).contains("999"), "mismatch: price 999 page ");
             Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
             break;

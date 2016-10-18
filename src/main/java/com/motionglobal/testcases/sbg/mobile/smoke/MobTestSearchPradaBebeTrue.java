@@ -30,6 +30,7 @@ public class MobTestSearchPradaBebeTrue extends AbstractBaseTestCase {
         mobHeader.searchInput.sendKeys("Prada");
         mobHeader.actionKey(Keys.ENTER);
         MobSearchResultPage searchResultPage = new MobSearchResultPage();
+        searchResultPage.waitForVisibility(searchResultPage.productDetailName, 5);
         String name = searchResultPage.productName.get(0).getText();
         Assert.assertTrue(name.contains("Prada"), "Expected Ray-ban displayed, but no");
         searchResultPage.filter.click();

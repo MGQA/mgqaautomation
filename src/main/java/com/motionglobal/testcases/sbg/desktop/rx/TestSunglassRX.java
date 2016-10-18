@@ -81,6 +81,7 @@ public class TestSunglassRX extends AbstractBaseSbgDesktopTestCase {
         if (cart.equals("old")) {
             CartPage cartPage = new CartPage();
             Assert.assertTrue(cartPage.priceLens.isDisplayed(), " RX Fail !!!");
+
         }
         else {
             NewCartPage cartPage = new NewCartPage();

@@ -15,9 +15,12 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
  */
 public class TestEmptyCarPage extends AbstractBaseSbgDesktopTestCase {
 
+    /**
+     * old Cart
+     */
     @Test(groups = { "debug", "smoke", "fastsmoke" })
     public void AU_CartBoxEmptyPage() {
-        String url = "http://www.visiondirect.com.au/";
+        String url = "http://www.visiondirecta.cl/";
         getURL(url);
         try {
             Alert alert = driver.switchTo().alert();
@@ -33,6 +36,9 @@ public class TestEmptyCarPage extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(cartPage.cartEmptyIcon.isDisplayed());
     }
 
+    /**
+     * new cart
+     */
     @Test(groups = { "debug", "smoke", "fastsmoke" })
     public void NZ_CartBoxEmptyPage() {
         String url = "http://www.smartbuyglasses.co.nz/";

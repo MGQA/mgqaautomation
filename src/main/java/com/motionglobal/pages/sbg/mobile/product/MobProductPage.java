@@ -14,6 +14,10 @@ public class MobProductPage extends AbstractBaseSbgDesktopPage {
     public WebElement productTitle;
     @FindBy(className = "main__glass-list__item")
     public List<WebElement> productList;
+    @FindBy(css = ".main__glass-list__item__detail__name")
+    public WebElement productName1;
+    @FindBy(css = ".main__glass-list__item__detail__other")
+    public WebElement productDeatilName1;
     @FindBy(className = "main__glass-list__item__detail__name")
     public List<WebElement> brankName;
     @FindBy(className = "main__glass-list__item__detail__other")
