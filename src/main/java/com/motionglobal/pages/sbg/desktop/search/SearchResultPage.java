@@ -109,6 +109,11 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
         catch (InterruptedException e) {
         }
         new Actions(driver).moveToElement(searchPage.proInfo.get(num - 1)).build().perform();
+        try {
+            Thread.sleep(200);
+        }
+        catch (InterruptedException e) {
+        }
         searchPage.quickView.click();
     }
 
@@ -125,18 +130,11 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
             catch (InterruptedException e) {
             }
             new Actions(driver).moveToElement(searchPage.proInfo.get(i)).build().perform();
-            // try {
-            // searchPage.waitForVisibility(searchPage.quickView, 1);
-            // }
-            // catch (Exception e) {
-            new Actions(driver).moveByOffset(500, 500).build().perform();
             try {
                 Thread.sleep(200);
             }
-            catch (InterruptedException ee) {
+            catch (InterruptedException e) {
             }
-            new Actions(driver).moveToElement(searchPage.proInfo.get(i)).build().perform();
-            // }
             searchPage.quickView.click();
             searchPage.waitForVisibility(searchPage.eyeproSize, 10);
             if (searchPage.eyeproSize.size() >= 2) {
@@ -161,6 +159,11 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
             catch (InterruptedException e) {
             }
             new Actions(driver).moveToElement(searchPage.proInfo.get(i)).build().perform();
+            try {
+                Thread.sleep(200);
+            }
+            catch (InterruptedException e) {
+            }
             searchPage.quickView.click();
             searchPage.waitForVisibility(searchPage.eyeproSize, 15);
             if (searchPage.buyPre.isDisplayed()) {
