@@ -114,11 +114,11 @@ public class TestClickProduct extends AbstractBaseSbgDesktopTestCase {
         //
         searchPage.matcherQuickViewClickOpen(1);
         //
-        searchPage.waitForVisibility(searchPage.detail, 15);
+        searchPage.waitForVisibility(searchPage.detailBtn, 15);
         String name = searchPage.regexGetLetterLow(searchPage.productDetailName.getText());
         String detailName = searchPage.regexGetLetterLow(searchPage.quickViewName.getText());
         Assert.assertTrue(name.contains(detailName), "quickViewName no't matcher !!!");
-        searchPage.detail.click();
+        searchPage.detailBtn.click();
         searchPage.acceptAlert();
         ProductDetailPage detailPage = new ProductDetailPage();
         String actualName = detailPage.regexGetLetterLow(detailPage.productName.getText());

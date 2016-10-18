@@ -43,8 +43,6 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> proInfo;
     @FindBy(className = "rplp_brand")
     public WebElement brandName;
-    @FindBy(css = ".detail_link")
-    public WebElement detail;
     @FindBy(css = ".rplp_name")
     public WebElement bandNameDetail;
     @FindBy(xpath = "//div[@class='pro_right_size']/a")
@@ -111,7 +109,6 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
         catch (InterruptedException e) {
         }
         new Actions(driver).moveToElement(searchPage.proInfo.get(num - 1)).build().perform();
-        searchPage.waitForVisibility(searchPage.quickView, 5);
         searchPage.quickView.click();
     }
 
@@ -139,7 +136,6 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
             catch (InterruptedException ee) {
             }
             new Actions(driver).moveToElement(searchPage.proInfo.get(i)).build().perform();
-            searchPage.waitForVisibility(searchPage.quickView, 1);
             // }
             searchPage.quickView.click();
             searchPage.waitForVisibility(searchPage.eyeproSize, 10);
@@ -165,7 +161,6 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
             catch (InterruptedException e) {
             }
             new Actions(driver).moveToElement(searchPage.proInfo.get(i)).build().perform();
-            searchPage.waitForVisibility(searchPage.quickView, 5);
             searchPage.quickView.click();
             searchPage.waitForVisibility(searchPage.eyeproSize, 15);
             if (searchPage.buyPre.isDisplayed()) {

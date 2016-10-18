@@ -30,7 +30,7 @@ public class TestSimilarProduct extends AbstractBaseSbgDesktopTestCase {
         resultPage.multiColor.click();
         new WebDriverWait(driver, 10).until(ExpectedConditions.not(ExpectedConditions.attributeToBe(resultPage.quickViewMainPicture, "src", img1)));
         String img2 = resultPage.quickViewMainPicture.getAttribute("src");
-        resultPage.buyNowButton.click();
+        resultPage.detailBtn.click();
         ProductDetailPage detailPage = new ProductDetailPage();
         String img3 = detailPage.displayIcon.getAttribute("src");
         Assert.assertEquals(img2, img3);
