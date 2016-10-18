@@ -80,6 +80,7 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
             // XXX new cart
             NewCartPage newCartPage = new NewCartPage();
             newCartPage.waitForVisibility(newCartPage.btnCheckout, 5);
+            newCartPage.deleteHead();
             newCartPage.btnCheckout.click();
             NewCheckoutPage checkoutPage = new NewCheckoutPage();
             checkoutPage.inputBillingFirstName.sendKeys("jack");

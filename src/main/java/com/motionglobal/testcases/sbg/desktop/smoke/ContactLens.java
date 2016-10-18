@@ -78,8 +78,11 @@ public class ContactLens extends AbstractBaseSbgDesktopTestCase {
         CLProductGridPage productGridPage = new CLProductGridPage();
         new Header().inputSearch.click();
         productGridPage.waitForVisibility(productGridPage.product1, 10);
+        String name = productGridPage.regexGetLetterLow(productGridPage.productDetailName.getText());
         productGridPage.product1.click();
         CLProductDetailPage detailPage = new CLProductDetailPage();
+        String actual = detailPage.regexGetLetterLow(detailPage.productName.getText());
+        Assert.assertTrue(actual.contains(name), "Product no't matcher !!!");
     }
 
     // XXX
@@ -91,15 +94,18 @@ public class ContactLens extends AbstractBaseSbgDesktopTestCase {
                 { "http://www.smartbuyglasses.dk/search?keywords=acuvue&searchHashcode=1476345029221176#q=acuvue&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" } };
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "search", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "search", groups = { "debug", "smoke" })
     public void searchIntoDetail(String url) {
         getURL(url);
         SearchResultPage resultPage = new SearchResultPage();
         new Header().inputSearch.click();
-        resultPage.waitForVisibility(resultPage.brandName, 5);
+        resultPage.waitForVisibility(resultPage.bandNameDetail, 5);
         Assert.assertTrue(resultPage.proInfo.size() > 4, "daily contact lens Number <5");
+        String name = resultPage.regexGetLetterLow(resultPage.bandNameDetail.getText());
         resultPage.brandName.click();
         CLProductDetailPage detailPage = new CLProductDetailPage();
+        String actual = detailPage.regexGetLetterLow(detailPage.productName.getText());
+        Assert.assertTrue(actual.contains(name), "Product no't matcher !!!");
     }
 
     @Override

@@ -21,6 +21,8 @@ import com.motionglobal.pages.sbg.desktop.product.GridFilter.Sport;
 public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     @FindBy(xpath = "//div[contains(@class,'pro_r_buynow')]/a[2]/span")
     public WebElement buyNowButton;
+    @FindBy(css = ".pro_labuy.formSubmit>span")
+    public WebElement buyNowSun;
     @FindBy(css = ".pro_lawith.formSubmitRx>span")
     public WebElement buyPre;
     @FindBy(className = "cart_btn")
@@ -29,8 +31,12 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement quickView;
     @FindBy(css = ".recProInfo>a")
     public WebElement brankOneIntoDetail;
+    @FindBy(css = ".proInfoN")
+    public WebElement productDetailName;
     @FindBy(css = ".detail_link")
     public WebElement detail;
+    @FindBy(css = ".pro_big_title>h1")
+    public WebElement quickViewName;
     // multi-angle picture
     @FindBy(css = ".pro_leftIcon_click")
     public List<WebElement> multiPucture;

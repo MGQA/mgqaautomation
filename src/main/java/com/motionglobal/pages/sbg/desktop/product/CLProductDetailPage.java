@@ -10,6 +10,9 @@ import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class CLProductDetailPage extends AbstractBaseSbgDesktopPage {
 
+    @FindBy(css = ".cl_productImgTitle>a>h1")
+    public WebElement productName;
+    //
     @FindBy(id = "right_check")
     private WebElement chkRight;
     @FindBy(id = "R_qty")

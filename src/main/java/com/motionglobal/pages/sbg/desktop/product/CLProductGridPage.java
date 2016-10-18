@@ -11,6 +11,8 @@ import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 public class CLProductGridPage extends AbstractBaseSbgDesktopPage {
     @FindBy(css = ".cl_rightCell")
     public WebElement product1;
+    @FindBy(css = ".bra")
+    public WebElement productDetailName;
     @FindBy(className = "pho")
     public List<WebElement> lenseDailyEles;
     @FindBy(id = "CL-ProductCount")

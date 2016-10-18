@@ -35,6 +35,7 @@ public class MobSearch extends AbstractBaseSbgDesktopTestCase {
         searchResultPage.waitForVisibility(searchResultPage.productDetailName, 5);
         String name = searchResultPage.productName.get(0).getText();
         Assert.assertTrue(name.contains("Ray-Ban"), "Expected Ray-ban displayed, but no");
+        Assert.assertTrue(searchResultPage.productName.size() > 4, "product number <5");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
@@ -48,6 +49,7 @@ public class MobSearch extends AbstractBaseSbgDesktopTestCase {
         searchResultPage.waitForVisibility(searchResultPage.productDetailName, 5);
         String name = searchResultPage.productName.get(0).getText();
         Assert.assertTrue(name.contains("Acuvue"), "Expected Ray-ban displayed, but no");
+        Assert.assertTrue(searchResultPage.productName.size() > 4, "product number <5");
     }
 
     // ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
