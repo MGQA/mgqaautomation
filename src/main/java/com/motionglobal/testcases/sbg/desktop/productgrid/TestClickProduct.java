@@ -35,7 +35,7 @@ public class TestClickProduct extends AbstractBaseSbgDesktopTestCase {
         catch (InterruptedException e) {
         }
         new Actions(driver).moveToElement(gridPage.proInfo.get(0)).build().perform();
-        gridPage.waitForVisibility(gridPage.quickView, 5);
+        gridPage.waitForVisibility(gridPage.quickView.get(0), 5);
         gridPage.waitForVisibility(gridPage.brankOneIntoDetail, 5);
         new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(gridPage.brankOneIntoDetail));
         //
