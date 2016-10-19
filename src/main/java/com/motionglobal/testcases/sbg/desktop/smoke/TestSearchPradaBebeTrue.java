@@ -16,7 +16,9 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
 public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://www.smartbuyglasses.com/search?keywords=prada&searchHashcode=1475048189562530#q=prada&page=0&minReviewsCount=0&refinements=%5B%7B%22for_sale%22%3A%221%22%7D%5D" }, };
+        return new Object[][] {
+                new Object[] { "http://www.smartbuyglasses.com/search?keywords=prada&searchHashcode=1475048189562530#q=prada&page=0&minReviewsCount=0&refinements=%5B%7B%22for_sale%22%3A%221%22%7D%5D" },
+                { "http://www.smartbuyglasses.com.hk/search?keywords=prada&searchHashcode=1475048189562530#q=prada&page=0&minReviewsCount=0&refinements=%5B%7B%22for_sale%22%3A%221%22%7D%5D" } };
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
