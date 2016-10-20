@@ -133,7 +133,7 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
             Double moneyReward = Double.parseDouble(sMoneyReward);
             System.out.println(moneyReward);
         }
-        if (detailPage.getCartType().equals("new")) {
+        else if (detailPage.getCartType().equals("new")) {
             NewCartPage cartPage = new NewCartPage();
             // TODO
         }

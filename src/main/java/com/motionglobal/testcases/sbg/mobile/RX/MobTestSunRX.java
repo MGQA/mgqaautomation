@@ -75,6 +75,7 @@ public class MobTestSunRX extends AbstractBaseTestCase {
         getURL(url);
         MobProductDetailPage detailPage = new MobProductDetailPage();
         detailPage.addLens.click();
+        detailPage.getRXType();
         MobRX3Page rx3Page = new MobRX3Page();
         rx3Page.elementClick(rx3Page.btnContinue);
         MobCartPage cartPage = new MobCartPage();
