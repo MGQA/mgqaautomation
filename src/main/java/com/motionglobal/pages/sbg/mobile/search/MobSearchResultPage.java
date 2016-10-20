@@ -22,6 +22,16 @@ public class MobSearchResultPage extends AbstractBaseSbgDesktopPage {
     @FindBy(xpath = "//a[contains(@onclick,'Bebe')]")
     public WebElement Bebe;
 
+    // category
+    @FindBy(css = ".search_category_container.clearfix>li>a")
+    public List<WebElement> category;
+    @FindBy(className = "current")
+    public WebElement categoryChecked;
+    @FindBy(css = ".main__glass-list__item[href*='sunglass']")
+    public List<WebElement> sunGlass;
+    @FindBy(css = ".main__glass-list__item[href*='eyeglass']")
+    public List<WebElement> eyeGlass;
+
     @Override
     protected void waitPageLoad() {
         waitForVisibility(By.cssSelector(".main__btn-group__btn.main__btn-group__btnl"), 5);
