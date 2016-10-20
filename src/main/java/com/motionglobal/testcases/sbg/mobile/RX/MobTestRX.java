@@ -26,6 +26,7 @@ public class MobTestRX extends AbstractBaseTestCase {
         MobCartPage cartPage = new MobCartPage();
         cartPage.addPre.click();
         MobRX3Page opticianPage = new MobRX3Page();
+        opticianPage.waitForVisibility(opticianPage.priceTotal, 2);
         Double totalPrice = getPrice(opticianPage.priceTotal);
         opticianPage.JsMouse(opticianPage.btnContinue);
         opticianPage.btnContinue.click();

@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
@@ -24,6 +25,7 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
     public void sort(String url) {
         getURL(url);
         ProductGridPage gridPage = new ProductGridPage();
+        new Header().inputSearch.click();
         gridPage.waitForVisibility(gridPage.SortDrop, 5);
         gridPage.SortDrop.click();
         String dropUrl1 = gridPage.SortSection.get(0).getAttribute("href");
@@ -48,8 +50,21 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
         if (sortSectionNum == 1) {
             gridPage.SortSection.get(1).click();
             for (int i = 0; i < gridPage.productPriceS.size() - 1; i++) {
-                double beforePrice = gridPage.regexGetDouble(gridPage.productPriceS.get(i).getText());
-                double lastPrice = gridPage.regexGetDouble(gridPage.productPriceS.get(i + 1).getText());
+                double beforePrice;
+                if (gridPage.productPriceS.get(i).getText().contains("%")) {
+                    beforePrice = gridPage.regexGetDouble(gridPage.productPriceS.get(i).getText().substring(2));
+                }
+                else {
+                    beforePrice = gridPage.regexGetDouble(gridPage.productPriceS.get(i).getText());
+                }
+                double lastPrice;
+                if (gridPage.productPriceS.get(i + 1).getText().contains("%")) {
+                    lastPrice = beforePrice;
+                }
+                else {
+                    lastPrice = gridPage.regexGetDouble(gridPage.productPriceS.get(i + 1).getText());
+                }
+                System.out.println(beforePrice + "\t" + lastPrice);
                 gridPage.AsssetTrue(beforePrice <= lastPrice, " price sort fail !!!");
             }
         }
@@ -57,7 +72,14 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
             gridPage.SortSection.get(2).click();
             for (int i = 0; i < gridPage.productPriceS.size() - 1; i++) {
                 double beforePrice = gridPage.regexGetDouble(gridPage.productPriceS.get(i).getText());
-                double lastPrice = gridPage.regexGetDouble(gridPage.productPriceS.get(i + 1).getText());
+                double lastPrice;
+                if (gridPage.productPriceS.get(i + 1).getText().contains("%")) {
+                    lastPrice = beforePrice;
+                }
+                else {
+                    lastPrice = gridPage.regexGetDouble(gridPage.productPriceS.get(i + 1).getText());
+                }
+                System.out.println(beforePrice + "\t" + lastPrice);
                 gridPage.AsssetTrue(beforePrice >= lastPrice, " price sort fail !!!");
             }
         }
