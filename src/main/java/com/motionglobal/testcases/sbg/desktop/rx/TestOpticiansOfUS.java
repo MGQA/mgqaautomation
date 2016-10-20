@@ -30,8 +30,8 @@ public class TestOpticiansOfUS extends AbstractBaseTestCase {
         productGridPage.waitForVisibility(productGridPage.quickView.get(0), 5);
         productGridPage.quickView.get(0).click();
         //
-        productGridPage.waitForVisibility(productGridPage.buyNowButton, 20);
-        productGridPage.buyNowButton.click();
+        productGridPage.waitForVisibility(productGridPage.buyRX, 20);
+        productGridPage.buyRX.click();
         RX3Page rx3Page = new RX3Page();
         Double framePrice = productGridPage.regexGetDouble(rx3Page.framePrice.getText());
         header.waitForVisibility(productGridPage.cartBtn, 10);

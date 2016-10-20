@@ -39,9 +39,9 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         Assert.assertTrue(productGridPage.frameOrAddClicked.isDisplayed(), "Frame with Lenses button don't click");
         productGridPage.frameOrAdd.get(0).click();
         Assert.assertTrue(productGridPage.frameOrAddClicked.isDisplayed(), "Frame Only button don't click");
-        header.waitForVisibility(productGridPage.buyNowButton, 2);
-        new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(productGridPage.buyNowButton));
-        productGridPage.buyNowButton.click();
+        header.waitForVisibility(productGridPage.buyRX, 2);
+        new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(productGridPage.buyRX));
+        productGridPage.buyRX.click();
         Assert.assertFalse(productGridPage.getRXType().contains("empty"), "Don't Into RX !!");
     }
 
@@ -65,9 +65,9 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         Assert.assertTrue(searchResultPage.frameOrAddClicked.isDisplayed(), "Frame with Lenses button don't click");
         searchResultPage.frameOrAdd.get(0).click();
         Assert.assertTrue(searchResultPage.frameOrAddClicked.isDisplayed(), "Frame Only button don't click");
-        searchResultPage.waitForVisibility(searchResultPage.buyNowButton, 2);
-        new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(searchResultPage.buyNowButton));
-        searchResultPage.buyNowButton.click();
+        searchResultPage.waitForVisibility(searchResultPage.buyRX, 2);
+        new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(searchResultPage.buyRX));
+        searchResultPage.buyRX.click();
         searchResultPage.getRXType();
     }
 

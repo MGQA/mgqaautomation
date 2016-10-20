@@ -20,11 +20,9 @@ import com.motionglobal.pages.sbg.desktop.product.GridFilter.Sport;
 
 public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     @FindBy(xpath = "//div[contains(@class,'pro_r_buynow')]/a[2]/span")
-    public WebElement buyNowButton;
-    @FindBy(css = ".pro_labuy.formSubmit>span")
-    public WebElement buyNowSun;
-    @FindBy(css = ".pro_lawith.formSubmitRx>span")
-    public WebElement buyPre;
+    public WebElement buyRX;
+    @FindAll({ @FindBy(css = ".pro_labuy.formSubmit>span"), @FindBy(css = ".pro_labuy.formSubmit_b.pro_buynow_btn>span") })
+    public WebElement buySun;
     @FindBy(className = "cart_btn")
     public WebElement cartBtn;
     // @FindBy(css = ".pro_view_quick[style='display: table;']>a>span")
@@ -246,7 +244,7 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
             gridPage.waitForVisibility(gridPage.quickView.get(i), 2);
             gridPage.quickView.get(i).click();
             gridPage.waitForVisibility(gridPage.eyeproSize, 10);
-            if (gridPage.buyPre.isDisplayed()) {
+            if (gridPage.buyRX.isDisplayed()) {
                 break;
             }
             else if (i == gridPage.proInfo.size() - 1) {

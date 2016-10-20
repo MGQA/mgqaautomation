@@ -20,11 +20,9 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     @FindBy(css = ".qick_view_do>i")
     public List<WebElement> quickView;
     @FindBy(xpath = "//div[contains(@class,'pro_r_buynow')]/a[2]/span")
-    public WebElement buyNowButton;
-    @FindBy(css = ".pro_labuy.formSubmit>span")
-    public WebElement buyNowSun;
-    @FindBy(css = ".pro_lawith.formSubmitRx>span")
-    public WebElement buyPre;
+    public WebElement buyRX;
+    @FindAll({ @FindBy(css = ".pro_labuy.formSubmit>span"), @FindBy(css = ".pro_labuy.formSubmit_b.pro_buynow_btn>span") })
+    public WebElement buyNoRX;
     @FindBy(className = "detail_link")
     public WebElement detailBtn;
     @FindBy(id = "totleRsCount")
@@ -156,7 +154,7 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
             searchPage.waitForVisibility(searchPage.quickView.get(i), 2);
             searchPage.quickView.get(i).click();
             searchPage.waitForVisibility(searchPage.eyeproSize, 15);
-            if (searchPage.buyPre.isDisplayed()) {
+            if (searchPage.buyRX.isDisplayed()) {
                 break;
             }
             else if (i == searchPage.proInfo.size() - 1) {

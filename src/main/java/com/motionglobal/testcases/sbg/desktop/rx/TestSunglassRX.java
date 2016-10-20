@@ -27,8 +27,8 @@ public class TestSunglassRX extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         ProductGridPage gridPage = new ProductGridPage();
         gridPage.matcherQuickViewSunCanRX();
-        gridPage.waitForVisibility(gridPage.buyPre, 5);
-        gridPage.buyPre.click();
+        gridPage.waitForVisibility(gridPage.buyRX, 5);
+        gridPage.buyRX.click();
 
         // RX
         RX3Page rx3Page = new RX3Page();
@@ -64,8 +64,8 @@ public class TestSunglassRX extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         SearchResultPage searchPage = new SearchResultPage();
         searchPage.matcherQuickSunCanRX();
-        searchPage.waitForVisibility(searchPage.buyPre, 5);
-        searchPage.buyPre.click();
+        searchPage.waitForVisibility(searchPage.buyRX, 5);
+        searchPage.buyRX.click();
 
         // RX
         RX3Page rx3Page = new RX3Page();
