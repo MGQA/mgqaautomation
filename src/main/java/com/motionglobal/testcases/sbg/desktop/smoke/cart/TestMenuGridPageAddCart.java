@@ -19,7 +19,7 @@ public class TestMenuGridPageAddCart extends AbstractBaseSbgDesktopTestCase {
                 { "http://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/" }, { "http://www.smartbuyglasses.dk/designer-sunglasses/Ray-Ban/" } };
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void sunGlass(String url) {
         getURL(url);
         ProductGridPage gridPage = new ProductGridPage();
@@ -81,8 +81,8 @@ public class TestMenuGridPageAddCart extends AbstractBaseSbgDesktopTestCase {
         gridPage.matcherQuickViewClickOpen(1);
         gridPage.waitForVisibility(gridPage.buyRX, 2);
         gridPage.frameOrAdd.get(1).click();
-        gridPage.waitForVisibility(gridPage.buyRX, 2);
-        gridPage.buyRX.click();
+        gridPage.waitForVisibility(gridPage.buySun, 2);
+        gridPage.buySun.click();
         boolean cart = false;
         if (gridPage.getCartType().equals("old")) {
             cart = true;

@@ -74,7 +74,7 @@ public class TestSearchGridPageAddCart extends AbstractBaseSbgDesktopTestCase {
         resultPage.header().inputSearch.click();
         resultPage.matcherQuickViewClickOpen(1);
         resultPage.waitForVisibility(resultPage.buyRX, 5);
-        resultPage.buyNoRX.click();
+        resultPage.buyRX.click();
         RX3Page rx3Page = new RX3Page();
         resultPage.getRXType();
         try {

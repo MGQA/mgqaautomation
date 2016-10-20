@@ -22,7 +22,7 @@ public class MobTestSearchPradaBebeTrue extends AbstractBaseTestCase {
         return new Object[][] { new Object[] { "http://m.smartbuyglasses.com" }, };
     }
 
-    @Test(dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(dataProvider = "dp", groups = { "debug", "smoke" })
     public void bebeClickText(String url) throws InterruptedException {
         getURL(url);
         MobHeader mobHeader = new MobHeader();
@@ -37,15 +37,9 @@ public class MobTestSearchPradaBebeTrue extends AbstractBaseTestCase {
         searchResultPage.branksBtn.click();
         searchResultPage.JsMouse(searchResultPage.Bebe);
         searchResultPage.Bebe.click();
-        searchResultPage.waitForVisibility(searchResultPage.productDetailName, 1);
+        searchResultPage.waitForVisibility(searchResultPage.productDetailName, 2);
+        Thread.sleep(100);
         String detailName = searchResultPage.productDetailName.getText();
-        for (int i = 0; i < 30; i++) {
-            if (!(detailName.contains("Bebe"))) {
-                Thread.sleep(100);
-                searchResultPage.waitForVisibility(searchResultPage.productDetailName, 5);
-                detailName = searchResultPage.productDetailName.getText();
-            }
-        }
         searchResultPage.waitForVisibility(searchResultPage.productName.get(0), 5);
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(searchResultPage.productName.get(0)));
         searchResultPage.productName.get(0).click();
