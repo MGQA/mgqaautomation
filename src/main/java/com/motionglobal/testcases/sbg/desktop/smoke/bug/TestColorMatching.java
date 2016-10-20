@@ -21,7 +21,7 @@ public class TestColorMatching extends AbstractBaseSbgDesktopTestCase {
     public void colorMatching(String url) {
         getURL(url);
         ProductDetailPage detailPage = new ProductDetailPage();
-        detailPage.btnRXSun.click();
+        detailPage.btnSunRX.click();
         detailPage.getRXType();
         RX3Page rx3Page = new RX3Page();
         rx3Page.waitForVisibility(rx3Page.rxList.get(3), 2);
@@ -37,7 +37,7 @@ public class TestColorMatching extends AbstractBaseSbgDesktopTestCase {
         new WebDriverWait(driver, 5).until(ExpectedConditions.textToBePresentInElement(rx3Page.rxList.get(3), color1));
         int price3 = rx3Page.regexGeInt(rx3Page.color_price.getText());
         System.out.println(price1 + "_" + price2 + "_" + price3);
-        Assert.assertEquals(price3, price1);
+        Assert.assertEquals(price3, price1, " _OMG COLOR MATCHING IS FREE !!!");
     }
 
     @Override

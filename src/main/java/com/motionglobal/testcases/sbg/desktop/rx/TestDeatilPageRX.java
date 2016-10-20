@@ -21,8 +21,8 @@ public class TestDeatilPageRX extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         ProductDetailPage detailPage = new ProductDetailPage();
         detailPage.header().inputSearch.click();
-        detailPage.waitForVisibility(detailPage.btnRXSun, 2);
-        detailPage.btnRXSun.click();
+        detailPage.waitForVisibility(detailPage.btnSunRX, 2);
+        detailPage.btnSunRX.click();
         boolean rx = false;
         if (detailPage.getRXType().equals("old")) {
             rx = true;
