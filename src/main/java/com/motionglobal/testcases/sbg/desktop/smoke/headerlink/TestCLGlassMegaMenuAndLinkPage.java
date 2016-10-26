@@ -125,7 +125,7 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         getURL(url);
         Menu Menu = new Menu();
         Random random = new Random();
-        int dice = random.nextInt(3);
+        int dice = random.nextInt(4);
         Menu.mouseOverMainMenu(5);
 
         // 531 change to 541 because add a <ul/> .but seem it is excess;
@@ -137,24 +137,31 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         String coopervision = Menu.getLeftSubMenuElement(5, 4, 3).getText();
         Menu.waitForVisibility(Menu.getLeftSubMenuElement(5, 4, 4), 2);
         String johnson = Menu.getLeftSubMenuElement(5, 4, 4).getText();
-        Menu.clickLeftSubMenu(5, 4, 1);
-        CLProductGridPage clProductGridPage = new CLProductGridPage();
-        Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), bausch);
-        Assert.assertTrue(clProductGridPage.ProInfo.size() > 4, "product Number < 5");
+        //
+        CLProductGridPage clProductGridPage = null;
         switch (dice) {
+        case 2:
+            Menu.clickLeftSubMenu(5, 4, 1);
+            clProductGridPage = new CLProductGridPage();
+            Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), bausch);
+            break;
         case 0:
             Menu.clickLeftSubMenu(5, 4, 2);
+            clProductGridPage = new CLProductGridPage();
             Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), ciba);
             break;
         case 1:
             Menu.clickLeftSubMenu(5, 4, 3);
+            clProductGridPage = new CLProductGridPage();
             Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), coopervision);
             break;
         default:
             Menu.clickLeftSubMenu(5, 4, 4);
+            clProductGridPage = new CLProductGridPage();
             Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), johnson);
             break;
         }
+        clProductGridPage.waitForVisibility(clProductGridPage.product1, 5);
         Assert.assertTrue(clProductGridPage.ProInfo.size() > 0, "product Number Empty !!!");
     }
 
@@ -163,18 +170,26 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         getURL(url);
         Menu Menu = new Menu();
         Random random = new Random();
-        int dice = random.nextInt(2);
-        Menu.clickMiddleSubMenu(5, 1, 1);
-        CLProductDetailPage clProductDetailPage = new CLProductDetailPage();
-        String id = clProductDetailPage.information.getAttribute("id");
-        Assert.assertTrue(id.contains("information"));
+        int dice = random.nextInt(3);
+        CLProductDetailPage clProductDetailPage = null;
+        String id = null;
         switch (dice) {
+        case 1:
+            Menu.clickMiddleSubMenu(5, 1, 1);
+            clProductDetailPage = new CLProductDetailPage();
+            id = clProductDetailPage.information.getAttribute("id");
+            Assert.assertTrue(id.contains("information"));
+            break;
         case 0:
             Menu.clickMiddleSubMenu(5, 1, 2);
+            clProductDetailPage = new CLProductDetailPage();
+            id = clProductDetailPage.information.getAttribute("id");
             Assert.assertTrue(id.contains("information"));
             break;
         default:
             Menu.clickMiddleSubMenu(5, 1, 3);
+            clProductDetailPage = new CLProductDetailPage();
+            id = clProductDetailPage.information.getAttribute("id");
             Assert.assertTrue(id.contains("information"));
             break;
         }

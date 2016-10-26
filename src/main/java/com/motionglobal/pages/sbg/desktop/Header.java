@@ -86,7 +86,7 @@ public class Header extends AbstractBasePage {
     // Search
     @FindBy(id = "search_input")
     public WebElement inputSearch;
-    @FindBy(css = ".search_image i.fa-search")
+    @FindBy(css = "#search_button i")
     public WebElement iconSearch;
 
     // header list

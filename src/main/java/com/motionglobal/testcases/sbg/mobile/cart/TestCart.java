@@ -9,6 +9,7 @@ import com.motionglobal.pages.sbg.mobile.cart.MobCartPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage.Prescription;
 import com.motionglobal.pages.sbg.mobile.product.MobProductPage;
+import com.motionglobal.pages.sbg.mobile.product.MobRX3Page;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
 public class TestCart extends AbstractBaseTestCase {
@@ -126,6 +127,61 @@ public class TestCart extends AbstractBaseTestCase {
         detailPage.selectPreValue(Prescription.LEFTBC, "9");
         detailPage.waitForVisibility(detailPage.buyCL, 5);
         detailPage.buyCL.click();
+    }
+
+    // XXX
+    @DataProvider
+    public Object[][] sun() {
+        return new Object[][] {
+                new Object[] { "http://m.smartbuyglasses.com/designer-sunglasses/Maui-Jim/Maui-Jim-Baby-Beach-Polarized-HS245-16-164380.html" },
+                { "http://m.smartbuyglasses.dk/designer-sunglasses/Maui-Jim/Maui-Jim-Baby-Beach-Polarized-HS245-16-164380.html" } };
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "sun", groups = { "debug2", "smoke" })
+    public void addSun(String url) throws InterruptedException {
+        getURL(url);
+        MobProductDetailPage detailPage = new MobProductDetailPage();
+        detailPage.buyNow.click();
+        MobCartPage cartPage = new MobCartPage();
+        cartPage.waitForVisibility(cartPage.fastCheckOut, 5);
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "sun", groups = { "debug2", "smoke" })
+    public void addRXSun(String url) throws InterruptedException {
+        getURL(url);
+        MobProductDetailPage detailPage = new MobProductDetailPage();
+        detailPage.addLens.click();
+        MobRX3Page rx3Page = new MobRX3Page();
+        rx3Page.btnContinue.click();
+        MobCartPage cartPage = new MobCartPage();
+        cartPage.waitForVisibility(cartPage.fastCheckOut, 5);
+    }
+
+    // XXX
+    @DataProvider
+    public Object[][] eye() {
+        return new Object[][] { new Object[] { "http://m.smartbuyglasses.com/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html" },
+                { "http://m.smartbuyglasses.dk/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html" } };
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "eye", groups = { "debug2", "smoke" })
+    public void addFrame(String url) throws InterruptedException {
+        getURL(url);
+        MobProductDetailPage detailPage = new MobProductDetailPage();
+        detailPage.buyNow.click();
+        MobCartPage cartPage = new MobCartPage();
+        cartPage.waitForVisibility(cartPage.fastCheckOut, 5);
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "sun", groups = { "debug2", "smoke" })
+    public void addEye(String url) throws InterruptedException {
+        getURL(url);
+        MobProductDetailPage detailPage = new MobProductDetailPage();
+        detailPage.addLens.click();
+        MobRX3Page rx3Page = new MobRX3Page();
+        rx3Page.btnContinue.click();
+        MobCartPage cartPage = new MobCartPage();
+        cartPage.waitForVisibility(cartPage.fastCheckOut, 5);
     }
 
     @Override

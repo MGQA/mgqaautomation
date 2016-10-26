@@ -39,6 +39,36 @@ public class TestSearchGridPageAddCart extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(cart, " Don't Into Cart Page !!!");
     }
 
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
+    public void sunRX(String url) {
+        getURL(url);
+        SearchResultPage resultPage = new SearchResultPage();
+        resultPage.header().inputSearch.click();
+        resultPage.matcherQuickViewClickOpen(1);
+        resultPage.waitForVisibility(resultPage.buyRX, 2);
+        resultPage.buyRX.click();
+        RX3Page rx3Page = new RX3Page();
+        resultPage.getRXType();
+        try {
+            for (int i = 0; i < 33; i++) {
+                driver.findElement(By.className("xubox_shade"));
+                Thread.sleep(200);
+            }
+        }
+        catch (Exception e) {
+        }
+        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(rx3Page.addToCart));
+        rx3Page.addToCart.click();
+        boolean cart = false;
+        if (resultPage.getCartType().equals("old")) {
+            cart = true;
+        }
+        if (resultPage.getCartType().equals("new")) {
+            cart = true;
+        }
+        Assert.assertTrue(cart, " Don't Into Cart Page !!!");
+    }
+
     @DataProvider
     public Object[][] eye() {
         return new Object[][] {
@@ -73,7 +103,7 @@ public class TestSearchGridPageAddCart extends AbstractBaseSbgDesktopTestCase {
         SearchResultPage resultPage = new SearchResultPage();
         resultPage.header().inputSearch.click();
         resultPage.matcherQuickViewClickOpen(1);
-        resultPage.waitForVisibility(resultPage.buyRX, 5);
+        resultPage.waitForVisibility(resultPage.buyRX, 15);
         resultPage.buyRX.click();
         RX3Page rx3Page = new RX3Page();
         resultPage.getRXType();
