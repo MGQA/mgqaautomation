@@ -39,6 +39,20 @@ public class NewCheckoutPage extends AbstractBaseSbgDesktopPage {
     @FindBy(name = "billing_telephone")
     public WebElement inputBillingTelephone;
 
+    //
+    @FindBy(id = "payment_frame")
+    public WebElement orderIFrame;
+    @FindBy(name = "CREDITCARDNUMBER")
+    public WebElement orderCard;
+    @FindBy(name = "EXPIRYDATE_MM")
+    public WebElement orderMM;
+    @FindBy(name = "EXPIRYDATE_YY")
+    public WebElement orderYY;
+    @FindBy(name = "CVV")
+    public WebElement orderSecurity;
+    @FindBy(id = "btnSubmit")
+    public WebElement orderSubmit;
+
     public void AssertPayPicture(String url, int... pay) {
         Header header = new Header();
         VerifyUtil verify = new MobHeader().VerifyUtil();

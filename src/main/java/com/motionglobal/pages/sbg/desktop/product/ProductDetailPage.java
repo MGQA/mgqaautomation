@@ -19,7 +19,7 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
     public WebElement btnSunRX;
     @FindBy(id = "withLenses")
     public WebElement btnAddLenses;
-    @FindBy(id = "frameOnly")
+    @FindBy(css = ".pro_r_buynow div:nth-of-type(2) label")
     public WebElement btnFrameOnly;
     @FindBy(id = "frameOnly")
     public WebElement radioFrameOnly;
