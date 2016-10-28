@@ -23,7 +23,7 @@ public class MobPayment extends AbstractBaseTestCase {
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
-    public void bebeClickText(String url) throws InterruptedException {
+    public void payment(String url) throws InterruptedException {
         getURL(url);
         driver.manage().window().setSize(new Dimension(360, 640));
         MobProductDetailPage detailPage = new MobProductDetailPage();

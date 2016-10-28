@@ -24,8 +24,8 @@ public class TestCartregister extends AbstractBaseTestCase {
         return new Object[][] { new Object[] { "http://www.smartbuyglasses.com.hk/cart" } };
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug111", "smoke" })
-    public void bebeClickText(String url) throws InterruptedException {
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
+    public void cartRegister(String url) throws InterruptedException {
         getURL(url);
         CartPage cartPage = new CartPage();
         cartPage.waitForVisibility(cartPage.loginCart, 2);

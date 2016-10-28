@@ -23,7 +23,7 @@ public class TestCheckoutLogin extends AbstractBaseSbgDesktopTestCase {
                 { "http://www.smartbuyglasses.jp/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html" } };
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
     public void CheckoutLogin(String url) {
         getURL(url);
         Header header = new Header();
@@ -38,6 +38,7 @@ public class TestCheckoutLogin extends AbstractBaseSbgDesktopTestCase {
             NewCheckoutPage checkoutPage = new NewCheckoutPage();
             checkoutPage.waitForVisibility(checkoutPage.login, 5);
             checkoutPage.login.click();
+            header.waitForVisibility(header.username, 2);
             header.username.clear();
             header.username.sendKeys("felix.ma@motionglobal.com");
             header.password.clear();
@@ -58,6 +59,7 @@ public class TestCheckoutLogin extends AbstractBaseSbgDesktopTestCase {
             cartPage.btnCheckout.click();
             CheckoutPage checkoutPage = new CheckoutPage();
             checkoutPage.login.click();
+            header.waitForVisibility(header.username, 2);
             header.username.clear();
             header.username.sendKeys("felix.ma@motionglobal.com");
             header.password.clear();

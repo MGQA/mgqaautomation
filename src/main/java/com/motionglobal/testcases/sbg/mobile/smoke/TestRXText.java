@@ -16,7 +16,7 @@ public class TestRXText extends AbstractBaseSbgDesktopTestCase {
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
-    public void topSellImg(String url) {
+    public void RXtext(String url) {
         getURL(url);
         ProductGridPage gridPage = new ProductGridPage();
         gridPage.matcherQuickViewClickOpen(1);
