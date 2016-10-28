@@ -29,6 +29,12 @@ public class TestPayment extends AbstractBaseSbgDesktopTestCase {
     public void payment(String url) {
         getURL(url);
         ProductDetailPage productDetailPage = new ProductDetailPage();
+        productDetailPage.header().inputSearch.click();
+        try {
+            Thread.sleep(100);
+        }
+        catch (InterruptedException e) {
+        }
         productDetailPage.btnBuyNow.click();
         //
         String cart = productDetailPage.getCartType();
@@ -49,8 +55,7 @@ public class TestPayment extends AbstractBaseSbgDesktopTestCase {
             // thank you page
             ThankYouPage thankYouPage = new ThankYouPage();
             String sMoneyReward = thankYouPage.reWard.getText().replace("$", "");
-            Double moneyReward = Double.parseDouble(sMoneyReward);
-            System.out.println(moneyReward);
+            System.out.println(sMoneyReward);
         }
         else {
             new NewCartPage().btnCheckout.click();
@@ -76,8 +81,7 @@ public class TestPayment extends AbstractBaseSbgDesktopTestCase {
             checkoutPage.orderSubmit.click();
             ThankYouPage thankYouPage = new ThankYouPage();
             String sMoneyReward = thankYouPage.reWard.getText().replace("$", "");
-            Double moneyReward = Double.parseDouble(sMoneyReward);
-            System.out.println(moneyReward);
+            System.out.println(sMoneyReward);
         }
     }
 
