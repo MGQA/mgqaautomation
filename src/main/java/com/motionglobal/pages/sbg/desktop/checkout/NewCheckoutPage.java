@@ -14,6 +14,13 @@ import com.motionglobal.pages.sbg.mobile.MobHeader;
 
 public class NewCheckoutPage extends AbstractBaseSbgDesktopPage {
 
+    @FindBy(css = ".faster_login_button")
+    public WebElement login;
+    @FindBy(css = ".registerStep1")
+    public WebElement register;
+    @FindBy(id = "register_step1_btn")
+    public WebElement registerBtn;
+    //
     @FindBy(className = "checkout-payment-btn")
     public WebElement btnPayment;
     @FindBy(css = ".payment_method.payment_method_li")
