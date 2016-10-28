@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
@@ -33,8 +34,8 @@ public class MobCheckOutPage extends AbstractBaseSbgDesktopPage {
     public WebElement inputPostAddress;
     @FindBy(className = "shipping_city")
     public WebElement inputCity;
-    @FindBy(name = "shipping_state")
-    private WebElement inputState;
+    @FindAll({ @FindBy(name = "shipping_state"), @FindBy(name = "shipping_state_txt") })
+    public WebElement inputState;
     @FindBy(css = ".shipping_country")
     private WebElement selectCountry;
     @FindBy(css = ".ck_continue_btn.i-btn--orange")
@@ -44,11 +45,31 @@ public class MobCheckOutPage extends AbstractBaseSbgDesktopPage {
     public WebElement VISA;
     @FindBy(css = "img[src*='bigVisa'][style='opacity: 1;']")
     public WebElement VISAclicked;
-    @FindBy(id = "getPaymentPage")
-    public WebElement payFrame;
     //
     @FindBy(css = ".img-box:nth-of-type(6)>label>img")
     public WebElement payPictureInJP;
+
+    // order
+    @FindBy(css = "iframe")
+    public WebElement iframe;
+    @FindBy(name = "CREDITCARDNUMBER")
+    public WebElement inputCard;
+    @FindBy(id = "F1010_MM")
+    private WebElement month;
+    @FindBy(id = "F1010_YY")
+    private WebElement day;
+    @FindBy(id = "F1136")
+    public WebElement inputInsuanceCard;
+    @FindBy(id = "btnSubmit")
+    public WebElement btnContinue;
+
+    public void selectDate() {
+        waitForVisibility(month, 2);
+        Select select = new Select(month);
+        select.selectByValue("01");
+        Select select2 = new Select(day);
+        select2.selectByValue("20");
+    }
 
     public void selectStateGA() {
         Select select = new Select(inputState);
