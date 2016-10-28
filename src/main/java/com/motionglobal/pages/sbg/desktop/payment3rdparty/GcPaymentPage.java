@@ -28,7 +28,6 @@ public class GcPaymentPage extends AbstractBaseSbgDesktopPage {
         select.selectByValue("01");
         Select select2 = new Select(day);
         select2.selectByValue("20");
-
     }
 
     public GcPaymentPage() {

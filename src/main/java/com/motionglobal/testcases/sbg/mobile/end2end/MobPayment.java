@@ -1,37 +1,31 @@
 package com.motionglobal.testcases.sbg.mobile.end2end;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.sbg.mobile.MobHeader;
 import com.motionglobal.pages.sbg.mobile.cart.MobCartPage;
 import com.motionglobal.pages.sbg.mobile.checkout.MobCheckOutPage;
+import com.motionglobal.pages.sbg.mobile.checkout.MobThankYouPage;
 import com.motionglobal.pages.sbg.mobile.product.MobProductDetailPage;
-import com.motionglobal.pages.sbg.mobile.search.MobSearchResultPage;
-import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
+import com.motionglobal.testcases.AbstractBaseTestCase;
 
-/**
- * m.com Test £º search ray-ban µ½Ö§¸¶Ò³Ãæ
- * 
- */
-public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
-    @Test(groups = { "smoke", "debug", "fastsmoke" })
-    public void mobSearchItemAndPayByGC() throws InterruptedException {
-        getURL("http://m.smartbuyglasses.com/");
-        MobHeader mobHeader = new MobHeader();
-        mobHeader.searchInput.click();
-        mobHeader.searchInput.sendKeys("ray ban");
-        mobHeader.actionKey(Keys.ENTER);
-        MobSearchResultPage searchResultPage = new MobSearchResultPage();
-        searchResultPage.waitForVisibility(searchResultPage.productDetailName, 5);
-        mobHeader.deleteHead();
-        String name = searchResultPage.productName.get(0).getText();
-        Assert.assertTrue(name.contains("Ray-Ban"), "Expected Ray-ban displayed, but no");
-        searchResultPage.productName.get(0).click();
+public class MobPayment extends AbstractBaseTestCase {
+
+    @DataProvider
+    public Object[][] dp() {
+        return new Object[][] {
+                new Object[] { "http://m.smartbuyglasses.co.uk/designer-eyeglasses/Dolce-Gabbana/Dolce-Gabbana-DG3205-Urban-Kids-1871-234919.html/" },
+                { "http://m.smartbuyglasses.dk/designer-sunglasses/Tom-Ford/Tom-Ford-FT0008-JENNIFER-692-8152.html/" } };
+    }
+
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    public void bebeClickText(String url) throws InterruptedException {
+        getURL(url);
+        driver.manage().window().setSize(new Dimension(360, 640));
         MobProductDetailPage detailPage = new MobProductDetailPage();
         detailPage.buyNow.click();
         MobCartPage cartPage = new MobCartPage();
@@ -50,7 +44,12 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         checkOutPage.clearInput(checkOutPage.inputPhone, "automationTel");
         checkOutPage.clearInput(checkOutPage.inputPostAddress, "200000");
         checkOutPage.clearInput(checkOutPage.inputCity, "shanghai");
-        checkOutPage.selectStateGA();
+        try {
+            checkOutPage.selectStateGA();
+        }
+        catch (Exception e) {
+            checkOutPage.inputState.sendKeys("jinganqu");
+        }
         checkOutPage.continueBtn.click();
         checkOutPage.waitForVisibility(checkOutPage.VISA, 10);
         checkOutPage.VISA.click();
@@ -73,6 +72,8 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         checkOutPage.inputCard.sendKeys("4111111111111111");
         checkOutPage.selectDate();
         checkOutPage.inputInsuanceCard.sendKeys("1111");
+        checkOutPage.btnContinue.click();
+        MobThankYouPage thankYouPage = new MobThankYouPage();
     }
 
     @Override
