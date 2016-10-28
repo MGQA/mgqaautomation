@@ -21,10 +21,12 @@ public class ScreenshotListener extends HTMLReporter implements ITestListener {
     public static final String DRIVER_ATTR = "driver";
 
     // take browser page shot if test failed or on exception.
+    @Override
     public void onTestFailure(ITestResult result) {
         this.logPicture(result);
     }
 
+    @Override
     public void onTestSkipped(ITestResult result) {
         logPicture(result);
     }
@@ -40,10 +42,8 @@ public class ScreenshotListener extends HTMLReporter implements ITestListener {
         WebDriver driver = (WebDriver) context.getAttribute(DRIVER_ATTR + Thread.currentThread().getId());
         if (driver != null && !(driver.toString().contains("(null)"))) {
             String url = driver.getCurrentUrl();
-            Reporter.log(
-                    "<a alt='" + fileName + "' href='../screenshots/" + fileName + ".png'><img src='../screenshots/" + fileName
-                            + ".png' width='100' height='100'/></a><a href='" + url + "'>" + url + "</a>",
-                    false);
+            Reporter.log("<a alt='" + fileName + "' href='../screenshots/" + fileName + ".png'><img src='../screenshots/" + fileName
+                    + ".png' width='100' height='100'/></a><a href='" + url + "'>" + url + "</a>", false);
             try {
                 File f = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
                 File saved = new File(imagePath);
@@ -56,26 +56,31 @@ public class ScreenshotListener extends HTMLReporter implements ITestListener {
         Reporter.setCurrentTestResult(null);
     }
 
+    @Override
     public void onFinish(ITestContext arg0) {
         // Auto-generated method stub
 
     }
 
+    @Override
     public void onStart(ITestContext arg0) {
         // Auto-generated method stub
 
     }
 
+    @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
         // Auto-generated method stub
 
     }
 
+    @Override
     public void onTestStart(ITestResult arg0) {
         // Auto-generated method stub
 
     }
 
+    @Override
     public void onTestSuccess(ITestResult arg0) {
         // Auto-generated method stub
 

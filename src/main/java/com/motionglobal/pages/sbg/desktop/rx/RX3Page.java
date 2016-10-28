@@ -2,6 +2,7 @@ package com.motionglobal.pages.sbg.desktop.rx;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -31,7 +32,7 @@ public class RX3Page extends AbstractBaseSbgDesktopPage {
 
     @FindBy(css = ".step-title-bold")
     public List<WebElement> rxList;
-    @FindBy(css = "ul[style*=block] .type-price")
+    @FindBy(css = "ul[style*=block] li[data-name]")
     public List<WebElement> subList;
 
     //
@@ -42,5 +43,13 @@ public class RX3Page extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
+        try {
+            for (int i = 0; i < 33; i++) {
+                driver.findElement(By.className("xubox_shade"));
+                Thread.sleep(200);
+            }
+        }
+        catch (Exception e) {
+        }
     }
 }

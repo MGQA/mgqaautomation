@@ -63,7 +63,7 @@ public class TestFaceShape extends AbstractBaseSbgDesktopTestCase {
         String topSellUrl = shapePage.glassTopSell.getAttribute("href");
         String country = url.split("/")[2];
         Assert.assertEquals(topSellUrl, "http://" + country + "/designer-sunglasses/general/--------------1---------");
-        Assert.assertEquals(shapePage.glassesAll.size(), 24);
+        Assert.assertTrue(shapePage.glassesAll.size() > 10);
         String randName = shapePage.glassOvalBrand.getText().trim().replace(" ", "-");
         shapePage.deleteHead();
         shapePage.JsMouse(shapePage.glassOvalBrand);
