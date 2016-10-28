@@ -1,11 +1,10 @@
-package com.motionglobal.testcases.sbg.desktop.home;
+package com.motionglobal.testcases.sbg.desktop.login;
 
 import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
@@ -78,52 +77,6 @@ public class LoginTest extends AbstractBaseSbgDesktopTestCase {
         // header.mouseOver(header.yourAccount);
         // header.waitForVisibility(header.signout, 5);
         // Assert.assertTrue(header.isTextPresent("Hi jack!"));
-    }
-
-    @Test(groups = { "debug", "smoke", "fastsmoke" })
-    public void testLogin() {
-        getURL(url);
-        Header header = new Header();
-        header.waitForVisibility(header.loginlable, 5);
-        header.mouseOver(header.loginlable);
-        try {
-            header.waitForVisibility(header.signin, 1);
-        }
-        catch (Exception e) {
-            header.mouseOver(header.Help);
-            header.waitForVisibility(header.getHelpLinkElement(1), 2);
-            header.mouseOver(header.loginlable);
-            header.waitForVisibility(header.signin, 1);
-        }
-        header.signin.click();
-        header.username.clear();
-        header.username.sendKeys("felix.ma@motionglobal.com");
-        header.password.clear();
-        header.password.sendKeys("motion888");
-        header.signInButton.click();
-        header.waitForVisibility(header.yourAccount, 10);
-        Assert.assertTrue(header.isTextPresent("Hi test!"));
-        driver.quit();
-    }
-
-    // XXX
-    @Test(groups = { "debug", "smoke", "fastsmoke" })
-    public void cartLogin() {
-        String hkUrl = "http://www.smartbuyglasses.com.hk/cart";
-        getURL(hkUrl);
-        CartPage cartPage = new CartPage();
-        cartPage.waitForVisibility(cartPage.loginCart, 2);
-        cartPage.loginCart.click();
-        Header header = new Header();
-        header.username.clear();
-        header.username.sendKeys("felix.ma@motionglobal.com");
-        header.password.clear();
-        header.password.sendKeys("motion888");
-        header.signInButton.click();
-        // #content>div[class*=cart_] is login in cart page
-        new WebDriverWait(driver, 5).until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("#content>div[class*=cart_]"), 3));
-        Assert.assertTrue(header.HKCartYourAccount.isDisplayed());
-        driver.quit();
     }
 
     // XXX

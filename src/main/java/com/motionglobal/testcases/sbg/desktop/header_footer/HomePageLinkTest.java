@@ -49,8 +49,13 @@ public class HomePageLinkTest extends AbstractBaseSbgDesktopTestCase {
         header.optical_center.click();
         //
         Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/optical-center");
-        header.logo.click();
+    }
 
+    @Test(groups = { "debug", "smoke" })
+    public void homePageHeartAndCartBox() throws InterruptedException {
+        String url = "http://www.smartbuyglasses.com/";
+        getURL(url);
+        Header header = new Header();
         // Favourite Heart Button
         header.iHeart.click();
         FavoritePage favoritePage = new FavoritePage();
@@ -60,7 +65,6 @@ public class HomePageLinkTest extends AbstractBaseSbgDesktopTestCase {
         // Cart box
         header.cartBox.click();
         Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/cart");
-        header.logo.click();
     }
 
     @Test(groups = { "debug", "smoke" })

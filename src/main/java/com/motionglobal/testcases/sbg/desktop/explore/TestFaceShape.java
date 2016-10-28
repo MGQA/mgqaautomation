@@ -13,7 +13,7 @@ public class TestFaceShape extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
-        return new Object[][] { { "http://www.smartbuyglasses.co.uk/face-shape" }, { "http://www.smartbuyglasses.com/face-shape" } };
+        return new Object[][] { { "http://www.smartbuyglasses.co.uk/face-shape" } };
     }
 
     // FIXME CASE 1
