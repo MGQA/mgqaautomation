@@ -25,11 +25,11 @@ public class TestCartLogin extends AbstractBaseSbgDesktopTestCase {
         cartPage.waitForVisibility(cartPage.loginCart, 2);
         cartPage.loginCart.click();
         Header header = new Header();
-        header.username.clear();
-        header.username.sendKeys("felix.ma@motionglobal.com");
-        header.password.clear();
-        header.password.sendKeys("motion888");
-        header.signInButton.click();
+        header.username.get(0).clear();
+        header.username.get(0).sendKeys("felix.ma@motionglobal.com");
+        header.password.get(0).clear();
+        header.password.get(0).sendKeys("motion888");
+        header.signInButton.get(0).click();
         // #content>div[class*=cart_] is login in cart page
         new WebDriverWait(driver, 5).until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("#content>div[class*=cart_]"), 3));
         Assert.assertTrue(header.HKCartYourAccount.isDisplayed());

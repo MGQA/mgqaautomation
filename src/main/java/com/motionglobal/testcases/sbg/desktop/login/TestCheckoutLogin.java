@@ -23,7 +23,7 @@ public class TestCheckoutLogin extends AbstractBaseSbgDesktopTestCase {
                 { "http://www.smartbuyglasses.jp/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html" } };
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
     public void CheckoutLogin(String url) {
         getURL(url);
         Header header = new Header();
@@ -38,11 +38,22 @@ public class TestCheckoutLogin extends AbstractBaseSbgDesktopTestCase {
             NewCheckoutPage checkoutPage = new NewCheckoutPage();
             checkoutPage.waitForVisibility(checkoutPage.login, 5);
             checkoutPage.login.click();
-            header.username.clear();
-            header.username.sendKeys("felix.ma@motionglobal.com");
-            header.password.clear();
-            header.password.sendKeys("motion888");
-            header.signInButton.click();
+            try {
+                header.signInButton.get(1).click();
+                header.username.clear();
+                header.username.get(1).sendKeys("felix.ma@motionglobal.com");
+                header.password.clear();
+                header.password.get(1).sendKeys("motion888");
+                header.signInButton.get(1).click();
+            }
+            catch (Exception e) {
+                header.signInButton.get(0).click();
+                header.username.clear();
+                header.username.get(0).sendKeys("felix.ma@motionglobal.com");
+                header.password.clear();
+                header.password.get(0).sendKeys("motion888");
+                header.signInButton.get(0).click();
+            }
             try {
                 new WebDriverWait(driver, 15).until(ExpectedConditions.alertIsPresent());
             }
@@ -58,11 +69,22 @@ public class TestCheckoutLogin extends AbstractBaseSbgDesktopTestCase {
             cartPage.btnCheckout.click();
             CheckoutPage checkoutPage = new CheckoutPage();
             checkoutPage.login.click();
-            header.username.clear();
-            header.username.sendKeys("felix.ma@motionglobal.com");
-            header.password.clear();
-            header.password.sendKeys("motion888");
-            header.signInButton.click();
+            try {
+                header.signInButton.get(1).click();
+                header.username.clear();
+                header.username.get(1).sendKeys("felix.ma@motionglobal.com");
+                header.password.clear();
+                header.password.get(1).sendKeys("motion888");
+                header.signInButton.get(1).click();
+            }
+            catch (Exception e) {
+                header.signInButton.get(0).click();
+                header.username.clear();
+                header.username.get(0).sendKeys("felix.ma@motionglobal.com");
+                header.password.clear();
+                header.password.get(0).sendKeys("motion888");
+                header.signInButton.get(0).click();
+            }
             try {
                 new WebDriverWait(driver, 15).until(ExpectedConditions.alertIsPresent());
             }

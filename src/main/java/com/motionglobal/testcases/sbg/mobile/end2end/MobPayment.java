@@ -23,7 +23,7 @@ public class MobPayment extends AbstractBaseTestCase {
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
-    public void bebeClickText(String url) throws InterruptedException {
+    public void payment(String url) throws InterruptedException {
         getURL(url);
         driver.manage().window().setSize(new Dimension(360, 640));
         MobProductDetailPage detailPage = new MobProductDetailPage();
@@ -57,6 +57,7 @@ public class MobPayment extends AbstractBaseTestCase {
         checkOutPage.waitForVisibility(By.cssSelector("img[src*='bigVisa'][style='opacity: 1;']"), 15);
         for (int i = 0; i < 40; i++) {
             try {
+                checkOutPage.waitForVisibility(checkOutPage.inputCard, 1);
                 new WebDriverWait(driver, 1).until(ExpectedConditions.elementToBeClickable(checkOutPage.inputCard));
                 break;
             }
@@ -69,6 +70,7 @@ public class MobPayment extends AbstractBaseTestCase {
                 Thread.sleep(200);
             }
         }
+        checkOutPage.inputCard.click();
         checkOutPage.inputCard.sendKeys("4111111111111111");
         checkOutPage.selectDate();
         checkOutPage.inputInsuanceCard.sendKeys("1111");

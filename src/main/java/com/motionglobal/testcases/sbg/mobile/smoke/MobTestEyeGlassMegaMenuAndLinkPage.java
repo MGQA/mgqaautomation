@@ -42,6 +42,7 @@ public class MobTestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
         header.waitForVisibility(header.getMainMenuElement(MegaMenu.EYE), 2);
         header.getMainMenuElement(MegaMenu.EYE).click();
         header.elementClick(header.subMenuS.get(0));
+        header.waitForVisibility(header.subSubMenuS, 1);
         int num = random.nextInt(header.subSubMenuS.size());
         header.elementClick(header.subSubMenuS.get(num));
         MobProductPage productPage = new MobProductPage();

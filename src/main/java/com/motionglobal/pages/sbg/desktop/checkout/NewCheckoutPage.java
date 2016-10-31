@@ -17,7 +17,7 @@ public class NewCheckoutPage extends AbstractBaseSbgDesktopPage {
     @FindBy(css = ".faster_login_button")
     public WebElement login;
     @FindBy(css = ".registerStep1")
-    public WebElement register;
+    public List<WebElement> register;
     @FindBy(id = "register_step1_btn")
     public WebElement registerBtn;
     //
