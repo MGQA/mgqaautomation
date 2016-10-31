@@ -19,7 +19,8 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
  * 
  */
 public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
-    @Test(groups = { "smoke", "debug", "fastsmoke" })
+
+    @Test(groups = { "smoke", "debug111", "fastsmoke" })
     public void mobSearchItemAndPayByGC() throws InterruptedException {
         getURL("http://m.smartbuyglasses.com/");
         MobHeader mobHeader = new MobHeader();
@@ -64,7 +65,8 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
             }
             catch (Exception e) {
                 try {
-                    new WebDriverWait(driver, 1).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(checkOutPage.iframe));
+                    // new WebDriverWait(driver, 1).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(checkOutPage.iframe));
+                    driver.switchTo().frame(checkOutPage.iframe);
                 }
                 catch (Exception e2) {
                 }
