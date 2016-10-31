@@ -23,7 +23,7 @@ public class TestCheckoutLogin extends AbstractBaseSbgDesktopTestCase {
                 { "http://www.smartbuyglasses.jp/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html" } };
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void CheckoutLogin(String url) {
         getURL(url);
         Header header = new Header();

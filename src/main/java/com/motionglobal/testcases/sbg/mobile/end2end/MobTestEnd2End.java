@@ -64,7 +64,8 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
             }
             catch (Exception e) {
                 try {
-                    new WebDriverWait(driver, 1).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(checkOutPage.iframe));
+                    // new WebDriverWait(driver, 1).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(checkOutPage.iframe));
+                    driver.switchTo().frame(checkOutPage.iframe);
                 }
                 catch (Exception e2) {
                 }
