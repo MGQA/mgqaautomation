@@ -1,6 +1,8 @@
 package com.motionglobal.testcases.sbg.mobile.smoke;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -35,9 +37,11 @@ public class MobTestSearchPradaBebeTrue extends AbstractBaseTestCase {
         searchResultPage.branksBtn.click();
         searchResultPage.JsMouse(searchResultPage.Bebe);
         searchResultPage.Bebe.click();
-        searchResultPage.waitForVisibility(searchResultPage.productDetailName, 2);
+        new WebDriverWait(driver, 5).until(ExpectedConditions.titleContains("Bebe"));
         Thread.sleep(100);
+        searchResultPage.waitForVisibility(searchResultPage.productDetailName, 2);
         String detailName = searchResultPage.productDetailName.getText();
+        new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(searchResultPage.productDetailName));
         searchResultPage.productDetailName.click();
         MobProductDetailPage productDetailPage = new MobProductDetailPage();
         Assert.assertEquals(detailName.replace("b", "B"), productDetailPage.productName.getText().replace("b", "B"));

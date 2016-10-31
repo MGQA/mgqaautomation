@@ -38,12 +38,22 @@ public class TestCheckoutLogin extends AbstractBaseSbgDesktopTestCase {
             NewCheckoutPage checkoutPage = new NewCheckoutPage();
             checkoutPage.waitForVisibility(checkoutPage.login, 5);
             checkoutPage.login.click();
-            header.waitForVisibility(header.username, 2);
-            header.username.clear();
-            header.username.sendKeys("felix.ma@motionglobal.com");
-            header.password.clear();
-            header.password.sendKeys("motion888");
-            header.signInButton.click();
+            try {
+                header.signInButton.get(1).click();
+                header.username.clear();
+                header.username.get(1).sendKeys("felix.ma@motionglobal.com");
+                header.password.clear();
+                header.password.get(1).sendKeys("motion888");
+                header.signInButton.get(1).click();
+            }
+            catch (Exception e) {
+                header.signInButton.get(0).click();
+                header.username.clear();
+                header.username.get(0).sendKeys("felix.ma@motionglobal.com");
+                header.password.clear();
+                header.password.get(0).sendKeys("motion888");
+                header.signInButton.get(0).click();
+            }
             try {
                 new WebDriverWait(driver, 15).until(ExpectedConditions.alertIsPresent());
             }
@@ -59,12 +69,22 @@ public class TestCheckoutLogin extends AbstractBaseSbgDesktopTestCase {
             cartPage.btnCheckout.click();
             CheckoutPage checkoutPage = new CheckoutPage();
             checkoutPage.login.click();
-            header.waitForVisibility(header.username, 2);
-            header.username.clear();
-            header.username.sendKeys("felix.ma@motionglobal.com");
-            header.password.clear();
-            header.password.sendKeys("motion888");
-            header.signInButton.click();
+            try {
+                header.signInButton.get(1).click();
+                header.username.clear();
+                header.username.get(1).sendKeys("felix.ma@motionglobal.com");
+                header.password.clear();
+                header.password.get(1).sendKeys("motion888");
+                header.signInButton.get(1).click();
+            }
+            catch (Exception e) {
+                header.signInButton.get(0).click();
+                header.username.clear();
+                header.username.get(0).sendKeys("felix.ma@motionglobal.com");
+                header.password.clear();
+                header.password.get(0).sendKeys("motion888");
+                header.signInButton.get(0).click();
+            }
             try {
                 new WebDriverWait(driver, 15).until(ExpectedConditions.alertIsPresent());
             }

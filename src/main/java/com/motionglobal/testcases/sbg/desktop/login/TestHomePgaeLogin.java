@@ -31,10 +31,10 @@ public class TestHomePgaeLogin extends AbstractBaseSbgDesktopTestCase {
         }
         header.signin.click();
         header.username.clear();
-        header.username.sendKeys("felix.ma@motionglobal.com");
+        header.username.get(0).sendKeys("felix.ma@motionglobal.com");
         header.password.clear();
-        header.password.sendKeys("motion888");
-        header.signInButton.click();
+        header.password.get(0).sendKeys("motion888");
+        header.signInButton.get(0).click();
         header.waitForVisibility(header.yourAccount, 10);
         Assert.assertTrue(header.isTextPresent("Hi test!"));
     }

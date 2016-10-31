@@ -39,7 +39,12 @@ public class TestCheckoutRegister extends AbstractBaseSbgDesktopTestCase {
             NewCheckoutPage checkoutPage = new NewCheckoutPage();
             checkoutPage.login.click();
             checkoutPage.waitForVisibility(checkoutPage.register, 5);
-            checkoutPage.register.click();
+            try {
+                checkoutPage.register.get(0).click();
+            }
+            catch (Exception e) {
+                checkoutPage.register.get(1).click();
+            }
             header.waitForVisibility(header.registerBtn, 1);
         }
         else {
@@ -48,7 +53,12 @@ public class TestCheckoutRegister extends AbstractBaseSbgDesktopTestCase {
             CheckoutPage checkoutPage = new CheckoutPage();
             checkoutPage.login.click();
             checkoutPage.waitForVisibility(checkoutPage.register, 5);
-            checkoutPage.register.click();
+            try {
+                checkoutPage.register.get(0).click();
+            }
+            catch (Exception e) {
+                checkoutPage.register.get(1).click();
+            }
             header.waitForVisibility(header.registerBtn, 1);
         }
     }

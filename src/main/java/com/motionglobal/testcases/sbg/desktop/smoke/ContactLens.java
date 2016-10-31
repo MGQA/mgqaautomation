@@ -101,6 +101,7 @@ public class ContactLens extends AbstractBaseSbgDesktopTestCase {
         new Header().inputSearch.click();
         resultPage.waitForVisibility(resultPage.bandNameDetail, 5);
         Assert.assertTrue(resultPage.proInfo.size() > 4, "daily contact lens Number <5");
+        resultPage.waitForVisibility(resultPage.brandName, 5);
         String name = resultPage.regexGetLetterLow(resultPage.bandNameDetail.getText());
         resultPage.brandName.click();
         CLProductDetailPage detailPage = new CLProductDetailPage();

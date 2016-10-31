@@ -31,8 +31,8 @@ public class TestCartregister extends AbstractBaseTestCase {
         cartPage.waitForVisibility(cartPage.loginCart, 2);
         cartPage.loginCart.click();
         Header header = new Header();
-        new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(header.register));
-        header.register.click();
+        new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(header.loginRegister));
+        header.loginRegister.click();
         header.waitForVisibility(header.registerBtn, 1);
         header.registerName.sendKeys(email);
         header.registerBtn.click();

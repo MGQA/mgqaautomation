@@ -33,7 +33,7 @@ public class TestQuickView extends AbstractBaseSbgDesktopTestCase {
         new Actions(driver).moveToElement(gridPage.proInfo.get(1)).build().perform();
         gridPage.waitForVisibility(gridPage.quickView.get(1), 5);
         gridPage.quickView.get(1).click();
-        gridPage.waitForVisibility(gridPage.eyeproSize, 10);
+        gridPage.waitForVisibility(gridPage.buySun, 10);
     }
 
     @Override

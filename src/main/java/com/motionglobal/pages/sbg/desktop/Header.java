@@ -53,11 +53,11 @@ public class Header extends AbstractBasePage {
     public WebElement signin;
     // after press login button : Loginin new Windows
     @FindBy(xpath = "//form[@id='loginFormNew']/span")
-    public WebElement signInButton;
+    public List<WebElement> signInButton;
     @FindBy(id = "username")
-    public WebElement username;
+    public List<WebElement> username;
     @FindBy(id = "password")
-    public WebElement password;
+    public List<WebElement> password;
     // @FindBy(css = "#signin_li_already>a>span")
     @FindBy(xpath = "//span[text()='Your Account']")
     public WebElement yourAccount;
@@ -68,6 +68,8 @@ public class Header extends AbstractBasePage {
     // register
     @FindBy(xpath = "//li[@id='signin_li']/div/div/p/a")
     public WebElement register;
+    @FindBy(css = ".register_btn.registerStep1")
+    public WebElement loginRegister;
     @FindBy(id = "step1_username")
     public WebElement registerName;
     @FindBy(id = "register_step1_btn")
