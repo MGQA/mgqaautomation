@@ -37,7 +37,7 @@ public class MobTestSearchPradaBebeTrue extends AbstractBaseTestCase {
         searchResultPage.branksBtn.click();
         searchResultPage.JsMouse(searchResultPage.Bebe);
         searchResultPage.Bebe.click();
-        new WebDriverWait(driver, 5).until(ExpectedConditions.titleContains("Bebe"));
+        new WebDriverWait(driver, 5).until(ExpectedConditions.textToBePresentInElement(searchResultPage.productDetailName, "Bebe"));
         Thread.sleep(100);
         searchResultPage.waitForVisibility(searchResultPage.productDetailName, 2);
         String detailName = searchResultPage.productDetailName.getText();
