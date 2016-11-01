@@ -50,7 +50,7 @@ public class MobCheckOutPage extends AbstractBaseSbgDesktopPage {
     public WebElement payPictureInJP;
 
     // order
-    @FindBy(css = "iframe")
+    @FindBy(css = "#getPaymentPage iframe")
     public WebElement iframe;
     @FindBy(name = "CREDITCARDNUMBER")
     public WebElement inputCard;
