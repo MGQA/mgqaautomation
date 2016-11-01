@@ -28,7 +28,7 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         mobHeader.searchInput.sendKeys("ray ban");
         mobHeader.actionKey(Keys.ENTER);
         MobSearchResultPage searchResultPage = new MobSearchResultPage();
-        searchResultPage.waitForVisibility(searchResultPage.productDetailName, 5);
+        searchResultPage.waitForVisibility(searchResultPage.productDetailName, 8);
         mobHeader.deleteHead();
         String name = searchResultPage.productName.get(0).getText();
         Assert.assertTrue(name.contains("Ray-Ban"), "Expected Ray-ban displayed, but no");
@@ -59,12 +59,14 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         checkOutPage.waitForVisibility(By.cssSelector("img[src*='bigVisa'][style='opacity: 1;']"), 15);
         for (int i = 0; i < 40; i++) {
             try {
+                System.out.println("try:" + i);
                 checkOutPage.waitForVisibility(checkOutPage.inputCard, 1);
                 new WebDriverWait(driver, 1).until(ExpectedConditions.elementToBeClickable(checkOutPage.inputCard));
                 break;
             }
             catch (Exception e) {
                 try {
+                    System.out.println("catch:" + i);
                     // new WebDriverWait(driver, 1).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(checkOutPage.iframe));
                     driver.switchTo().frame(checkOutPage.iframe);
                 }
@@ -81,13 +83,11 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
 
     @Override
     protected void initialize() {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     protected void tearDown() {
-        // TODO Auto-generated method stub
 
     }
 }

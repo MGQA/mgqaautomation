@@ -38,11 +38,12 @@ public class TestCheckoutRegister extends AbstractBaseSbgDesktopTestCase {
             cartPage.btnCheckout.click();
             NewCheckoutPage checkoutPage = new NewCheckoutPage();
             checkoutPage.login.click();
-            checkoutPage.waitForVisibility(checkoutPage.register, 5);
             try {
+                checkoutPage.waitForVisibility(checkoutPage.register.get(0), 2);
                 checkoutPage.register.get(0).click();
             }
             catch (Exception e) {
+                checkoutPage.waitForVisibility(checkoutPage.register.get(1), 2);
                 checkoutPage.register.get(1).click();
             }
             header.waitForVisibility(header.registerBtn, 1);
