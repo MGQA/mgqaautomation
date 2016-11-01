@@ -38,6 +38,7 @@ public class TestPayment extends AbstractBaseSbgDesktopTestCase {
         productDetailPage.btnBuyNow.click();
         //
         String cart = productDetailPage.getCartType();
+        productDetailPage.deleteHead();
         if (cart.equals("old")) {
             new CartPage().btnCheckout.click();
             CheckoutPage checkoutPage = new CheckoutPage();
