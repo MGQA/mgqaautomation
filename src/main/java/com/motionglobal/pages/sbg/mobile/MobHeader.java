@@ -64,7 +64,7 @@ public class MobHeader extends AbstractBasePage {
     public WebElement faceShape;
 
     public enum MegaMenu {
-        SUN, EYE, CL, DEALS, EXPLORE, SPORT;
+        SUN, EYE, CL, DEALS, EXPLORE, SPORT, PIMCORE;
     }
 
     public WebElement getMainMenuElement(MegaMenu megaMenuName) {
@@ -87,6 +87,9 @@ public class MobHeader extends AbstractBasePage {
             break;
         case SPORT:
             element = driver.findElement(By.xpath("//*[@id='menu']/div[2]/ul/li[3]/div/a"));
+            break;
+        case PIMCORE:
+            element = driver.findElement(By.xpath("//*[@id='menu']/div[2]/ul/li[7]/div/a"));
             break;
         default:
             Assert.assertTrue(false, " No't Contains MegaMenu" + megaMenuName);

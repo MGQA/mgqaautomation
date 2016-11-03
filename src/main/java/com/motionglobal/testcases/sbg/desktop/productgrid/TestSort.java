@@ -112,7 +112,6 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
         String getBrand = match.replaceAll("");
         String currentUrl = gridPage.getCurrentUrl();
         gridPage.AsssetEquals(currentUrl, url + getBrand + "/");
-
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
