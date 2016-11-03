@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
 import com.motionglobal.pages.AbstractBasePage;
@@ -80,7 +81,7 @@ public class Header extends AbstractBasePage {
     public WebElement registerWd;
     @FindBy(id = "step2_pConfirmation")
     public WebElement registerWdConfirm;
-    @FindBy(partialLinkText = "Complete registration")
+    @FindAll({ @FindBy(partialLinkText = "Complete registration"), @FindBy(css = "#register_step2_btn>a") })
     public WebElement registerCompleterBtn;
     @FindBy(id = "removeOnProductGlass")
     public WebElement registerSuccess;
@@ -100,6 +101,7 @@ public class Header extends AbstractBasePage {
     public WebElement lenseWeeksViewAll;
     @FindBy(xpath = "//div[@class='shop_by_cont']/div[2]/div[2]/div[4]/a")
     public WebElement clMonthlyViewAll;
+
     //
     @FindBy(xpath = "//*[@id='menuN_level_1']/li/div/div[1]/ul[1]/li[1]/a")
     public WebElement men;
