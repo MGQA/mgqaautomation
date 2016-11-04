@@ -21,6 +21,7 @@ public class TestIntoDeals extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         Menu menu = new Menu();
         menu.inputSearch.click();
+        menu.deleteHead();
         menu.displayMenu(7);
         menu.dealSunGlass.click();
         ProductGridPage gridPage = new ProductGridPage();
@@ -37,6 +38,7 @@ public class TestIntoDeals extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         Menu menu = new Menu();
         menu.inputSearch.click();
+        menu.deleteHead();
         menu.displayMenu(7);
         menu.dealEyeGlass.click();
         ProductGridPage gridPage = new ProductGridPage();
