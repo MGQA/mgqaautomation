@@ -132,7 +132,7 @@ public class MobilePayPicture extends AbstractBaseSbgDesktopTestCase {
         checkOutPage.waitForVisibility(checkOutPage.continueBtn, 2);
         checkOutPage.continueBtn.click();
         //
-        checkOutPage.waitForVisibility(checkOutPage.payPicture, 5);
+        checkOutPage.waitForVisibility(checkOutPage.payPicture, 8);
         switch (url.split("\\.")[url.split("\\.").length - 1]) {
         case "mx":
         case "co":

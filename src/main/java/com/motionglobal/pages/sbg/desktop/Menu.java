@@ -1,5 +1,7 @@
 package com.motionglobal.pages.sbg.desktop;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,6 +15,20 @@ public class Menu extends Header {
     // menu 6
     @FindBy(xpath = "//p[text()='FACE SHAPE']")
     public WebElement faceShape;
+
+    // menu 7 deals
+    @FindBy(css = ".megamenu_left_all>a>span")
+    public WebElement dealShowNow;
+    @FindBy(className = "megamenu_center_buynow")
+    public WebElement dealBuyNow;
+    @FindBy(css = ".megamenu_righ_sunglasses>a")
+    public WebElement dealSunGlass;
+    @FindBy(css = ".megamenu_righ_glasses>a")
+    public WebElement dealEyeGlass;
+    @FindBy(className = "center_span_number")
+    public WebElement dealPrice;
+    @FindBy(css = ".top_brand_details")
+    public List<WebElement> dealIMG;
 
     public WebElement getMegaMenuMainElement(int mainMenuNum) {
         return driver.findElement(By.xpath("//li[@id='menuN_" + mainMenuNum + "']/a"));

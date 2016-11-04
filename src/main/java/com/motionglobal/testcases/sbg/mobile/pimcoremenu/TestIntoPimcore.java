@@ -16,10 +16,10 @@ public class TestIntoPimcore extends AbstractBaseTestCase {
 
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://m.smartbuyglasses.co.uk/" }, { "http://m.smartbuyglasses.com/" }, };
+        return new Object[][] { new Object[] { "http://m.smartbuyglasses.co.uk/" }, { "http://m.smartbuyglasses.com/" }, { "http://m.smartbuyglasses.dk/" } };
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void IntoPimcorePage(String url) throws InterruptedException {
         getURL(url);
         MobHeader header = new MobHeader();

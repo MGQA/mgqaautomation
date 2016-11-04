@@ -22,19 +22,6 @@ public class Header extends AbstractBasePage {
     @FindBy(className = "geo-close-btn")
     public WebElement geo;
 
-    // deals
-    @FindBy(css = ".megamenu_left_all>a>span")
-    public WebElement dealShowNow;
-    @FindBy(className = "megamenu_center_buynow")
-    public WebElement dealBuyNow;
-    @FindBy(css = ".megamenu_righ_sunglasses>a")
-    public WebElement dealSunGlass;
-    @FindBy(css = ".megamenu_righ_glasses>a")
-    public WebElement dealEyeGlass;
-    @FindBy(className = "center_span_number")
-    public WebElement dealPrice;
-    @FindBy(css = ".top_brand_details")
-    public List<WebElement> dealIMG;
     //
     @FindBy(id = "logo")
     public WebElement logo;
