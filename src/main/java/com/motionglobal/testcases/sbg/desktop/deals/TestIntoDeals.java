@@ -21,11 +21,11 @@ public class TestIntoDeals extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         Menu menu = new Menu();
         menu.inputSearch.click();
-        menu.deleteHead();
         menu.displayMenu(7);
         menu.dealSunGlass.click();
         ProductGridPage gridPage = new ProductGridPage();
         gridPage.waitForVisibility(gridPage.productDetailName, 2);
+        menu.deleteHead();
         String price1 = String.valueOf(gridPage.regexGetDouble(gridPage.productPriceS.get(0).getText()));
         gridPage.productDetailName.click();
         ProductDetailPage detailPage = new ProductDetailPage();
@@ -38,11 +38,11 @@ public class TestIntoDeals extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         Menu menu = new Menu();
         menu.inputSearch.click();
-        menu.deleteHead();
         menu.displayMenu(7);
         menu.dealEyeGlass.click();
         ProductGridPage gridPage = new ProductGridPage();
         gridPage.waitForVisibility(gridPage.productDetailName, 2);
+        menu.deleteHead();
         String price1 = String.valueOf(gridPage.regexGetDouble(gridPage.productPriceS.get(0).getText()));
         gridPage.productDetailName.click();
         ProductDetailPage detailPage = new ProductDetailPage();
