@@ -157,7 +157,7 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
                 checkoutPage.AssertPayPicture(url, 1, 2, 3, 849, 841);
                 break;
             case "ca":
-                if (url.split("\\.")[1].equals("fr") | url.split("\\.")[1] == ("fr")) {
+                if (url.equals("http://fr.smartbuyglasses.ca") | url == ("http://fr.smartbuyglasses.ca")) {
                     checkoutPage.AssertPayPicture(url, 1, 3, 122, 125);
                 }
                 else {
@@ -260,7 +260,7 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
                 checkoutPage.AssertPayPicture(url, 1, 2, 3, 16, 17);
                 break;
             case "ca":
-                if (url.split("\\.")[0].equals("http://fr")) {
+                if (url.equals("http://fr.smartbuyglasses.ca") | url == ("http://fr.smartbuyglasses.ca")) {
                     checkoutPage.AssertPayPicture(url, 1, 3, 5, 9);
                 }
                 else {
