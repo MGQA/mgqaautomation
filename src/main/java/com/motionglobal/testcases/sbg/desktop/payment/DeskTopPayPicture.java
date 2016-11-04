@@ -88,7 +88,11 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
             checkoutPage.inputBillingEmail.sendKeys("jack.zhong@motionglobal.com");
             checkoutPage.inputBillingTelephone.sendKeys("15962626262");
             checkoutPage.inputBillingAddress1.sendKeys("xuhuiqu");
-            checkoutPage.inputBillingCity.sendKeys("shanghai");
+            try {
+                checkoutPage.inputBillingCity.sendKeys("shanghai");
+            }
+            catch (Exception e) {
+            }
             checkoutPage.inputBillingPostCode.sendKeys("200000");
             switch (url.split("\\.")[url.split("\\.").length - 1]) {
             case "sg":
