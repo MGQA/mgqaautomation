@@ -93,7 +93,11 @@ public class DeskTopPayPicture extends AbstractBaseSbgDesktopTestCase {
             }
             catch (Exception e) {
             }
-            checkoutPage.inputBillingPostCode.sendKeys("200000");
+            try {
+                checkoutPage.inputBillingPostCode.sendKeys("200000");
+            }
+            catch (Exception e) {
+            }
             switch (url.split("\\.")[url.split("\\.").length - 1]) {
             case "sg":
             case "ch":

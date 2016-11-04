@@ -28,9 +28,9 @@ public class MobTestDeals extends AbstractBaseTestCase {
         // header.subMenuS.get(0).click();
         MobProductPage productPage = new MobProductPage();
         productPage.waitForVisibility(productPage.productName1, 5);
-        // productPage.filter.click();
-        // productPage.subFilter.get(3).click();
-        // productPage.finalFilter.get(3).click();
+        productPage.filter.click();
+        productPage.subFilter.get(3).click();
+        productPage.finalFilter.get(3).click();
         MobProductPage productPage2 = new MobProductPage();
         productPage2.waitForVisibility(productPage2.productName1, 5);
         double price1 = productPage2.regexGetDouble(productPage2.productPrice.get(0).getText());
