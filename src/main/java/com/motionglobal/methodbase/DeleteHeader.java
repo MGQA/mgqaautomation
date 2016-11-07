@@ -25,6 +25,11 @@ public class DeleteHeader extends AbstractBaseContainer {
         }
         catch (Exception e) {
         }
+        try {
+            JsDisplayNone(header.delAddLens);
+        }
+        catch (Exception e) {
+        }
         deleteLetTalk();
     }
 

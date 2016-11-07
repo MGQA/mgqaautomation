@@ -33,6 +33,7 @@ public class TestCheckoutRegister extends AbstractBaseSbgDesktopTestCase {
         header.inputSearch.click();
         detailPage.btnBuyNow.click();
         String cart = detailPage.getCartType();
+        detailPage.deleteHead();
         if (cart.equals("new")) {
             NewCartPage cartPage = new NewCartPage();
             cartPage.btnCheckout.click();
