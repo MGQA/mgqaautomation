@@ -22,7 +22,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         getURL(url);
         SearchResultPage resultPage = new SearchResultPage();
         resultPage.waitForVisibility(resultPage.filterMen, 2);
-        int procuctCount = Integer.parseInt(resultPage.productCount.getText());
+        int procuctCount = Integer.parseInt(resultPage.productCount.getText().replace(",", ""));
         resultPage.deleteHead();
         String brand4 = resultPage.brand4.getText();
         resultPage.filterMen.click();

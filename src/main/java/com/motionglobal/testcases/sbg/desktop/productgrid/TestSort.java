@@ -100,6 +100,7 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
 
         // rigthBtn
         gridPage.waitForVisibility(gridPage.popularRightBtn, 5);
+        gridPage.deleteHead();
         gridPage.popularRightBtn.click();
         gridPage.waitForVisibility(gridPage.popularBrands1, 2);
         Assert.assertNotEquals(popularBrandName1, popularBrandName3);
