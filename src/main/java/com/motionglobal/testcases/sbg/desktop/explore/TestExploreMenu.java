@@ -9,7 +9,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 public class TestExploreMenu extends AbstractBaseSbgDesktopTestCase {
 
     // FIXME sub menu
-    @Test(skipFailedInvocations = true, groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, groups = { "debug", "smoke" })
     public void moveAndImgDisplay() {
         String url = "http://www.smartbuyglasses.co.uk/";
         getURL(url);

@@ -11,7 +11,7 @@ public class TestHomePgaeLogin extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
-        return new Object[][] { { "http://www.smartbuyglasses.co.uk/" }, { "http://www.smartbuyglasses.dk/" }, { "http://www.smartbuyglasses.com/" } };
+        return new Object[][] { { "http://www.smartbuyglasses.dk/" }, { "http://www.smartbuyglasses.com/" } };
     }
 
     @Test(dataProvider = "db", groups = { "debug", "smoke", "fastsmoke" })

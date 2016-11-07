@@ -12,14 +12,12 @@ public class TestBuyNoRX extends AbstractBaseSbgDesktopTestCase {
     @DataProvider
     public Object[][] db() {
         return new Object[][] { { "http://www.smartbuyglasses.com.hk/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html" },
-                { "http://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html" },
                 { "http://www.smartbuyglasses.dk/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html" } };
     }
 
     @DataProvider
     public Object[][] eye() {
-        return new Object[][] { { "http://www.smartbuyglasses.co.uk/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html" },
-                { "http://www.smartbuyglasses.co.uk/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html" },
+        return new Object[][] { { "http://www.smartbuyglasses.com.hk/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html" },
                 { "http://www.smartbuyglasses.co.uk/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html" } };
     }
 

@@ -52,9 +52,9 @@ public class TestDeatilPageRX extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] eye() {
-        return new Object[][] { { "http://www.smartbuyglasses.co.uk/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html" },
+        return new Object[][] { { "http://www.smartbuyglasses.com.hk/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html" },
                 { "http://www.smartbuyglasses.co.uk/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html" },
-                { "http://www.smartbuyglasses.co.uk/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html" } };
+                { "http://www.smartbuyglasses.dk/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "eye", groups = { "debug", "smoke" })

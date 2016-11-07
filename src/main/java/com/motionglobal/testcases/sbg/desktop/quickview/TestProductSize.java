@@ -11,7 +11,8 @@ public class TestProductSize extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
-        return new Object[][] { { "http://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/Ray-Ban-RB3016-Clubmaster-W0365-52167.html" } };
+        return new Object[][] { { "http://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/Ray-Ban-RB3016-Clubmaster-W0365-52167.html" },
+                { "http://www.smartbuyglasses.dk/designer-sunglasses/Ray-Ban/Ray-Ban-RB3016-Clubmaster-W0365-52167.html" } };
     }
 
     // XXX case 1
@@ -19,6 +20,7 @@ public class TestProductSize extends AbstractBaseSbgDesktopTestCase {
     public void changeSize(String url) {
         getURL(url);
         ProductDetailPage detailPage = new ProductDetailPage();
+        detailPage.header().inputSearch.click();
         detailPage.deleteHead();
         double price1 = detailPage.regexGetDouble(detailPage.price.getText());
         detailPage.clickSizeNum(1);

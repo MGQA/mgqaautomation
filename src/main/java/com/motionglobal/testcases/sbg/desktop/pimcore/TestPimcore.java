@@ -23,19 +23,17 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
-        return new Object[][] { { "http://www.smartbuyglasses.co.uk/" }, { "http://www.smartbuyglasses.dk/" }, { "http://www.smartbuyglasses.com/" } };
+        return new Object[][] { { "http://www.smartbuyglasses.co.uk/" }, { "http://www.smartbuyglasses.dk/" } };
     }
 
     @DataProvider
     public Object[][] pk() {
-        return new Object[][] { { "http://www.smartbuyglasses.co.uk/optical-centre" }, { "http://www.smartbuyglasses.com/optical-center" },
-                { "http://www.smartbuyglasses.dk/optisk-center" } };
+        return new Object[][] { { "http://www.smartbuyglasses.com/optical-center" }, { "http://www.smartbuyglasses.dk/optisk-center" } };
     }
 
     @DataProvider
     public Object[][] pop() {
         return new Object[][] { { "http://www.smartbuyglasses.co.uk/optical-centre/search-results?popular=true" },
-                { "http://www.smartbuyglasses.com/optical-center/search-results?popular=true" },
                 { "http://www.smartbuyglasses.dk/optisk-center/search-results?popular=true" } };
     }
 
