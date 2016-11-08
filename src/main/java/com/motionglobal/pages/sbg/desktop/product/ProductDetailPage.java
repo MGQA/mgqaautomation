@@ -27,7 +27,7 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
     public WebElement price;
     @FindBy(xpath = "//a[@class='pro_big_title']/h1")
     public WebElement glassName;
-    @FindBy(css = ".pro_big_title>h1")
+    @FindBy(css = ".pro_title_logo>a>h1")
     public WebElement productName;
 
     //

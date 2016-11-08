@@ -74,7 +74,7 @@ public class TestCart extends AbstractBaseTestCase {
     @Test(skipFailedInvocations = true, groups = { "debug2", "smoke" })
     public void twoProductAddDelete() throws InterruptedException {
         String url1 = "http://m.smartbuyglasses.com/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html";
-        String url2 = "http://m.smartbuyglasses.com/designer-sunglasses/Gucci/Gucci-GG-3500/S-WNQ/02-108457.html";
+        String url2 = "http://m.smartbuyglasses.com/designer-sunglasses/Tom-Ford/Tom-Ford-FT0008-JENNIFER-692-8152.html";
         getURL(url1);
         MobProductDetailPage detailPage = new MobProductDetailPage();
         detailPage.buyNow.click();
@@ -133,8 +133,8 @@ public class TestCart extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] sun() {
         return new Object[][] {
-                new Object[] { "http://m.smartbuyglasses.com/designer-sunglasses/Maui-Jim/Maui-Jim-Baby-Beach-Polarized-HS245-16-164380.html" },
-                { "http://m.smartbuyglasses.dk/designer-sunglasses/Maui-Jim/Maui-Jim-Baby-Beach-Polarized-HS245-16-164380.html" } };
+                new Object[] { "http://m.smartbuyglasses.com/designer-sunglasses/Ralph-by-Ralph-Lauren/Ralph-by-Ralph-Lauren-RA4004-101/13-23260.html" },
+                { "http://m.smartbuyglasses.dk/designer-sunglasses/Ralph-by-Ralph-Lauren/Ralph-by-Ralph-Lauren-RA4004-101/13-23260.html" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "sun", groups = { "debug2", "smoke" })
@@ -173,7 +173,7 @@ public class TestCart extends AbstractBaseTestCase {
         cartPage.waitForVisibility(cartPage.fastCheckOut, 5);
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "sun", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "eye", groups = { "debug2", "smoke" })
     public void addEye(String url) throws InterruptedException {
         getURL(url);
         MobProductDetailPage detailPage = new MobProductDetailPage();
