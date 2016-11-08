@@ -10,6 +10,10 @@ import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class RX3Page extends AbstractBaseSbgDesktopPage {
 
+    // scale
+    @FindBy(css = ".RX_box.clearfix")
+    public WebElement rx3Frame;
+
     // Price
     @FindBy(id = "discount_price_promotion_display")
     public WebElement framePrice;

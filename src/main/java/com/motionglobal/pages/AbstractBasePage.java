@@ -67,6 +67,11 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         js.executeScript("arguments[0].setAttribute('class','" + classContent + "');", element);
     }
 
+    public void JsScale(WebElement element, double scale) {
+        JavascriptExecutor js = ((JavascriptExecutor) driver);
+        js.executeScript("arguments[0].style.transform='scale(" + scale + ")';", element);
+    }
+
     public void displayMenu(int num) {
         JsChangeClass("nav_submenu menuN_dispaly", driver.findElement(By.id("menuN_level_" + num)));
     }
