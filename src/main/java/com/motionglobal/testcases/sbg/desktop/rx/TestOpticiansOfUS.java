@@ -20,6 +20,7 @@ public class TestOpticiansOfUS extends AbstractBaseTestCase {
         String url = "http://www.smartbuyglasses.com/designer-eyeglasses/Tom-Ford/";
         getURL(url);
         Header header = new Header();
+        header.inputSearch.click();
         header.deleteHead();
         ProductGridPage productGridPage = new ProductGridPage();
         //
@@ -33,6 +34,7 @@ public class TestOpticiansOfUS extends AbstractBaseTestCase {
         productGridPage.waitForVisibility(productGridPage.buyRX, 20);
         productGridPage.buyRX.click();
         RX3Page rx3Page = new RX3Page();
+        rx3Page.JsScale(rx3Page.rx3Frame, 0.5);
         Double framePrice = productGridPage.regexGetDouble(rx3Page.framePrice.getText());
         header.waitForVisibility(productGridPage.cartBtn, 10);
         rx3Page.deluxe.click();

@@ -22,11 +22,12 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
 public class TestOpticians extends AbstractBaseTestCase {
 
     // FIXME CASE 1
-    @Test(groups = { "debug", "smoke", "fastsmoke" })
+    @Test(groups = { "debug111", "smoke", "fastsmoke" })
     public void ABRX() {
         String url = "http://www.visiondirect.com.au/designer-eyeglasses/Tom-Ford/";
         getURL(url);
         Header header = new Header();
+        header.inputSearch.click();
         header.deleteHead();
         ProductGridPage productGridPage = new ProductGridPage();
         //
@@ -45,6 +46,7 @@ public class TestOpticians extends AbstractBaseTestCase {
         if (productGridPage.getRXType().equals("new")) {
             // new RXss
             RX3Page rx3 = new RX3Page();
+            rx3.JsScale(rx3.rx3Frame, 0.5);
             Double framePrice = rx3.regexGetDouble(rx3.framePrice.getText());
             rx3.deluxe.click();
             header.waitForVisibility(rx3.deluxeVery, 2);
