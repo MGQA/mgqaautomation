@@ -34,6 +34,7 @@ public class TestOpticiansOfUS extends AbstractBaseTestCase {
         productGridPage.waitForVisibility(productGridPage.buyRX, 20);
         productGridPage.buyRX.click();
         RX3Page rx3Page = new RX3Page();
+        rx3Page.waitForVisibility(rx3Page.rx3Frame, 5);
         rx3Page.JsScale(rx3Page.rx3Frame, 0.5);
         Double framePrice = productGridPage.regexGetDouble(rx3Page.framePrice.getText());
         header.waitForVisibility(productGridPage.cartBtn, 10);

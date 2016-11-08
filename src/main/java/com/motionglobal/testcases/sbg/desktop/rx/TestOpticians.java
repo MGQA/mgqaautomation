@@ -22,7 +22,7 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
 public class TestOpticians extends AbstractBaseTestCase {
 
     // FIXME CASE 1
-    @Test(groups = { "debug111", "smoke", "fastsmoke" })
+    @Test(groups = { "debug", "smoke", "fastsmoke" })
     public void ABRX() {
         String url = "http://www.visiondirect.com.au/designer-eyeglasses/Tom-Ford/";
         getURL(url);

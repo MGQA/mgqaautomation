@@ -122,7 +122,7 @@ public class MobTestSunRX extends AbstractBaseTestCase {
 
         // Add eye RX
         MobProductDetailPage detailPage2 = new MobProductDetailPage();
-        detailPage2.waitForVisibility(detailPage2.addLens, 2);
+        detailPage2.waitForVisibility(detailPage2.addLens, 5);
         detailPage2.addLens.click();
         MobRX3Page rx3Page2 = new MobRX3Page();
         rx3Page2.elementClick(rx3Page.btnContinue);
