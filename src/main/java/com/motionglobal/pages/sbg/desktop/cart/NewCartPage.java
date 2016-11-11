@@ -12,8 +12,10 @@ public class NewCartPage extends AbstractBaseSbgDesktopPage {
 
     @FindBy(css = ".quantity-wrapper>select")
     public List<WebElement> selectQuantity;
-    @FindBy(css = ".top-checkout-btn.pay_now.gc-checkout-class.gointerpay_submit")
+    @FindBy(css = "button.gc-checkout-class")
     public WebElement btnCheckout;
+    @FindBy(id = "paypal_submit")
+    public WebElement paypalBtn;
 
     // assert
     @FindBy(className = "empty-cart-content")
@@ -22,6 +24,8 @@ public class NewCartPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> priceOnlyFrame; // price no't RX
     @FindBy(className = "price-cost")
     public List<WebElement> priceRx;
+    @FindBy(id = "totalAmount")
+    public WebElement priceTotal;
 
     @Override
     protected void waitPageLoad() {

@@ -44,6 +44,8 @@ public class Header extends AbstractBasePage {
     // after press login button : Loginin new Windows
     @FindBy(xpath = "//form[@id='loginFormNew']/span")
     public List<WebElement> signInButton;
+    @FindBy(css = ".login_in_popup .facebookS")
+    public WebElement loginFaceBook;
     @FindBy(id = "username")
     public List<WebElement> username;
     @FindBy(id = "password")

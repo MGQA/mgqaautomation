@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.sbg.desktop.cart.CartPage;
+import com.motionglobal.pages.sbg.desktop.cart.NewCartPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.rx.RX3Page;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
@@ -26,8 +26,8 @@ public class TestBuyEyeOnJP extends AbstractBaseSbgDesktopTestCase {
         RX3Page rx3Page = new RX3Page();
         rx3Page.waitForVisibility(rx3Page.buyOnlyFrame, 2);
         rx3Page.buyOnlyFrame.click();
-        CartPage cartPage = new CartPage();
-        double price2 = detailPage.regexGetDouble(cartPage.priceTotal.getText());
+        NewCartPage newCartPage = new NewCartPage();
+        double price2 = detailPage.regexGetDouble(newCartPage.priceTotal.getText());
         Assert.assertEquals(price1, price2);
     }
 
@@ -41,8 +41,8 @@ public class TestBuyEyeOnJP extends AbstractBaseSbgDesktopTestCase {
         rx3Page.waitForVisibility(rx3Page.addToCart, 2);
         double price1 = detailPage.regexGetDouble(rx3Page.total_price.getText());
         rx3Page.addToCart.click();
-        CartPage cartPage = new CartPage();
-        double price2 = detailPage.regexGetDouble(cartPage.priceTotal.getText());
+        NewCartPage newCartPage = new NewCartPage();
+        double price2 = detailPage.regexGetDouble(newCartPage.priceTotal.getText());
         Assert.assertEquals(price1, price2);
     }
 

@@ -2,13 +2,11 @@ package com.motionglobal.testcases.sbg.desktop.login;
 
 import java.util.Random;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
-import com.motionglobal.pages.sbg.desktop.cart.CartPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 /**
@@ -82,22 +80,22 @@ public class LoginTest extends AbstractBaseSbgDesktopTestCase {
     // XXX
     @Test(groups = { "debug", "smoke", "fastsmoke" })
     public void faceBookLogin() {
-        String hkUrl = "http://www.smartbuyglasses.com.hk/cart";
+        String hkUrl = "http://www.smartbuyglasses.com.hk";
         getURL(hkUrl);
-        CartPage cartPage = new CartPage();
-        cartPage.waitForVisibility(cartPage.loginCart, 2);
-        cartPage.loginCart.click();
-        cartPage.waitForVisibility(cartPage.loginFaceBook, 2);
-        cartPage.loginFaceBook.click();
         Header header = new Header();
+        header.displayLogin();
+        header.waitForVisibility(header.signin, 2);
+        header.signin.click();
+        header.waitForVisibility(header.loginFaceBook, 2);
+        header.loginFaceBook.click();
         header.waitForVisibility(header.faceBookEmail, 5);
         header.faceBookEmail.sendKeys("+8615200792931");
         header.faceBookPasswd.sendKeys("motion888");
         header.faceBookBtn.click();
-        CartPage cartPage2 = new CartPage();
         driver.navigate().refresh();
         // #content>div[class*=cart_] is login in cart page
-        new WebDriverWait(driver, 5).until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("#content>div[class*=cart_]"), 3));
+        // new WebDriverWait(driver, 5).until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("#content>div[class*=cart_]"), 3));
+        header.isTextPresent("Hi test!");
         driver.quit();
     }
 
