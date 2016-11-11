@@ -3,7 +3,7 @@ package com.motionglobal.testcases.sbg.desktop.end2end;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.motionglobal.pages.sbg.desktop.cart.CartPage;
+import com.motionglobal.pages.sbg.desktop.cart.NewCartPage;
 import com.motionglobal.pages.sbg.desktop.checkout.CheckoutPage;
 import com.motionglobal.pages.sbg.desktop.home.HomePage;
 import com.motionglobal.pages.sbg.desktop.payment3rdparty.GcPaymentPage;
@@ -26,7 +26,8 @@ public class TestEnd2End extends AbstractBaseSbgDesktopTestCase {
         searchResultPage.resultGrid().getItem(0).click();
         ProductDetailPage productDetailPage = new ProductDetailPage();
         productDetailPage.btnBuyNow.click();
-        new CartPage().btnCheckout.click();
+        // new CartPage().btnCheckout.click();
+        new NewCartPage().btnCheckout.click();
         CheckoutPage checkoutPage = new CheckoutPage();
         checkoutPage.inputBillingFirstName("automationFirst").inputBillingLastName("automationLast");
         checkoutPage.inputBillingEmail("testautomation@automation.com").inputBillingTelephone("automationTel");
