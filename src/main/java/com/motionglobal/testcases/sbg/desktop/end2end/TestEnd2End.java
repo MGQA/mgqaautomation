@@ -1,14 +1,16 @@
 package com.motionglobal.testcases.sbg.desktop.end2end;
 
-import org.testng.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.cart.NewCartPage;
-import com.motionglobal.pages.sbg.desktop.checkout.CheckoutPage;
+import com.motionglobal.pages.sbg.desktop.checkout.NewCheckoutPage;
 import com.motionglobal.pages.sbg.desktop.home.HomePage;
-import com.motionglobal.pages.sbg.desktop.payment3rdparty.GcPaymentPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.search.SearchResultPage;
+import com.motionglobal.pages.sbg.desktop.thankyou.ThankYouPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 /**
@@ -28,12 +30,29 @@ public class TestEnd2End extends AbstractBaseSbgDesktopTestCase {
         productDetailPage.btnBuyNow.click();
         // new CartPage().btnCheckout.click();
         new NewCartPage().btnCheckout.click();
-        CheckoutPage checkoutPage = new CheckoutPage();
-        checkoutPage.inputBillingFirstName("automationFirst").inputBillingLastName("automationLast");
-        checkoutPage.inputBillingEmail("testautomation@automation.com").inputBillingTelephone("automationTel");
-        checkoutPage.selectBillingCountry("HK").inputBillingAddress1("automationAddress1");
-        checkoutPage.clickVISA().btnGcPayment.click();
-        Assert.assertTrue(new GcPaymentPage().inputORB.isDisplayed());
+
+        NewCheckoutPage checkoutPage = new NewCheckoutPage();
+
+        checkoutPage.inputBillingFirstName.sendKeys("automationFirst");
+        checkoutPage.inputBillingLastName.sendKeys("automationLast");
+        checkoutPage.inputBillingEmail.sendKeys("testautomation@automation.com");
+        checkoutPage.inputBillingTelephone.sendKeys("automationTel");
+        checkoutPage.inputBillingAddress1.sendKeys("automationAddress1");
+
+        checkoutPage.btnPayment.click();
+        checkoutPage.payPicture.get(0).click();
+        new WebDriverWait(driver, 5).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(checkoutPage.orderIFrame));
+        checkoutPage.waitForVisibility(checkoutPage.orderSubmit, 20);
+        checkoutPage.orderCard.sendKeys("4111111111111111");
+        Select selectMM = new Select(checkoutPage.orderMM);
+        selectMM.selectByValue("10");
+        Select selectYY = new Select(checkoutPage.orderYY);
+        selectYY.selectByValue("20");
+        checkoutPage.orderSecurity.sendKeys("1111");
+        checkoutPage.orderSubmit.click();
+        ThankYouPage thankYouPage = new ThankYouPage();
+        String sMoneyReward = thankYouPage.reWard.getText().replace("$", "");
+        System.out.println(sMoneyReward);
     }
 
     @Override
