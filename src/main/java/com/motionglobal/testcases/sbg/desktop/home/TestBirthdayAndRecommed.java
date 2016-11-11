@@ -13,7 +13,10 @@ public class TestBirthdayAndRecommed extends AbstractBaseSbgDesktopTestCase {
 
     WebDriver driver;
 
-    @Test(groups = { "debug" })
+    /**
+     * no something
+     */
+    @Test(enabled = false, groups = { "debug" })
     public void birthday() {
         getURL("http://www.smartbuyglasses.co.uk/?birthday");
         Header header = new Header();

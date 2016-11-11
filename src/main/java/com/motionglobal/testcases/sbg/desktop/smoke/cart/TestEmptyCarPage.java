@@ -20,7 +20,7 @@ public class TestEmptyCarPage extends AbstractBaseSbgDesktopTestCase {
      */
     @Test(groups = { "debug", "smoke", "fastsmoke" })
     public void AU_CartBoxEmptyPage() {
-        String url = "http://www.visiondirecta.cl/";
+        String url = "http://www.oculosworld.com.br/";
         getURL(url);
         try {
             Alert alert = driver.switchTo().alert();
