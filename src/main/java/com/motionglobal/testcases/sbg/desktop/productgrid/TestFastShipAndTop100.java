@@ -49,7 +49,7 @@ public class TestFastShipAndTop100 extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(actualName.contains(name), "product no't matcher !!!");
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
     public void clickDetail(String url) {
         getURL(url);
         ProductGridPage gridPage = new ProductGridPage();
@@ -61,7 +61,7 @@ public class TestFastShipAndTop100 extends AbstractBaseSbgDesktopTestCase {
         String name = gridPage.regexGetLetterLow(gridPage.productDetailName.getText()).replace("sunglasses", "").replace("fast", "").replace("shipping", "")
                 .replace("solbrillerhurtiglevering", "");
         String detailName = gridPage.regexGetLetterLow(gridPage.quickViewName.getText());
-        Assert.assertEquals(name, detailName, "quickViewName no't matcher !!!");
+        Assert.assertTrue(name.contains(detailName), "quickViewName no't matcher !!!");
         gridPage.detail.click();
         gridPage.acceptAlert();
         ProductDetailPage detailPage = new ProductDetailPage();

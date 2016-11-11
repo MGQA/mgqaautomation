@@ -51,6 +51,7 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
         // cartpage click paypal
         NewCartPage cartPage = new NewCartPage();
         cartPage.JsMouse(cartPage.paypalBtn);
+        cartPage.deleteHead();
         cartPage.paypalBtn.click();
         PaypalPage paypalPage = new PaypalPage();
         Assert.assertNotNull(paypalPage.paypalContentDisplay);
