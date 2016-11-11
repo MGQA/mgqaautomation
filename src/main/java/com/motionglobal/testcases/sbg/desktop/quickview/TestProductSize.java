@@ -22,6 +22,7 @@ public class TestProductSize extends AbstractBaseSbgDesktopTestCase {
         ProductDetailPage detailPage = new ProductDetailPage();
         detailPage.header().inputSearch.click();
         detailPage.deleteHead();
+        detailPage.waitForVisibility(detailPage.productSizeS, 5);
         double price1 = detailPage.regexGetDouble(detailPage.price.getText());
         detailPage.clickSizeNum(1);
         double price2 = detailPage.regexGetDouble(detailPage.price.getText());

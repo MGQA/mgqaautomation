@@ -25,6 +25,7 @@ public class TestColorMatching extends AbstractBaseSbgDesktopTestCase {
         detailPage.getRXType();
         RX3Page rx3Page = new RX3Page();
         rx3Page.waitForVisibility(rx3Page.rxList.get(3), 2);
+        rx3Page.JsScale(rx3Page.rx3Frame, 0.5);
         int price1 = rx3Page.regexGeInt(rx3Page.color_price.getText());
         String color1 = rx3Page.rxList.get(3).getText();
         rx3Page.rxList.get(3).click();

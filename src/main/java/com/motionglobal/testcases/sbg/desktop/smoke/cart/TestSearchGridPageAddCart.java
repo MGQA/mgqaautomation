@@ -27,7 +27,7 @@ public class TestSearchGridPageAddCart extends AbstractBaseSbgDesktopTestCase {
         SearchResultPage resultPage = new SearchResultPage();
         resultPage.header().inputSearch.click();
         resultPage.matcherQuickViewClickOpen(1);
-        resultPage.waitForVisibility(resultPage.buyNoRX, 2);
+        resultPage.waitForVisibility(resultPage.buyNoRX, 15);
         resultPage.buyNoRX.click();
         boolean cart = false;
         if (resultPage.getCartType().equals("old")) {
@@ -45,7 +45,7 @@ public class TestSearchGridPageAddCart extends AbstractBaseSbgDesktopTestCase {
         SearchResultPage resultPage = new SearchResultPage();
         resultPage.header().inputSearch.click();
         resultPage.matcherQuickViewClickOpen(1);
-        resultPage.waitForVisibility(resultPage.buyRX, 2);
+        resultPage.waitForVisibility(resultPage.buyRX, 15);
         resultPage.buyRX.click();
         RX3Page rx3Page = new RX3Page();
         resultPage.getRXType();
@@ -83,7 +83,7 @@ public class TestSearchGridPageAddCart extends AbstractBaseSbgDesktopTestCase {
         SearchResultPage resultPage = new SearchResultPage();
         resultPage.header().inputSearch.click();
         resultPage.matcherQuickViewClickOpen(1);
-        resultPage.waitForVisibility(resultPage.buyRX, 5);
+        resultPage.waitForVisibility(resultPage.buyRX, 15);
         resultPage.frameOrAdd.get(1).click();
         resultPage.waitForVisibility(resultPage.buyNoRX, 5);
         resultPage.buyNoRX.click();

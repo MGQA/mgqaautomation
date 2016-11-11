@@ -21,7 +21,7 @@ public class TestCartregister extends AbstractBaseTestCase {
 
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://www.smartbuyglasses.com.hk/cart" } };
+        return new Object[][] { new Object[] { "http://www.oculosworld.com.br/cart" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })

@@ -51,7 +51,10 @@ public class TestStyleFinder extends AbstractBaseSbgDesktopTestCase {
         Assert.assertTrue(gridPage.proInfo.size() > 0, " Product Page Is Empty !!!");
     }
 
-    @Test(skipFailedInvocations = true, groups = { "debug", "smoke" })
+    /**
+     * @enabled=false, beacuse findStyle became pimcore
+     */
+    @Test(enabled = false, skipFailedInvocations = true, groups = { "debug", "smoke" })
     public void headerStyleFinder() throws InterruptedException {
         String url = "http://www.smartbuyglasses.jp/";
         getURL(url);

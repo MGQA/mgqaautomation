@@ -15,7 +15,7 @@ public class TestCartLogin extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
-        return new Object[][] { { "http://www.smartbuyglasses.com.hk/cart" } };
+        return new Object[][] { { "http://www.oculosworld.com.br/cart" } };
     }
 
     @Test(dataProvider = "db", groups = { "debug", "smoke", "fastsmoke" })

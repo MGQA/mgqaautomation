@@ -131,7 +131,6 @@ public class MobTestSunRX extends AbstractBaseTestCase {
         MobCartPage cartPage2 = new MobCartPage();
         double price = cartPage2.regexGetDouble(cartPage2.priceTotal.getText());
         Assert.assertFalse(price == 189.95, "_OMG! EyeGlass RX Price cover SunGlass RX Price !!!");
-        Assert.assertEquals(cartPage2.priceProduct.size(), 2);
     }
 
     @Override
