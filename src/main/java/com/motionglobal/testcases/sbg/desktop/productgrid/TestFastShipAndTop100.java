@@ -44,12 +44,13 @@ public class TestFastShipAndTop100 extends AbstractBaseSbgDesktopTestCase {
         gridPage.brankOneIntoDetail.click();
         gridPage.acceptAlert();
         ProductDetailPage detailPage = new ProductDetailPage();
-        String actualName = detailPage.regexGetLetterLow(detailPage.productName.getText());
+        String actualName = detailPage.regexGetLetterLow(detailPage.productName.getText().split(" ")[0] + detailPage.productName.getText().split(" ")[1]
+                + detailPage.productName.getText().split(" ")[2]);
         System.out.println(actualName + "\t" + name);
-        Assert.assertTrue(actualName.contains(name), "product no't matcher !!!");
+        Assert.assertTrue(name.contains(actualName), "product no't matcher !!!");
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void clickDetail(String url) {
         getURL(url);
         ProductGridPage gridPage = new ProductGridPage();
@@ -66,7 +67,8 @@ public class TestFastShipAndTop100 extends AbstractBaseSbgDesktopTestCase {
         gridPage.acceptAlert();
         ProductDetailPage detailPage = new ProductDetailPage();
         String actualName = detailPage.regexGetLetterLow(detailPage.productName.getText());
-        Assert.assertTrue(actualName.contains(name), "product no't matcher !!!");
+        System.out.println(actualName + " " + detailName);
+        Assert.assertTrue(actualName.contains(detailName), "product no't matcher !!!");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
