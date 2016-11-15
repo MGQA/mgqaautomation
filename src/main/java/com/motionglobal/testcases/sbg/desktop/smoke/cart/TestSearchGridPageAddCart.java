@@ -17,7 +17,6 @@ public class TestSearchGridPageAddCart extends AbstractBaseSbgDesktopTestCase {
     public Object[][] db() {
         return new Object[][] {
                 { "http://www.smartbuyglasses.co.uk/search?keywords=rayban&searchHashcode=1476672393283425#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" },
-                { "http://www.smartbuyglasses.com/search?keywords=rayban&searchHashcode=1476672393283425#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" },
                 { "http://www.smartbuyglasses.dk/search?keywords=rayban&searchHashcode=1476672393283425#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" } };
     }
 
@@ -73,7 +72,6 @@ public class TestSearchGridPageAddCart extends AbstractBaseSbgDesktopTestCase {
     public Object[][] eye() {
         return new Object[][] {
                 { "http://www.smartbuyglasses.co.uk/search?keywords=rayban+rx5228+High&searchHashcode=1476946229225267#q=rayban%20rx5228%20High&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" },
-                { "http://www.smartbuyglasses.com/search?keywords=rayban+rx5228+High&searchHashcode=1476946229225267#q=rayban%20rx5228%20High&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" },
                 { "http://www.smartbuyglasses.de/search?keywords=rayban+rx5228+High&searchHashcode=1476946229225267#q=rayban%20rx5228%20High&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" } };
     }
 

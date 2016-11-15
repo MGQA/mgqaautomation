@@ -33,7 +33,9 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
     // { "http://www.smartbuyglasses.nl" }, { "http://www.smartbuyglasses.co.nz" } };
     // }
 
-    // return new Object[][] { new Object[] { "http://www.smartbuyglasses.nl" } };
+    // @DataProvider
+    // public Object[][] dp() {
+    // return new Object[][] { new Object[] { "http://www.smartbuyglasses.de" } };
     // }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
@@ -125,12 +127,13 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         getURL(url);
         Menu Menu = new Menu();
         Random random = new Random();
-        int dice = random.nextInt(4);
+        int dice = random.nextInt(3);
         Menu.mouseOverMainMenu(5);
 
         // 531 change to 541 because add a <ul/> .but seem it is excess;
-        Menu.waitForVisibility(Menu.getLeftSubMenuElement(5, 4, 1), 2);
-        String bausch = Menu.getLeftSubMenuElement(5, 4, 1).getText();
+        // delete submenu 1, because num1 is empty
+        // Menu.waitForVisibility(Menu.getLeftSubMenuElement(5, 4, 1), 2);
+        // String bausch = Menu.getLeftSubMenuElement(5, 4, 1).getText();
         Menu.waitForVisibility(Menu.getLeftSubMenuElement(5, 4, 2), 2);
         String ciba = Menu.getLeftSubMenuElement(5, 4, 2).getText();
         Menu.waitForVisibility(Menu.getLeftSubMenuElement(5, 4, 3), 2);
@@ -140,11 +143,11 @@ public class TestCLGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestCa
         //
         CLProductGridPage clProductGridPage = null;
         switch (dice) {
-        case 2:
-            Menu.clickLeftSubMenu(5, 4, 1);
-            clProductGridPage = new CLProductGridPage();
-            Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), bausch);
-            break;
+        // case 2:
+        // Menu.clickLeftSubMenu(5, 4, 1);
+        // clProductGridPage = new CLProductGridPage();
+        // Assert.assertEquals(clProductGridPage.checkedLeftSubmenuElement.getText(), bausch);
+        // break;
         case 0:
             Menu.clickLeftSubMenu(5, 4, 2);
             clProductGridPage = new CLProductGridPage();
