@@ -15,8 +15,7 @@ public class TestFastShipAndTop100 extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
-        return new Object[][] { { "http://www.smartbuyglasses.co.uk/designer-sunglasses/general/--------------1---------" },
-                { "http://www.smartbuyglasses.dk/designer-sunglasses/general/--------------1---------" },
+        return new Object[][] { { "http://www.smartbuyglasses.dk/designer-sunglasses/general/--------------1---------" },
                 { "http://www.smartbuyglasses.com/designer-sunglasses/general/---------------1-1-------" } };
     }
 

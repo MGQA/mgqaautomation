@@ -25,8 +25,7 @@ public class TestEyeGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
 
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://www.visiondirect.com.au" }, { "http://www.smartbuyglasses.co.uk" }, { "http://www.smartbuyglasses.de" },
-                { "http://www.smartbuyglasses.nl" } };
+        return new Object[][] { new Object[] { "http://www.visiondirect.com.au" }, { "http://www.smartbuyglasses.co.uk" }, { "http://www.smartbuyglasses.nl" } };
     }
 
     // return new Object[][] { new Object[] { "http://www.visiondirect.com.au" }, { "http://www.smartbuyglasses.co.uk" },

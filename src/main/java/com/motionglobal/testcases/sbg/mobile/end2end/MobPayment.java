@@ -17,9 +17,7 @@ public class MobPayment extends AbstractBaseTestCase {
 
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] {
-                new Object[] { "http://m.smartbuyglasses.co.uk/designer-eyeglasses/Dolce-Gabbana/Dolce-Gabbana-DG3205-Urban-Kids-1871-234919.html/" },
-                { "http://m.smartbuyglasses.dk/designer-sunglasses/Tom-Ford/Tom-Ford-FT0008-JENNIFER-692-8152.html/" } };
+        return new Object[][] { new Object[] { "http://m.smartbuyglasses.dk/designer-sunglasses/Tom-Ford/Tom-Ford-FT0008-JENNIFER-692-8152.html/" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })

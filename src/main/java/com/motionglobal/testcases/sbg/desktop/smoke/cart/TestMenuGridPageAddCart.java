@@ -15,8 +15,8 @@ public class TestMenuGridPageAddCart extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
-        return new Object[][] { { "http://www.smartbuyglasses.co.uk/designer-sunglasses/Ray-Ban/" },
-                { "http://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/" }, { "http://www.smartbuyglasses.dk/designer-sunglasses/Ray-Ban/" } };
+        return new Object[][] { { "http://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/" },
+                { "http://www.smartbuyglasses.dk/designer-sunglasses/Ray-Ban/" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
@@ -69,8 +69,8 @@ public class TestMenuGridPageAddCart extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] eye() {
-        return new Object[][] { { "http://www.smartbuyglasses.co.uk/designer-eyeglasses/Ray-Ban/" },
-                { "http://www.smartbuyglasses.com/designer-eyeglasses/Ray-Ban/" }, { "http://www.smartbuyglasses.dk/designer-eyeglasses/Ray-Ban/" } };
+        return new Object[][] { { "http://www.smartbuyglasses.com/designer-eyeglasses/Ray-Ban/" },
+                { "http://www.smartbuyglasses.dk/designer-eyeglasses/Ray-Ban/" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "eye", groups = { "debug", "smoke" })
