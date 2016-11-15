@@ -9,11 +9,10 @@ import com.motionglobal.pages.sbg.desktop.cart.CN_CartPage;
 import com.motionglobal.testcases.AbstractBaseTestCase;
 
 /**
- * CN Test £ºempty cartBox
- * 
+ * CN Test £ºempty cartBox, CN don't open
  */
 public class TestEmptyCarPageOfCN extends AbstractBaseTestCase {
-    @Test(groups = { "debug", "smoke", "fastsmoke" })
+    @Test(enabled = false, groups = { "debug", "smoke", "fastsmoke" })
     public void CN_CartBoxEmptyPage() {
         String url = "http://www.smartbuyglasses.cn";
         getURL(url);

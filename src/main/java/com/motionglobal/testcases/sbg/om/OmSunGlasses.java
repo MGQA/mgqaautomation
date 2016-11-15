@@ -17,9 +17,9 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
  * OM sunglass flow
  * 
  */
-public class OmSunGlasses extends AbstractBaseTestCase {
 
-    @Test(groups = { "debug3", "smoke", "om" })
+public class OmSunGlasses extends AbstractBaseTestCase {
+    @Test(groups = { "debug3", "smoke", "om" }, invocationCount = 1, threadPoolSize = 1)
     public void SunGlassesHaveInventory() {
         String url = "http://omtest.motionglobal.com/login/login/";
         getURL(url);
@@ -178,7 +178,7 @@ public class OmSunGlasses extends AbstractBaseTestCase {
     }
 
     // FIXME
-    @Test(groups = { "debug3", "smoke", "om" })
+    @Test(groups = { "debug3", "smoke", "om" }, invocationCount = 1, threadPoolSize = 1)
     public void SunGlassesNoInventory() {
         getURL("http://omtest.motionglobal.com/login/login/");
         new OmLoginPage().OmLogin();

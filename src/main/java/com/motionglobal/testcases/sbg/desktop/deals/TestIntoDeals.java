@@ -1,6 +1,6 @@
 package com.motionglobal.testcases.sbg.desktop.deals;
 
-import org.junit.Assert;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -25,6 +25,8 @@ public class TestIntoDeals extends AbstractBaseSbgDesktopTestCase {
         menu.dealSunGlass.click();
         ProductGridPage gridPage = new ProductGridPage();
         gridPage.waitForVisibility(gridPage.productDetailName, 2);
+        String currentUrl = gridPage.getCurrentUrl();
+        Assert.assertTrue(currentUrl.contains("on-sale"));
         menu.deleteHead();
         String price1 = String.valueOf(gridPage.regexGetDouble(gridPage.productPriceS.get(0).getText()));
         gridPage.productDetailName.click();
@@ -42,6 +44,8 @@ public class TestIntoDeals extends AbstractBaseSbgDesktopTestCase {
         menu.dealEyeGlass.click();
         ProductGridPage gridPage = new ProductGridPage();
         gridPage.waitForVisibility(gridPage.productDetailName, 2);
+        String currentUrl = gridPage.getCurrentUrl();
+        Assert.assertTrue(currentUrl.contains("on-sale"));
         menu.deleteHead();
         String price1 = String.valueOf(gridPage.regexGetDouble(gridPage.productPriceS.get(0).getText()));
         gridPage.productDetailName.click();
