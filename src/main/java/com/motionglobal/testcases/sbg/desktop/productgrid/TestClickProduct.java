@@ -17,7 +17,7 @@ public class TestClickProduct extends AbstractBaseSbgDesktopTestCase {
     @DataProvider
     public Object[][] db() {
         return new Object[][] { { "http://www.smartbuyglasses.co.uk/designer-sunglasses/Ray-Ban/" },
-                { "http://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/" }, { "http://www.smartbuyglasses.dk/designer-sunglasses/Ray-Ban/" } };
+                { "http://www.smartbuyglasses.dk/designer-sunglasses/Ray-Ban/" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
@@ -73,7 +73,7 @@ public class TestClickProduct extends AbstractBaseSbgDesktopTestCase {
     @DataProvider
     public Object[][] search() {
         return new Object[][] {
-                { "http://www.smartbuyglasses.co.uk/search?keywords=rayban&searchHashcode=1476413348584930#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" },
+
                 { "http://www.smartbuyglasses.com/search?keywords=rayan&searchHashcode=1476413355517711#q=rayan&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" },
                 { "http://www.smartbuyglasses.dk/search?keywords=rayban&searchHashcode=1476413327702233#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" } };
     }

@@ -39,9 +39,7 @@ public class ContactLens extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
-        return new Object[][] {
-                { "http://www.smartbuyglasses.co.uk/contact-lenses/f/daily-disposable-lenses#!&s=popularity&tb=0&f=daily-disposable-lenses&p=1" },
-                { "http://www.smartbuyglasses.dk/kontaktlinser/f/endagslinser#!&s=popularitet&tb=0&f=endagslinser&p=1" },
+        return new Object[][] { { "http://www.smartbuyglasses.dk/kontaktlinser/f/endagslinser#!&s=popularitet&tb=0&f=endagslinser&p=1" },
                 { "http://www.smartbuyglasses.com/contact-lenses/f/daily-disposable-lenses#!&s=popularity&tb=0&f=daily-disposable-lenses&p=1" } };
     }
 
@@ -58,7 +56,6 @@ public class ContactLens extends AbstractBaseSbgDesktopTestCase {
     @DataProvider
     public Object[][] acuvue() {
         return new Object[][] { { "http://www.smartbuyglasses.dk/kontaktlinser/b/Acuvue#!&s=popularitet&tb=0&b=Acuvue&p=1" },
-                { "http://www.smartbuyglasses.co.uk/contact-lenses/b/Acuvue#!&s=popularity&tb=0&b=Acuvue&p=1" },
                 { "http://www.smartbuyglasses.com/contact-lenses/b/Acuvue#!&s=popularity&tb=0&b=Acuvue&p=1" } };
     }
 
@@ -90,7 +87,6 @@ public class ContactLens extends AbstractBaseSbgDesktopTestCase {
     public Object[][] search() {
         return new Object[][] {
                 { "http://www.smartbuyglasses.co.uk/search?keywords=acuvue&searchHashcode=1476345019340715#q=acuvue&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" },
-                { "http://www.smartbuyglasses.com/search?keywords=acuvue&searchHashcode=147634513217983#q=acuvue&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" },
                 { "http://www.smartbuyglasses.dk/search?keywords=acuvue&searchHashcode=1476345029221176#q=acuvue&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]" } };
     }
 
