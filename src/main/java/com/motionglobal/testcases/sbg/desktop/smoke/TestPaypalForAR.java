@@ -99,7 +99,7 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
             checkoutPage.selectState("Alaska");
             checkoutPage.btnPayment.click();
             //
-            checkoutPage.AssertPayPicture(url, 1, 2, 3, 122, 836, 125, 117);
+            checkoutPage.AssertPayPicture(url, 1, 2, 3, 122, 836, 125, 117, 114);
             new VerifyUtil().verifyEnd();
         }
     }

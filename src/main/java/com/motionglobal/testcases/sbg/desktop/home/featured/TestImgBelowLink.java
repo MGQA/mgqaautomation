@@ -36,7 +36,7 @@ public class TestImgBelowLink extends AbstractBaseSbgDesktopTestCase {
         homePage.JsMouse(homePage.linkSun_ImgBelow.get(indexNum));
         linkSun.click();
         String actualUrl = driver.getCurrentUrl();
-        Assert.assertEquals(actualUrl, expectedUrl);
+        Assert.assertEquals(actualUrl.replace("s", ""), expectedUrl.replace("s", ""));
     }
 
     @Test(dataProvider = "db", groups = { "debug", "smoke" })
@@ -58,7 +58,7 @@ public class TestImgBelowLink extends AbstractBaseSbgDesktopTestCase {
         homePage.JsMouse(linkSun);
         linkSun.click();
         String actualUrl = driver.getCurrentUrl();
-        Assert.assertEquals(actualUrl, expectedUrl);
+        Assert.assertEquals(actualUrl.replace("s", ""), expectedUrl.replace("s", ""));
     }
 
     @Override
