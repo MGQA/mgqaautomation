@@ -26,6 +26,8 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         ProductGridPage gridPage = new ProductGridPage();
         new Header().inputSearch.click();
+        gridPage.deleteHead();
+        gridPage.JsDisplayNone(new Header().delAddLens);
         gridPage.waitForVisibility(gridPage.SortDrop, 5);
         gridPage.SortDrop.click();
         String dropUrl1 = gridPage.SortSection.get(0).getAttribute("href");
@@ -89,6 +91,8 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
     public void popularStyle(String url) {
         getURL(url);
         ProductGridPage gridPage = new ProductGridPage();
+        gridPage.deleteHead();
+        gridPage.JsDisplayNone(new Header().delAddLens);
         // leftBtn
         gridPage.waitForVisibility(gridPage.popularRightBtn, 5);
         String popularBrandName1 = gridPage.popularBrands1.getText();
