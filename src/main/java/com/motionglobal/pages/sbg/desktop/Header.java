@@ -98,7 +98,7 @@ public class Header extends AbstractBasePage {
     public WebElement men;
     @FindBy(xpath = "//div[@class='center_contact_left']/div[2]/a")
     public WebElement dailyglass;
-    @FindBy(linkText = "Top100")
+    @FindBy(css = "a[onclick*='Sunglasses -Top 100']")
     public WebElement sunTop100;
 
     // header and footer

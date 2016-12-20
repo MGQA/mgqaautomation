@@ -1,9 +1,5 @@
 package com.motionglobal.testcases.sbg.desktop.smoke.headerlink;
 
-import java.util.Set;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -62,23 +58,27 @@ public class TestDeals extends AbstractBaseSbgDesktopTestCase {
         //
         getURL(url);
         Menu header = new Menu();
-        String handle = "";
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        for (int i = 0; i < 2; i++) {
-            handle = driver.getWindowHandle();
-            String imgSrc = header.dealIMG.get(i).getAttribute("src").toString();
-            js.executeScript("window.open('" + imgSrc + "')");
-            Set<String> handles = driver.getWindowHandles();
-            // check img is display
-            for (String window : handles) {
-                if (!(window.equals(handle))) {
-                    driver.switchTo().window(window);
-                    Assert.assertTrue(driver.findElement(By.xpath("//img")).isDisplayed());
-                    driver.close();
-                }
-            }
-            driver.switchTo().window(handle);
-        }
+        header.displayMenu(7);
+        String imgSrc = header.dealIMG.get(0).getAttribute("src").toString();
+        Assert.assertEquals(imgSrc, "http://cdn3.smartbuyglasses.com/GDR2016/GDR497/mega_menu_q4_1.jpg");
+        // multi picture
+        // String handle = "";
+        // JavascriptExecutor js = (JavascriptExecutor) driver;
+        // for (int i = 0; i < 2; i++) {
+        // handle = driver.getWindowHandle();
+        // String imgSrc = header.dealIMG.get(i).getAttribute("src").toString();
+        // js.executeScript("window.open('" + imgSrc + "')");
+        // Set<String> handles = driver.getWindowHandles();
+        // // check img is display
+        // for (String window : handles) {
+        // if (!(window.equals(handle))) {
+        // driver.switchTo().window(window);
+        // Assert.assertTrue(driver.findElement(By.xpath("//img")).isDisplayed());
+        // driver.close();
+        // }
+        // }
+        // driver.switchTo().window(handle);
+        // }
     }
 
     @Override

@@ -20,9 +20,9 @@ public class TestPayment extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
-        return new Object[][] { { "http://www.smartbuyglasses.co.uk/designer-sunglasses/Gucci/Gucci-GG-3500/S-WNQ/02-108457.html" },
-                { "http://www.smartbuyglasses.com/designer-sunglasses/Gucci/Gucci-GG-3500/S-WNQ/02-108457.html" },
-                { "http://www.smartbuyglasses.dk/designer-sunglasses/Gucci/Gucci-GG-3500/S-WNQ/02-108457.html" } };
+        return new Object[][] { { "http://www.smartbuyglasses.co.uk/designer-sunglasses/Maui-Jim/Maui-Jim-Hookipa-Polarized-407-02-27194.html" },
+                { "http://www.smartbuyglasses.com/designer-sunglasses/Maui-Jim/Maui-Jim-Hookipa-Polarized-407-02-27194.html" },
+                { "http://www.smartbuyglasses.dk/designer-sunglasses/Maui-Jim/Maui-Jim-Hookipa-Polarized-407-02-27194.html" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })

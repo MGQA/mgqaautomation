@@ -28,14 +28,14 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         SearchResultPage resultPage = new SearchResultPage();
         header.inputSearch.click();
         header.deleteHead();
-        header.waitForVisibility(resultPage.BebeBrank, 10);
-        resultPage.BebeBrank.click();
+        header.waitForVisibility(resultPage.ArnetteBrank, 10);
+        resultPage.ArnetteBrank.click();
         header.waitForVisibility(resultPage.BebeBrankChecked, 15);
         resultPage.matcherQuickViewClickOpen(1);
         header.waitForVisibility(resultPage.detailBtn, 5);
         resultPage.detailBtn.click();
         ProductDetailPage detailPage = new ProductDetailPage();
-        Assert.assertTrue(detailPage.glassName.getText().replace("b", "B").contains("BeBe BB"), "Page mismatching !!!");
+        Assert.assertTrue(detailPage.glassName.getText().contains("Arnette"), "Page mismatching !!!");
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke" })
@@ -44,15 +44,15 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         Header header = new Header();
         SearchResultPage resultPage = new SearchResultPage();
         header.deleteHead();
-        header.waitForVisibility(resultPage.BebeBrank, 10);
-        resultPage.BebeBrank.click();
+        header.waitForVisibility(resultPage.ArnetteBrank, 10);
+        resultPage.ArnetteBrank.click();
         header.waitForVisibility(resultPage.BebeBrankChecked, 15);
         resultPage.matcherQuickViewClickOpen(1);
         header.waitForVisibility(resultPage.detailBtn, 5);
         resultPage.detailBtn.click();
         ProductDetailPage detailPage = new ProductDetailPage();
         System.out.println(detailPage.glassName.getText());
-        Assert.assertTrue(detailPage.glassName.getText().replace("b", "B").contains("BeBe BB"), "Page Mismatcher");
+        Assert.assertTrue(detailPage.glassName.getText().contains("Arnette"), "Page Mismatcher");
     }
 
     @Override

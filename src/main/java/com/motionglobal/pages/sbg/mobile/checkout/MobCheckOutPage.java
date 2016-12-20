@@ -149,7 +149,7 @@ public class MobCheckOutPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.className("checkOutStepTi"), 5);
+        waitForVisibility(By.cssSelector("ul .checkOutStepTi"), 5);
     }
 
 }
