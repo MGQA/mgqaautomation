@@ -109,7 +109,7 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
      * assert use 1-20 is card name(payment_product_id) , table from gc_payment_product
      */
     // XXX case 3
-    @Test(skipFailedInvocations = true, groups = { "debug", "smoke", "pay" }, priority = 1)
+    @Test(enabled = false, skipFailedInvocations = true, groups = { "debug", "smoke", "pay" }, priority = 1)
     public void testSQL() {
         VerifyUtil verify = new Header().VerifyUtil();
         // US

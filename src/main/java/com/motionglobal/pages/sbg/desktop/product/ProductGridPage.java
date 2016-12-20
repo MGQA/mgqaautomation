@@ -33,7 +33,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement brankOneIntoDetail;
     @FindBy(css = ".proInfoN")
     public WebElement productDetailName;
-    @FindBy(css = ".detail_link")
+    // add new product page
+    @FindAll({ @FindBy(css = ".detail_link"), @FindBy(className = "qv-pro-detail-btn") })
     public WebElement detail;
     @FindBy(css = ".pro_title_logo>a>h1")
     public WebElement quickViewName;
@@ -49,7 +50,7 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> eyeproSize;
     @FindBy(css = "label.clearfix")
     public List<WebElement> frameOrAdd;
-    @FindBy(css = ".proPriceN")
+    @FindBy(xpath = "//ul[not(li[@class='pro_top_seller'])]/a")
     public List<WebElement> productPriceS;
     @FindBy(className = "price_clearance_new_tag")
     public WebElement discountIcon;

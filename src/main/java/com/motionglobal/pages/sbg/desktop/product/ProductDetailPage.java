@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -88,10 +89,13 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
         super();
     }
 
+    @FindAll({ @FindBy(id = "big_image"), @FindBy(id = "suspend_product_image") })
+    private WebElement target;
+
     @Override
     protected void waitPageLoad() {
         // waitForVisibility(By.className("navigation"), 5);
-        waitForVisibility(By.id("big_image"), 5);
+        waitForVisibility(target, 5);
 
     }
 }
