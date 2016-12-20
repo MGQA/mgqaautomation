@@ -87,7 +87,10 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
         }
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
+    /**
+     * @enable =false, because:remove
+     */
+    @Test(enabled = false, skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void popularStyle(String url) {
         getURL(url);
         ProductGridPage gridPage = new ProductGridPage();

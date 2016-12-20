@@ -2,6 +2,7 @@ package com.motionglobal.pages.sbg.desktop.product;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -89,9 +90,12 @@ public class CLProductDetailPage extends AbstractBaseSbgDesktopPage {
         this.btnAddToCart.click();
     }
 
+    @FindAll({ @FindBy(className = "cl-save-more"), @FindBy(className = "cl_productType") })
+    private WebElement target;
+
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.className("cl_productType"), 5);
+        waitForVisibility(target, 5);
     }
 
 }
