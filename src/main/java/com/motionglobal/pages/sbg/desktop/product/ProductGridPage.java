@@ -50,7 +50,7 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> eyeproSize;
     @FindBy(css = "label.clearfix")
     public List<WebElement> frameOrAdd;
-    @FindBy(xpath = "//ul[not(li[@class='pro_top_seller'])]/a")
+    @FindBy(xpath = "//ul[not(li[@class='pro_top_seller'])]/a/li[1]")
     public List<WebElement> productPriceS;
     @FindBy(className = "price_clearance_new_tag")
     public WebElement discountIcon;

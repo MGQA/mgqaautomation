@@ -40,7 +40,11 @@ public class TestEnd2End extends AbstractBaseSbgDesktopTestCase {
         checkoutPage.inputBillingAddress1.sendKeys("automationAddress1");
 
         checkoutPage.btnPayment.click();
-        checkoutPage.payPicture.get(0).click();
+        try {
+            checkoutPage.payPicture.get(0).click();
+        }
+        catch (Exception e) {
+        }
         new WebDriverWait(driver, 5).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(checkoutPage.orderIFrame));
         checkoutPage.waitForVisibility(checkoutPage.orderSubmit, 20);
         checkoutPage.orderCard.sendKeys("4111111111111111");

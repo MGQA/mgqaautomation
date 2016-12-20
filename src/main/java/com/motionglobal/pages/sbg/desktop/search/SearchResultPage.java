@@ -58,8 +58,8 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
     public WebElement sizeClicked;
     @FindBy(className = "on")
     public WebElement frameOrAddClicked;
-    @FindBy(xpath = "//input[contains(@onclick,'Bebe')]")
-    public WebElement BebeBrank;
+    @FindBy(xpath = "//input[contains(@onclick,'Arnette')]")
+    public WebElement ArnetteBrank;
     @FindBy(xpath = "//input[contains(@onclick,'Bebe')][@checked='checked']")
     public WebElement BebeBrankChecked;
     @FindBy(className = "srg_number")

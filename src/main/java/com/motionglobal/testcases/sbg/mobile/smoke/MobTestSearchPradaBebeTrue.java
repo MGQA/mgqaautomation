@@ -35,9 +35,9 @@ public class MobTestSearchPradaBebeTrue extends AbstractBaseTestCase {
         Assert.assertTrue(name.contains("Prada"), "Expected Ray-ban displayed, but no");
         searchResultPage.filter.click();
         searchResultPage.branksBtn.click();
-        searchResultPage.JsMouse(searchResultPage.Bebe);
-        searchResultPage.Bebe.click();
-        new WebDriverWait(driver, 5).until(ExpectedConditions.textToBePresentInElement(searchResultPage.productDetailName, "Bebe"));
+        searchResultPage.JsMouse(searchResultPage.Arnette);
+        searchResultPage.Arnette.click();
+        new WebDriverWait(driver, 5).until(ExpectedConditions.textToBePresentInElement(searchResultPage.productDetailName, "Arnette"));
         Thread.sleep(100);
         searchResultPage.waitForVisibility(searchResultPage.productDetailName, 2);
         String detailName = searchResultPage.productDetailName.getText();

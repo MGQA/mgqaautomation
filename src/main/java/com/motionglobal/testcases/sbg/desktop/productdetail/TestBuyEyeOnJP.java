@@ -25,6 +25,7 @@ public class TestBuyEyeOnJP extends AbstractBaseSbgDesktopTestCase {
         detailPage.getRXType();
         RX3Page rx3Page = new RX3Page();
         rx3Page.waitForVisibility(rx3Page.buyOnlyFrame, 2);
+        rx3Page.JsScale(rx3Page.rx3Frame, 0.5);
         rx3Page.buyOnlyFrame.click();
         NewCartPage newCartPage = new NewCartPage();
         double price2 = detailPage.regexGetDouble(newCartPage.priceTotal.getText());
@@ -39,6 +40,7 @@ public class TestBuyEyeOnJP extends AbstractBaseSbgDesktopTestCase {
         detailPage.getRXType();
         RX3Page rx3Page = new RX3Page();
         rx3Page.waitForVisibility(rx3Page.addToCart, 2);
+        rx3Page.JsScale(rx3Page.rx3Frame, 0.5);
         double price1 = detailPage.regexGetDouble(rx3Page.total_price.getText());
         rx3Page.addToCart.click();
         NewCartPage newCartPage = new NewCartPage();

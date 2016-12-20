@@ -21,9 +21,9 @@ public class Menu extends Header {
     public WebElement dealShowNow;
     @FindBy(className = "megamenu_center_buynow")
     public WebElement dealBuyNow;
-    @FindBy(css = ".megamenu_righ_sunglasses>a")
+    @FindBy(xpath = "//*[@id='Map3']/area[5]")
     public WebElement dealSunGlass;
-    @FindBy(css = ".megamenu_righ_glasses>a")
+    @FindBy(xpath = "//*[@id='Map3']/area[4]")
     public WebElement dealEyeGlass;
     @FindBy(className = "center_span_number")
     public WebElement dealPrice;
