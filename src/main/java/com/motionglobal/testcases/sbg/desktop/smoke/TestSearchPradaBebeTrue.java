@@ -30,7 +30,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         header.deleteHead();
         header.waitForVisibility(resultPage.ArnetteBrank, 10);
         resultPage.ArnetteBrank.click();
-        header.waitForVisibility(resultPage.BebeBrankChecked, 15);
+        header.waitForVisibility(resultPage.ArnetteBrankChecked, 15);
         resultPage.matcherQuickViewClickOpen(1);
         header.waitForVisibility(resultPage.detailBtn, 5);
         resultPage.detailBtn.click();
@@ -46,7 +46,7 @@ public class TestSearchPradaBebeTrue extends AbstractBaseTestCase {
         header.deleteHead();
         header.waitForVisibility(resultPage.ArnetteBrank, 10);
         resultPage.ArnetteBrank.click();
-        header.waitForVisibility(resultPage.BebeBrankChecked, 15);
+        header.waitForVisibility(resultPage.ArnetteBrankChecked, 15);
         resultPage.matcherQuickViewClickOpen(1);
         header.waitForVisibility(resultPage.detailBtn, 5);
         resultPage.detailBtn.click();

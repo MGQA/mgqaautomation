@@ -23,8 +23,12 @@ public class NewCheckoutPage extends AbstractBaseSbgDesktopPage {
     //
     @FindBy(className = "checkout-payment-btn")
     public WebElement btnPayment;
-    @FindBy(css = ".payment_method.payment_method_li")
-    public List<WebElement> payPicture;
+    @FindBy(css = "#payment-mothod-div li:not(#paypal_submit)")
+    private List<WebElement> payPicture;
+    @FindBy(xpath = "//img[@alt='Visa Card']")
+    public WebElement VISA;
+    @FindBy(id = "xubox_shade1")
+    public WebElement mask;
     //
     @FindBy(id = "billing_country")
     public WebElement selectCountry;

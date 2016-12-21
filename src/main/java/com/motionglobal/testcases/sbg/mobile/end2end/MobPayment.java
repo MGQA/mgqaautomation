@@ -50,7 +50,11 @@ public class MobPayment extends AbstractBaseTestCase {
         }
         checkOutPage.continueBtn.click();
         checkOutPage.waitForVisibility(checkOutPage.VISA, 10);
-        checkOutPage.VISA.click();
+        try {
+            checkOutPage.VISA.click();
+        }
+        catch (Exception e) {
+        }
         Thread.sleep(2000);
         checkOutPage.waitForVisibility(By.cssSelector("img[src*='bigVisa'][style='opacity: 1;']"), 15);
         for (int i = 0; i < 40; i++) {
