@@ -70,7 +70,8 @@ public class TestPayment extends AbstractBaseSbgDesktopTestCase {
             checkoutPage.inputBillingCity.sendKeys("automationFirst");
             checkoutPage.state.sendKeys("automationState");
             checkoutPage.btnPayment.click();
-            checkoutPage.payPicture.get(0).click();
+            new WebDriverWait(driver, 15).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(checkoutPage.mask)));
+            checkoutPage.VISA.click();
             new WebDriverWait(driver, 5).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(checkoutPage.orderIFrame));
             checkoutPage.waitForVisibility(checkoutPage.orderSubmit, 20);
             checkoutPage.orderCard.sendKeys("4111111111111111");

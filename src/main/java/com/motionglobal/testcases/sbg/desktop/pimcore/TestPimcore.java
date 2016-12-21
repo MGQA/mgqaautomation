@@ -1,10 +1,7 @@
 package com.motionglobal.testcases.sbg.desktop.pimcore;
 
 import java.util.Random;
-import java.util.Set;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -316,28 +313,25 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         PimcorePage pimcorePage = new PimcorePage();
         Menu menu = new Menu();
         menu.mouseOverMainMenu(7);
-        menu.waitForVisibility(menu.dealShowNow, 1);
-        menu.waitForVisibility(menu.dealBuyNow, 1);
-        menu.waitForVisibility(menu.dealSunGlass, 1);
-        menu.waitForVisibility(menu.dealEyeGlass, 1);
-        //
-        String handle = "";
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        for (int i = 0; i < 2; i++) {
-            handle = driver.getWindowHandle();
-            String imgSrc = menu.dealIMG.get(i).getAttribute("src").toString();
-            js.executeScript("window.open('" + imgSrc + "')");
-            Set<String> handles = driver.getWindowHandles();
-            // check img is display
-            for (String window : handles) {
-                if (!(window.equals(handle))) {
-                    driver.switchTo().window(window);
-                    Assert.assertTrue(driver.findElement(By.xpath("//img")).isDisplayed());
-                    driver.close();
-                }
-            }
-            driver.switchTo().window(handle);
-        }
+        menu.waitForVisibility(menu.dealIMG, 1);
+        // multi Deal IMg
+        // String handle = "";
+        // JavascriptExecutor js = (JavascriptExecutor) driver;
+        // for (int i = 0; i < 2; i++) {
+        // handle = driver.getWindowHandle();
+        // String imgSrc = menu.dealIMG.get(i).getAttribute("src").toString();
+        // js.executeScript("window.open('" + imgSrc + "')");
+        // Set<String> handles = driver.getWindowHandles();
+        // // check img is display
+        // for (String window : handles) {
+        // if (!(window.equals(handle))) {
+        // driver.switchTo().window(window);
+        // Assert.assertTrue(driver.findElement(By.xpath("//img")).isDisplayed());
+        // driver.close();
+        // }
+        // }
+        // driver.switchTo().window(handle);
+        // }
     }
 
     @Override

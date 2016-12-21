@@ -41,7 +41,7 @@ public class TestEnd2End extends AbstractBaseSbgDesktopTestCase {
 
         checkoutPage.btnPayment.click();
         try {
-            checkoutPage.payPicture.get(0).click();
+            checkoutPage.VISA.click();
         }
         catch (Exception e) {
         }

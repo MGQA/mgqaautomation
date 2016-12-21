@@ -24,7 +24,7 @@ public class TestAddCartAndDelCart extends AbstractBaseSbgDesktopTestCase {
     public String[][] bd() {
         return new String[][] { { "http://www.smartbuyglasses.co.uk/designer-sunglasses/Maui-Jim/Maui-Jim-Hookipa-Polarized-407-02-27194.html" },
                 { "http://www.smartbuyglasses.dk/designer-sunglasses/Maui-Jim/Maui-Jim-Hookipa-Polarized-407-02-27194.html" },
-                { "http://www.smartbuyglasses.dk/designer-sunglasses/Maui-Jim/Maui-Jim-Hookipa-Polarized-407-02-27194.html" } };
+                { "http://www.smartbuyglasses.com/designer-sunglasses/Maui-Jim/Maui-Jim-Hookipa-Polarized-407-02-27194.html" } };
     }
 
     @Test(dataProvider = "bd", groups = { "smoke", "debug" })
