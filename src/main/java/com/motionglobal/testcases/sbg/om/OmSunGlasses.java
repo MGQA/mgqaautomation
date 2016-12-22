@@ -19,7 +19,7 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
  */
 public class OmSunGlasses extends AbstractBaseTestCase {
 
-    @Test(groups = { "debug3", "smoke", "om" }, invocationCount = 1, threadPoolSize = 1)
+    @Test(groups = { "debug3", "smoke", "om", "debug111" }, invocationCount = 1, threadPoolSize = 1)
     public void SunGlassesHaveInventory() {
         String url = "http://omtest.motionglobal.com/login/login/";
         getURL(url);

@@ -19,7 +19,7 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
  */
 public class OmCL extends AbstractBaseTestCase {
 
-    @Test(groups = { "debug3", "smoke", "om" })
+    @Test(groups = { "debug3", "smoke", "om", "debug111" })
     public void CLHaveInventory() {
         // productID=451.power=5.50.
         String productID = "451";

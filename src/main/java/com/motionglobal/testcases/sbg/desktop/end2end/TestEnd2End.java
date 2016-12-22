@@ -1,5 +1,6 @@
 package com.motionglobal.testcases.sbg.desktop.end2end;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -40,6 +41,14 @@ public class TestEnd2End extends AbstractBaseSbgDesktopTestCase {
         checkoutPage.inputBillingAddress1.sendKeys("automationAddress1");
 
         checkoutPage.btnPayment.click();
+        try {
+            for (int i = 0; i < 33; i++) {
+                driver.findElement(By.id("xubox_shade1"));
+                Thread.sleep(200);
+            }
+        }
+        catch (Exception e) {
+        }
         try {
             checkoutPage.VISA.click();
         }
