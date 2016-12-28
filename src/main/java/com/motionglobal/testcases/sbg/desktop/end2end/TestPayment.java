@@ -84,6 +84,15 @@ public class TestPayment extends AbstractBaseSbgDesktopTestCase {
             }
             catch (Exception e) {
             }
+            try {
+                for (int i = 0; i < 33; i++) {
+                    driver.findElement(By.id("xubox_shade1"));
+                    Thread.sleep(200);
+                }
+            }
+            catch (Exception e) {
+
+            }
             new WebDriverWait(driver, 5).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(checkoutPage.orderIFrame));
             checkoutPage.waitForVisibility(checkoutPage.orderSubmit, 20);
             checkoutPage.orderCard.sendKeys("4111111111111111");

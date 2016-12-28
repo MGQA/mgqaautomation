@@ -21,6 +21,8 @@ public class Header extends AbstractBasePage {
     public WebElement delAddLens;
     @FindBy(id = "lc_chat_layout")
     public WebElement letTalk;
+    @FindBy(id = "pro_infor_list")
+    public WebElement inforList;
     @FindBy(className = "geo-close-btn")
     public WebElement geo;
 
