@@ -2,7 +2,6 @@ package com.motionglobal.pages.sbg.mobile.checkout;
 
 import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
@@ -147,9 +146,12 @@ public class MobCheckOutPage extends AbstractBaseSbgDesktopPage {
         verify.verifyEquals(actualPay, expectPay, url);
     }
 
+    @FindAll({ @FindBy(id = "shippingForm"), @FindBy(css = "ul .checkOutStepTi") })
+    public WebElement mobCheckoutPage;
+
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector("ul .checkOutStepTi"), 5);
+        waitForVisibility(mobCheckoutPage, 5);
     }
 
 }

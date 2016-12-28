@@ -30,6 +30,11 @@ public class DeleteHeader extends AbstractBaseContainer {
         }
         catch (Exception e) {
         }
+        try {
+            JsDisplayNone(header.inforList);
+        }
+        catch (Exception e) {
+        }
         deleteLetTalk();
     }
 

@@ -2,8 +2,6 @@ package com.motionglobal.testcases.sbg.mobile.end2end;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -20,7 +18,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
  */
 public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
 
-    @Test(groups = { "smoke", "debug", "fastsmoke" })
+    @Test(groups = { "smoke", "debug111", "fastsmoke" })
     public void mobSearchItemAndPayByGC() throws InterruptedException {
         getURL("http://m.smartbuyglasses.com/");
         MobHeader mobHeader = new MobHeader();
@@ -53,28 +51,28 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         checkOutPage.clearInput(checkOutPage.inputCity, "shanghai");
         checkOutPage.selectStateGA();
         checkOutPage.continueBtn.click();
-        checkOutPage.waitForVisibility(checkOutPage.VISA, 10);
-        checkOutPage.VISA.click();
+        // checkOutPage.waitForVisibility(checkOutPage.VISA, 10);
+        // checkOutPage.VISA.click();
         Thread.sleep(2000);
         checkOutPage.waitForVisibility(By.cssSelector("img[src*='bigVisa'][style='opacity: 1;']"), 15);
-        for (int i = 0; i < 40; i++) {
-            try {
-                System.out.println("try:" + i);
-                checkOutPage.waitForVisibility(checkOutPage.inputCard, 1);
-                new WebDriverWait(driver, 1).until(ExpectedConditions.elementToBeClickable(checkOutPage.inputCard));
-                break;
-            }
-            catch (Exception e) {
-                try {
-                    System.out.println("catch:" + i);
-                    // new WebDriverWait(driver, 1).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(checkOutPage.iframe));
-                    driver.switchTo().frame(checkOutPage.iframe);
-                }
-                catch (Exception e2) {
-                }
-                Thread.sleep(200);
-            }
-        }
+        // for (int i = 0; i < 40; i++) {
+        // try {
+        // System.out.println("try:" + i);
+        // checkOutPage.waitForVisibility(checkOutPage.inputCard, 1);
+        // new WebDriverWait(driver, 1).until(ExpectedConditions.elementToBeClickable(checkOutPage.inputCard));
+        // break;
+        // }
+        // catch (Exception e) {
+        // try {
+        // System.out.println("catch:" + i);
+        // new WebDriverWait(driver, 1).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(checkOutPage.iframe));
+        driver.switchTo().frame(checkOutPage.iframe);
+        // }
+        // catch (Exception e2) {
+        // }
+        // Thread.sleep(200);
+        // }
+        // }
         checkOutPage.inputCard.click();
         checkOutPage.inputCard.sendKeys("4111111111111111");
         checkOutPage.selectDate();

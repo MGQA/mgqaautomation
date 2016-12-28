@@ -9,7 +9,7 @@ import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
-public class TestIntoDeals extends AbstractBaseSbgDesktopTestCase {
+public class TestIntoDealsSun extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
@@ -25,27 +25,7 @@ public class TestIntoDeals extends AbstractBaseSbgDesktopTestCase {
         menu.mouseOverMainMenu(7);
         menu.waitForVisibility(menu.dealSunGlass, 2);
         menu.dealSunGlass.click();
-        ProductGridPage gridPage = new ProductGridPage();
-        gridPage.waitForVisibility(gridPage.productDetailName, 2);
-        String currentUrl = gridPage.getCurrentUrl();
-        Assert.assertTrue(currentUrl.contains("on-sale"));
-        menu.deleteHead();
-        String price1 = String.valueOf(gridPage.regexGetDouble(gridPage.productPriceS.get(0).getText()));
-        gridPage.productDetailName.click();
-        ProductDetailPage detailPage = new ProductDetailPage();
-        String price2 = String.valueOf(detailPage.regexGetDouble(detailPage.price.getText()));
-        Assert.assertTrue(price1.contains(price2));
-    }
-
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
-    public void eyeDeals(String url) {
-        getURL(url);
-        Menu menu = new Menu();
-        menu.inputSearch.click();
-        // menu.displayMenu(7);
-        menu.mouseOverMainMenu(7);
-        menu.waitForVisibility(menu.dealEyeGlass, 2);
-        menu.dealEyeGlass.click();
+        menu.switch2NewWindow();
         ProductGridPage gridPage = new ProductGridPage();
         gridPage.waitForVisibility(gridPage.productDetailName, 2);
         String currentUrl = gridPage.getCurrentUrl();

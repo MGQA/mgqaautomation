@@ -90,6 +90,7 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
             NewCheckoutPage checkoutPage = new NewCheckoutPage();
             checkoutPage.inputBillingFirstName.sendKeys("jack");
             checkoutPage.inputBillingLastName.sendKeys("zhong");
+            checkoutPage.inputBillingEmail.clear();
             checkoutPage.inputBillingEmail.sendKeys("jack.zhong@motionglobal.com");
             checkoutPage.inputBillingTelephone.sendKeys("15962626262");
             checkoutPage.inputBillingAddress1.sendKeys("xuhuiqu");
