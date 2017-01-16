@@ -27,15 +27,15 @@ public class HomePage extends AbstractBaseSbgDesktopPage {
     public WebElement linkPimcore;
 
     // top sell
-    @FindBy(css = ".tempWrap img")
+    @FindBy(css = "#pro_slider_eyeglasses>li,#pro_slider_sunglasses>li")
     public List<WebElement> linkTopSellImg;
     @FindBy(css = ".pro_sli_name")
     public List<WebElement> textTopSellBrandName;
     @FindBy(css = ".pro_slider_ul>li>a")
     public List<WebElement> linkTopSellLabelA;
-    @FindBy(xpath = "//*[@id='content']/div[7]//li[5]/a")
+    @FindBy(xpath = "//*[@id='content']/div[7]//li[1]/a")
     public WebElement linkSunNo1;
-    @FindBy(xpath = "//*[@id='content']/div[8]//li[5]/a")
+    @FindBy(xpath = "//*[@id='content']/div[8]//li[1]/a")
     public WebElement linkEyeNo1;
 
     // feature

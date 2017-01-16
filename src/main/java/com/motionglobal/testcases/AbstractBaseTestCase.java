@@ -175,6 +175,12 @@ public abstract class AbstractBaseTestCase {
         }
         catch (Exception e) {
         }
+        try {
+            mobHeader.waitForVisibility(mobHeader.domainPopUp, 5);
+            mobHeader.domainPopUp.click();
+        }
+        catch (Exception e) {
+        }
         new DeleteHeader().deleteLetTalk();
         try {
             header.waitForVisibility(driver.findElement(By.cssSelector(".overlay[style='display: none;']")), 2);

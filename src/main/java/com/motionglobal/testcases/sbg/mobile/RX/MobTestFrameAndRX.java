@@ -34,6 +34,7 @@ public class MobTestFrameAndRX extends AbstractBaseTestCase {
         detailPage.addLens.click();
         MobRX3Page opticianPage = new MobRX3Page();
         opticianPage.waitForVisibility(opticianPage.btnContinue, 5);
+        opticianPage.waitForVisibility(opticianPage.priceTotal, 5);
         Double priceTotal = getPrice(opticianPage.priceTotal);
         opticianPage.btnContinue.click();
         MobCartPage cartPage = new MobCartPage();

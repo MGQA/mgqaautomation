@@ -122,7 +122,7 @@ public class Header extends AbstractBasePage {
     public WebElement shareByEmail;
     @FindBy(className = "newhead_banner_1")
     public WebElement optical_center;
-    @FindBy(css = "#footer_lang_select>a>span+span")
+    @FindBy(css = "#footer_lang_select>a>span.flag-icon")
     public WebElement flagCountry;
 
     // heart/favorite

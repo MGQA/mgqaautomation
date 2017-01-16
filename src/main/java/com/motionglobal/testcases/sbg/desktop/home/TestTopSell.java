@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.home.HomePage;
 import com.motionglobal.pages.sbg.desktop.product.ProductDetailPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
@@ -19,13 +20,14 @@ public class TestTopSell extends AbstractBaseSbgDesktopTestCase {
         return new Object[][] { { "http://www.smartbuyglasses.dk/" }, { "http://www.smartbuyglasses.com/" } };
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
     public void sunImgIsDisplay(String url) {
         getURL(url);
         String handle;
         JavascriptExecutor js = (JavascriptExecutor) driver;
         HomePage homePage = new HomePage();
-        for (int i = 5; i < 13; i++) {
+        new Header().inputSearch.click();
+        for (int i = 0; i < 4; i++) {
             handle = driver.getWindowHandle();
             String imgSrc = homePage.linkTopSellImg.get(i).getAttribute("src").toString();
             js.executeScript("window.open('" + imgSrc + "')");
@@ -43,13 +45,14 @@ public class TestTopSell extends AbstractBaseSbgDesktopTestCase {
         }
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
     public void eyeImgIsDisplay(String url) {
         getURL(url);
         String handle;
         JavascriptExecutor js = (JavascriptExecutor) driver;
         HomePage homePage = new HomePage();
-        for (int i = 21; i < 29; i++) {
+        new Header().inputSearch.click();
+        for (int i = 8; i < 17; i++) {
             handle = driver.getWindowHandle();
             String imgSrc = homePage.linkTopSellImg.get(i).getAttribute("src").toString();
             js.executeScript("window.open('" + imgSrc + "')");
@@ -67,13 +70,13 @@ public class TestTopSell extends AbstractBaseSbgDesktopTestCase {
         }
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
     public void sunUrl(String url) {
         getURL(url);
         HomePage homePage = new HomePage();
-
+        new Header().inputSearch.click();
         // check url with brand is match
-        for (int i = 5; i < 13; i++) {
+        for (int i = 0; i < 4; i++) {
             String textBrandName = homePage.textTopSellBrandName.get(i).getText().replace(" ", "-");
             String actualUrl = homePage.linkTopSellLabelA.get(i).getAttribute("href");
             Assert.assertTrue(actualUrl.contains(textBrandName), "FAIL i IS :" + i + " !!! BRAND IS:" + textBrandName);
@@ -87,13 +90,13 @@ public class TestTopSell extends AbstractBaseSbgDesktopTestCase {
         ProductDetailPage detailPage = new ProductDetailPage();
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
     public void eyeUrl(String url) {
         getURL(url);
         HomePage homePage = new HomePage();
-
+        new Header().inputSearch.click();
         // check url with brand is match
-        for (int i = 21; i < 25; i++) {
+        for (int i = 8; i < 17; i++) {
             String textBrandName = homePage.textTopSellBrandName.get(i).getText().replace(" ", "-");
             String actualUrl = homePage.linkTopSellLabelA.get(i).getAttribute("href");
             Assert.assertTrue(actualUrl.contains(textBrandName), "FAIL i IS :" + i + " !!! BRAND IS:" + textBrandName);
