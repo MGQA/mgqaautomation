@@ -40,7 +40,7 @@ public class TestClickProduct extends AbstractBaseSbgDesktopTestCase {
         new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(gridPage.brankOneIntoDetail));
         //
         String name = gridPage.regexGetLetterLow(gridPage.productDetailName.getText()).replace("sunglasses", "").replace("fast", "").replace("shipping", "")
-                .replace("solbrillerhurtiglevering", "");
+                .replace("solbrillerhurtiglevering", "").substring(15);
         gridPage.brankOneIntoDetail.click();
         gridPage.acceptAlert();
         ProductDetailPage detailPage = new ProductDetailPage();
@@ -59,7 +59,7 @@ public class TestClickProduct extends AbstractBaseSbgDesktopTestCase {
         //
         gridPage.waitForVisibility(gridPage.detail, 15);
         String name = gridPage.regexGetLetterLow(gridPage.productDetailName.getText()).replace("sunglasses", "").replace("fast", "").replace("shipping", "")
-                .replace("solbrillerhurtiglevering", "");
+                .replace("solbrillerhurtiglevering", "").substring(15);
         String detailName = gridPage.regexGetLetterLow(gridPage.quickViewName.getText());
         Assert.assertEquals(name, detailName, "quickViewName no't matcher !!!");
         gridPage.detail.click();
