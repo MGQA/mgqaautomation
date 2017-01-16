@@ -177,7 +177,8 @@ public abstract class AbstractBaseTestCase {
         }
         try {
             mobHeader.waitForVisibility(mobHeader.domainPopUp, 5);
-            mobHeader.domainPopUp.click();
+            // mobHeader.domainPopUp.click();
+            mobHeader.JsDisplayNone(mobHeader.domainPopUp);
         }
         catch (Exception e) {
         }
