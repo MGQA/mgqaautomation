@@ -15,7 +15,8 @@ public class MobHeader extends AbstractBasePage {
     public WebElement discount;
     @FindBy(className = "close_btn")
     public WebElement closeHappySummer;
-    @FindBy(css = ".M-geo-popUp .M-geo-close-btn")
+    // @FindBy(css = ".M-geo-popUp .M-geo-close-btn")
+    @FindBy(css = ".M-geo-popUp")
     public WebElement domainPopUp;
     //
     @FindBy(className = "header__menu-btn")
