@@ -3,7 +3,7 @@ package com.motionglobal.testcases.sbg.desktop.explore;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Menu;
-import com.motionglobal.pages.sbg.desktop.explore.FaceShapePage;
+import com.motionglobal.pages.sbg.desktop.footer.aboutus.AboutUsPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class TestExploreMenu extends AbstractBaseSbgDesktopTestCase {
@@ -17,9 +17,9 @@ public class TestExploreMenu extends AbstractBaseSbgDesktopTestCase {
         menu.mouseOverMainMenu(6);
         //
         menu.displayMenu(6);
-        menu.faceShape.click();
+        menu.AboutUs.click();
         menu.switch2NewWindow();
-        FaceShapePage faceShapePage = new FaceShapePage();
+        AboutUsPage aboutUs = new AboutUsPage();
     }
 
     @Override
