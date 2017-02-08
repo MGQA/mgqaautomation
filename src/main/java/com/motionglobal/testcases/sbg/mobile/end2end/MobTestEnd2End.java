@@ -18,7 +18,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
  */
 public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
 
-    @Test(groups = { "smoke", "debug111", "fastsmoke" })
+    @Test(groups = { "smoke", "debug2", "fastsmoke" })
     public void mobSearchItemAndPayByGC() throws InterruptedException {
         getURL("http://m.smartbuyglasses.com/");
         MobHeader mobHeader = new MobHeader();

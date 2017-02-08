@@ -165,28 +165,31 @@ public abstract class AbstractBaseTestCase {
         catch (Exception e) {
         }
         // mobile
-        MobHeader mobHeader = new MobHeader();
-        try {
-            if (!(url == "http://m.smartbuyglasses.co.uk/?discount")) {
-                mobHeader.JsDisplayNone(mobHeader.discount);
-                mobHeader.closeHappySummer.click();
+        if (url.contains("http://m.")) {
+            MobHeader mobHeader = new MobHeader();
+            try {
+                if (!(url == "http://m.smartbuyglasses.co.uk/?discount")) {
+                    mobHeader.JsDisplayNone(mobHeader.discount);
+                    mobHeader.closeHappySummer.click();
+                }
+                Thread.sleep(100);
             }
-            Thread.sleep(100);
-        }
-        catch (Exception e) {
-        }
-        try {
-            mobHeader.waitForVisibility(mobHeader.domainPopUp, 5);
-            mobHeader.domainPopUp.click();
-            // mobHeader.JsDisplayNone(mobHeader.domainPopUp);
-        }
-        catch (Exception e) {
-        }
-        new DeleteHeader().deleteLetTalk();
-        try {
-            header.waitForVisibility(driver.findElement(By.cssSelector(".overlay[style='display: none;']")), 2);
-        }
-        catch (Exception e) {
+            catch (Exception e) {
+            }
+            try {
+                System.out.println("mobile popUp");
+                mobHeader.waitForVisibility(mobHeader.domainPopUp, 2);
+                mobHeader.domainPopUp.click();
+                // mobHeader.JsDisplayNone(mobHeader.domainPopUp);
+            }
+            catch (Exception e) {
+            }
+            new DeleteHeader().deleteLetTalk();
+            try {
+                header.waitForVisibility(driver.findElement(By.cssSelector(".overlay[style='display: none;']")), 2);
+            }
+            catch (Exception e) {
+            }
         }
     }
 }
