@@ -20,7 +20,7 @@ public class TestTopSell extends AbstractBaseSbgDesktopTestCase {
         return new Object[][] { { "http://www.smartbuyglasses.dk/" }, { "http://www.smartbuyglasses.com/" } };
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void sunImgIsDisplay(String url) {
         getURL(url);
         String handle;
@@ -45,7 +45,7 @@ public class TestTopSell extends AbstractBaseSbgDesktopTestCase {
         }
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void eyeImgIsDisplay(String url) {
         getURL(url);
         String handle;
@@ -70,7 +70,7 @@ public class TestTopSell extends AbstractBaseSbgDesktopTestCase {
         }
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void sunUrl(String url) {
         getURL(url);
         HomePage homePage = new HomePage();
@@ -90,7 +90,7 @@ public class TestTopSell extends AbstractBaseSbgDesktopTestCase {
         ProductDetailPage detailPage = new ProductDetailPage();
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void eyeUrl(String url) {
         getURL(url);
         HomePage homePage = new HomePage();
