@@ -15,12 +15,15 @@ public class MobTestDeals extends AbstractBaseTestCase {
 
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://m.smartbuyglasses.com/" }, { "http://m.smartbuyglasses.dk/" } };
+        return new Object[][] { new Object[]
+        // { "http://m.smartbuyglasses.com/" },
+        { "http://m.smartbuyglasses.dk/" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
     public void sunDetail(String url) throws InterruptedException {
         getURL(url);
+
         MobHeader header = new MobHeader();
         header.btnMenu.click();
         header.getMainMenuElement(MegaMenu.DEALS).click();
