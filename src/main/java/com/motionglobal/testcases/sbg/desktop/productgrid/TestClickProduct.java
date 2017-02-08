@@ -40,12 +40,12 @@ public class TestClickProduct extends AbstractBaseSbgDesktopTestCase {
         new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(gridPage.brankOneIntoDetail));
         //
         String name = gridPage.regexGetLetterLow(gridPage.productDetailName.getText()).replace("sunglasses", "").replace("fast", "").replace("shipping", "")
-                .replace("solbrillerhurtiglevering", "").substring(15);
+                .substring(0, 10);
         gridPage.brankOneIntoDetail.click();
         gridPage.acceptAlert();
         ProductDetailPage detailPage = new ProductDetailPage();
         String actualName = detailPage.regexGetLetterLow(detailPage.productName.getText());
-        System.out.println(actualName + "\t" + name);
+        // System.out.println(actualName + "\t" + name);
         Assert.assertTrue(actualName.contains(name), "product no't matcher !!!");
     }
 
@@ -58,15 +58,20 @@ public class TestClickProduct extends AbstractBaseSbgDesktopTestCase {
         gridPage.matcherQuickViewClickOpen(1);
         //
         gridPage.waitForVisibility(gridPage.detail, 15);
-        String name = gridPage.regexGetLetterLow(gridPage.productDetailName.getText()).replace("sunglasses", "").replace("fast", "").replace("shipping", "")
-                .replace("solbrillerhurtiglevering", "").substring(15);
+        String name = gridPage.regexGetLetterLow(gridPage.productDetailName.getText());
+        // .replace("sunglasses", "").replace("fast", "").replace("shipping", "")
+        // .replace("solbrillerhurtiglevering", "").substring(0,10);
         String detailName = gridPage.regexGetLetterLow(gridPage.quickViewName.getText());
-        Assert.assertEquals(name, detailName, "quickViewName no't matcher !!!");
+        // Assert.assertEquals(name, detailName, "quickViewName no't matcher !!!");
+        // System.out.println("detailName = " + detailName);
+        // System.out.println("name = " + name);
+        Assert.assertTrue(name.contains(detailName), "quickViewName no't matcher !!!");
         gridPage.detail.click();
         gridPage.acceptAlert();
         ProductDetailPage detailPage = new ProductDetailPage();
         String actualName = detailPage.regexGetLetterLow(detailPage.productName.getText());
-        Assert.assertTrue(actualName.contains(name), "product no't matcher !!!");
+        // System.out.println("actualName = " + actualName);
+        Assert.assertTrue(actualName.contains(detailName), "product no't matcher !!!");
     }
 
     // XXX

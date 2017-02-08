@@ -11,8 +11,8 @@ public class Menu extends Header {
     public WebElement menuDisplay;
 
     // menu 6
-    @FindBy(xpath = "//p[text()='FACE SHAPE']")
-    public WebElement faceShape;
+    @FindBy(xpath = "//div[@class='explore_right']//p[text()='ABOUT US']")
+    public WebElement AboutUs;
 
     // menu 7 deals
     @FindBy(xpath = ".//*[@id='Map3']/area[3]")

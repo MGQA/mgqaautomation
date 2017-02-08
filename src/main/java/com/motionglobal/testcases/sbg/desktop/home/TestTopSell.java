@@ -29,6 +29,7 @@ public class TestTopSell extends AbstractBaseSbgDesktopTestCase {
         new Header().inputSearch.click();
         for (int i = 0; i < 4; i++) {
             handle = driver.getWindowHandle();
+            homePage.waitForVisibility(homePage.linkTopSellImg.get(i), 2);
             String imgSrc = homePage.linkTopSellImg.get(i).getAttribute("src").toString();
             js.executeScript("window.open('" + imgSrc + "')");
             Set<String> handles = driver.getWindowHandles();
@@ -52,7 +53,7 @@ public class TestTopSell extends AbstractBaseSbgDesktopTestCase {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         HomePage homePage = new HomePage();
         new Header().inputSearch.click();
-        for (int i = 8; i < 17; i++) {
+        for (int i = 8; i < 16; i++) {
             handle = driver.getWindowHandle();
             String imgSrc = homePage.linkTopSellImg.get(i).getAttribute("src").toString();
             js.executeScript("window.open('" + imgSrc + "')");
@@ -96,7 +97,7 @@ public class TestTopSell extends AbstractBaseSbgDesktopTestCase {
         HomePage homePage = new HomePage();
         new Header().inputSearch.click();
         // check url with brand is match
-        for (int i = 8; i < 17; i++) {
+        for (int i = 8; i < 16; i++) {
             String textBrandName = homePage.textTopSellBrandName.get(i).getText().replace(" ", "-");
             String actualUrl = homePage.linkTopSellLabelA.get(i).getAttribute("href");
             Assert.assertTrue(actualUrl.contains(textBrandName), "FAIL i IS :" + i + " !!! BRAND IS:" + textBrandName);
