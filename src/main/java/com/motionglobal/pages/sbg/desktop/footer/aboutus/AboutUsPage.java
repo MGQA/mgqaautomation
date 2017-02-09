@@ -12,7 +12,7 @@ public class AboutUsPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".carousel-inner"), 5);
+        waitForVisibility(By.cssSelector(".col-sm-12 .wysiwyg-1"), 5);
     }
 
 }
