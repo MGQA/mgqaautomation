@@ -62,6 +62,6 @@ public class CLProductGridPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.className("cl_rightList"), 5);
+        waitForVisibility(By.id("CL-Products-List-Data"), 5);
     }
 }
