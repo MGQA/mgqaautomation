@@ -36,6 +36,7 @@ public class MobTestSearchPradaBebeTrue extends AbstractBaseTestCase {
         searchResultPage.filter.click();
         searchResultPage.branksBtn.click();
         searchResultPage.JsMouse(searchResultPage.Arnette);
+        searchResultPage.waitForVisibility(searchResultPage.Arnette, 1);
         searchResultPage.Arnette.click();
         new WebDriverWait(driver, 5).until(ExpectedConditions.textToBePresentInElement(searchResultPage.productDetailName, "Arnette"));
         Thread.sleep(100);

@@ -36,10 +36,10 @@ public class CLProductDetailPage extends AbstractBaseSbgDesktopPage {
     @FindBy(id = "L_axis")
     private WebElement selLeftAxis;
 
-    @FindBy(id = "addToCart")
+    @FindBy(css = "#addToCart")
     private WebElement btnAddToCart;
 
-    @FindBy(id = "suspend_information_tag")
+    @FindBy(css = "#fancybox-cl-img")
     public WebElement information;
 
     public CLProductDetailPage() {

@@ -46,7 +46,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     // List WebElement
     @FindBy(className = "recProInfo")
     public List<WebElement> proInfo;
-    @FindBy(xpath = "//div[@class='pro_right_size']/a")
+    // @FindBy(xpath = "//div[@class='pro_right_size']/a")
+    @FindBy(css = ".pro_rightSizeIcon_click")
     public List<WebElement> eyeproSize;
     @FindBy(css = "label.clearfix")
     public List<WebElement> frameOrAdd;

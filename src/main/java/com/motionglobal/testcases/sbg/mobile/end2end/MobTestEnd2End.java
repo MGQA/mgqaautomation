@@ -54,7 +54,7 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         // checkOutPage.waitForVisibility(checkOutPage.VISA, 10);
         // checkOutPage.VISA.click();
         Thread.sleep(2000);
-        checkOutPage.waitForVisibility(By.cssSelector("img[src*='bigVisa'][style='opacity: 1;']"), 15);
+        checkOutPage.waitForVisibility(By.cssSelector("img[src*='bigVisa'][style='opacity: 1;']"), 25);
         // for (int i = 0; i < 40; i++) {
         // try {
         // System.out.println("try:" + i);
@@ -66,6 +66,7 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         // try {
         // System.out.println("catch:" + i);
         // new WebDriverWait(driver, 1).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(checkOutPage.iframe));
+        Thread.sleep(500);
         driver.switchTo().frame(checkOutPage.iframe);
         // }
         // catch (Exception e2) {
