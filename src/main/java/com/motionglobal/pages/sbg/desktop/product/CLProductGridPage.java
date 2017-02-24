@@ -4,16 +4,19 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class CLProductGridPage extends AbstractBaseSbgDesktopPage {
-    @FindBy(css = ".cl_rightCell")
+    // @FindBy(css = ".cl_rightCell")
+    @FindAll({ @FindBy(css = ".grid-pro-cell.CL-grid-pro"), @FindBy(css = ".cl_rightCell") })
     public WebElement product1;
     @FindBy(css = ".bra")
     public WebElement productDetailName;
-    @FindBy(className = "pho")
+    // @FindBy(className = "pho")
+    @FindAll({ @FindBy(css = ".grid-pro-cell.CL-grid-pro"), @FindBy(className = "pho") })
     public List<WebElement> lenseDailyEles;
     @FindBy(id = "CL-ProductCount")
     public WebElement productCountString;
@@ -33,7 +36,8 @@ public class CLProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement filterSpherical;
 
     // Assert Element
-    @FindBy(xpath = "//input[@checked='checked']/../label/span/span")
+    // @FindBy(xpath = "//input[@checked='checked']/../label/span/span")
+    @FindAll({ @FindBy(xpath = "//input[@checked='checked']/../../span[2]"), @FindBy(xpath = "//input[@checked='checked']/../label/span/span") })
     public WebElement checkedLeftSubmenuElement;
     @FindBy(id = "CL-daily-disposable-f")
     public WebElement checkedDaily;

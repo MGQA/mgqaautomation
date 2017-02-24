@@ -39,7 +39,7 @@ public class CLProductDetailPage extends AbstractBaseSbgDesktopPage {
     @FindBy(css = "#addToCart")
     private WebElement btnAddToCart;
 
-    @FindBy(css = "#fancybox-cl-img")
+    @FindAll({ @FindBy(css = "#nav_suspend_product_information"), @FindBy(css = "#suspend_information_tag") })
     public WebElement information;
 
     public CLProductDetailPage() {

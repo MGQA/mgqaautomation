@@ -104,7 +104,7 @@ public class SearchResultPage extends AbstractBaseSbgDesktopPage {
         searchPage.JsMouse(searchPage.proInfo.get(num - 1));
         new Actions(driver).moveByOffset(500, 500).build().perform();
         try {
-            Thread.sleep(200);
+            Thread.sleep(300);
         }
         catch (InterruptedException e) {
         }

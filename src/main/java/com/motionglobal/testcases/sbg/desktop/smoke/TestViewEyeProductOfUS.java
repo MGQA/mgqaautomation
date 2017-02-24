@@ -21,7 +21,7 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
     }
 
     @Test(dataProvider = "dp", groups = { "debug", "smoke", "fastsmoke" })
-    public void clickBrank(String url) {
+    public void clickBrank(String url) throws InterruptedException {
         getURL(url);
         Header header = new Header();
         ProductGridPage productGridPage = new ProductGridPage();
@@ -29,14 +29,38 @@ public class TestViewEyeProductOfUS extends AbstractBaseTestCase {
         productGridPage.matcherQuickViewSize2();
         //
         waitSize(productGridPage.eyeproSize);
-        productGridPage.eyeproSize.get(1).click();
-        Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
-        productGridPage.eyeproSize.get(0).click();
-        Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
-        productGridPage.frameOrAdd.get(1).click();
-        Assert.assertTrue(productGridPage.frameOrAddClicked.isDisplayed(), "Frame with Lenses button don't click");
-        productGridPage.frameOrAdd.get(0).click();
-        Assert.assertTrue(productGridPage.frameOrAddClicked.isDisplayed(), "Frame Only button don't click");
+        try {
+            productGridPage.eyeproSize.get(1).click();
+        }
+        catch (Exception e) {
+            Thread.sleep(1000);
+            productGridPage.eyeproSize.get(1).click();
+            Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
+        }
+        try {
+            productGridPage.eyeproSize.get(0).click();
+        }
+        catch (Exception e) {
+            Thread.sleep(1000);
+            productGridPage.eyeproSize.get(0).click();
+            Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
+        }
+        try {
+            productGridPage.frameOrAdd.get(1).click();
+        }
+        catch (Exception e) {
+            Thread.sleep(1000);
+            productGridPage.frameOrAdd.get(1).click();
+            Assert.assertTrue(productGridPage.frameOrAddClicked.isDisplayed(), "Frame with Lenses button don't click");
+        }
+        try {
+            productGridPage.frameOrAdd.get(0).click();
+        }
+        catch (Exception e) {
+            Thread.sleep(1000);
+            productGridPage.frameOrAdd.get(0).click();
+            Assert.assertTrue(productGridPage.frameOrAddClicked.isDisplayed(), "Frame Only button don't click");
+        }
         header.waitForVisibility(productGridPage.buyRX, 2);
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(productGridPage.buyRX));
         productGridPage.buyRX.click();

@@ -4,7 +4,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
-import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 public class TestDiscount extends AbstractBaseSbgDesktopTestCase {
@@ -18,12 +17,15 @@ public class TestDiscount extends AbstractBaseSbgDesktopTestCase {
     public void intoDiscount(String url) {
         getURL(url);
         Header header = new Header();
-        header.waitForVisibility(header.discountSmallIMG, 5);
-        header.discountSmallIMG.click();
-        header.waitForVisibility(header.discountBigIMG, 5);
-        header.discountBigIMG.click();
-        header.switch2NewWindow();
-        ProductGridPage gridPage = new ProductGridPage();
+        // header.waitForVisibility(header.discountSmallIMG, 5);
+        // header.discountSmallIMG.click();
+        // header.waitForVisibility(header.discountBigIMG, 5);
+        // header.discountBigIMG.click();
+        // header.switch2NewWindow();
+
+        //
+        header.displayMenu(7);
+        // ProductGridPage gridPage = new ProductGridPage();
     }
 
     @Override
