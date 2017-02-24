@@ -19,7 +19,7 @@ public class MobSearchResultPage extends AbstractBaseSbgDesktopPage {
     public WebElement filter;
     @FindBy(xpath = "//*[@id='filter_main__btn-group']/div/ul/li[3]//span")
     public WebElement branksBtn;
-    @FindBy(xpath = "//a[contains(@onclick,'Arnette')]")
+    @FindBy(css = ".selected a[onclick*='rnette']")
     public WebElement Arnette;
 
     // category

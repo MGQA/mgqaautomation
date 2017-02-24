@@ -83,7 +83,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement filterRayban;
     // @FindBy(css = "a.FrameType")
     // public List<WebElement> filterFrameType;
-    @FindBy(xpath = "//*[@id='content']/div[1]/div/div[6]/ul/li[1]/a")
+    // @FindBy(xpath = "//*[@id='content']/div[1]/div/div[6]/ul/li[1]/a")
+    @FindAll({ @FindBy(xpath = ".//*[@id='content']/div[2]/div[1]/div/div[7]/div/a[1]"), @FindBy(xpath = "//*[@id='content']/div[1]/div/div[6]/ul/li[1]/a") })
     public WebElement filterFrameType;
     // @FindBy(xpath = "//*[@id='content']//div[7]/ul/li/a")
     // public List<WebElement> filterPrice;
@@ -142,11 +143,13 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     }
 
     // getSubmenuPageLabelText element
-    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]")
+    // @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]")
+    @FindAll({ @FindBy(xpath = ".//*[@id='content']/p/span"), @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]") })
     private WebElement lableA;
     @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[1]/a")
     private WebElement lableB;
-    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]/a")
+    // @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]/a")
+    @FindAll({ @FindBy(xpath = ".//*[@id='content']/p/a[3]"), @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]/a") })
     private WebElement lableC;
 
     public String getSubmenuPageLabelText(Label label) {
