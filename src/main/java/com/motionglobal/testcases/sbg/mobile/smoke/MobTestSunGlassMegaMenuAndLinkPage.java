@@ -88,7 +88,7 @@ public class MobTestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTe
     }
 
     // XXX case 3
-    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug", "smoke" })
     public void menuSunGlassShape(String url) {
         getURL(url);
         MobHeader header = new MobHeader();

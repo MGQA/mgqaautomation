@@ -29,7 +29,8 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
     // @FindBy(xpath = "//a[@class='pro_big_title']/h1")
     @FindAll({ @FindBy(css = ".pro-buy-name.pro_big_title>h1"), @FindBy(xpath = "//a[@class='pro_big_title']/h1") })
     public WebElement glassName;
-    @FindBy(css = ".pro_title_logo>a>h1")
+    // @FindBy(css = ".pro_title_logo>a>h1")
+    @FindAll({ @FindBy(css = ".pro-buy-name.pro_big_title>h1"), @FindBy(css = ".pro_title_logo>a>h1") })
     public WebElement productName;
 
     //
