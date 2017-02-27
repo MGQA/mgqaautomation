@@ -27,7 +27,7 @@ public class TestAddCartAndDelCart extends AbstractBaseSbgDesktopTestCase {
                 { "http://www.smartbuyglasses.com/designer-sunglasses/Maui-Jim/Maui-Jim-Hookipa-Polarized-407-02-27194.html" } };
     }
 
-    @Test(dataProvider = "bd", groups = { "smoke", "debug111" })
+    @Test(dataProvider = "bd", groups = { "smoke", "debug" })
     public void addAndDel(String url) {
         getURL(url);
         try {

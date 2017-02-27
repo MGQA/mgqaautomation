@@ -1,5 +1,7 @@
 package com.motionglobal.pages.sbg.desktop.product;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -35,6 +37,43 @@ public class CLProductDetailPage extends AbstractBaseSbgDesktopPage {
     private WebElement selLeftCyl;
     @FindBy(id = "L_axis")
     private WebElement selLeftAxis;
+
+    // new CL PRE
+    @FindBy(css = "#R_qty+div")
+    public WebElement RBoxArea;
+    @FindBy(css = "#R_power+div")
+    public WebElement RPowerArea;
+    @FindBy(css = "#R_cylinder+div")
+    public WebElement RCylArea;
+    @FindBy(css = "#R_axis+div")
+    public WebElement RAxisArea;
+
+    @FindBy(css = "#L_qty+div")
+    public WebElement LBoxArea;
+    @FindBy(css = "#L_power+div")
+    public WebElement LPowerArea;
+    @FindBy(css = "#L_cylinder+div")
+    public WebElement LCylArea;
+    @FindBy(css = "#L_axis+div")
+    public WebElement LAxisArea;
+    //
+    @FindBy(css = "#R_qty+div>ul>li")
+    public List<WebElement> RBox;
+    @FindBy(css = "#R_power+div>ul>li")
+    public List<WebElement> RPower;
+    @FindBy(css = "#R_cylinder+div>ul>li")
+    public List<WebElement> RCyl;
+    @FindBy(css = "#R_axis+div>ul>li")
+    public List<WebElement> RAxis;
+
+    @FindBy(css = "#L_qty+div>ul>li")
+    public List<WebElement> LBox;
+    @FindBy(css = "#L_power+div>ul>li")
+    public List<WebElement> LPower;
+    @FindBy(css = "#L_cylinder+div>ul>li")
+    public List<WebElement> LCyl;
+    @FindBy(css = "#L_axis+div>ul>li")
+    public List<WebElement> LAxis;
 
     @FindBy(css = "#addToCart")
     private WebElement btnAddToCart;
@@ -83,6 +122,46 @@ public class CLProductDetailPage extends AbstractBaseSbgDesktopPage {
             sel.selectByValue(axis);
         }
         return this;
+    }
+
+    public void CLNewPreR(int box, int power, int axis, int cyl) {
+        CLProductDetailPage page = new CLProductDetailPage();
+        page.RBoxArea.click();
+        page.waitForVisibility(page.RBox, 2);
+        page.RBox.get(box).click();
+        //
+        page.RPowerArea.click();
+        page.waitForVisibility(page.RPower, 2);
+        page.RPower.get(power).click();
+        //
+        page.RAxisArea.click();
+        page.waitForVisibility(page.RAxis, 2);
+        page.RAxis.get(axis).click();
+        //
+        page.RCylArea.click();
+        page.waitForVisibility(page.RCyl, 2);
+        page.RCyl.get(cyl).click();
+        //
+    }
+
+    public void CLNewPreL(int box, int power, int axis, int cyl) {
+        CLProductDetailPage page = new CLProductDetailPage();
+        page.LBoxArea.click();
+        page.waitForVisibility(page.LBox, 2);
+        page.LBox.get(box).click();
+        //
+        page.LPowerArea.click();
+        page.waitForVisibility(page.LPower, 2);
+        page.LPower.get(power).click();
+        //
+        page.LAxisArea.click();
+        page.waitForVisibility(page.LAxis, 2);
+        page.LAxis.get(axis).click();
+        //
+        page.LCylArea.click();
+        page.waitForVisibility(page.LCyl, 2);
+        page.LCyl.get(cyl).click();
+        //
     }
 
     public void clickAddToCart() {
