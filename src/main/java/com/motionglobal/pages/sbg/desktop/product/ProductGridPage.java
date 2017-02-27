@@ -77,9 +77,11 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     // filter
     @FindBy(partialLinkText = "Arnette")
     public WebElement filterArnette;
-    @FindBy(xpath = "//*[@id='content']/div[1]/div/div[4]/ul/li[2]/a")
+    // @FindBy(xpath = "//*[@id='content']/div[1]/div/div[4]/ul/li[2]/a")
+    @FindAll({ @FindBy(xpath = ".//*[@id='content']/div[2]/div[1]/div/div[5]/div/a[2]"), @FindBy(xpath = "//*[@id='content']/div[1]/div/div[4]/ul/li[2]/a") })
     public WebElement shapesMostPopular;
-    @FindBy(xpath = "//div[@class='choose_model']/p[3]/a")
+    // @FindBy(xpath = "//div[@class='choose_model']/p[3]/a")
+    @FindAll({ @FindBy(xpath = ".//*[@id='content']/div[2]/div[1]/div/div[3]/div/a[3]"), @FindBy(xpath = "//div[@class='choose_model']/p[3]/a") })
     public WebElement filterRayban;
     // @FindBy(css = "a.FrameType")
     // public List<WebElement> filterFrameType;
@@ -160,15 +162,15 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
         case mid:
         case pre:
         case polarized:
-            text = lableA.getText();
+            text = lableA.getText().toLowerCase();
             break;
         case designer:
         case sports:
-            text = lableB.getText();
+            text = lableB.getText().toLowerCase();
             break;
         case brands:
         case ski:
-            text = lableC.getText();
+            text = lableC.getText().toLowerCase();
             break;
         default:
             System.out.println("_ don't right page !_");
