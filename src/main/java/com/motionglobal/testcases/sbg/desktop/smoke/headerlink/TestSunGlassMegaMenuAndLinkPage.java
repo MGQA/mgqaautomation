@@ -45,11 +45,11 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         int dice = random.nextInt(3);
         menu.mouseOverMainMenu(1);
         menu.waitForVisibility(menu.getLeftSubMenuElement(1, 1, 1), 2);
-        String men = menu.getLeftSubMenuElement(1, 1, 1).getText();
+        String men = menu.getLeftSubMenuElement(1, 1, 1).getText().toLowerCase();
         menu.waitForVisibility(menu.getLeftSubMenuElement(1, 1, 2), 2);
-        String women = menu.getLeftSubMenuElement(1, 1, 2).getText();
+        String women = menu.getLeftSubMenuElement(1, 1, 2).getText().toLowerCase();
         menu.waitForVisibility(menu.getLeftSubMenuElement(1, 1, 3), 2);
-        String kid = menu.getLeftSubMenuElement(1, 1, 3).getText();
+        String kid = menu.getLeftSubMenuElement(1, 1, 3).getText().toLowerCase();
         ProductGridPage productGridPage;
         switch (dice) {
         case 0:
@@ -97,13 +97,13 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         int dice = random.nextInt(4);
         menu.mouseOverMainMenu(1);
         menu.waitForVisibility(menu.getLeftSubMenuElement(1, 3, 1), 2);
-        String prescription = menu.getLeftSubMenuElement(1, 3, 1).getText();
+        String prescription = menu.getLeftSubMenuElement(1, 3, 1).getText().toLowerCase();
         menu.waitForVisibility(menu.getLeftSubMenuElement(1, 3, 2), 2);
-        String polarized = menu.getLeftSubMenuElement(1, 3, 2).getText();
+        String polarized = menu.getLeftSubMenuElement(1, 3, 2).getText().toLowerCase();
         menu.waitForVisibility(menu.getLeftSubMenuElement(1, 3, 3), 2);
-        String sports = menu.getLeftSubMenuElement(1, 3, 3).getText();
+        String sports = menu.getLeftSubMenuElement(1, 3, 3).getText().toLowerCase();
         menu.waitForVisibility(menu.getLeftSubMenuElement(1, 3, 4), 2);
-        String skiGoggles = menu.getLeftSubMenuElement(1, 3, 4).getText();
+        String skiGoggles = menu.getLeftSubMenuElement(1, 3, 4).getText().toLowerCase();
         ProductGridPage productGridPage = null;
         //
         switch (dice) {
@@ -185,15 +185,15 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         int dice = random.nextInt(5);
         menu.mouseOverMainMenu(1);
         menu.waitForVisibility(menu.getMiddleSubmenuElement(1, 1, 1), 2);
-        String pilot = menu.getMiddleSubmenuElement(1, 1, 1).getText();
+        String pilot = menu.getMiddleSubmenuElement(1, 1, 1).getText().toLowerCase();
         menu.waitForVisibility(menu.getMiddleSubmenuElement(1, 1, 2), 2);
-        String square = menu.getMiddleSubmenuElement(1, 1, 2).getText();
+        String square = menu.getMiddleSubmenuElement(1, 1, 2).getText().toLowerCase();
         menu.waitForVisibility(menu.getMiddleSubmenuElement(1, 1, 3), 2);
-        String rectangle = menu.getMiddleSubmenuElement(1, 1, 3).getText();
+        String rectangle = menu.getMiddleSubmenuElement(1, 1, 3).getText().toLowerCase();
         menu.waitForVisibility(menu.getMiddleSubmenuElement(1, 1, 4), 2);
-        String oversized = menu.getMiddleSubmenuElement(1, 1, 4).getText();
+        String oversized = menu.getMiddleSubmenuElement(1, 1, 4).getText().toLowerCase();
         menu.waitForVisibility(menu.getMiddleSubmenuElement(1, 1, 5), 2);
-        String singleLens = menu.getMiddleSubmenuElement(1, 1, 5).getText();
+        String singleLens = menu.getMiddleSubmenuElement(1, 1, 5).getText().toLowerCase();
         ProductGridPage productGridPage = null;
         switch (dice) {
         case 3:
@@ -236,11 +236,11 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         int dice = random.nextInt(4);
         menu.mouseOverMainMenu(1);
         menu.waitForVisibility(menu.getMiddleSubmenuElement(1, 2, 1), 2);
-        String price1 = menu.getMiddleSubmenuElement(1, 2, 1).getText();
+        String price1 = menu.getMiddleSubmenuElement(1, 2, 1).getText().toLowerCase();
         menu.waitForVisibility(menu.getMiddleSubmenuElement(1, 2, 2), 2);
-        String price2 = menu.getMiddleSubmenuElement(1, 2, 2).getText();
+        String price2 = menu.getMiddleSubmenuElement(1, 2, 2).getText().toLowerCase();
         menu.waitForVisibility(menu.getMiddleSubmenuElement(1, 2, 3), 2);
-        String price3 = menu.getMiddleSubmenuElement(1, 2, 3).getText();
+        String price3 = menu.getMiddleSubmenuElement(1, 2, 3).getText().toLowerCase();
         ProductGridPage productGridPage = null;
         switch (dice) {
         case 2:
@@ -275,13 +275,13 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         int dice = random.nextInt(4);
         menu.mouseOverMainMenu(1);
         menu.waitForVisibility(menu.getMiddleSubmenuElement(1, 3, 1), 2);
-        String Plastic = menu.getMiddleSubmenuElement(1, 3, 1).getText();
+        String Plastic = menu.getMiddleSubmenuElement(1, 3, 1).getText().toLowerCase();
         menu.waitForVisibility(menu.getMiddleSubmenuElement(1, 3, 2), 2);
-        String Metal = menu.getMiddleSubmenuElement(1, 3, 2).getText();
+        String Metal = menu.getMiddleSubmenuElement(1, 3, 2).getText().toLowerCase();
         menu.waitForVisibility(menu.getMiddleSubmenuElement(1, 3, 3), 2);
-        String Titanium = menu.getMiddleSubmenuElement(1, 3, 3).getText();
+        String Titanium = menu.getMiddleSubmenuElement(1, 3, 3).getText().toLowerCase();
         menu.waitForVisibility(menu.getMiddleSubmenuElement(1, 3, 4), 2);
-        String Wood = menu.getMiddleSubmenuElement(1, 3, 4).getText();
+        String Wood = menu.getMiddleSubmenuElement(1, 3, 4).getText().toLowerCase();
         ProductGridPage productGridPage = null;
         switch (dice) {
         case 2:
@@ -316,9 +316,9 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         // String[] ImgName = menu.getMegaMenuBrandLogoImage(2, 2).findElement(By.xpath("..")).getAttribute("onclick").split(" - ");
         // System.out.println(ImgName[2].replace("')", ""));
         menu.mouseOver(menu.getMegaMenuBrandInitialElement(1, "A"));
-        String BrandsA = menu.getMegaMenuBrandsNameElement(1, "A", 1, 1).getText();
+        String BrandsA = menu.getMegaMenuBrandsNameElement(1, "A", 1, 1).getText().toLowerCase();
         menu.mouseOver(menu.getMegaMenuBrandInitialElement(1, "Q"));
-        String BrandsQ = menu.getMegaMenuBrandsNameElement(1, "Q", 2, 2).getText();
+        String BrandsQ = menu.getMegaMenuBrandsNameElement(1, "Q", 2, 2).getText().toLowerCase();
         menu.clickGlassImg(1, 2);
         menu.clickBrands(1, "A", 1, 1);
         ProductGridPage productGridPage = new ProductGridPage();

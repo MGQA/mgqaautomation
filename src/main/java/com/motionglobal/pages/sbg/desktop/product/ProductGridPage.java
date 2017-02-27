@@ -90,7 +90,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement filterFrameType;
     // @FindBy(xpath = "//*[@id='content']//div[7]/ul/li/a")
     // public List<WebElement> filterPrice;
-    @FindBy(xpath = "//*[@id='content']/div[1]/div/div[7]/ul/li[2]/a")
+    // @FindBy(xpath = "//*[@id='content']/div[1]/div/div[7]/ul/li[2]/a")
+    @FindAll({ @FindBy(xpath = ".//*[@id='content']/div[2]/div[1]/div/div[8]/div/li[2]/a"), @FindBy(xpath = "//*[@id='content']/div[1]/div/div[7]/ul/li[2]/a") })
     public WebElement filterPriceNo2;
     @FindBy(xpath = "//*[@id='content']/div[1]/div/div[7]/ul/li[3]/a")
     public WebElement filterPriceNo3;

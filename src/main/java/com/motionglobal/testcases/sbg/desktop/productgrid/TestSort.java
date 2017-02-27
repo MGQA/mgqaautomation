@@ -27,7 +27,11 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
         ProductGridPage gridPage = new ProductGridPage();
         new Header().inputSearch.click();
         gridPage.deleteHead();
-        gridPage.JsDisplayNone(new Header().delAddLens);
+        try {
+            gridPage.JsDisplayNone(new Header().delAddLens);
+        }
+        catch (Exception e) {
+        }
         gridPage.waitForVisibility(gridPage.SortDrop, 5);
         gridPage.SortDrop.click();
         String dropUrl1 = gridPage.SortSection.get(0).getAttribute("href");

@@ -13,7 +13,8 @@ public class CLProductGridPage extends AbstractBaseSbgDesktopPage {
     // @FindBy(css = ".cl_rightCell")
     @FindAll({ @FindBy(css = ".grid-pro-cell.CL-grid-pro"), @FindBy(css = ".cl_rightCell") })
     public WebElement product1;
-    @FindBy(css = ".bra")
+    // @FindBy(css = ".bra")
+    @FindAll({ @FindBy(css = ".cl-pro-name"), @FindBy(css = ".bra") })
     public WebElement productDetailName;
     // @FindBy(className = "pho")
     @FindAll({ @FindBy(css = ".grid-pro-cell.CL-grid-pro"), @FindBy(className = "pho") })
