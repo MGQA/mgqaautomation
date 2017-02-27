@@ -13,7 +13,7 @@ import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
 
-    @FindBy(xpath = "//a[contains(@class,'buy')][not(contains(@style,'none'))]")
+    @FindBy(xpath = "//a[contains(@class,'buy')][not(contains(@style,'none'))]/span")
     public WebElement btnBuyNow; // There are two buy now buttons, one is hidden by lens selection condition.
     @FindBy(css = ".pro_lawith.formSubmitRx")
     public WebElement btnSunRX;

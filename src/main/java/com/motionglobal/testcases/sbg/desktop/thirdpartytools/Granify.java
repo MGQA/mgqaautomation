@@ -4,8 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.motionglobal.pages.sbg.desktop.Header;
-import com.motionglobal.pages.sbg.desktop.cart.CartPage;
-import com.motionglobal.pages.sbg.desktop.checkout.CheckoutPage;
+import com.motionglobal.pages.sbg.desktop.cart.NewCartPage;
+import com.motionglobal.pages.sbg.desktop.checkout.NewCheckoutPage;
 import com.motionglobal.pages.sbg.desktop.footer.aboutus.AboutUsPage;
 import com.motionglobal.pages.sbg.desktop.footer.customercare.FaqPage;
 import com.motionglobal.pages.sbg.desktop.home.HomePage;
@@ -23,9 +23,9 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Header header = new Header();
         header.acceptAlert();
         HomePage homePage = new HomePage();
-        Assert.assertTrue(homePage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
-        Assert.assertTrue(homePage.isTextPresent("Granify.trackPageView("));
-        Assert.assertTrue(homePage.isTextPresent("{ page_type: \"home\" }"));
+        Assert.assertTrue(homePage.isTextPresent("var ua_product_categories"));
+        Assert.assertTrue(homePage.isTextPresent("var searchOptions"));
+        Assert.assertTrue(homePage.isTextPresent("productIdList.push"));
         Assert.assertFalse(homePage.isTextPresent("{ page_type: \"cart\" }"));
     }
 
@@ -35,21 +35,21 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Header header = new Header();
         header.acceptAlert();
         ProductDetailPage productPage = new ProductDetailPage();
-        Assert.assertTrue(productPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
-        Assert.assertTrue(productPage.isTextPresent("Granify.trackPageView("));
-        Assert.assertTrue(productPage.isTextPresent("{ page_type: \"product\" }"));
+        Assert.assertTrue(productPage.isTextPresent("var ActionName"));
+        Assert.assertTrue(productPage.isTextPresent("dataLayer.push"));
+        Assert.assertTrue(productPage.isTextPresent("var searchOptions"));
         Assert.assertFalse(productPage.isTextPresent("{ page_type: \"cart\" }"));
 
         getURL("http://www.visiondirect.com.au/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html");
-        Assert.assertTrue(productPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
-        Assert.assertTrue(productPage.isTextPresent("Granify.trackPageView("));
-        Assert.assertTrue(productPage.isTextPresent("{ page_type: \"product\" }"));
+        Assert.assertTrue(productPage.isTextPresent("dataLayer"));
+        Assert.assertTrue(productPage.isTextPresent("dataLayer.push"));
+        Assert.assertTrue(productPage.isTextPresent("var glasses_item_obj"));
         Assert.assertFalse(productPage.isTextPresent("{ page_type: \"cart\" }"));
 
         getURL("http://www.visiondirect.com.au/contact-lenses/1-2-weeks-disposable/Acuvue-Oasys-for-Astigmatism-6-Pack/449.html");
-        Assert.assertTrue(productPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
-        Assert.assertTrue(productPage.isTextPresent("Granify.trackPageView("));
-        Assert.assertTrue(productPage.isTextPresent("{ page_type: \"product\" }"));
+        Assert.assertTrue(productPage.isTextPresent("var ControllerName"));
+        Assert.assertTrue(productPage.isTextPresent("dataLayer.push"));
+        Assert.assertTrue(productPage.isTextPresent("validator.addMethod"));
         Assert.assertFalse(productPage.isTextPresent("{ page_type: \"cart\" }"));
     }
 
@@ -59,27 +59,27 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Header header = new Header();
         header.acceptAlert();
         ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertTrue(productGridPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
-        Assert.assertTrue(productGridPage.isTextPresent("Granify.trackPageView("));
-        Assert.assertTrue(productGridPage.isTextPresent("{ page_type: \"collection\" }"));
+        Assert.assertTrue(productGridPage.isTextPresent("viewbrand"));
+        Assert.assertTrue(productGridPage.isTextPresent("noSmallImage"));
+        Assert.assertTrue(productGridPage.isTextPresent("ProductList"));
         Assert.assertFalse(productGridPage.isTextPresent("{ page_type: \"cart\" }"));
 
         getURL("http://www.visiondirect.com.au/designer-sunglasses/general/-Men----------------------");
-        Assert.assertTrue(productGridPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
-        Assert.assertTrue(productGridPage.isTextPresent("Granify.trackPageView("));
-        Assert.assertTrue(productGridPage.isTextPresent("{ page_type: \"collection\" }"));
+        Assert.assertTrue(productGridPage.isTextPresent("general"));
+        Assert.assertTrue(productGridPage.isTextPresent("var base_style_image_url"));
+        Assert.assertTrue(productGridPage.isTextPresent("ListingPage"));
         Assert.assertFalse(productGridPage.isTextPresent("{ page_type: \"cart\" }"));
 
         getURL("http://www.visiondirect.com.au/designer-sunglasses/on-sale/");
-        Assert.assertTrue(productGridPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
-        Assert.assertTrue(productGridPage.isTextPresent("Granify.trackPageView("));
-        Assert.assertTrue(productGridPage.isTextPresent("{ page_type: \"collection\" }"));
+        Assert.assertTrue(productGridPage.isTextPresent("ControllerName=\"on-sale\""));
+        Assert.assertTrue(productGridPage.isTextPresent("currencySymbol"));
+        Assert.assertTrue(productGridPage.isTextPresent("qick_view_do"));
         Assert.assertFalse(productGridPage.isTextPresent("{ page_type: \"cart\" }"));
 
         getURL("http://www.visiondirect.com.au/contact-lenses/b/Acuvue-contact-lenses#!&s=popularity&tb=0&b=Acuvue&p=1");
-        Assert.assertTrue(productGridPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
-        Assert.assertTrue(productGridPage.isTextPresent("Granify.trackPageView("));
-        Assert.assertTrue(productGridPage.isTextPresent("{ page_type: \"collection\" }"));
+        Assert.assertTrue(productGridPage.isTextPresent("ActionName = \"filter-category\";"));
+        Assert.assertTrue(productGridPage.isTextPresent("searchOptions"));
+        Assert.assertTrue(productGridPage.isTextPresent("dataLayer.push"));
         Assert.assertFalse(productGridPage.isTextPresent("{ page_type: \"cart\" }"));
     }
 
@@ -89,9 +89,9 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Header header = new Header();
         header.acceptAlert();
         SearchResultPage searchResultPage = new SearchResultPage();
-        Assert.assertTrue(searchResultPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
-        Assert.assertTrue(searchResultPage.isTextPresent("Granify.trackPageView("));
-        Assert.assertTrue(searchResultPage.isTextPresent("{ page_type: \"search\" }"));
+        Assert.assertTrue(searchResultPage.isTextPresent("ControllerName=\"search\";"));
+        Assert.assertTrue(searchResultPage.isTextPresent("searchOptions"));
+        Assert.assertTrue(searchResultPage.isTextPresent("dataLayer.push"));
         Assert.assertFalse(searchResultPage.isTextPresent("{ page_type: \"cart\" }"));
     }
 
@@ -101,9 +101,9 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Header header = new Header();
         header.acceptAlert();
         FaqPage faqPage = new FaqPage();
-        Assert.assertTrue(faqPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
-        Assert.assertTrue(faqPage.isTextPresent("Granify.trackPageView("));
-        Assert.assertTrue(faqPage.isTextPresent("{ page_type: \"other\" }"));
+        Assert.assertTrue(faqPage.isTextPresent("ControllerName=\"faq\";"));
+        Assert.assertTrue(faqPage.isTextPresent("searchOptions"));
+        Assert.assertTrue(faqPage.isTextPresent("dataLayer.push"));
         Assert.assertFalse(faqPage.isTextPresent("{ page_type: \"cart\" }"));
 
         getURL("http://www.visiondirect.com.au/about-us");
@@ -111,7 +111,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         // Assert.assertTrue(aboutUsPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
         // Assert.assertTrue(aboutUsPage.isTextPresent("Granify.trackPageView("));
         // Assert.assertTrue(aboutUsPage.isTextPresent("{ page_type: \"other\" }"));
-        // Assert.assertFalse(aboutUsPage.isTextPresent("{ page_type: \"cart\" }"));
+        Assert.assertFalse(aboutUsPage.isTextPresent("{ page_type: \"cart\" }"));
     }
 
     @Test(groups = { "acceptance", "au" })
@@ -119,46 +119,30 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         getURL("http://www.visiondirect.com.au/cart");
         Header header = new Header();
         header.acceptAlert();
-        CartPage cartPage = null;
-        if (header.getCartType().equals("old")) {
-            cartPage = new CartPage();
-            Assert.assertTrue(cartPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
-            Assert.assertTrue(cartPage.isTextPresent("Granify.trackPageView("));
-            Assert.assertTrue(cartPage.isTextPresent("{ page_type: \"cart\" }"));
-            Assert.assertTrue(cartPage.isTextPresent("Granify.trackCart(false);"));
-            Assert.assertFalse(cartPage.isTextPresent("0, // Number of items"));
-            Assert.assertFalse(cartPage.isTextPresent("0.00 // Total price"));
-            Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
-        }
-        if (header.getCartType().equals("new")) {
-            // TODO
-        }
+        NewCartPage cartPage = new NewCartPage();
+        Assert.assertTrue(cartPage.isTextPresent("ControllerName=\"cart\";"));
+        Assert.assertTrue(cartPage.isTextPresent("searchOptions"));
+        Assert.assertTrue(cartPage.isTextPresent("dataLayer.push"));
+        Assert.assertFalse(cartPage.isTextPresent("0, // Number of items"));
+        Assert.assertFalse(cartPage.isTextPresent("0.00 // Total price"));
+        Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
     }
 
-    @Test(groups = { "acceptance", "au", "debug" })
+    @Test(groups = { "acceptance", "au" })
     public void testSunGlassCartPage() {
         getURL("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
         Header header = new Header();
         header.acceptAlert();
         ProductDetailPage productDetailPage = new ProductDetailPage();
         productDetailPage.btnBuyNow.click();
-        CartPage cartPage = null;
-        if (productDetailPage.getCartType().equals("old")) {
-            cartPage = new CartPage();
-            // logger().info(driver.getPageSource());
-            Assert.assertTrue(cartPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
-            Assert.assertTrue(cartPage.isTextPresent("Granify.trackPageView("));
-            Assert.assertTrue(cartPage.isTextPresent("{ page_type: \"cart\" }"));
-            Assert.assertTrue(cartPage.isTextPresent("Granify.trackCart({"));
-            Assert.assertTrue(cartPage.isTextPresent("{\"id\":\"110094\",\"quantity\":1,\"price\":\""));
-            Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
-        }
-        if (productDetailPage.getCartType().equals("new")) {
-            // TODO
-        }
+        NewCartPage cartPage = new NewCartPage();
+        Assert.assertTrue(cartPage.isTextPresent("ControllerName=\"cart\";"));
+        Assert.assertTrue(cartPage.isTextPresent("var currencyCode"));
+        Assert.assertTrue(cartPage.isTextPresent("dataLayer.push"));
+        Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
     }
 
-    @Test(groups = { "acceptance", "au", "debug" })
+    @Test(groups = { "acceptance", "au" })
     public void testEyeGlassCartPage() {
         getURL("http://www.visiondirect.com.au/designer-eyeglasses/Ray-Ban/Ray-Ban-RX5228-Highstreet-2000-93357.html");
         Header header = new Header();
@@ -168,45 +152,36 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         productDetailPage.btnBuyNow.click();
         // productDetailPage.btnFrameOnly.click(); // now RX radio box.
 
-        if (productDetailPage.getCartType().equals("old")) {
-            CartPage cartPage = new CartPage();
-            Assert.assertTrue(cartPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
-            Assert.assertTrue(cartPage.isTextPresent("Granify.trackPageView("));
-            Assert.assertTrue(cartPage.isTextPresent("{ page_type: \"cart\" }"));
-            Assert.assertTrue(cartPage.isTextPresent("Granify.trackCart({"));
-            Assert.assertTrue(cartPage.isTextPresent("{\"id\":\"93357\",\"quantity\":1,\"price\":\""));
-            Assert.assertTrue(cartPage.isTextPresent("{\"id\":\"110094\",\"quantity\":1,\"price\":"));
-            Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
-        }
-        if (productDetailPage.getCartType().equals("new")) {
-            // TODO
-        }
+        NewCartPage cartPage = new NewCartPage();
+        Assert.assertTrue(cartPage.isTextPresent("ControllerName=\"cart\";"));
+        Assert.assertTrue(cartPage.isTextPresent("var currencyCode"));
+        Assert.assertTrue(cartPage.isTextPresent("dataLayer.push"));
+        Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
     }
 
-    @Test(groups = { "acceptance", "au", "debug" })
+    @Test(groups = { "acceptance", "au" })
     public void testCLCartPage() {
         getURL("http://www.visiondirect.com.au/contact-lenses/daily-disposable/1-Day-Acuvue-Moist-for-Astigmatism-90-Pack/246.html");
         Header header = new Header();
         header.acceptAlert();
         CLProductDetailPage clProductDetailPage = new CLProductDetailPage();
-        clProductDetailPage.setRightPrescription(true, "1", "-4.50", "-1.25", "20.00");
-        clProductDetailPage.setLeftPrescription(true, "1", "-4.50", "-1.25", "20.00");
+        try {
+            // old CL pre
+            clProductDetailPage.setRightPrescription(true, "1", "-4.50", "-1.25", "20.00");
+            clProductDetailPage.setLeftPrescription(true, "1", "-4.50", "-1.25", "20.00");
+        }
+        catch (Exception e) {
+            // new CL pre
+            clProductDetailPage.CLNewPreL(0, 2, 1, 3);
+            clProductDetailPage.CLNewPreR(0, 2, 1, 3);
+        }
         clProductDetailPage.clickAddToCart();
 
-        if (clProductDetailPage.getCartType().equals("old")) {
-            CartPage cartPage = new CartPage();
-            Assert.assertTrue(cartPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
-            Assert.assertTrue(cartPage.isTextPresent("Granify.trackPageView("));
-            Assert.assertTrue(cartPage.isTextPresent("{ page_type: \"cart\" }"));
-            Assert.assertTrue(cartPage.isTextPresent("Granify.trackCart({"));
-            Assert.assertTrue(cartPage.isTextPresent("{\"id\":\"93357\",\"quantity\":1,\"price\":"));
-            Assert.assertTrue(cartPage.isTextPresent("{\"id\":\"110094\",\"quantity\":1,\"price\":"));
-            Assert.assertTrue(cartPage.isTextPresent("{\"id\":\"246\",\"quantity\":2,\"price\":"));
-            Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
-        }
-        if (clProductDetailPage.getCartType().equals("old")) {
-            // TODO
-        }
+        NewCartPage cartPage = new NewCartPage();
+        Assert.assertTrue(cartPage.isTextPresent("ControllerName=\"cart\";"));
+        Assert.assertTrue(cartPage.isTextPresent("var currencyCode"));
+        Assert.assertTrue(cartPage.isTextPresent("dataLayer.push"));
+        Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
     }
 
     @Test(groups = { "acceptance", "au" })
@@ -217,18 +192,13 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         ProductDetailPage productDetailPage = new ProductDetailPage();
         productDetailPage.btnBuyNow.click();
 
-        if (productDetailPage.getCartType().equals("old")) {
-            CartPage cartPage = new CartPage();
-            cartPage.btnCheckout.click();
-            CheckoutPage checkoutPage = new CheckoutPage();
-            Assert.assertTrue(checkoutPage.isTextPresent("var GRANIFY_SITE_ID=1257;"));
-            Assert.assertTrue(checkoutPage.isTextPresent("Granify.trackPageView("));
-            Assert.assertTrue(checkoutPage.isTextPresent("{ page_type: \"checkout\" }"));
-            Assert.assertFalse(checkoutPage.isTextPresent("{ page_type: \"product\" }"));
-        }
-        if (productDetailPage.getCartType().equals("new")) {
-            // TODO
-        }
+        NewCartPage cartPage = new NewCartPage();
+        cartPage.btnCheckout.click();
+        NewCheckoutPage checkoutPage = new NewCheckoutPage();
+        Assert.assertTrue(checkoutPage.isTextPresent("ActionName=\"gc-checkout\";"));
+        Assert.assertTrue(checkoutPage.isTextPresent("searchOptions"));
+        Assert.assertTrue(checkoutPage.isTextPresent("dataLayer.push"));
+        Assert.assertFalse(checkoutPage.isTextPresent("{ page_type: \"product\" }"));
     }
 
     @Override
