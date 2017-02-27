@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,7 +26,8 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
     public WebElement radioFrameOnly;
     @FindBy(id = "discount_price_promotion_display")
     public WebElement price;
-    @FindBy(xpath = "//a[@class='pro_big_title']/h1")
+    // @FindBy(xpath = "//a[@class='pro_big_title']/h1")
+    @FindAll({ @FindBy(css = ".pro-buy-name.pro_big_title>h1"), @FindBy(xpath = "//a[@class='pro_big_title']/h1") })
     public WebElement glassName;
     @FindBy(css = ".pro_title_logo>a>h1")
     public WebElement productName;
@@ -37,7 +39,8 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> radio;
     @FindBy(css = ".pro_leftIcon_click")
     public List<WebElement> productIcon;
-    @FindBy(css = ".pro_leftIcon_display:not([style*='none'])")
+    // @FindBy(css = ".pro_leftIcon_display:not([style*='none'])")
+    @FindAll({ @FindBy(css = ".cloudzoom"), @FindBy(css = ".pro_leftIcon_display:not([style*='none'])") })
     public WebElement displayIcon;
     //
     @FindBy(css = ".similar_content_element>a")
@@ -56,7 +59,12 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
         new Actions(driver).moveToElement(productSizeS.get(index)).build().perform();
         productSizeS.get(index).click();
         new WebDriverWait(driver, 5).until(ExpectedConditions.attributeToBe(productSizeS.get(index), "class", "pro_rightSizeIcon_click size_s_bor"));
-        waitForVisibility(By.cssSelector(".proPop.addBlock"), 5);
+        try {
+            waitForVisibility(By.cssSelector(".proPop.addBlock"), 2);
+        }
+        catch (Exception e) {
+            waitForVisibility(By.cssSelector(".pro-size-popup"), 2);
+        }
     }
 
     /**

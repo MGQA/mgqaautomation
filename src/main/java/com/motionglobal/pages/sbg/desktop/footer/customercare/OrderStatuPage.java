@@ -10,7 +10,7 @@ public class OrderStatuPage extends AbstractBaseSbgDesktopPage {
     //
     @FindBy(css = "#order_h1>h1")
     public WebElement orderID;
-    @FindBy(className = "td_title")
+    @FindBy(css = ".account_content")
     public WebElement orderTitle;
 
     @Override

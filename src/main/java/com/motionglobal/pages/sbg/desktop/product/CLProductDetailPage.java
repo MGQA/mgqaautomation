@@ -13,7 +13,8 @@ import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
 
 public class CLProductDetailPage extends AbstractBaseSbgDesktopPage {
 
-    @FindBy(css = ".cl_productImgTitle>a>h1")
+    // @FindBy(css = ".cl_productImgTitle>a>h1")
+    @FindAll({ @FindBy(css = ".pro-buy-name>a>h1"), @FindBy(css = ".cl_productImgTitle>a>h1") })
     public WebElement productName;
     //
     @FindBy(id = "right_check")

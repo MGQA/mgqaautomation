@@ -43,6 +43,7 @@ public class TestReword extends AbstractBaseSbgDesktopTestCase {
         }
         catch (Exception e) {
             driver.navigate().refresh();
+            getURL(url);
         }
         header.waitForVisibility(header.yourAccount, 10);
         header.mouseOver(header.yourAccount);
