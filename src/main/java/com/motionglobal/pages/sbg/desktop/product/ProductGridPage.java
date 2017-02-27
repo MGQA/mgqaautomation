@@ -36,7 +36,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     // add new product page
     @FindAll({ @FindBy(css = ".detail_link"), @FindBy(className = "qv-pro-detail-btn") })
     public WebElement detail;
-    @FindBy(css = ".pro_title_logo>a>h1")
+    // @FindBy(css = ".pro_title_logo>a>h1")
+    @FindAll({ @FindBy(css = ".pro-buy-name.pro_big_title>h1"), @FindBy(css = ".pro_title_logo>a>h1") })
     public WebElement quickViewName;
     // multi-angle picture
     @FindBy(css = ".pro_leftIcon_click")
