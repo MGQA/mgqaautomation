@@ -20,7 +20,7 @@ public class TestOrderTracking extends AbstractBaseSbgDesktopTestCase {
         return new Object[][] { {} };
     }
 
-    @Test(skipFailedInvocations = true, groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, groups = { "debug111", "smoke" })
     public void orderTracking() {
         // get order and email
         String url = "http://www.smartbuyglasses.co.uk/order";

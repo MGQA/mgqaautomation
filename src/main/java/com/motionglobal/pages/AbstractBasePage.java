@@ -67,6 +67,13 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
         js.executeScript("arguments[0].setAttribute('class','" + classContent + "');", element);
     }
 
+    // // screen scale 0.3
+    public void JsScaleBody() {
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].style.transform='scale(0.3) translate(0,-'+arguments[0].offsetHeight/2+'px)';",
+                driver.findElement(By.tagName("body")));
+    }
+
     public void JsScale(WebElement element, double scale) {
         JavascriptExecutor js = ((JavascriptExecutor) driver);
         js.executeScript("arguments[0].style.transform='scale(" + scale + ")';", element);

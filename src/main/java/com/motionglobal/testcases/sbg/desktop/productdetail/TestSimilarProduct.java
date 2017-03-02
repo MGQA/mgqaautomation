@@ -30,7 +30,11 @@ public class TestSimilarProduct extends AbstractBaseSbgDesktopTestCase {
     public void clickRecommendProduct(String url) {
         getURL(url);
         ProductDetailPage detailPage = new ProductDetailPage();
-        detailPage.deleteHead();
+        try {
+            detailPage.deleteHead();
+        }
+        catch (Exception e) {
+        }
         String productName = detailPage.glassName.getText();
         detailPage.JsMouse(detailPage.recommendProduct);
         detailPage.recommendProduct.click();
