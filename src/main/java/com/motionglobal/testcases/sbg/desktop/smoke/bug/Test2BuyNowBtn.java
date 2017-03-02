@@ -21,7 +21,7 @@ public class Test2BuyNowBtn extends AbstractBaseSbgDesktopTestCase {
         ProductDetailPage detailPage = new ProductDetailPage();
         detailPage.waitForVisibility(detailPage.BUG2BuyNow, 5);
         System.out.println(detailPage.BUG2BuyNow.size());
-        Assert.assertEquals(detailPage.BUG2BuyNow.size(), 1);
+        Assert.assertEquals(detailPage.BUG2BuyNow.size(), 3);
     }
 
     @Override

@@ -42,7 +42,7 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     // multi-angle picture
     @FindBy(css = ".pro_leftIcon_click")
     public List<WebElement> multiPucture;
-    @FindAll({ @FindBy(css = ".pro_bigimg>img[style*='inline']"), @FindBy(css = ".pro_bigimg>img[style='width: 320px;']") })
+    @FindAll({ @FindBy(css = ".pro_bigimg>img[style*='inline']"), @FindBy(css = ".pro_bigimg>img[style='width: 320px;']"), @FindBy(css = ".cloudzoom") })
     public WebElement quickViewMainPicture;
     // List WebElement
     @FindBy(className = "recProInfo")

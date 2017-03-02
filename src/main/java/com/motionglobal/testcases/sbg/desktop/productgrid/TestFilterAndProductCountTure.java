@@ -87,8 +87,8 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         getURL(url);
         CLProductGridPage gridPage = new CLProductGridPage();
         Assert.assertEquals(gridPage.checkedLeftSubmenuElement.getText(), "Acuvue");
-        gridPage.waitForVisibility(gridPage.filterDaily, 2);
-        gridPage.waitForVisibility(gridPage.productCountString, 2);
+        // gridPage.waitForVisibility(gridPage.filterDaily, 2);
+        // gridPage.waitForVisibility(gridPage.productCountString, 2);
         String productCount = gridPage.productCountString.getText();
         Assert.assertEquals(gridPage.ProInfo.size(), gridPage.getProductCount());
     }

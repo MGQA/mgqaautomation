@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.motionglobal.pages.sbg.desktop.AbstractBaseSbgDesktopPage;
+import com.motionglobal.pages.sbg.desktop.Header;
 
 public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
 
@@ -44,9 +45,11 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
     @FindAll({ @FindBy(css = ".cloudzoom"), @FindBy(css = ".pro_leftIcon_display:not([style*='none'])") })
     public WebElement displayIcon;
     //
-    @FindBy(css = ".similar_content_element>a")
+    // @FindBy(css = ".similar_content_element>a")
+    @FindAll({ @FindBy(xpath = ".//*[@id='recom-slider']/li[1]"), @FindBy(css = ".pro_rec_li.similar_content_element>a") })
     public WebElement similarProduct; // list
-    @FindBy(css = ".pro_rec_li.similar_content_element>a")
+    // @FindBy(css = ".pro_rec_li.similar_content_element>a")
+    @FindAll({ @FindBy(xpath = ".//*[@id='recom-slider']/li[1]"), @FindBy(css = ".pro_rec_li.similar_content_element>a") })
     public WebElement recommendProduct; // list
 
     //
@@ -58,14 +61,15 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
      */
     public void clickSizeNum(int index) {
         new Actions(driver).moveToElement(productSizeS.get(index)).build().perform();
-        productSizeS.get(index).click();
-        new WebDriverWait(driver, 5).until(ExpectedConditions.attributeToBe(productSizeS.get(index), "class", "pro_rightSizeIcon_click size_s_bor"));
         try {
             waitForVisibility(By.cssSelector(".proPop.addBlock"), 2);
         }
         catch (Exception e) {
             waitForVisibility(By.cssSelector(".pro-size-popup"), 2);
         }
+        productSizeS.get(index).click();
+        new WebDriverWait(driver, 5).until(ExpectedConditions.attributeToBe(productSizeS.get(index), "class", "pro_rightSizeIcon_click size_s_bor"));
+        new Header().inputSearch.click();
     }
 
     /**
