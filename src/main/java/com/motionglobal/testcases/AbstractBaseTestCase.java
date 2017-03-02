@@ -66,7 +66,6 @@ public abstract class AbstractBaseTestCase {
         }
         catch (Exception e) {
         }
-        new Header().JsScaleBody();
         delDeal(url);
         i = 0;
     }

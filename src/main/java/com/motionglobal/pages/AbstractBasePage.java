@@ -70,7 +70,7 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     // // screen scale 0.3
     public void JsScaleBody() {
         ((JavascriptExecutor) driver).executeScript(
-                "arguments[0].style.transform='scale(0.3) translate(0,-'+arguments[0].offsetHeight/2+'px)';",
+                "arguments[0].style.transform='scale(0.3) translate(0,-'+arguments[0].offsetHeight+'px)';",
                 driver.findElement(By.tagName("body")));
     }
 
