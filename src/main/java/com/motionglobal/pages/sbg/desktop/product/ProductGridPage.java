@@ -52,7 +52,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public List<WebElement> eyeproSize;
     @FindBy(css = "label.clearfix")
     public List<WebElement> frameOrAdd;
-    @FindBy(xpath = "//ul[not(li[@class='pro_top_seller'])]/a/li[1]")
+    // @FindBy(xpath = "//ul[not(li[@class='pro_top_seller'])]/a/li[1]")
+    @FindBy(css = ".discount-cnt>span:not([class*='discount'])")
     public List<WebElement> productPriceS;
     @FindBy(className = "price_clearance_new_tag")
     public WebElement discountIcon;
@@ -79,7 +80,7 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     @FindBy(partialLinkText = "Arnette")
     public WebElement filterArnette;
     // @FindBy(xpath = "//*[@id='content']/div[1]/div/div[4]/ul/li[2]/a")
-    @FindAll({ @FindBy(xpath = ".//*[@id='content']/div[2]/div[1]/div/div[5]/div/a[2]"), @FindBy(xpath = "//*[@id='content']/div[1]/div/div[4]/ul/li[2]/a") })
+    @FindAll({ @FindBy(css = ".FrameShape>.sun-shapes-wa"), @FindBy(xpath = "//*[@id='content']/div[1]/div/div[4]/ul/li[2]/a") })
     public WebElement shapesMostPopular;
     // @FindBy(xpath = "//div[@class='choose_model']/p[3]/a")
     @FindAll({ @FindBy(xpath = ".//*[@id='content']/div[2]/div[1]/div/div[3]/div/a[3]"), @FindBy(xpath = "//div[@class='choose_model']/p[3]/a") })

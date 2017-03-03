@@ -172,6 +172,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         }
         catch (Exception e) {
             // new CL pre
+            clProductDetailPage.JsScaleBody();
             clProductDetailPage.CLNewPreL(0, 2, 1, 3);
             clProductDetailPage.CLNewPreR(0, 2, 1, 3);
         }
