@@ -9,7 +9,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.motionglobal.common.utils.VerifyUtil;
@@ -90,6 +92,11 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     public void selectValue(WebElement element, String value) {
         Select select = new Select(element);
         select.selectByValue(value);
+    }
+
+    public void waitShadow() {
+        new WebDriverWait(driver, 15).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(driver.findElement(By
+                .cssSelector("[id*='xubox'][class*='xubox_shade']")))));
     }
 
     public void AsssetEquals(Object actual, Object expected) {

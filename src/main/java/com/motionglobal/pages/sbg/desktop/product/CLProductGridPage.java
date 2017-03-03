@@ -19,7 +19,8 @@ public class CLProductGridPage extends AbstractBaseSbgDesktopPage {
     // @FindBy(className = "pho")
     @FindAll({ @FindBy(css = ".grid-pro-cell.CL-grid-pro"), @FindBy(className = "pho") })
     public List<WebElement> lenseDailyEles;
-    @FindBy(id = "CL-ProductCount")
+    // @FindBy(id = "CL-ProductCount")
+    @FindAll({ @FindBy(css = ".product_count"), @FindBy(id = "CL-ProductCount") })
     public WebElement productCountString;
     // @FindBy(className = "recProInfo")
     @FindAll({ @FindBy(css = ".grid-pro-cell.CL-grid-pro"), @FindBy(className = "recProInfo") })

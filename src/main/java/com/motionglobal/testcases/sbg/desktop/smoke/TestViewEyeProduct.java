@@ -33,10 +33,13 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         waitSize(productGridPage.eyeproSize);
         productGridPage.eyeproSize.get(1).click();
         Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
+        productGridPage.waitShadow();
         productGridPage.eyeproSize.get(0).click();
         Assert.assertTrue(productGridPage.sizeClicked.isDisplayed(), "size button don't click");
+        productGridPage.waitShadow();
         productGridPage.frameOrAdd.get(1).click();
         Assert.assertTrue(productGridPage.frameOrAddClicked.isDisplayed(), "Frame with Lenses button don't click");
+        productGridPage.waitShadow();
         productGridPage.frameOrAdd.get(0).click();
         Assert.assertTrue(productGridPage.frameOrAddClicked.isDisplayed(), "Frame Only button don't click");
         header.waitForVisibility(productGridPage.buyRX, 2);
@@ -59,10 +62,13 @@ public class TestViewEyeProduct extends AbstractBaseTestCase {
         waitSize(searchResultPage.eyeproSize);
         searchResultPage.eyeproSize.get(1).click();
         Assert.assertTrue(searchResultPage.sizeClicked.isDisplayed(), "size button don't click");
+        searchResultPage.waitShadow();
         searchResultPage.eyeproSize.get(0).click();
         Assert.assertTrue(searchResultPage.sizeClicked.isDisplayed(), "size button don't click");
+        searchResultPage.waitShadow();
         searchResultPage.frameOrAdd.get(1).click();
         Assert.assertTrue(searchResultPage.frameOrAddClicked.isDisplayed(), "Frame with Lenses button don't click");
+        searchResultPage.waitShadow();
         searchResultPage.frameOrAdd.get(0).click();
         Assert.assertTrue(searchResultPage.frameOrAddClicked.isDisplayed(), "Frame Only button don't click");
         searchResultPage.waitForVisibility(searchResultPage.buyRX, 2);

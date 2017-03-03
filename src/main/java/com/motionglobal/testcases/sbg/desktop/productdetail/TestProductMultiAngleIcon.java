@@ -19,6 +19,7 @@ public class TestProductMultiAngleIcon extends AbstractBaseSbgDesktopTestCase {
         getURL(url);
         ProductDetailPage detailPage = new ProductDetailPage();
         String src1 = detailPage.displayIcon.getAttribute("src");
+        detailPage.JsScaleBody();
         detailPage.clickIcon(1);
         String src2 = detailPage.displayIcon.getAttribute("src");
         Assert.assertNotEquals(src1, src2);
