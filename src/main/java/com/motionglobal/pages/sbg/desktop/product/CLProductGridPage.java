@@ -56,7 +56,7 @@ public class CLProductGridPage extends AbstractBaseSbgDesktopPage {
         for (int i = 0; i < 20; i++) {
             if (productCountString.getText().equals(productText)) {
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(200);
                 }
                 catch (InterruptedException e) {
                     e.printStackTrace();
