@@ -72,7 +72,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         gridPage.deleteHead();
         gridPage.filterDaily.click();
         gridPage.waitProductChange(productCount);
-        gridPage.waitForVisibility(gridPage.filterDaily, 2);
+        // gridPage.waitForVisibility(gridPage.filterDaily, 2);
         gridPage.waitForVisibility(gridPage.productCountString, 2);
         String productCountDaily = gridPage.productCountString.getText();
         Assert.assertEquals(gridPage.ProInfo.size(), gridPage.getProductCount());
