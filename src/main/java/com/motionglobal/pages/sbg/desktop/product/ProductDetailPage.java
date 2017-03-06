@@ -65,7 +65,7 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
             waitForVisibility(By.cssSelector(".proPop.addBlock"), 2);
         }
         catch (Exception e) {
-            waitForVisibility(By.cssSelector(".pro-size-popup"), 2);
+            waitForVisibility(By.xpath("//*[@class='pro-size-popup'][1]"), 2);
         }
         productSizeS.get(index).click();
         new WebDriverWait(driver, 5).until(ExpectedConditions.attributeToBe(productSizeS.get(index), "class", "pro_rightSizeIcon_click size_s_bor"));
@@ -90,7 +90,13 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
     public void clickIcon(int index) {
         productIcon.get(index).click();
         System.out.println(productIcon.get(index).getAttribute("class"));
-        new WebDriverWait(driver, 5).until(ExpectedConditions.attributeContains(productIcon.get(index), "class", "view_bold_border"));
+        try {
+            new WebDriverWait(driver, 2).until(ExpectedConditions.attributeContains(productIcon.get(index), "class", "view_bold_border"));
+        }
+        catch (Exception e) {
+            new Header().waitForVisibility(By.cssSelector(" .pro_leftIcon_click.cur"), 2);
+
+        }
     }
 
     // Ë¥ÍË BUG

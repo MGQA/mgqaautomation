@@ -54,6 +54,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         // gridPage.JsMouse(gridPage.shapesMostPopular);
         gridPage.deleteHead();
         String type = gridPage.shapesMostPopular.getText();
+        gridPage.JsMouse(gridPage.shapesMostPopular);
         gridPage.shapesMostPopular.click();
         Assert.assertTrue(gridPage.filterSide.getText().contains(type), " fiter fail ");
     }
