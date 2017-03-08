@@ -64,7 +64,7 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     public WebElement SortDrop;
     @FindBy(css = "#sortByDrop li>a")
     public List<WebElement> SortSection;
-    @FindBy(css = ".pagination.top_pagination>a")
+    @FindBy(css = ".pagination>a[href*=---]")
     public List<WebElement> productPageNum;
     @FindBy(id = "half_left")
     public WebElement popularLeftBtn;
@@ -96,7 +96,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     // @FindBy(xpath = "//*[@id='content']/div[1]/div/div[7]/ul/li[2]/a")
     @FindAll({ @FindBy(xpath = ".//*[@id='content']/div[2]/div[1]/div/div[8]/div/li[2]/a"), @FindBy(xpath = "//*[@id='content']/div[1]/div/div[7]/ul/li[2]/a") })
     public WebElement filterPriceNo2;
-    @FindBy(xpath = "//*[@id='content']/div[1]/div/div[7]/ul/li[3]/a")
+    // @FindBy(xpath = "//*[@id='content']/div[1]/div/div[7]/ul/li[3]/a")
+    @FindAll({ @FindBy(xpath = ".//*[@id='content']/div[2]//div[8]/div/li[3]/a"), @FindBy(xpath = "//*[@id='content']/div[1]/div/div[7]/ul/li[3]/a") })
     public WebElement filterPriceNo3;
 
     // assert_element！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
@@ -152,7 +153,8 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     // @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]")
     @FindAll({ @FindBy(xpath = ".//*[@id='content']/p/span"), @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]") })
     private WebElement lableA;
-    @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[1]/a")
+    // @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[1]/a")
+    @FindBy(xpath = "//*[@id='content']/p/a[2]")
     private WebElement lableB;
     // @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]/a")
     @FindAll({ @FindBy(xpath = ".//*[@id='content']/p/a[3]"), @FindBy(xpath = "//*[@id='wrapper']/div[4]/div[2]/span[2]/a") })

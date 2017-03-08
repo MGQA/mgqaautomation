@@ -95,8 +95,12 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
     }
 
     public void waitShadow() {
-        new WebDriverWait(driver, 15).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(driver.findElement(By
-                .cssSelector("[id*='xubox'][class*='xubox_shade']")))));
+        try {
+            new WebDriverWait(driver, 15).until(ExpectedConditions.invisibilityOfAllElements(driver.findElements(By
+                    .cssSelector("[id*='xubox'][class*='xubox_shade']"))));
+        }
+        catch (Exception e) {
+        }
     }
 
     public void AsssetEquals(Object actual, Object expected) {

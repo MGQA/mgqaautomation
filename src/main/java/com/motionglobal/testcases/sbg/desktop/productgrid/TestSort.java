@@ -44,9 +44,9 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
         gridPage.AsssetEquals(dropUrl4, url + "-----------2-------");
 
         //
-        for (int i = 2; i < gridPage.productPageNum.size() - 1; i++) {
+        for (int i = 0; i < gridPage.productPageNum.size() - 1; i++) {
             String productPageUrl = gridPage.productPageNum.get(i).getAttribute("href");
-            gridPage.AsssetEquals(productPageUrl, url + "------------" + i + "------");
+            gridPage.AsssetEquals(productPageUrl, url + "------------" + (i + 2) + "------");
         }
         String rightUrl = gridPage.productPageNum.get(gridPage.productPageNum.size() - 1).getAttribute("href");
         gridPage.AsssetEquals(rightUrl, url + "------------2------");
