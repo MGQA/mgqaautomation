@@ -30,7 +30,7 @@ public class MobTestFooter extends AbstractBaseTestCase {
         String sharePinterest = header.share.get(3).getAttribute("href");
         Assert.assertEquals(sharePinterest, "https://www.pinterest.com/smartbuyglasses/");
         String shareBlog = header.share.get(4).getAttribute("href");
-        Assert.assertEquals(shareBlog, "http://blog.smartbuyglasses.com/");
+        Assert.assertEquals(shareBlog, "https://blog.smartbuyglasses.com/");
     }
 
     // XXX case 2
@@ -41,13 +41,13 @@ public class MobTestFooter extends AbstractBaseTestCase {
         header.JsMouse(header.footer.get(0));
         header.footer.get(0).click();
         MobAboutUsPage footerPage = new MobAboutUsPage();
-        Assert.assertEquals(driver.getCurrentUrl(), "http://m.smartbuyglasses.com/about-us");
-        String pimcore = "http://m.smartbuyglasses.com/optical-center/";
+        Assert.assertEquals(driver.getCurrentUrl(), "https://m.smartbuyglasses.com/about-us");
+        String pimcore = "https://m.smartbuyglasses.com/optical-center/";
         getURL(pimcore);
         header.JsMouse(header.footer.get(0));
         header.footer.get(0).click();
         MobAboutUsPage footerPage2 = new MobAboutUsPage();
-        Assert.assertEquals(driver.getCurrentUrl(), "http://m.smartbuyglasses.com/about-us");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://m.smartbuyglasses.com/about-us");
     }
 
     // XXX case 3
@@ -60,7 +60,7 @@ public class MobTestFooter extends AbstractBaseTestCase {
         MobFooterPage footerPage = new MobFooterPage();
         String title = footerPage.regexGetLetterLow(footerPage.title.getText());
         Assert.assertEquals(title, "contactus");
-        String pimcore = "http://m.smartbuyglasses.com/optical-center/";
+        String pimcore = "https://m.smartbuyglasses.com/optical-center/";
         getURL(pimcore);
         header.JsMouse(header.footer.get(1));
         header.footer.get(1).click();
@@ -80,7 +80,7 @@ public class MobTestFooter extends AbstractBaseTestCase {
         MobFooterPage footerPage = new MobFooterPage();
         String title = footerPage.regexGetLetterLow(footerPage.title.getText());
         Assert.assertEquals(title, "termsconditions");
-        String pimcore = "http://m.smartbuyglasses.com/optical-center/";
+        String pimcore = "https://m.smartbuyglasses.com/optical-center/";
         getURL(pimcore);
         header.JsMouse(header.footer.get(2));
         header.footer.get(2).click();
@@ -99,7 +99,7 @@ public class MobTestFooter extends AbstractBaseTestCase {
         MobFooterPage footerPage = new MobFooterPage();
         String title = footerPage.regexGetLetterLow(footerPage.title.getText());
         Assert.assertEquals(title, "faq");
-        String pimcore = "http://m.smartbuyglasses.com/optical-center/";
+        String pimcore = "https://m.smartbuyglasses.com/optical-center/";
         getURL(pimcore);
         header.JsMouse(header.footer.get(3));
         header.footer.get(3).click();
@@ -118,7 +118,7 @@ public class MobTestFooter extends AbstractBaseTestCase {
         MobFooterPage footerPage = new MobFooterPage();
         String title = footerPage.regexGetLetterLow(footerPage.title.getText());
         Assert.assertEquals(title, "ordertracking");
-        String pimcore = "http://m.smartbuyglasses.com/optical-center/";
+        String pimcore = "https://m.smartbuyglasses.com/optical-center/";
         getURL(pimcore);
         header.JsMouse(header.footer.get(4));
         header.footer.get(4).click();
@@ -137,7 +137,7 @@ public class MobTestFooter extends AbstractBaseTestCase {
         MobFooterPage footerPage = new MobFooterPage();
         String title = footerPage.regexGetLetterLow(footerPage.title.getText());
         Assert.assertEquals(title, "privacypolicy");
-        String pimcore = "http://m.smartbuyglasses.com/optical-center/";
+        String pimcore = "https://m.smartbuyglasses.com/optical-center/";
         getURL(pimcore);
         header.JsMouse(header.footer.get(5));
         header.footer.get(5).click();

@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 import com.motionglobal.pages.sbg.desktop.Menu;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage;
 import com.motionglobal.pages.sbg.desktop.product.ProductGridPage.Label;
-import com.motionglobal.pages.sbg.desktop.product.VirtualPage;
 import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
 
 /**
@@ -75,9 +74,9 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
     public void leftSubmenuSectionNum2(String url) {
         getURL(url);
         Menu menu = new Menu();
-        menu.clickLeftSubMenu(1, 2, 2);
-        VirtualPage virtualPage = new VirtualPage();
-        Assert.assertTrue(virtualPage.VirtualClickPage.getAttribute("id").contains("virtual"), "don't virtual page");
+        // menu.clickLeftSubMenu(1, 2, 2);
+        // VirtualPage virtualPage = new VirtualPage();
+        // Assert.assertTrue(virtualPage.VirtualClickPage.getAttribute("id").contains("virtual"), "don't virtual page");
         menu.clickLeftSubMenu(1, 2, 3);
         ProductGridPage productGridPage = new ProductGridPage();
         try {

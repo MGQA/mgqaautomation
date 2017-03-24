@@ -11,6 +11,8 @@ import com.motionglobal.pages.AbstractBasePage;
 
 public class Header extends AbstractBasePage {
     // need delete head
+    @FindBy(className = "Fixed_navigation_bar")
+    public WebElement sliderBar;
     @FindBy(css = ".hp_topsmallad_box")
     public WebElement delDiscount;
     @FindBy(css = ".header_box")

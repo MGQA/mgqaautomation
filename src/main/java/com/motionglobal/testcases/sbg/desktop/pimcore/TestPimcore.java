@@ -20,18 +20,18 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
-        return new Object[][] { { "http://www.smartbuyglasses.co.uk/" }, { "http://www.smartbuyglasses.dk/" } };
+        return new Object[][] { { "https://www.smartbuyglasses.co.uk/" }, { "https://www.smartbuyglasses.dk/" } };
     }
 
     @DataProvider
     public Object[][] pk() {
-        return new Object[][] { { "http://www.smartbuyglasses.com/optical-center" }, { "http://www.smartbuyglasses.dk/optisk-center" } };
+        return new Object[][] { { "https://www.smartbuyglasses.com/optical-center" }, { "https://www.smartbuyglasses.dk/optisk-center" } };
     }
 
     @DataProvider
     public Object[][] pop() {
-        return new Object[][] { { "http://www.smartbuyglasses.co.uk/optical-centre/search-results?popular=true" },
-                { "http://www.smartbuyglasses.dk/optisk-center/search-results?popular=true" } };
+        return new Object[][] { { "https://www.smartbuyglasses.co.uk/optical-centre/search-results?popular=true" },
+                { "https://www.smartbuyglasses.dk/optisk-center/search-results?popular=true" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
@@ -80,7 +80,7 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         PimcorePage pimcorePage = new PimcorePage();
         pimcorePage.waitForVisibility(pimcorePage.linkMenuCL, 5);
         String expectTitle3 = pimcorePage.linkMenuCL.getText().toLowerCase();
-        if (url == "http://www.smartbuyglasses.com/optical-center") {
+        if (url == "https://www.smartbuyglasses.com/optical-center") {
             expectTitle3 = "contact lenses";
         }
         pimcorePage.deleteHead();
@@ -186,7 +186,7 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "debug", "smoke" })
     public void menuMG() {
-        String url = "http://www.smartbuyglasses.co.uk/optical-centre";
+        String url = "https://www.smartbuyglasses.co.uk/optical-centre";
         getURL(url);
         PimcorePage pimcorePage = new PimcorePage();
         pimcorePage.waitForVisibility(pimcorePage.linkMenuMG, 5);
@@ -199,7 +199,7 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "debug", "smoke" })
     public void menuSearchResultAppendMenu() {
-        String url = "http://www.smartbuyglasses.com/optical-center/search-results?term=glasses";
+        String url = "https://www.smartbuyglasses.com/optical-center/search-results?term=glasses";
         getURL(url);
         PimcorePage pimcorePage = new PimcorePage();
         pimcorePage.deleteHead();
@@ -250,26 +250,26 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         Menu menu = new Menu();
         String menuNo1 = menu.getLeftSubMenuElement(1, 1, 1).getAttribute("href");
         String slitUrl = url.split("/")[2];
-        String expectUrl1 = "http://" + slitUrl + "/designer-sunglasses/general/-Men----------------------";
+        String expectUrl1 = "https://" + slitUrl + "/designer-sunglasses/general/-Men----------------------";
         menu.AsssetEquals(menuNo1, expectUrl1);
         String menuNo2 = menu.getLeftSubMenuElement(1, 2, 3).getAttribute("href");
-        String expectUrl2 = "http://" + slitUrl + "/designer-sunglasses/general/--------------1---------";
+        String expectUrl2 = "https://" + slitUrl + "/designer-sunglasses/general/--------------1---------";
         menu.AsssetEquals(menuNo2, expectUrl2);
         String menuNo3 = menu.getLeftSubMenuElement(1, 3, 1).getAttribute("href");
-        String expectUrl3 = "http://" + slitUrl + "/designer-sunglasses/general/---------------------prescription--";
+        String expectUrl3 = "https://" + slitUrl + "/designer-sunglasses/general/---------------------prescription--";
         menu.AsssetEquals(menuNo3, expectUrl3);
-        if (!(url == "http://www.smartbuyglasses.dk/optisk-center")) {
+        if (!(url == "https://www.smartbuyglasses.dk/optisk-center")) {
             String menuNo21 = menu.getMiddleSubmenuElement(1, 1, 1).getAttribute("href");
-            String expectUrl21 = "http://" + slitUrl + "/designer-sunglasses/general/--Aviator---------------------";
+            String expectUrl21 = "https://" + slitUrl + "/designer-sunglasses/general/--Aviator---------------------";
             menu.AsssetEquals(menuNo21, expectUrl21);
         }
         else {
             String menuNo21 = menu.getMiddleSubmenuElement(1, 1, 1).getAttribute("href");
-            String expectUrl21 = "http://www.smartbuyglasses.dk/designer-sunglasses/general/--Pilot---------------------";
+            String expectUrl21 = "https://www.smartbuyglasses.dk/designer-sunglasses/general/--Pilot---------------------";
             menu.AsssetEquals(menuNo21, expectUrl21);
         }
         String menuNo23 = menu.getMiddleSubmenuElement(1, 3, 1).getAttribute("href");
-        String expectUrl23 = "http://" + slitUrl + "/designer-sunglasses/general/-------Plastic----------------";
+        String expectUrl23 = "https://" + slitUrl + "/designer-sunglasses/general/-------Plastic----------------";
         menu.AsssetEquals(menuNo23, expectUrl23);
     }
 
@@ -285,7 +285,7 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         menu.AsssetEquals(adidas, "Adidas");
         String brankUrl = pimcorePage.linkMenuBrandASection.getAttribute("href");
         String slitUrl = url.split("/")[2];
-        String expectUrl = "http://" + slitUrl + "/designer-sunglasses/Adidas/";
+        String expectUrl = "https://" + slitUrl + "/designer-sunglasses/Adidas/";
         menu.AsssetEquals(brankUrl, expectUrl);
     }
 
@@ -298,7 +298,7 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         pimcorePage.waitForVisibility(pimcorePage.linkMenuBrandIMG, 2);
         String imgSrc = null;
         String imgDataUrl = null;
-        // String raybanIMG = "http://cdn1.smartbuyglasses.com/public/images/showbrand/brand_Ray%20Ban.gif";
+        // String raybanIMG = "https://cdn1.smartbuyglasses.com/public/images/showbrand/brand_Ray%20Ban.gif";
         String raybanIMG = "https://84654884b68f749e7aa3-aa57143e2ca30795bf94ff3884a3b19b.ssl.cf1.rackcdn.com/public/images/showbrand/brand_Ray%20Ban.gif";
         for (int i = 0; i < 16; i++) {
             imgSrc += pimcorePage.linkMenuBrandIMG.get(i).getAttribute("src");
