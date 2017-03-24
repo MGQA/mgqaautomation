@@ -22,13 +22,28 @@ public class TestFlagTrue extends AbstractBaseSbgDesktopTestCase {
         String flag = header.flagCountry.getAttribute("class");
         switch (url) {
         case "http://www.smartbuyglasses.co.uk/":
-            Assert.assertEquals(flag, "flag-icon gb");
+            try {
+                Assert.assertEquals(flag, "flag-icon gb");
+            }
+            catch (Exception e) {
+                Assert.assertEquals(flag, "flag-icon flag-icon-geo_flag_GB");
+            }
             break;
         case "http://www.smartbuyglasses.dk/":
-            Assert.assertEquals(flag, "flag-icon dk");
+            try {
+                Assert.assertEquals(flag, "flag-icon dk");
+            }
+            catch (Exception e) {
+                Assert.assertEquals(flag, "flag-icon flag-icon-geo_flag_DK");
+            }
             break;
         default:
-            Assert.assertEquals(flag, "flag-icon us");
+            try {
+                Assert.assertEquals(flag, "flag-icon us");
+            }
+            catch (Exception e) {
+                Assert.assertEquals(flag, "flag-icon flag-icon-geo_flag_US");
+            }
             break;
         }
 

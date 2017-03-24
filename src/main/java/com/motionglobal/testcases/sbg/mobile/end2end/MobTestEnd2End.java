@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.mobile.MobHeader;
 import com.motionglobal.pages.sbg.mobile.cart.MobCartPage;
 import com.motionglobal.pages.sbg.mobile.checkout.MobCheckOutPage;
@@ -58,7 +59,16 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         catch (Exception e) {
         }
         Thread.sleep(2000);
-        checkOutPage.waitForVisibility(By.cssSelector("img[src*='bigVisa'][style='opacity: 1;']"), 25);
+        try {
+            checkOutPage.waitForVisibility(By.cssSelector("img[src*='bigVisa'][style='opacity: 1;']"), 25);
+        }
+        catch (Exception e) {
+        }
+        try {
+            new Header().waitShadow();
+        }
+        catch (Exception e) {
+        }
         // for (int i = 0; i < 40; i++) {
         // try {
         // System.out.println("try:" + i);

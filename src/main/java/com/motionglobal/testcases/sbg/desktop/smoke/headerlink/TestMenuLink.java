@@ -25,11 +25,11 @@ public class TestMenuLink extends AbstractBaseSbgDesktopTestCase {
         allProduct.deleteHead();
         allProduct.waitForVisibility(allProduct.imgRanban, 5);
         String ranbanUrl = allProduct.brandSunRanban.getAttribute("href");
-        allProduct.AsssetEquals(ranbanUrl, "http://www.smartbuyglasses.co.uk/designer-sunglasses/Ray-Ban/");
+        allProduct.AsssetEquals(ranbanUrl, "https://www.smartbuyglasses.co.uk/designer-sunglasses/Ray-Ban/");
         allProduct.imgRanban.click();
         ProductGridPage gridPage = new ProductGridPage();
         String currentUrl = gridPage.getCurrentUrl();
-        gridPage.AsssetEquals(currentUrl, "http://www.smartbuyglasses.co.uk/designer-sunglasses/Ray-Ban/");
+        gridPage.AsssetEquals(currentUrl, "https://www.smartbuyglasses.co.uk/designer-sunglasses/Ray-Ban/");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
@@ -41,11 +41,11 @@ public class TestMenuLink extends AbstractBaseSbgDesktopTestCase {
         allProduct.deleteHead();
         allProduct.waitForVisibility(allProduct.imgRanban, 5);
         String ranbanUrl = allProduct.brandEyeRanban.getAttribute("href");
-        allProduct.AsssetEquals(ranbanUrl, "http://www.smartbuyglasses.co.uk/designer-eyeglasses/Ray-Ban/");
+        allProduct.AsssetEquals(ranbanUrl, "https://www.smartbuyglasses.co.uk/designer-eyeglasses/Ray-Ban/");
         allProduct.imgRanban.click();
         ProductGridPage gridPage = new ProductGridPage();
         String currentUrl = gridPage.getCurrentUrl();
-        gridPage.AsssetEquals(currentUrl, "http://www.smartbuyglasses.co.uk/designer-eyeglasses/Ray-Ban/");
+        gridPage.AsssetEquals(currentUrl, "https://www.smartbuyglasses.co.uk/designer-eyeglasses/Ray-Ban/");
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })

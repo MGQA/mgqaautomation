@@ -96,7 +96,7 @@ public abstract class AbstractBasePage extends AbstractBaseContainer {
 
     public void waitShadow() {
         try {
-            new WebDriverWait(driver, 15).until(ExpectedConditions.invisibilityOfAllElements(driver.findElements(By
+            new WebDriverWait(driver, 25).until(ExpectedConditions.invisibilityOfAllElements(driver.findElements(By
                     .cssSelector("[id*='xubox'][class*='xubox_shade']"))));
         }
         catch (Exception e) {

@@ -208,6 +208,12 @@ public abstract class AbstractBaseTestCase {
             }
             catch (Exception e) {
             }
+            try {
+                header.JsDisplayNone(header.sliderBar);
+                Thread.sleep(100);
+            }
+            catch (Exception e) {
+            }
         }
     }
 }

@@ -72,6 +72,7 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
             }
         }
         productSizeS.get(index).click();
+        new Header().waitShadow();
         new WebDriverWait(driver, 5).until(ExpectedConditions.attributeToBe(productSizeS.get(index), "class", "pro_rightSizeIcon_click size_s_bor"));
         new Header().inputSearch.click();
     }
