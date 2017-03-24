@@ -147,13 +147,13 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
                     Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.polarized), "Æ«¹âÏµÁÐ");
                     break;
                 case "http://www.smartbuyglasses.se":
-                    Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.polarized), "Polariserade");
+                    Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.polarized).toLowerCase(), "Polariserade".toLowerCase());
                     break;
                 case "http://www.smartbuyglasses.co.nz":
-                    Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.polarized), "Polarized");
+                    Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.polarized).toLowerCase(), "Polarized".toLowerCase());
                     break;
                 case "http://www.smartbuyglasses.co.uk":
-                    Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.polarized), "Polarised");
+                    Assert.assertEquals(productGridPage.getSubmenuPageLabelText(Label.polarized).toLowerCase(), "Polarised".toLowerCase());
                     break;
                 default:
                     break;

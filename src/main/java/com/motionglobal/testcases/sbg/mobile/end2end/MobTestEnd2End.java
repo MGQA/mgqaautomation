@@ -51,8 +51,12 @@ public class MobTestEnd2End extends AbstractBaseSbgDesktopTestCase {
         checkOutPage.clearInput(checkOutPage.inputCity, "shanghai");
         checkOutPage.selectStateGA();
         checkOutPage.continueBtn.click();
-        // checkOutPage.waitForVisibility(checkOutPage.VISA, 10);
-        // checkOutPage.VISA.click();
+        try {
+            checkOutPage.waitForVisibility(checkOutPage.VISA, 10);
+            checkOutPage.VISA.click();
+        }
+        catch (Exception e) {
+        }
         Thread.sleep(2000);
         checkOutPage.waitForVisibility(By.cssSelector("img[src*='bigVisa'][style='opacity: 1;']"), 25);
         // for (int i = 0; i < 40; i++) {

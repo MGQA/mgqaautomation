@@ -13,7 +13,7 @@ public class TestMenuLink extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
-        return new Object[][] { { "http://www.smartbuyglasses.co.uk/" } };
+        return new Object[][] { { "https://www.smartbuyglasses.co.uk/" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })

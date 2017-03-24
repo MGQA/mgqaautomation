@@ -15,6 +15,6 @@ public class ProductStyleFinderPage extends AbstractBaseSbgDesktopPage {
 
     @Override
     protected void waitPageLoad() {
-        waitForVisibility(By.cssSelector(".top_search_options"), 5);
+        waitForVisibility(By.cssSelector(".top_search_options"), 15);
     }
 }

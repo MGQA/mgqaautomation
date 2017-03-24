@@ -18,7 +18,7 @@ public class HomePageLinkTest extends AbstractBaseSbgDesktopTestCase {
 
     @Test(groups = { "debug", "smoke" })
     public void homePageLinkTest() throws InterruptedException {
-        String url = "http://www.smartbuyglasses.com/";
+        String url = "https://www.smartbuyglasses.com/";
         getURL(url);
         HomePage homepage = new HomePage();
         Header header = new Header();
@@ -28,7 +28,7 @@ public class HomePageLinkTest extends AbstractBaseSbgDesktopTestCase {
         header.waitForVisibility(header.freeshipmoreinfo, 2);
         header.freeshipmoreinfo.click();
         switchPage();
-        Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/fast-shipping");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.smartbuyglasses.com/fast-shipping");
         header.logo.click();
 
         // 100 DAY RETURNS
@@ -36,7 +36,7 @@ public class HomePageLinkTest extends AbstractBaseSbgDesktopTestCase {
         homepage.waitForVisibility(header.DayReturnsMoreInfo, 2);
         header.DayReturnsMoreInfo.click();
         switchPage();
-        Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/returns");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.smartbuyglasses.com/returns");
         header.logo.click();
 
         // Refrt A Friend
@@ -48,28 +48,28 @@ public class HomePageLinkTest extends AbstractBaseSbgDesktopTestCase {
         header.waitForVisibility(header.optical_center, 2);
         header.optical_center.click();
         //
-        Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/optical-center");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.smartbuyglasses.com/optical-center");
     }
 
     @Test(groups = { "debug", "smoke" })
     public void homePageHeartAndCartBox() throws InterruptedException {
-        String url = "http://www.smartbuyglasses.com/";
+        String url = "https://www.smartbuyglasses.com/";
         getURL(url);
         Header header = new Header();
         // Favourite Heart Button
         header.iHeart.click();
         FavoritePage favoritePage = new FavoritePage();
-        Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/favs/");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.smartbuyglasses.com/favs/");
         header.logo.click();
 
         // Cart box
         header.cartBox.click();
-        Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/cart");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.smartbuyglasses.com/cart");
     }
 
     @Test(groups = { "debug", "smoke" })
     public void OtherPageLinkTest() throws InterruptedException {
-        String url = "http://www.smartbuyglasses.com/designer-sunglasses/on-sale/";
+        String url = "https://www.smartbuyglasses.com/designer-sunglasses/on-sale/";
         getURL(url);
         Header header = new Header();
         // FREE SHIPPING
@@ -77,7 +77,7 @@ public class HomePageLinkTest extends AbstractBaseSbgDesktopTestCase {
         header.waitForVisibility(header.freeshipmoreinfo, 2);
         header.freeshipmoreinfo.click();
         switchPage();
-        Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/fast-shipping");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.smartbuyglasses.com/fast-shipping");
     }
 
     private void switchPage() {

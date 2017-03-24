@@ -17,8 +17,8 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] db() {
-        return new Object[][] { { "http://www.smartbuyglasses.co.uk/designer-sunglasses/Ray-Ban/" },
-                { "http://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/" }, { "http://www.smartbuyglasses.dk/designer-sunglasses/Ray-Ban/" } };
+        return new Object[][] { { "https://www.smartbuyglasses.co.uk/designer-sunglasses/Ray-Ban/" },
+                { "https://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/" }, { "https://www.smartbuyglasses.dk/designer-sunglasses/Ray-Ban/" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
