@@ -12,7 +12,7 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
 public class MobTestFooter extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://m.smartbuyglasses.com/" } };
+        return new Object[][] { new Object[] { "https://m.smartbuyglasses.com/" } };
     }
 
     // XXX case 1

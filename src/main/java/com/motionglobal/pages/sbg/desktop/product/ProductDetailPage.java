@@ -62,10 +62,14 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
     public void clickSizeNum(int index) {
         new Actions(driver).moveToElement(productSizeS.get(index)).build().perform();
         try {
-            waitForVisibility(By.cssSelector(".proPop.addBlock"), 2);
+            waitForVisibility(By.cssSelector(".proPop.addBlock"), 5);
         }
         catch (Exception e) {
-            waitForVisibility(By.xpath("//*[@class='pro-size-popup'][1]"), 2);
+            try {
+                waitForVisibility(By.xpath("//*[@class='pro-size-popup'][1]"), 5);
+            }
+            catch (Exception e2) {
+            }
         }
         productSizeS.get(index).click();
         new WebDriverWait(driver, 5).until(ExpectedConditions.attributeToBe(productSizeS.get(index), "class", "pro_rightSizeIcon_click size_s_bor"));

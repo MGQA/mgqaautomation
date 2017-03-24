@@ -298,7 +298,8 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         pimcorePage.waitForVisibility(pimcorePage.linkMenuBrandIMG, 2);
         String imgSrc = null;
         String imgDataUrl = null;
-        String raybanIMG = "http://cdn1.smartbuyglasses.com/public/images/showbrand/brand_Ray%20Ban.gif";
+        // String raybanIMG = "http://cdn1.smartbuyglasses.com/public/images/showbrand/brand_Ray%20Ban.gif";
+        String raybanIMG = "https://84654884b68f749e7aa3-aa57143e2ca30795bf94ff3884a3b19b.ssl.cf1.rackcdn.com/public/images/showbrand/brand_Ray%20Ban.gif";
         for (int i = 0; i < 16; i++) {
             imgSrc += pimcorePage.linkMenuBrandIMG.get(i).getAttribute("src");
             imgDataUrl += pimcorePage.linkMenuBrandIMG.get(i).getAttribute("data-url");
