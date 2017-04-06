@@ -41,7 +41,7 @@ public class TestFlagTrue extends AbstractBaseSbgDesktopTestCase {
             try {
                 Assert.assertEquals(flag, "flag-icon us");
             }
-            catch (Exception e) {
+            catch (Error e) {
                 Assert.assertEquals(flag, "flag-icon flag-icon-geo_flag_US");
             }
             break;

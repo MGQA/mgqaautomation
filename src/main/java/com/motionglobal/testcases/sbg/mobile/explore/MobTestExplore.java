@@ -11,7 +11,7 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
 public class MobTestExplore extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://m.smartbuyglasses.co.uk" } };
+        return new Object[][] { new Object[] { "https://m.smartbuyglasses.co.uk" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "dp", groups = { "debug2", "smoke" })

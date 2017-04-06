@@ -1,5 +1,6 @@
 package com.motionglobal.testcases.sbg.desktop.productdetail;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -21,6 +22,7 @@ public class TestSimilarProduct extends AbstractBaseSbgDesktopTestCase {
         detailPage.deleteHead();
         String productName = detailPage.glassName.getText();
         detailPage.JsMouse(detailPage.similarProduct);
+        detailPage.JsDisplayNone(driver.findElement(By.className("pro_detail-nav-wrapper")));
         detailPage.similarProduct.click();
         String similarName = detailPage.glassName.getText();
         Assert.assertNotEquals(similarName, productName);
