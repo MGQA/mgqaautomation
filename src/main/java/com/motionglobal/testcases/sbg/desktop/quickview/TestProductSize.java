@@ -16,7 +16,7 @@ public class TestProductSize extends AbstractBaseSbgDesktopTestCase {
     }
 
     // XXX case 1
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
     public void changeSize(String url) {
         getURL(url);
         ProductDetailPage detailPage = new ProductDetailPage();

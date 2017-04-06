@@ -30,7 +30,7 @@ public class MobTestFooter extends AbstractBaseTestCase {
         String sharePinterest = header.share.get(3).getAttribute("href");
         Assert.assertEquals(sharePinterest, "https://www.pinterest.com/smartbuyglasses/");
         String shareBlog = header.share.get(4).getAttribute("href");
-        Assert.assertEquals(shareBlog, "https://blog.smartbuyglasses.com/");
+        Assert.assertEquals(shareBlog, "http://blog.smartbuyglasses.com/");
     }
 
     // XXX case 2

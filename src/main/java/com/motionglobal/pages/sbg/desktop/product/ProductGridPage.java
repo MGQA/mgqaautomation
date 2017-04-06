@@ -60,7 +60,7 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
 
     // sort and page
     // @FindBy(css = "#sortByDrop>dt>a")
-    @FindAll({ @FindBy(css = "#sortByDrop>a"), @FindBy(css = "#sortByDrop>dt>a") })
+    @FindBy(css = "#sortByDrop>a,#sortByDrop>dt>a")
     public WebElement SortDrop;
     @FindBy(css = "#sortByDrop li>a")
     public List<WebElement> SortSection;

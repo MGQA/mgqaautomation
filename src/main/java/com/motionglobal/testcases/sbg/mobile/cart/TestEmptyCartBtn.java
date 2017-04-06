@@ -12,13 +12,13 @@ import com.motionglobal.testcases.AbstractBaseTestCase;
 public class TestEmptyCartBtn extends AbstractBaseTestCase {
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] { new Object[] { "http://m.smartbuyglasses.com/" }, { "http://m.smartbuyglasses.co.uk/" } };
+        return new Object[][] { new Object[] { "https://m.smartbuyglasses.com/" }, { "https://m.smartbuyglasses.co.uk/" } };
     }
 
     // XXX case1
     @Test(skipFailedInvocations = true, groups = { "debug2", "smoke" })
     public void emptyCart() throws InterruptedException {
-        String url = "http://m.smartbuyglasses.com/cart/";
+        String url = "https://m.smartbuyglasses.com/cart/";
         getURL(url);
         MobCartPage cartPage = new MobCartPage();
         cartPage.waitForVisibility(cartPage.cartIsEmpty, 5);
@@ -44,7 +44,7 @@ public class TestEmptyCartBtn extends AbstractBaseTestCase {
         MobCartPage cartPage4 = new MobCartPage();
         cartPage.waitForVisibility(cartPage4.cartIsEmpty, 5);
         cartPage.btnShop.click();
-        Assert.assertEquals(driver.getCurrentUrl(), "http://m.smartbuyglasses.com/");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://m.smartbuyglasses.com/");
     }
 
     @Override

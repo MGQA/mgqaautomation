@@ -185,7 +185,7 @@ public class Granify extends AbstractBaseSbgDesktopTestCase {
         Assert.assertFalse(cartPage.isTextPresent("{ page_type: \"product\" }"));
     }
 
-    @Test(groups = { "acceptance", "au", "debug111" })
+    @Test(groups = { "acceptance", "au", "debug" })
     public void testGCCheckoutPage() {
         getURL("http://www.visiondirect.com.au/designer-sunglasses/Ray-Ban/Ray-Ban-RB4165-Justin-852/88-110094.html");
         Header header = new Header();
