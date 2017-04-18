@@ -13,30 +13,30 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
  * 
  */
 public class TestHelpLink extends AbstractBaseSbgDesktopTestCase {
-    @Test(groups = { "smoke", "debug" })
+    @Test(groups = { "smoke", "debug111" })
     public void testHelpLink() {
-        String url = "http://www.smartbuyglasses.com/";
+        String url = "https://www.smartbuyglasses.com/";
         getURL(url);
         Header header = new Header();
         clickHelpLink(1);
-        Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/faq");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.smartbuyglasses.com/faq");
         clickHelpLink(2);
-        Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/help?sel=1#contactus");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.smartbuyglasses.com/help?sel=1#contactus");
         header.JsClick(header.getHelpLinkElement(3));
-        Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/virtual-try-on");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.smartbuyglasses.com/virtual-try-on");
         clickHelpLink(4);
         Assert.assertTrue(new StyleFinderPage().StyleFrame.isDisplayed());
         new StyleFinderPage().StykeFrameCloseBtn.click();
         clickHelpLink(5);
-        Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/shopping-guides");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.smartbuyglasses.com/shopping-guides");
         clickHelpLink(6);
-        Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/returns");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.smartbuyglasses.com/returns");
         clickHelpLink(7);
-        Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/fast-shipping");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.smartbuyglasses.com/fast-shipping");
         String linkUrl = header.getHelpLinkElement(8).getAttribute("href");
-        Assert.assertEquals(linkUrl, "http://www.smartbuyglasses.com/premium-lens");
+        Assert.assertEquals(linkUrl, "https://www.smartbuyglasses.com/premium-lens");
         // clickHelpLink(8);
-        // Assert.assertEquals(driver.getCurrentUrl(), "http://www.smartbuyglasses.com/premium-lens");
+        // Assert.assertEquals(driver.getCurrentUrl(), "https://www.smartbuyglasses.com/premium-lens");
     }
 
     private void clickHelpLink(int Num) {

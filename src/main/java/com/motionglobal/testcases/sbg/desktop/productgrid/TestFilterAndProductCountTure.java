@@ -18,7 +18,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
 
     @Test(groups = { "debug", "smoke" })
     public void algoliaGenderAndFrame() {
-        String url = "http://www.smartbuyglasses.com/search?keywords=burberry&searchHashcode=1463977020526497#q=burberry&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
+        String url = "https://www.smartbuyglasses.com/search?keywords=burberry&searchHashcode=1463977020526497#q=burberry&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
         getURL(url);
         SearchResultPage resultPage = new SearchResultPage();
         resultPage.waitForVisibility(resultPage.filterMen, 2);
@@ -40,7 +40,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
 
     @Test(groups = { "debug", "smoke" })
     public void SunGlass() {
-        String url = "http://www.smartbuyglasses.com/designer-sunglasses/general/-Men----------------------";
+        String url = "https://www.smartbuyglasses.com/designer-sunglasses/general/-Men----------------------";
         getURL(url);
         driver.manage().window().maximize();
         ProductGridPage gridPage = new ProductGridPage();
@@ -61,7 +61,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
 
     @Test(groups = { "debug", "smoke" })
     public void CL() {
-        String url = "http://www.smartbuyglasses.com/contact-lenses/b/Acuvue#!&s=popularity&tb=0&b=Acuvue&p=1";
+        String url = "https://www.smartbuyglasses.com/contact-lenses/b/Acuvue#!&s=popularity&tb=0&b=Acuvue&p=1";
         getURL(url);
         CLProductGridPage gridPage = new CLProductGridPage();
         Assert.assertEquals(gridPage.checkedLeftSubmenuElement.getText(), "Acuvue");
@@ -84,7 +84,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
 
     @Test(groups = { "debug", "smoke" })
     public void ukCLDisplay() {
-        String url = "http://www.smartbuyglasses.co.uk/contact-lenses/b/Acuvue#!&s=popularity&tb=0&b=Acuvue&p=1";
+        String url = "https://www.smartbuyglasses.co.uk/contact-lenses/b/Acuvue#!&s=popularity&tb=0&b=Acuvue&p=1";
         getURL(url);
         CLProductGridPage gridPage = new CLProductGridPage();
         Assert.assertEquals(gridPage.checkedLeftSubmenuElement.getText(), "Acuvue");
@@ -96,7 +96,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
 
     @Test(groups = { "debug", "smoke" })
     public void frameType() {
-        String url = "http://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/";
+        String url = "https://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/";
         getURL(url);
         ProductGridPage gridPage = new ProductGridPage();
         gridPage.deleteHead();
@@ -106,12 +106,12 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
         gridPage.waitForVisibility(gridPage.filterSide, 5);
         String currentUrl = gridPage.getCurrentUrl();
         gridPage.AsssetTrue(gridPage.filterSide.getText().contains("Frame Type: Full Rim"), " Full Rim Page Ture");
-        gridPage.AsssetEquals(currentUrl, "http://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/--Full%20Rim----------------");
+        gridPage.AsssetEquals(currentUrl, "https://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/--Full%20Rim----------------");
     }
 
     @Test(groups = { "debug", "smoke" })
     public void priceSort() {
-        String url = "http://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/";
+        String url = "https://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/";
         getURL(url);
         ProductGridPage gridPage = new ProductGridPage();
         gridPage.deleteHead();
@@ -138,7 +138,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
     // FIXME algolia
     @Test(groups = { "debug", "smoke" })
     public void algoliaEye() {
-        String url = "http://www.smartbuyglasses.com/search?keywords=rayban&searchHashcode=1470715095524430#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
+        String url = "https://www.smartbuyglasses.com/search?keywords=rayban&searchHashcode=1470715095524430#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
         getURL(url);
         driver.navigate().refresh();
         SearchResultPage resultPage = new SearchResultPage();
@@ -154,7 +154,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
 
     @Test(groups = { "debug", "smoke" })
     public void algoliaSun() {
-        String url = "http://www.smartbuyglasses.com/search?keywords=rayban&searchHashcode=1470715095524430#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
+        String url = "https://www.smartbuyglasses.com/search?keywords=rayban&searchHashcode=1470715095524430#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
         getURL(url);
         driver.navigate().refresh();
         SearchResultPage resultPage = new SearchResultPage();
@@ -170,7 +170,7 @@ public class TestFilterAndProductCountTure extends AbstractBaseSbgDesktopTestCas
 
     @Test(groups = { "debug", "smoke" })
     public void algoliaFeature() {
-        String url = "http://www.smartbuyglasses.com/search?keywords=rayban&searchHashcode=1470715095524430#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
+        String url = "https://www.smartbuyglasses.com/search?keywords=rayban&searchHashcode=1470715095524430#q=rayban&page=0&minReviewsCount=0&refinements=[{%22for_sale%22%3A%221%22}]";
         getURL(url);
         SearchResultPage resultPage = new SearchResultPage();
         resultPage.deleteHead();
