@@ -269,5 +269,6 @@ public class ProductGridPage extends AbstractBaseSbgDesktopPage {
     @Override
     protected void waitPageLoad() {
         waitForVisibility(By.id("jp-pagination-ajax"), 5);
+        waitForVisibility(By.cssSelector(".proCell.proCell_click.grid-pro-cell"), 5);
     }
 }

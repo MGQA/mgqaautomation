@@ -28,6 +28,15 @@ public class Header extends AbstractBasePage {
     @FindBy(className = "geo-close-btn")
     public WebElement geo;
 
+    // sliderBar
+    @FindBy(css = "#Fixed_navigation_bar a[onclick*='Try']")
+    public WebElement sliderTry;
+    @FindBy(css = "#Fixed_navigation_bar a[onclick*='Newsletter']")
+    public WebElement sliderNewsLetter;
+    @FindBy(css = "#Fixed_navigation_bar a[onclick*='Eye Test']")
+    public WebElement sliderEyeTest;
+    @FindBy(css = ".omni_cont_popup.optical88-box")
+    public WebElement eyeTestBox;
     //
     @FindBy(id = "logo")
     public WebElement logo;
