@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 
 import com.motionglobal.common.utils.MysqlConnect219Util;
 import com.motionglobal.common.utils.VerifyUtil;
-import com.motionglobal.pages.AbstractBasePage;
 import com.motionglobal.pages.sbg.desktop.Header;
 import com.motionglobal.pages.sbg.desktop.cart.CartPage;
 import com.motionglobal.pages.sbg.desktop.cart.NewCartPage;
@@ -22,7 +21,7 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
     /**
      * ar : paypal blank
      */
-    @Test(skipFailedInvocations = true, groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, groups = { "debug111", "smoke" })
     public void paypalAR() {
         // XXX case 1
         ProductDetailPage detailPage = null;
@@ -40,7 +39,7 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
             // D & G no sale
             // String url = "http://www.smartbuyglasses.com.ar/lentes-de-dise%C3%B1o/D&G/D&G-DD1238-501-167081.html";
             String url = "http://www.smartbuyglasses.com.ar/lentes-de-dise%C3%B1o/Dolce-&-Gabbana/Dolce-&-Gabbana-DG5005-Young-&-Coloured-2727-195776.html";
-            getURL(AbstractBasePage.getLoginRequest("http://www.smartbuyglasses.com.ar/"));
+            // getURL(AbstractBasePage.getLoginRequest("http://www.smartbuyglasses.com.ar/"));
             getURL(url);
             detailPage = new ProductDetailPage();
             detailPage.waitForVisibility(detailPage.btnBuyNow, 5);
@@ -58,10 +57,10 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
     }
 
     // XXX 2
-    @Test(skipFailedInvocations = true, groups = { "debug", "smoke" })
+    @Test(skipFailedInvocations = true, groups = { "debug111", "smoke" })
     public void UKPayMethod() {
         String url = "http://www.smartbuyglasses.co.uk/designer-sunglasses/Maui-Jim/Maui-Jim-Hookipa-polarised-407-02-27194.html";
-        getURL(AbstractBasePage.getLoginRequest("http://www.smartbuyglasses.co.uk/"));
+        // getURL(AbstractBasePage.getLoginRequest("http://www.smartbuyglasses.co.uk/"));
         getURL(url);
         ProductDetailPage detailPage = new ProductDetailPage();
         detailPage.waitForVisibility(detailPage.btnBuyNow, 5);

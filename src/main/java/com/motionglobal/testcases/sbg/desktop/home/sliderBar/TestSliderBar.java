@@ -38,7 +38,7 @@ public class TestSliderBar extends AbstractBaseSbgDesktopTestCase {
 
     @DataProvider
     public Object[][] sg() {
-        return new Object[][] { { "https://www.smartbuyglasses.co.uk/?sliderBar" } };
+        return new Object[][] { { "https://www.smartbuyglasses.com.sg/?sliderBar" } };
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "sg", groups = { "debug", "smoke" })
