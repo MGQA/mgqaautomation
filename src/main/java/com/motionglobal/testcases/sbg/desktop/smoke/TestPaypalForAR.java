@@ -21,7 +21,7 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
     /**
      * ar : paypal blank
      */
-    @Test(skipFailedInvocations = true, groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, groups = { "debug", "smoke" })
     public void paypalAR() {
         // XXX case 1
         ProductDetailPage detailPage = null;
@@ -57,7 +57,7 @@ public class TestPaypalForAR extends AbstractBaseSbgDesktopTestCase {
     }
 
     // XXX 2
-    @Test(skipFailedInvocations = true, groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, groups = { "debug", "smoke" })
     public void UKPayMethod() {
         String url = "http://www.smartbuyglasses.co.uk/designer-sunglasses/Maui-Jim/Maui-Jim-Hookipa-polarised-407-02-27194.html";
         // getURL(AbstractBasePage.getLoginRequest("http://www.smartbuyglasses.co.uk/"));

@@ -74,7 +74,7 @@ public class ProductDetailPage extends AbstractBaseSbgDesktopPage {
         productSizeS.get(index).click();
         new Header().waitShadow();
         new WebDriverWait(driver, 5).until(ExpectedConditions.attributeToBe(productSizeS.get(index), "class", "pro_rightSizeIcon_click size_s_bor"));
-        driver.findElement(By.className("pro_infor_rtext")).click();
+        driver.findElement(By.cssSelector(".fav_iconI.fav_heart_tag.fly_into_heart.no_show_tips")).click();
         // new Header().inputSearch.click();
     }
 

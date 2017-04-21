@@ -321,9 +321,9 @@ public class TestSunGlassMegaMenuAndLinkPage extends AbstractBaseSbgDesktopTestC
         menu.clickGlassImg(1, 2);
         menu.clickBrands(1, "A", 1, 1);
         ProductGridPage productGridPage = new ProductGridPage();
-        Assert.assertTrue(productGridPage.getSubmenuPageLabelText(Label.brands).contains(BrandsA.replace(" NEW !", "")), "Page disagree");
+        Assert.assertTrue(productGridPage.getSubmenuPageLabelText(Label.brands).contains(BrandsA.replace(" NEW !", "").toLowerCase()), "Page disagree");
         menu.clickBrands(1, "Q", 2, 2);
-        Assert.assertTrue(productGridPage.getSubmenuPageLabelText(Label.brands).contains(BrandsQ.replace(" NEW !", "")), "Page disagree");
+        Assert.assertTrue(productGridPage.getSubmenuPageLabelText(Label.brands).contains(BrandsQ.replace(" NEW !", "").toLowerCase()), "Page disagree");
         Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
         Assert.assertTrue(productGridPage.proInfo.size() > 4, "product Number < 5");
     }

@@ -285,8 +285,13 @@ public class TestPimcore extends AbstractBaseSbgDesktopTestCase {
         menu.AsssetEquals(adidas, "Adidas");
         String brankUrl = pimcorePage.linkMenuBrandASection.getAttribute("href");
         String slitUrl = url.split("/")[2];
-        String expectUrl = "https://" + slitUrl + "/designer-sunglasses/Adidas/";
-        menu.AsssetEquals(brankUrl, expectUrl);
+        String expectUrl = slitUrl + "/designer-sunglasses/Adidas/";
+        try {
+            menu.AsssetEquals(brankUrl, "http://" + expectUrl);
+        }
+        catch (Error e) {
+            menu.AsssetEquals(brankUrl, "https://" + expectUrl);
+        }
     }
 
     @Test(skipFailedInvocations = true, dataProvider = "pk", groups = { "debug", "smoke" })
