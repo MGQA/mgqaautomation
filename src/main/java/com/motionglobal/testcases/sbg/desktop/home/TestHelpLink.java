@@ -13,7 +13,7 @@ import com.motionglobal.testcases.sbg.desktop.AbstractBaseSbgDesktopTestCase;
  * 
  */
 public class TestHelpLink extends AbstractBaseSbgDesktopTestCase {
-    @Test(groups = { "smoke", "debug111" })
+    @Test(groups = { "smoke", "debug" })
     public void testHelpLink() {
         String url = "https://www.smartbuyglasses.com/";
         getURL(url);
