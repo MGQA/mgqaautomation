@@ -23,7 +23,7 @@ public class NewCheckoutPage extends AbstractBaseSbgDesktopPage {
     //
     @FindBy(className = "checkout-payment-btn")
     public WebElement btnPayment;
-    @FindBy(css = "#payment-mothod-div li:not(#paypal_submit)")
+    @FindBy(css = "#payment-mothod-div li:not(#paypal_submit) input")
     private List<WebElement> payPicture;
     @FindBy(xpath = "//img[@alt='Visa Card']")
     public WebElement VISA;
@@ -74,7 +74,7 @@ public class NewCheckoutPage extends AbstractBaseSbgDesktopPage {
         for (int i = 0; i < pay.length; i++) {
             expectPay += pay[i];
         }
-        for (int i = 0; i < payPicture.size(); i++) {
+        for (int i = 1; i < payPicture.size(); i++) {
             actualPay += header.regexGeInt(payPicture.get(i).getAttribute("value"));
         }
         verify.verifyEquals(actualPay, expectPay, url);

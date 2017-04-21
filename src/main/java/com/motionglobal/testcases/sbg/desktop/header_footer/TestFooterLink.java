@@ -50,7 +50,9 @@ public class TestFooterLink extends AbstractBaseSbgDesktopTestCase {
         Assert.assertEquals(actualUrlCelebrity, url + "i/celebrity-sunglasses-glasses");
         //
         String actualUrlTryOn = homePage.linkFooterS.get(10).getAttribute("href");
-        Assert.assertEquals(actualUrlTryOn, url + "virtual-try-on");
+        // Assert.assertEquals(actualUrlTryOn, url + "virtual-try-on");
+        Assert.assertEquals(actualUrlTryOn, url + "designer-sunglasses/general/----------1----1---------");
+
         //
         String actualUrlBestPrice = homePage.linkFooterS.get(11).getAttribute("href");
         Assert.assertEquals(actualUrlBestPrice, url + "best-price-guarantee");

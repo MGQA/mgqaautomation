@@ -38,7 +38,7 @@ public class TestColorMatching extends AbstractBaseSbgDesktopTestCase {
         new WebDriverWait(driver, 5).until(ExpectedConditions.textToBePresentInElement(rx3Page.rxList.get(3), color1));
         int price3 = rx3Page.regexGeInt(rx3Page.color_price.getText());
         System.out.println(price1 + "_" + price2 + "_" + price3);
-        Assert.assertEquals(price3, price1, " _OMG COLOR MATCHING IS FREE !!!");
+        Assert.assertEquals(price3, price1, "价钱 BUG 没有修复的。");
     }
 
     @Override
