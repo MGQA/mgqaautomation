@@ -16,7 +16,7 @@ public class TestSunGlassesMenus extends AbstractBaseTestCase {
     @Test(groups = { "debug", "smoke" })
     public void top100() {
         String url = "http://www.smartbuyglasses.com.hk/";
-        int productNum = 103;
+        int productNum = 100;
         getURL(url);
         Menu menu = new Menu();
         menu.mouseOverMainMenu(1);

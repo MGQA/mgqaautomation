@@ -20,7 +20,7 @@ public class TestSort extends AbstractBaseSbgDesktopTestCase {
                 { "https://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/" }, { "https://www.smartbuyglasses.dk/designer-sunglasses/Ray-Ban/" } };
     }
 
-    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug111", "smoke" })
+    @Test(skipFailedInvocations = true, dataProvider = "db", groups = { "debug", "smoke" })
     public void sort(String url) {
         getURL(url);
         ProductGridPage gridPage = new ProductGridPage();
